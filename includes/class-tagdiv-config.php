@@ -11,7 +11,7 @@
  * is also used by td_deploy - that's why it's a static class
  * Class td_wp_booster_hooks
  */
-class td_config {
+class Tagdiv_Config {
 
 
 	/**
