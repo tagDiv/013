@@ -1,11 +1,11 @@
 <?php
 
 /**
-* Class td_block_widget - used to create widgets from our blocks.
+* Class tagdiv_block_widget - used to create widgets from our blocks.
 * AUTOLOAD STATUS: cannot be autoloaded because WordPress needs to know at all times what widgets are registered
 */
-class td_block_widget extends WP_Widget {
-	var $td_block_id = 0; // this is changed by td_blockx_widget s
+class tagdiv_block_widget extends WP_Widget {
+	var $tagdiv_block_id = 0; // this is changed by tagdiv_blockx_widget s
 
 	private $map_array;
 	private $map_param_default_array;
@@ -16,10 +16,10 @@ class td_block_widget extends WP_Widget {
 	function __construct() {
 
 		// read our map_array
-		$this->map_array = td_api_block::get_by_id($this->td_block_id);
+		$this->map_array = tagdiv_api_block::get_by_id($this->tagdiv_block_id);
 
 
-	    $widget_ops = array('classname' => 'td_pb_widget', 'description' => '[tagDiv] ' . $this->map_array['name']);
+	    $widget_ops = array('classname' => 'tagdiv_pb_widget', 'description' => '[tagDiv] ' . $this->map_array['name']);
 
 	    /**
 	    * overwrite the widget settings, we emulate the WordPress settings. Before WP 4.3 we called the old php4 constructor again :(
@@ -147,7 +147,7 @@ class td_block_widget extends WP_Widget {
 	                    }
 
 
-	                    $widget_color_picker_id = td_global::td_generate_unique_id();
+	                    $widget_color_picker_id = tagdiv_global::tagdiv_generate_unique_id();
 	                    ?>
 	                    <p>
 	                        <label for="<?php echo $this->get_field_id($param['param_name']); ?>"><?php echo $param['heading']; ?></label>
@@ -162,7 +162,7 @@ class td_block_widget extends WP_Widget {
 	                    </div>
 
 	                    <script>
-	                        td_widget_attach_color_picker();
+	                        tagdiv_widget_attach_color_picker();
 	                    </script>
 
 
@@ -200,20 +200,20 @@ class td_block_widget extends WP_Widget {
 	*/
 	function widget($args, $instance) {
 	    /**
-	      * add the td_block_widget class to the block via the short code atts, we can add td_block_widget multiple times because array_unique in  @see td_block::get_block_classes
+	      * add the tagdiv_block_widget class to the block via the short code atts, we can add tagdiv_block_widget multiple times because array_unique in  @see tagdiv_block::get_block_classes
 	     */
 	    if (!empty($instance['class'])) {
-	        $instance['class'] =  $instance['class'] . ' td_block_widget';
+	        $instance['class'] =  $instance['class'] . ' tagdiv_block_widget';
 	    } else {
-	        $instance['class'] = 'td_block_widget';
+	        $instance['class'] = 'tagdiv_block_widget';
 	    }
 
 	    if (!empty($instance['content'])) {
 	        //render the instance - but also send the content parameter to the shortcode
-	        echo td_global_blocks::get_instance($this->td_block_id)->render($instance, $instance['content']);
+	        echo tagdiv_global_blocks::get_instance($this->tagdiv_block_id)->render($instance, $instance['content']);
 	    } else {
 	        //render the instance without the content parameter
-	        echo td_global_blocks::get_instance($this->td_block_id)->render($instance);
+	        echo tagdiv_global_blocks::get_instance($this->tagdiv_block_id)->render($instance);
 	    }
 
 

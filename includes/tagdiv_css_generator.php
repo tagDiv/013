@@ -1,5 +1,5 @@
 <?php
-function td_css_generator() {
+function tagdiv_css_generator() {
 
     $raw_css = "
     <style>
@@ -28,23 +28,23 @@ function td_css_generator() {
     .sf-menu ul .current-menu-ancestor > a,
     .sf-menu ul .current-category-ancestor > a,
     .sf-menu ul .current-menu-item > a,
-    .td_mega_menu_sub_cats .cur-sub-cat,
-    .td_module_mega_menu:hover .entry-title a,
+    .tagdiv_mega_menu_sub_cats .cur-sub-cat,
+    .tagdiv_module_mega_menu:hover .entry-title a,
     .td-header-menu-search .td-search-btns-wrap:hover .td-icon-search,
     a,
     cite a:hover,
     .td-theme-wrap blockquote p,
-    .td_module_wrap:hover .entry-title a,
+    .tagdiv_module_wrap:hover .entry-title a,
     .td-next-prev-wrap a:hover,
-    .td_ajax_load_more:hover,
+    .tagdiv_ajax_load_more:hover,
     .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover,
     .td-module-comments a:hover,
     .td-post-comments a:hover,
     .td-wrapper-pulldown-filter .td-pulldown-filter-item .td-cur-simple-item,
     .td-wrapper-pulldown-filter .td-pulldown-filter-link:hover,
     .td-wrapper-pulldown-filter .td-pulldown-category-filter-link:hover,
-    .td_quote_on_blocks,
-    .td_block_author a:hover,
+    .tagdiv_quote_on_blocks,
+    .tagdiv_block_author a:hover,
     .td-social-sharing-buttons:hover .td-social-but-text,
     .td-post-small-box a:hover,
     .td-post-next-prev-content span,
@@ -64,7 +64,7 @@ function td_css_generator() {
     .widget a:hover,
     .widget_calendar tfoot a:hover,
     .widget_calendar tbody a,
-    .td_social_type .td_social_button a:hover,
+    .tagdiv_social_type .tagdiv_social_button a:hover,
     .td-subfooter-menu li.menu-item > a:hover,
     .td-subfooter-menu li.sfHover > a,
     .td-subfooter-menu li.current-menu-ancestor > a,
@@ -75,11 +75,11 @@ function td_css_generator() {
     .td-instagram-user a,
     .footer-email-wrap a,
     .td-sub-footer-copy i,
-    .td_mod_related_posts:hover .entry-title > a,
+    .tagdiv_mod_related_posts:hover .entry-title > a,
     .td-footer-outer-wrapper a:hover,
-    .td_block_authors .td_authors_wrap:hover .td-authors-name a,
-    .td_block_authors .td_authors_wrap.td-active .td-authors-name a,
-    .td_block_authors .td-authors-url a:hover,
+    .tagdiv_block_authors .tagdiv_authors_wrap:hover .td-authors-name a,
+    .tagdiv_block_authors .tagdiv_authors_wrap.td-active .td-authors-name a,
+    .tagdiv_block_authors .td-authors-url a:hover,
     .widget .current-menu-item a,
     .td-tags span,
     .widget_categories li:hover a {
@@ -92,7 +92,7 @@ function td_css_generator() {
     .td-post-category:hover,
     .block-title:after,
     .td-wrapper-pulldown-filter .td-pulldown-filter-list:before,
-    .td_block_author .td-author-name:after,
+    .tagdiv_block_author .td-author-name:after,
     .td-a-rec-id-sidebar .td-adspot-title:after,
     .td-g-rec-id-sidebar .td-adspot-title:after,
     .single-post .page-nav > div,
@@ -106,7 +106,7 @@ function td_css_generator() {
     .td-404-title:after,
     .td-rating-bar-wrap div,
     .widget_calendar #today,
-    .td_social_type:hover .td-sp:before,
+    .tagdiv_social_type:hover .td-sp:before,
     .td-smart-list-button:hover {
       background-color: @theme_color;
     }
@@ -117,7 +117,7 @@ function td_css_generator() {
       }
     }
     
-    .td-theme-wrap .td_quote_box,
+    .td-theme-wrap .tagdiv_quote_box,
     .widget_calendar #today,
     .td-tags span,
     .widget_categories li:hover a span:before {
@@ -242,8 +242,8 @@ function td_css_generator() {
     .sf-menu ul .current-menu-ancestor > a,
     .sf-menu ul .current-category-ancestor > a,
     .sf-menu ul .current-menu-item > a,
-    .td_mega_menu_sub_cats .cur-sub-cat,
-    .td_module_mega_menu:hover .entry-title a,
+    .tagdiv_mega_menu_sub_cats .cur-sub-cat,
+    .tagdiv_module_mega_menu:hover .entry-title a,
     .td-header-main-menu .td-search-btns-wrap:hover .td-icon-search {
       color: @submenu_hover_color;
     }
@@ -330,9 +330,9 @@ function td_css_generator() {
     #td-mobile-nav label,
     #td-mobile-nav .td-register-section i,
     #td-mobile-nav .td-register-section a,
-    #td-mobile-nav .td_display_err,
-    .td-search-wrap-mob .td_module_wrap .entry-title a,
-    .td-search-wrap-mob .td_module_wrap:hover .entry-title a,
+    #td-mobile-nav .tagdiv_display_err,
+    .td-search-wrap-mob .tagdiv_module_wrap .entry-title a,
+    .td-search-wrap-mob .tagdiv_module_wrap:hover .entry-title a,
     .td-search-wrap-mob .td-post-date {
         color: @mobile_text_color;
     }
@@ -485,8 +485,8 @@ function td_css_generator() {
     .page blockquote p {
     	color: @post_blockquote_color;
     }
-    .post .td_quote_box,
-    .page .td_quote_box {
+    .post .tagdiv_quote_box,
+    .page .tagdiv_quote_box {
         border-color: @post_blockquote_color;
     }
 
@@ -508,7 +508,7 @@ function td_css_generator() {
     /* @page_content_color */
     .td-page-content,
     .td-page-content p,
-    .td-page-content .td_block_text_with_title {
+    .td-page-content .tagdiv_block_text_with_title {
     	color: @page_content_color;
     }
 
@@ -671,7 +671,7 @@ function td_css_generator() {
     
     /* @top_menu */
     .top-header-menu > li > a,
-    .td-header-sp-top-menu .td_data_time,
+    .td-header-sp-top-menu .tagdiv_data_time,
     .td-header-sp-top-widget .td-search-btns-wrap i,
     .td-header-sp-top-widget .td-social-icon-wrap i {
        @top_menu
@@ -694,7 +694,7 @@ function td_css_generator() {
         @mega_menu
     }
     /* @mega_menu_categ */
-    .td_mega_menu_sub_cats .block-mega-child-cats a {
+    .tagdiv_mega_menu_sub_cats .block-mega-child-cats a {
         @mega_menu_categ
     }
     
@@ -708,11 +708,11 @@ function td_css_generator() {
         @blocks_title
     }
     /* @blocks_author */
-    .td_module_wrap .td-post-author-name a {
+    .tagdiv_module_wrap .td-post-author-name a {
         @blocks_author
     }
     /* @blocks_date */
-    .td_module_wrap .td-post-date .entry-date {
+    .tagdiv_module_wrap .td-post-date .entry-date {
         @blocks_date
     }
     /* @blocks_comment */
@@ -721,11 +721,11 @@ function td_css_generator() {
     }
     /* @blocks_category */
     .td-big-grids .td-post-category,
-    .td_module_wrap .td-post-category {
+    .tagdiv_module_wrap .td-post-category {
         @blocks_category
     }
     /* @blocks_filter */
-    .td_block_wrap .td-wrapper-pulldown-filter {
+    .tagdiv_block_wrap .td-wrapper-pulldown-filter {
         @blocks_filter
     }
     /* @blocks_excerpt */
@@ -735,51 +735,51 @@ function td_css_generator() {
     
     
     /* modules_general */
-	.td_module_wrap .entry-title {
+	.tagdiv_module_wrap .entry-title {
 		@modules_general
 	}
 	/* @module_1 */
-    .td_module_1 .entry-title  {
+    .tagdiv_module_1 .entry-title  {
     	@module_1
     }
     /* @module_2 */
-    .td_module_2 .entry-title  {
+    .tagdiv_module_2 .entry-title  {
     	@module_2
     }
     /* @module_3 */
-    .td_module_3 .entry-title  {
+    .tagdiv_module_3 .entry-title  {
     	@module_3
     }
     /* @module_4 */
-    .td_module_4 .entry-title  {
+    .tagdiv_module_4 .entry-title  {
     	@module_4
     }
     /* @module_5 */
-    .td_module_5 .entry-title  {
+    .tagdiv_module_5 .entry-title  {
     	@module_5
     }
     /* @module_6 */
-    .td_module_6 .entry-title  {
+    .tagdiv_module_6 .entry-title  {
     	@module_6
     }
     /* @module_mx2 */
-    .td_module_mx2 .entry-title {
+    .tagdiv_module_mx2 .entry-title {
     	@module_mx2
     }
     
     
     /* big grids modules */
     /* @module_mx1 */
-    .td_module_mx1 .entry-title {
+    .tagdiv_module_mx1 .entry-title {
         @module_mx1
     }
     /* @module_mx3 */
-    .td_module_mx3 .entry-title {
+    .tagdiv_module_mx3 .entry-title {
         @module_mx3
     }
     /* @module_mx4 */
-    .td_module_mx4 .entry-title,
-    .td_block_big_grid_3.td-grid-style-1 .entry-title {
+    .tagdiv_module_mx4 .entry-title,
+    .tagdiv_block_big_grid_3.td-grid-style-1 .entry-title {
         @module_mx4
     }
     
@@ -820,13 +820,13 @@ function td_css_generator() {
         @post_blockquote
     }
     /* @post_box_quote */
-    .post .td_quote_box p,
-    .page .td_quote_box p {
+    .post .tagdiv_quote_box p,
+    .page .tagdiv_quote_box p {
         @post_box_quote
     }
     /* @post_pull_quote */
-    .post .td_pull_quote p,
-    .page .td_pull_quote p {
+    .post .tagdiv_pull_quote p,
+    .page .tagdiv_pull_quote p {
         @post_pull_quote
     }
     /* @post_lists */
@@ -886,7 +886,7 @@ function td_css_generator() {
         @post_next_prev_text
     }
     /* @post_next_prev */
-    .td_block_related_posts .entry-title {
+    .tagdiv_block_related_posts .entry-title {
         @post_next_prev
     }
     /* @box_author_name */
@@ -924,7 +924,7 @@ function td_css_generator() {
     /* @page_content */
     .td-page-content,
     .td-page-content p,
-    .td-page-content .td_block_text_with_title {
+    .td-page-content .tagdiv_block_text_with_title {
     	@page_content
     }
     /* @page_h1 */
@@ -1003,7 +1003,7 @@ function td_css_generator() {
     /* @default_buttons */
 	input[type=\"submit\"],
 	.td-read-more a,
-	.td_ajax_load_more,
+	.tagdiv_ajax_load_more,
 	.vc_btn {
 		@default_buttons
 	}
@@ -1018,10 +1018,10 @@ function td_css_generator() {
 
 
 
-    $td_css_compiler = new td_css_compiler($raw_css);
+    $tagdiv_css_compiler = new tagdiv_css_compiler($raw_css);
 
 
     //output the style
-    return $td_fonts_css_buffer . $td_css_compiler->compile_css();
+    return $tagdiv_fonts_css_buffer . $tagdiv_css_compiler->compile_css();
 
 }

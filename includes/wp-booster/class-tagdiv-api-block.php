@@ -6,10 +6,10 @@
 
 
 /**
- * The theme's block api, usable via the td_global_after hook
- * Class td_api_block static block api
+ * The theme's block api, usable via the tagdiv_global_after hook
+ * Class tagdiv_api_block static block api
  */
-class td_api_block extends td_api_base {
+class tagdiv_api_block extends tagdiv_api_base {
 
     /**
      * This method to register a new block
@@ -42,9 +42,9 @@ class td_api_block extends td_api_base {
 
 
     /**
-     * This method gets the value for the ('td_api_block') key in the main settings array of the theme.
+     * This method gets the value for the ('tagdiv_api_block') key in the main settings array of the theme.
      *
-     * @return mixed array The value set for the 'td_api_block' in the main settings array of the theme
+     * @return mixed array The value set for the 'tagdiv_api_block' in the main settings array of the theme
      */
     static function get_all() {
         return parent::get_all_components_metadata(__CLASS__);

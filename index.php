@@ -13,7 +13,7 @@
  */
 
 
-//echo td_global_blocks::get_instance('td_block_1')->render(array(
+//echo tagdiv_global_blocks::get_instance('tagdiv_block_1')->render(array(
 //	'custom_title' => 'ra',
 //	'limit' => 3
 //));
@@ -35,14 +35,14 @@ get_header(); ?>
 			<?php
 			endif;
 
-			//print_r(td_api_base::_debug_get_components_list());
+			//print_r(tagdiv_api_base::_debug_get_components_list());
 
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
 //				global $post;
-//				$td_modul_1 = new td_module_1($post);
-//				echo $td_modul_1->render();
+//				$tagdiv_modul_1 = new tagdiv_module_1($post);
+//				echo $tagdiv_modul_1->render();
 
 				/*
 				 * Include the Post-Format-specific template for the content.

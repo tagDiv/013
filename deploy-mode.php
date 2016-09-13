@@ -6,7 +6,7 @@
 
 //dev demo or none
 
-if (!defined('TD_DEPLOY_MODE')) {
-    define("TD_DEPLOY_MODE", 'dev');
+if (!defined('tagdiv_DEPLOY_MODE')) {
+    define("tagdiv_DEPLOY_MODE", 'dev');
 }
 

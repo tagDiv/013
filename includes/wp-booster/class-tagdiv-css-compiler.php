@@ -4,7 +4,7 @@
 /*  ----------------------------------------------------------------------------
     the custom compiler
  */
-class td_css_compiler {
+class tagdiv_css_compiler {
     var $raw_css;
     var $settings; //array
 
@@ -20,7 +20,7 @@ class td_css_compiler {
 
     function load_setting($name, $append_to_value = '') {
         //echo 'rara1';
-        $current_customizer_value = td_util::get_option('tds_' . $name);
+        $current_customizer_value = tagdiv_util::get_option('tds_' . $name);
         if (!empty($current_customizer_value)) {
             $current_customizer_value.= $append_to_value;
         }

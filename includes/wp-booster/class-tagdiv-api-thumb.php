@@ -3,7 +3,7 @@
  * Created by ra on 2/13/2015.
  */
 
-class td_api_thumb extends td_api_base {
+class tagdiv_api_thumb extends tagdiv_api_base {
 
     /**
      * This method to register a new thumb
@@ -12,7 +12,7 @@ class td_api_thumb extends td_api_base {
      * @param $params_array array The single_template_parameter array
      *
      *      $params_array = array (
-     *          'name' => 'td_0x420',                       - [string] the thumb name
+     *          'name' => 'tagdiv_0x420',                       - [string] the thumb name
      *          'width' => ,                                - [int] the thumb width
      *          'height' => ,                               - [int] the thumb height
      *          'crop' => array('center', 'top'),           - [array of string] what crop to use (center, top, etc)

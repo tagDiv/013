@@ -1,9 +1,9 @@
 <?php
 /**
  * this is the default block template
- * Class td_block_header_1
+ * Class tagdiv_block_header_1
  */
-class td_block_template_1 {
+class tagdiv_block_template_1 {
 
     /**
      * @var string the template data, it's set on construct
@@ -40,9 +40,9 @@ class td_block_template_1 {
         <style>
 
             /* @header_text_color */
-            .$unique_block_class .td_module_wrap:hover .entry-title a,
+            .$unique_block_class .tagdiv_module_wrap:hover .entry-title a,
             .$unique_block_class .td-load-more-wrap a:hover,
-        	.$unique_block_class .td_quote_on_blocks,
+        	.$unique_block_class .tagdiv_quote_on_blocks,
         	.$unique_block_class .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover,
         	.$unique_block_class .td-wrapper-pulldown-filter a.td-pulldown-filter-link:hover,
         	.$unique_block_class .td-wrapper-pulldown-filter a.td-cur-simple-item,
@@ -51,13 +51,13 @@ class td_block_template_1 {
             .$unique_block_class .td-module-comments a:hover,
             .$unique_block_class .td-next-prev-wrap a:hover,
             .$unique_block_class .td-authors-url a:hover,
-            .$unique_block_class .td_authors_wrap:hover .td-authors-name a,
-            .$unique_block_class .td_authors_wrap.td-active .td-authors-name a,
+            .$unique_block_class .tagdiv_authors_wrap:hover .td-authors-name a,
+            .$unique_block_class .tagdiv_authors_wrap.td-active .td-authors-name a,
             .$unique_block_class .td-authors-url a:hover {
                 color: @header_text_color;
             }
 
-            .$unique_block_class .td_module_wrap .td-post-category:hover,
+            .$unique_block_class .tagdiv_module_wrap .td-post-category:hover,
             .$unique_block_class .block-title:after,
             .$unique_block_class .entry-title:after,
             .$unique_block_class .td-wrapper-pulldown-filter .td-pulldown-filter-list:before {
@@ -84,22 +84,22 @@ class td_block_template_1 {
                 margin-bottom: 22px;
             }
 
-            .$unique_block_class .td_module_wrap:hover .entry-title a,
+            .$unique_block_class .tagdiv_module_wrap:hover .entry-title a,
             .$unique_block_class .td-load-more-wrap a:hover,
-        	.$unique_block_class .td_quote_on_blocks,
+        	.$unique_block_class .tagdiv_quote_on_blocks,
         	.$unique_block_class .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover,
         	.$unique_block_class .td-wrapper-pulldown-filter a.td-pulldown-filter-link:hover,
         	.$unique_block_class .td-wrapper-pulldown-filter a.td-cur-simple-item,
             .$unique_block_class .td-module-comments a:hover,
             .$unique_block_class .td-next-prev-wrap a:hover,
             .$unique_block_class .td-authors-url a:hover,
-            .$unique_block_class .td_authors_wrap:hover .td-authors-name a,
-            .$unique_block_class .td_authors_wrap.td-active .td-authors-name a,
+            .$unique_block_class .tagdiv_authors_wrap:hover .td-authors-name a,
+            .$unique_block_class .tagdiv_authors_wrap.td-active .td-authors-name a,
             .$unique_block_class .td-authors-url a:hover {
                 color: @header_color;
             }
 
-            .$unique_block_class .td_module_wrap .td-post-category:hover,
+            .$unique_block_class .tagdiv_module_wrap .td-post-category:hover,
             .$unique_block_class .entry-title:after,
             .$unique_block_class .td-wrapper-pulldown-filter .td-pulldown-filter-list:before {
                 background-color: @header_color;
@@ -108,11 +108,11 @@ class td_block_template_1 {
         </style>
     ";
 
-        $td_css_compiler = new td_css_compiler($raw_css);
-        $td_css_compiler->load_setting_raw('header_color', $header_color);
-        $td_css_compiler->load_setting_raw('header_text_color', $header_text_color);
+        $tagdiv_css_compiler = new tagdiv_css_compiler($raw_css);
+        $tagdiv_css_compiler->load_setting_raw('header_color', $header_color);
+        $tagdiv_css_compiler->load_setting_raw('header_text_color', $header_text_color);
 
-        $compiled_style = $td_css_compiler->compile_css();
+        $compiled_style = $tagdiv_css_compiler->compile_css();
 
 
         return $compiled_style;
@@ -127,7 +127,7 @@ class td_block_template_1 {
         $custom_url = $this->template_data_array['atts']['custom_url'];
 
         if (empty($custom_title)) {
-            if (empty($this->template_data_array['td_pull_down_items'])) {
+            if (empty($this->template_data_array['tagdiv_pull_down_items'])) {
                 //no title selected and we don't have pulldown items
                 return '';
             }
@@ -155,7 +155,7 @@ class td_block_template_1 {
     function get_pull_down_filter() {
         $buffy = '';
 
-        if (empty($this->template_data_array['td_pull_down_items'])) {
+        if (empty($this->template_data_array['tagdiv_pull_down_items'])) {
             return '';
         }
 
@@ -165,13 +165,13 @@ class td_block_template_1 {
 
         //show the default display value
         $buffy .= '<div id="td-pulldown-' . $this->template_data_array['block_uid'] . '-val"><span>';
-        $buffy .=  $this->template_data_array['td_pull_down_items'][0]['name'] . ' </span><i class="td-icon-down"></i>';
+        $buffy .=  $this->template_data_array['tagdiv_pull_down_items'][0]['name'] . ' </span><i class="td-icon-down"></i>';
         $buffy .= '</div>';
 
         //builde the dropdown
         $buffy .= '<ul class="td-pulldown-filter-list">';
-        foreach ($this->template_data_array['td_pull_down_items'] as $item) {
-            $buffy .= '<li class="td-pulldown-filter-item"><a class="td-pulldown-filter-link" id="' . td_global::td_generate_unique_id() . '" data-td_filter_value="' . $item['id'] . '" data-td_block_id="' . $this->template_data_array['block_uid'] . '" href="#">' . $item['name'] . '</a></li>';
+        foreach ($this->template_data_array['tagdiv_pull_down_items'] as $item) {
+            $buffy .= '<li class="td-pulldown-filter-item"><a class="td-pulldown-filter-link" id="' . tagdiv_global::tagdiv_generate_unique_id() . '" data-tagdiv_filter_value="' . $item['id'] . '" data-tagdiv_block_id="' . $this->template_data_array['block_uid'] . '" href="#">' . $item['name'] . '</a></li>';
         }
         $buffy .= '</ul>';
 

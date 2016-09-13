@@ -3,17 +3,17 @@
 
 
 /**
- * td_global_blocks.php
+ * tagdiv_global_blocks.php
  * Here we store the global state of the theme. All globals are here (in theory)
- *  - no td_util loaded, no access to settings
+ *  - no tagdiv_util loaded, no access to settings
  */
 
-class td_global {
+class tagdiv_global {
 
 
 
-    static $td_options; //here we store all the options of the theme will be used in td_first_install.php
-	static $td_options_changed_flag = false;
+    static $tagdiv_options; //here we store all the options of the theme will be used in tagdiv_first_install.php
+	static $tagdiv_options_changed_flag = false;
 
     static $current_template = ''; //used by page-homepage-loop, 404
 
@@ -23,7 +23,7 @@ class td_global {
 
     static $load_sidebar_from_template; //used by some templates for custom sidebars (setted by page-homepage-loop.php etc)
 
-    static $load_featured_img_from_template; //used by single.php to instruct td_module_single to load the full with thumb when necessary (ex. no sidebars)
+    static $load_featured_img_from_template; //used by single.php to instruct tagdiv_module_single to load the full with thumb when necessary (ex. no sidebars)
 
     static $cur_single_template_sidebar_pos = ''; // set in single.php - used by the gallery short code to show appropriate images
 
@@ -35,7 +35,7 @@ class td_global {
 
     /**
      * @var stdClass holds the category object
-     *      - it's set on pre_get_posts hook @see td_modify_main_query_for_category_page
+     *      - it's set on pre_get_posts hook @see tagdiv_modify_main_query_for_category_page
      *      - WARNING: it can be null on category pages that request a category ID that dosn't exists
      */
     static $current_category_obj;
@@ -44,14 +44,14 @@ class td_global {
     //also used for quotes in blocks - check isf the module is displayed on blocks or not
     static $is_wordpress_loop = '';
 
-    static $custom_no_posts_message = '';  /** used to set a custom post message for the template. If this is set to false, the default message will not show @see td_page_generator::no_posts */
+    static $custom_no_posts_message = '';  /** used to set a custom post message for the template. If this is set to false, the default message will not show @see tagdiv_page_generator::no_posts */
 
 
     /**
-     * @var string used to store texts for: includes/wp_booster/wp-admin/content-metaboxes/td_set_video_meta.php
-     * is set in td_config @see td_wp_booster_config::td_global_after
+     * @var string used to store texts for: includes/wp_booster/wp-admin/content-metaboxes/tagdiv_set_video_meta.php
+     * is set in tagdiv_config @see tagdiv_wp_booster_config::tagdiv_global_after
      */
-    static $td_wp_admin_text_list = array();
+    static $tagdiv_wp_admin_text_list = array();
 
 
     static $http_or_https = 'http'; //is set below with either http or https string  @see EOF
@@ -64,12 +64,12 @@ class td_global {
     static $get_template_directory_uri = ''; // here we store the value from get_template_directory_uri(); - it looks like the wp function does a lot of stuff each time is called
 
 
-	static $td_viewport_intervals = array(); // the tdViewport intervals are stored
+	static $tagdiv_viewport_intervals = array(); // the tdViewport intervals are stored
 
 
     /**
-     * the js files that the theme uses on the front end (file_id - filename) @see td_wp_booster_config
-     * @see td_wp_booster_hooks
+     * the js files that the theme uses on the front end (file_id - filename) @see tagdiv_wp_booster_config
+     * @see tagdiv_wp_booster_hooks
      * @var array
      */
     static $js_files = array ();
@@ -80,7 +80,7 @@ class td_global {
 	// the plugins that are just for information porpuses (the plugin cannot be installed with tgma, usually because the plugin is to big so we included it in the -tf/plugins folder)
 	static $theme_plugins_for_info_list = array();
 
-	static $td_animation_stack_effects = array();
+	static $tagdiv_animation_stack_effects = array();
 
 
 
@@ -90,20 +90,20 @@ class td_global {
      * @var array
      */
     static $js_files_for_wp_admin = array (
-        'td_wp_admin' => array(
-	        'url' => '/includes/wp_booster/wp-admin/js/td_wp_admin.js',
+        'tagdiv_wp_admin' => array(
+	        'url' => '/includes/wp_booster/wp-admin/js/tagdiv_wp_admin.js',
 	        'show_only_on_page_slugs' => ''
         ),
-        'td_wp_admin_color_picker' => array (
-	        'url' => '/includes/wp_booster/wp-admin/js/td_wp_admin_color_picker.js',
+        'tagdiv_wp_admin_color_picker' => array (
+	        'url' => '/includes/wp_booster/wp-admin/js/tagdiv_wp_admin_color_picker.js',
 	        'show_only_on_page_slugs' => ''
         ),
-        'td_wp_admin_panel' => array (
-	        'url' => '/includes/wp_booster/wp-admin/js/td_wp_admin_panel.js',
+        'tagdiv_wp_admin_panel' => array (
+	        'url' => '/includes/wp_booster/wp-admin/js/tagdiv_wp_admin_panel.js',
 	        'show_only_on_page_slugs' => ''
         ),
-        'td_edit_page' => array (
-	        'url' => '/includes/wp_booster/wp-admin/js/td_edit_page.js',
+        'tagdiv_edit_page' => array (
+	        'url' => '/includes/wp_booster/wp-admin/js/tagdiv_edit_page.js',
 	        'show_only_on_page_slugs' => ''
         ),
 
@@ -111,37 +111,37 @@ class td_global {
 	    // install demos scripts
         'tdDemoFullInstaller' => array (
 	        'url' => '/includes/wp_booster/wp-admin/js/tdDemoFullInstaller.js',
-	        'show_only_on_page_slugs' => array('td_theme_demos')
+	        'show_only_on_page_slugs' => array('tagdiv_theme_demos')
         ),
 
-        'td_wp_admin_demos' => array (
-	        'url' => '/includes/wp_booster/wp-admin/js/td_wp_admin_demos.js',
-	        'show_only_on_page_slugs' => array('td_theme_demos')
+        'tagdiv_wp_admin_demos' => array (
+	        'url' => '/includes/wp_booster/wp-admin/js/tagdiv_wp_admin_demos.js',
+	        'show_only_on_page_slugs' => array('tagdiv_theme_demos')
         ),
         'tdDemoProgressBar' => array (
 	        'url' => '/includes/wp_booster/wp-admin/js/tdDemoProgressBar.js',
-	        'show_only_on_page_slugs' => array('td_theme_demos')
+	        'show_only_on_page_slugs' => array('tagdiv_theme_demos')
         ),
 
 
 
-        'td_page_options' => array (
-	        'url' => '/includes/wp_booster/wp-admin/js/td_page_options.js',
+        'tagdiv_page_options' => array (
+	        'url' => '/includes/wp_booster/wp-admin/js/tagdiv_page_options.js',
 	        'show_only_on_page_slugs' => ''
         ),
-        'td_tooltip' => array (
+        'tagdiv_tooltip' => array (
 	        'url' => '/includes/wp_booster/wp-admin/js/tooltip.js',
 	        'show_only_on_page_slugs' => ''
         ),
 
 		// ace code editor
-	    'td_ace' => array (
+	    'tagdiv_ace' => array (
 		    'url' => '/includes/wp_booster/wp-admin/external/ace/ace.js',
-		    'show_only_on_page_slugs' => array('td_theme_panel')
+		    'show_only_on_page_slugs' => array('tagdiv_theme_panel')
 	    ),
-        'td_ace_ext_language_tools' => array (
+        'tagdiv_ace_ext_language_tools' => array (
 	        'url' => '/includes/wp_booster/wp-admin/external/ace/ext-language_tools.js',
-	        'show_only_on_page_slugs' => array('td_theme_panel')
+	        'show_only_on_page_slugs' => array('tagdiv_theme_panel')
         )
 
     );
@@ -156,7 +156,7 @@ class td_global {
     /**
      * @var array
      *
-     *  'td_full_width' => array(           - id used in the drop down in tinyMCE
+     *  'tagdiv_full_width' => array(           - id used in the drop down in tinyMCE
      *      'text' => 'Full width',         - the text that will appear in the dropdown in tinyMCE
      *      'class' => 'td-post-image-full' - the class tha this image style will add to the image
      *  )
@@ -173,7 +173,7 @@ class td_global {
 
 
     /**
-     * the big grid styles used by the theme. This styles will show up in the panel @see td_panel_categories.php and on each big grid block
+     * the big grid styles used by the theme. This styles will show up in the panel @see tagdiv_panel_categories.php and on each big grid block
      */
     static $big_grid_styles_list = array();
 
@@ -319,15 +319,15 @@ class td_global {
          */
         if (is_single()) {
             //read the post setting
-            $td_post_theme_settings = get_post_meta(self::$post->ID, 'td_post_theme_settings', true);
-            if (!empty($td_post_theme_settings['td_primary_cat'])) {
-                self::$primary_category = $td_post_theme_settings['td_primary_cat'];
+            $tagdiv_post_theme_settings = get_post_meta(self::$post->ID, 'tagdiv_post_theme_settings', true);
+            if (!empty($tagdiv_post_theme_settings['tagdiv_primary_cat'])) {
+                self::$primary_category = $tagdiv_post_theme_settings['tagdiv_primary_cat'];
                 return;
             }
 
             $categories = get_the_category(self::$post->ID);
             foreach($categories as $category) {
-                if ($category->name != TD_FEATURED_CAT) { //ignore the featured category name
+                if ($category->name != tagdiv_FEATURED_CAT) { //ignore the featured category name
                     self::$primary_category = $category->cat_ID;
                     break;
                 }
@@ -346,11 +346,11 @@ class td_global {
 
 
     //generate unique_ids
-    private static $td_unique_counter = 0;
+    private static $tagdiv_unique_counter = 0;
 
-    static function td_generate_unique_id() {
-        self::$td_unique_counter++;
-        return 'td_uid_' . self::$td_unique_counter . '_' . uniqid();
+    static function tagdiv_generate_unique_id() {
+        self::$tagdiv_unique_counter++;
+        return 'tagdiv_uid_' . self::$tagdiv_unique_counter . '_' . uniqid();
     }
 
 
@@ -359,33 +359,33 @@ class td_global {
 
 
 if (is_ssl()) {
-    td_global::$http_or_https = 'https';
+    tagdiv_global::$http_or_https = 'https';
 }
 
 
 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 if (is_plugin_active('woocommerce/woocommerce.php')) {
-    td_global::$is_woocommerce_installed = true;
+    tagdiv_global::$is_woocommerce_installed = true;
 }
 
 
 /**
- * td_global::$get_template_directory must be used instead of get_template_directory()
- * td_global::$get_template_directory_uri must be used instead of get_template_directory_uri()
+ * tagdiv_global::$get_template_directory must be used instead of get_template_directory()
+ * tagdiv_global::$get_template_directory_uri must be used instead of get_template_directory_uri()
  *
  * They supplies the get_template_directory() and get_template_directory_uri() if the mobile theme is not activated (actually, the mobile plugin is not activated).
  *
- * If the mobile plugin is activated, they will return the same values, but for doing this it needs to consider the td_mobile_theme class who saves these values. In this case,
+ * If the mobile plugin is activated, they will return the same values, but for doing this it needs to consider the tagdiv_mobile_theme class who saves these values. In this case,
  * the get_template_directory() and get_template_directory_uri() returns values corresponding to the mobile theme, and not to the main theme.
  */
 
 $current_theme_name = get_template();
 
-if (empty($current_theme_name) and class_exists('td_mobile_theme')) {
-	td_global::$get_template_directory = td_mobile_theme::$main_dir_path;
-	td_global::$get_template_directory_uri = td_mobile_theme::$main_uri_path;
+if (empty($current_theme_name) and class_exists('tagdiv_mobile_theme')) {
+	tagdiv_global::$get_template_directory = tagdiv_mobile_theme::$main_dir_path;
+	tagdiv_global::$get_template_directory_uri = tagdiv_mobile_theme::$main_uri_path;
 } else {
-	td_global::$get_template_directory = get_template_directory();
-	td_global::$get_template_directory_uri = get_template_directory_uri();
+	tagdiv_global::$get_template_directory = get_template_directory();
+	tagdiv_global::$get_template_directory_uri = get_template_directory_uri();
 }
 

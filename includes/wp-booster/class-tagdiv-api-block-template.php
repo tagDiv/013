@@ -5,10 +5,10 @@
 
 
 /**
- * The theme's block template api, usable via the td_global_after hook
- * Class td_api_block static block api
+ * The theme's block template api, usable via the tagdiv_global_after hook
+ * Class tagdiv_api_block static block api
  */
-class td_api_block_template extends td_api_base{
+class tagdiv_api_block_template extends tagdiv_api_base{
 
     /**
      * This method to register a new block

@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Class td_block - base class for blocks
+ * Class tagdiv_block - base class for blocks
  * v 5.1 - td-composer edition :)
  */
 
 
-class td_block {
+class tagdiv_block {
 	var $block_uid; // the block unique id on the page, it changes on every render
-	var $td_query; //the query used to rendering the current block
-	protected $td_block_template_data;
+	var $tagdiv_query; //the query used to rendering the current block
+	protected $tagdiv_block_template_data;
 
 	private $atts = array(); //the atts used for rendering the current block
-	private $td_block_template_instance; // the current block template instance that this block is using
+	private $tagdiv_block_template_instance; // the current block template instance that this block is using
 
 
 	// by default all the blocks are loop blocks
@@ -46,25 +46,25 @@ class td_block {
 			    'installed_post_types' => '', // filter by custom post types
 			    'category_id' => '',
 			    'category_ids' => '',
-			    'custom_title' => '',       // used in td_block_template_1.php
-			    'custom_url' => '',         // used in td_block_template_1.php
+			    'custom_title' => '',       // used in tagdiv_block_template_1.php
+			    'custom_url' => '',         // used in tagdiv_block_template_1.php
 			    'show_child_cat' => '',
 			    'sub_cat_ajax' => '',
 			    'ajax_pagination' => '',
-			    'header_color' => '',       // used in td_block_template_1.php + here for js -> loading color
-			    'header_text_color' => '',  // used in td_block_template_1.php
+			    'header_color' => '',       // used in tagdiv_block_template_1.php + here for js -> loading color
+			    'header_text_color' => '',  // used in tagdiv_block_template_1.php
 
 			    'ajax_pagination_infinite_stop' => '',
-			    'td_column_number' => td_util::vc_get_column_number(), // if no column number passed, get from VC
+			    'tagdiv_column_number' => tagdiv_util::vc_get_column_number(), // if no column number passed, get from VC
 
 			    // ajax preloader
-			    'td_ajax_preloading' => '',
+			    'tagdiv_ajax_preloading' => '',
 
 
 			    // drop down list + other live filters?
-			    'td_ajax_filter_type' => '',
-                'td_ajax_filter_ids' => '',
-                'td_filter_default_txt' => __td('All', TD_THEME_NAME),
+			    'tagdiv_ajax_filter_type' => '',
+                'tagdiv_ajax_filter_ids' => '',
+                'tagdiv_filter_default_txt' => __td('All', tagdiv_THEME_NAME),
 
 			    // classes?  @see get_block_classes
 			    'color_preset' => '',
@@ -79,9 +79,9 @@ class td_block {
 			    // $atts['live_filter'] is set by the 'user'. cur_post_same_tags | cur_post_same_author | cur_post_same_categories
 			    'live_filter' => '',
 
-			    // the two live filters are set by @see td_block::add_live_filter_atts
-			    'live_filter_cur_post_id' => '',      /** @see td_block::add_live_filter_atts */
-			    'live_filter_cur_post_author' => '',  /** @see td_block::add_live_filter_atts */
+			    // the two live filters are set by @see tagdiv_block::add_live_filter_atts
+			    'live_filter_cur_post_id' => '',      /** @see tagdiv_block::add_live_filter_atts */
+			    'live_filter_cur_post_author' => '',  /** @see tagdiv_block::add_live_filter_atts */
 		    ),
 		    $atts
 	    );
@@ -99,14 +99,14 @@ class td_block {
 
 
 	    //update unique id on each render
-        $this->block_uid = td_global::td_generate_unique_id();
+        $this->block_uid = tagdiv_global::tagdiv_generate_unique_id();
 
 	    /** add the unique class to the block. The _rand class is used by the blocks js. @see tdBlocks.js  */
 	    $unique_block_class = $this->block_uid . '_rand';
 	    $this->add_class($unique_block_class);
 
 
-	    $td_pull_down_items = array();
+	    $tagdiv_pull_down_items = array();
 
 
 
@@ -115,10 +115,10 @@ class td_block {
 		if ($this->is_loop_block() === true) {
 
 			//by ref do the query
-			$this->td_query = &td_data_source::get_wp_query($this->atts);
+			$this->tagdiv_query = &tagdiv_data_source::get_wp_query($this->atts);
 
 			// get the pull down items
-			$td_pull_down_items = $this->block_loop_get_pull_down_items();
+			$tagdiv_pull_down_items = $this->block_loop_get_pull_down_items();
 		}
 
 
@@ -127,18 +127,18 @@ class td_block {
 
         /**
          * Make a new block template instance (NOTE: ON EACH RENDER WE GENERATE A NEW BLOCK TEMPLATE)
-         * td_block_template_x - Loaded via autoload
-         * @see td_autoload_classes::loading_classes
+         * tagdiv_block_template_x - Loaded via autoload
+         * @see tagdiv_autoload_classes::loading_classes
          */
-        $td_block_template_id = 'td_block_template_1';
+        $tagdiv_block_template_id = 'tagdiv_block_template_1';
 
-        $this->td_block_template_data = array(
+        $this->tagdiv_block_template_data = array(
             'atts' => $this->atts,
             'block_uid' => $this->block_uid,
             'unique_block_class' => $unique_block_class,
-            'td_pull_down_items' => $td_pull_down_items,
+            'tagdiv_pull_down_items' => $tagdiv_pull_down_items,
         );
-        $this->td_block_template_instance = new $td_block_template_id($this->td_block_template_data);
+        $this->tagdiv_block_template_instance = new $tagdiv_block_template_id($this->tagdiv_block_template_data);
 
 
 
@@ -163,7 +163,7 @@ class td_block {
 
 		// VC adds the CSS att automatically so we don't have to do it
 		if (
-			( !td_util::is_vc_installed() || td_util::tdc_is_live_editor_iframe() || td_util::tdc_is_live_editor_ajax() ) && !empty($css)
+			( !tagdiv_util::is_vc_installed() || tagdiv_util::tdc_is_live_editor_iframe() || tagdiv_util::tdc_is_live_editor_ajax() ) && !empty($css)
 		) {
 			$buffy .= PHP_EOL . '/* inline css att */' . PHP_EOL . $css;
 		}
@@ -180,56 +180,56 @@ class td_block {
 
 	/**
 	 * This runs only on loop blocks!
-	 * @return array the $td_pull_down_items
+	 * @return array the $tagdiv_pull_down_items
 	 */
 	private function block_loop_get_pull_down_items() {
 
 
 
-		$td_pull_down_items = array();
+		$tagdiv_pull_down_items = array();
 
 
-		$td_ajax_filter_type   = $this->get_att('td_ajax_filter_type');
-		$td_filter_default_txt = $this->get_att('td_filter_default_txt');
-		$td_ajax_filter_ids    = $this->get_att('td_ajax_filter_ids');
+		$tagdiv_ajax_filter_type   = $this->get_att('tagdiv_ajax_filter_type');
+		$tagdiv_filter_default_txt = $this->get_att('tagdiv_filter_default_txt');
+		$tagdiv_ajax_filter_ids    = $this->get_att('tagdiv_ajax_filter_ids');
 
 
-		// td_block_mega_menu has it's own pull down implementation!
-		if (get_class($this) != 'td_block_mega_menu') {
-			// prepare the array for the td_pull_down_items, we send this array to the block_template
+		// tagdiv_block_mega_menu has it's own pull down implementation!
+		if (get_class($this) != 'tagdiv_block_mega_menu') {
+			// prepare the array for the tagdiv_pull_down_items, we send this array to the block_template
 
-			if (!empty($td_ajax_filter_type)) {
+			if (!empty($tagdiv_ajax_filter_type)) {
 
 				// make the default current pull down item (the first one is the default)
-				$td_pull_down_items[0] = array (
-					'name' => $td_filter_default_txt,
+				$tagdiv_pull_down_items[0] = array (
+					'name' => $tagdiv_filter_default_txt,
 					'id' => ''
 				);
 
-				switch($td_ajax_filter_type) {
-					case 'td_category_ids_filter': // by category
-						$td_categories = get_categories(array(
-							'include' => $td_ajax_filter_ids,
+				switch($tagdiv_ajax_filter_type) {
+					case 'tagdiv_category_ids_filter': // by category
+						$tagdiv_categories = get_categories(array(
+							'include' => $tagdiv_ajax_filter_ids,
 							'exclude' => '1',
 							'number' => 100 //limit the number of categories shown in the drop down
 						));
 
 						// check if there's any id in the list
-						if (!empty($td_ajax_filter_ids)) {
+						if (!empty($tagdiv_ajax_filter_ids)) {
 							// break the categories string
-							$td_ajax_filter_ids = explode(',', $td_ajax_filter_ids);
+							$tagdiv_ajax_filter_ids = explode(',', $tagdiv_ajax_filter_ids);
 
 							// order the categories - match the order set in the block settings
-							foreach ($td_ajax_filter_ids as $td_category_id) {
-								$td_category_id = trim($td_category_id);
+							foreach ($tagdiv_ajax_filter_ids as $tagdiv_category_id) {
+								$tagdiv_category_id = trim($tagdiv_category_id);
 
-								foreach ($td_categories as $td_category) {
+								foreach ($tagdiv_categories as $tagdiv_category) {
 
 									// retrieve the category
-									if ($td_category_id == $td_category->cat_ID) {
-										$td_pull_down_items [] = array(
-											'name' => $td_category->name,
-											'id' => $td_category->cat_ID,
+									if ($tagdiv_category_id == $tagdiv_category->cat_ID) {
+										$tagdiv_pull_down_items [] = array(
+											'name' => $tagdiv_category->name,
+											'id' => $tagdiv_category->cat_ID,
 										);
 										break;
 									}
@@ -238,51 +238,51 @@ class td_block {
 
 							// if no category ids are added
 						} else {
-							foreach ($td_categories as $td_category) {
-								$td_pull_down_items [] = array(
-									'name' => $td_category->name,
-									'id' => $td_category->cat_ID,
+							foreach ($tagdiv_categories as $tagdiv_category) {
+								$tagdiv_pull_down_items [] = array(
+									'name' => $tagdiv_category->name,
+									'id' => $tagdiv_category->cat_ID,
 								);
 							}
 						}
 						break;
 
-					case 'td_author_ids_filter': // by author
-						$td_authors = get_users(array('who' => 'authors', 'include' => $td_ajax_filter_ids));
-						foreach ($td_authors as $td_author) {
-							$td_pull_down_items []= array (
-								'name' => $td_author->display_name,
-								'id' => $td_author->ID,
+					case 'tagdiv_author_ids_filter': // by author
+						$tagdiv_authors = get_users(array('who' => 'authors', 'include' => $tagdiv_ajax_filter_ids));
+						foreach ($tagdiv_authors as $tagdiv_author) {
+							$tagdiv_pull_down_items []= array (
+								'name' => $tagdiv_author->display_name,
+								'id' => $tagdiv_author->ID,
 							);
 						}
 						break;
 
-					case 'td_tag_slug_filter': // by tag slug
-						$td_tags = get_tags(array(
-							'include' => $td_ajax_filter_ids
+					case 'tagdiv_tag_slug_filter': // by tag slug
+						$tagdiv_tags = get_tags(array(
+							'include' => $tagdiv_ajax_filter_ids
 						));
-						foreach ($td_tags as $td_tag) {
-							$td_pull_down_items []= array (
-								'name' => $td_tag->name,
-								'id' => $td_tag->term_id,
+						foreach ($tagdiv_tags as $tagdiv_tag) {
+							$tagdiv_pull_down_items []= array (
+								'name' => $tagdiv_tag->name,
+								'id' => $tagdiv_tag->term_id,
 							);
 						}
 						break;
 
-					case 'td_popularity_filter_fa': // by popularity
-						$td_pull_down_items []= array (
-							'name' => __td('Featured', TD_THEME_NAME),
+					case 'tagdiv_popularity_filter_fa': // by popularity
+						$tagdiv_pull_down_items []= array (
+							'name' => __td('Featured', tagdiv_THEME_NAME),
 							'id' => 'featured',
 						);
-						$td_pull_down_items []= array (
-							'name' => __td('All time popular', TD_THEME_NAME),
+						$tagdiv_pull_down_items []= array (
+							'name' => __td('All time popular', tagdiv_THEME_NAME),
 							'id' => 'popular',
 						);
 						break;
 				}
 			}
 		}
-		return $td_pull_down_items;
+		return $tagdiv_pull_down_items;
 	}
 
 
@@ -347,24 +347,24 @@ class td_block {
 
             case 'next_prev':
                     $buffy .= '<div class="td-next-prev-wrap">';
-                    $buffy .= '<a href="#" class="td-ajax-prev-page ajax-page-disabled" id="prev-page-' . $this->block_uid . '" data-td_block_id="' . $this->block_uid . '"><i class="td-icon-font td-icon-menu-left"></i></a>';
+                    $buffy .= '<a href="#" class="td-ajax-prev-page ajax-page-disabled" id="prev-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '"><i class="td-icon-font td-icon-menu-left"></i></a>';
 
-					//if ($this->td_query->found_posts <= $limit) {
-					if ($this->td_query->found_posts - $offset <= $limit) {
+					//if ($this->tagdiv_query->found_posts <= $limit) {
+					if ($this->tagdiv_query->found_posts - $offset <= $limit) {
                         //hide next page because we don't have enough results
-                        $buffy .= '<a href="#"  class="td-ajax-next-page ajax-page-disabled" id="next-page-' . $this->block_uid . '" data-td_block_id="' . $this->block_uid . '"><i class="td-icon-font td-icon-menu-right"></i></a>';
+                        $buffy .= '<a href="#"  class="td-ajax-next-page ajax-page-disabled" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '"><i class="td-icon-font td-icon-menu-right"></i></a>';
                     } else {
-                        $buffy .= '<a href="#"  class="td-ajax-next-page" id="next-page-' . $this->block_uid . '" data-td_block_id="' . $this->block_uid . '"><i class="td-icon-font td-icon-menu-right"></i></a>';
+                        $buffy .= '<a href="#"  class="td-ajax-next-page" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '"><i class="td-icon-font td-icon-menu-right"></i></a>';
                     }
 
                     $buffy .= '</div>';
                 break;
 
             case 'load_more':
-	            //if ($this->td_query->found_posts > $limit) {
-	            if ($this->td_query->found_posts - $offset > $limit) {
+	            //if ($this->tagdiv_query->found_posts > $limit) {
+	            if ($this->tagdiv_query->found_posts - $offset > $limit) {
 		            $buffy .= '<div class="td-load-more-wrap">';
-                    $buffy .= '<a href="#" class="td_ajax_load_more td_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-td_block_id="' . $this->block_uid . '">' . __td('Load more', TD_THEME_NAME);
+                    $buffy .= '<a href="#" class="tagdiv_ajax_load_more tagdiv_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">' . __td('Load more', tagdiv_THEME_NAME);
 		            $buffy .= '<i class="td-icon-font td-icon-menu-down"></i>';
 		            $buffy .= '</a>';
 		            $buffy .= '</div>';
@@ -373,14 +373,14 @@ class td_block {
 
             case 'infinite':
 				// show the infinite pagination only if we have more posts
-		        if ($this->td_query->found_posts - $offset > $limit) {
-		            $buffy .= '<div class="td_ajax_infinite" id="next-page-' . $this->block_uid . '" data-td_block_id="' . $this->block_uid . '">';
+		        if ($this->tagdiv_query->found_posts - $offset > $limit) {
+		            $buffy .= '<div class="tagdiv_ajax_infinite" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">';
 		            $buffy .= ' ';
 		            $buffy .= '</div>';
 
 
 		            $buffy .= '<div class="td-load-more-wrap td-load-more-infinite-wrap" id="infinite-lm-' . $this->block_uid . '">';
-                    $buffy .= '<a href="#" class="td_ajax_load_more td_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-td_block_id="' . $this->block_uid . '">' . __td('Load more', TD_THEME_NAME);
+                    $buffy .= '<a href="#" class="tagdiv_ajax_load_more tagdiv_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">' . __td('Load more', tagdiv_THEME_NAME);
 		            $buffy .= '<i class="td-icon-font td-icon-menu-down"></i>';
 		            $buffy .= '</a>';
 		            $buffy .= '</div>';
@@ -409,20 +409,20 @@ class td_block {
     function get_block_js() {
 	    // td-composer PLUGIN uses this hook to call $this->js_callback_ajax
 	    // @see tdc_ajax.php -> on_ajax_render_shortcode in td-composer
-	    do_action('td_block__get_block_js', array(&$this));
+	    do_action('tagdiv_block__get_block_js', array(&$this));
 
-	    if (td_util::tdc_is_live_editor_iframe()) {
-		    td_js_buffer::add_to_footer($this->js_tdc_get_composer_block());
+	    if (tagdiv_util::tdc_is_live_editor_iframe()) {
+		    tagdiv_js_buffer::add_to_footer($this->js_tdc_get_composer_block());
 		    return '';
 	    }
 
 		// do not run in ajax requests
-	    if (td_util::tdc_is_live_editor_ajax()) {
+	    if (tagdiv_util::tdc_is_live_editor_ajax()) {
 		    return '';
 	    }
 
         //get the js for this block - do not load it in inline mode in visual composer
-        if (td_util::vc_is_inline()) {
+        if (tagdiv_util::vc_is_inline()) {
             return '';
         }
 
@@ -444,12 +444,12 @@ class td_block {
 		    $buffy .= 'var ' . $block_item . ' = new tdBlock();' . "\n";
 		    $buffy .= $block_item . '.id = "' . $this->block_uid . '";' . "\n";
 		    $buffy .= $block_item . ".atts = '" . str_replace("'", "\u0027", json_encode($this->atts)) . "';" . "\n";
-		    $buffy .= $block_item . '.td_column_number = "' . $atts['td_column_number'] . '";' . "\n";
+		    $buffy .= $block_item . '.tagdiv_column_number = "' . $atts['tagdiv_column_number'] . '";' . "\n";
 		    $buffy .= $block_item . '.block_type = "' . get_class($this) . '";' . "\n";
 
 		    //wordpress wp query parms
-		    $buffy .= $block_item . '.post_count = "' . $this->td_query->post_count . '";' . "\n";
-		    $buffy .= $block_item . '.found_posts = "' . $this->td_query->found_posts . '";' . "\n";
+		    $buffy .= $block_item . '.post_count = "' . $this->tagdiv_query->post_count . '";' . "\n";
+		    $buffy .= $block_item . '.found_posts = "' . $this->tagdiv_query->found_posts . '";' . "\n";
 
 		    $buffy .= $block_item . '.header_color = "' . $atts['header_color'] . '";' . "\n"; // the header_color is needed for the animated loader
 		    $buffy .= $block_item . '.ajax_pagination_infinite_stop = "' . $atts['ajax_pagination_infinite_stop'] . '";' . "\n";
@@ -460,13 +460,13 @@ class td_block {
 		    if (!empty($this->atts['offset'])) {
 
 			    if ($this->atts['limit'] != 0) {
-				    $buffy .= $block_item . '.max_num_pages = "' . ceil( ( $this->td_query->found_posts - $this->atts['offset'] ) / $this->atts['limit'] ) . '";' . "\n";
+				    $buffy .= $block_item . '.max_num_pages = "' . ceil( ( $this->tagdiv_query->found_posts - $this->atts['offset'] ) / $this->atts['limit'] ) . '";' . "\n";
 
 			    } else if (get_option('posts_per_page') != 0) {
-				    $buffy .= $block_item . '.max_num_pages = "' . ceil( ( $this->td_query->found_posts - $this->atts['offset'] ) / get_option('posts_per_page') ) . '";' . "\n";
+				    $buffy .= $block_item . '.max_num_pages = "' . ceil( ( $this->tagdiv_query->found_posts - $this->atts['offset'] ) / get_option('posts_per_page') ) . '";' . "\n";
 			    }
 		    } else {
-			    $buffy .= $block_item . '.max_num_pages = "' . $this->td_query->max_num_pages . '";' . "\n";
+			    $buffy .= $block_item . '.max_num_pages = "' . $this->tagdiv_query->max_num_pages . '";' . "\n";
 		    }
 
 		    $buffy .= 'tdBlocksArray.push(' . $block_item . ');' . "\n";
@@ -476,9 +476,9 @@ class td_block {
 
 
 
-        $td_column_number = $this->get_att('td_column_number');
-        if (empty($td_column_number)) {
-            $td_column_number = td_util::vc_get_column_number(); // get the column width of the block so we can sent it to the server. If the shortcode already has a user defined column number, we use that
+        $tagdiv_column_number = $this->get_att('tagdiv_column_number');
+        if (empty($tagdiv_column_number)) {
+            $tagdiv_column_number = tagdiv_util::vc_get_column_number(); // get the column width of the block so we can sent it to the server. If the shortcode already has a user defined column number, we use that
         }
 
 
@@ -490,8 +490,8 @@ class td_block {
         // ajax subcategories preloader
         // @todo preloading "all" filter content should happen regardless of the setting
         if (
-            !empty($this->td_block_template_data['td_pull_down_items'])
-            and !empty($this->atts['td_ajax_preloading'])
+            !empty($this->tagdiv_block_template_data['tagdiv_pull_down_items'])
+            and !empty($this->atts['tagdiv_ajax_preloading'])
         ) {
 
 
@@ -499,21 +499,21 @@ class td_block {
 	            add 'ALL' item to the cache
 	        */
             // pagination - we need to compute the pagination for each cache entry
-            $td_hide_next = false;
+            $tagdiv_hide_next = false;
             if (!empty($this->atts['offset']) && !empty($this->atts['limit']) && ($this->atts['limit'] != 0)) {
-                if (1 >= ceil(($this->td_query->found_posts - $this->atts['offset']) / $this->atts['limit'])) {
-                    $td_hide_next = true; //hide link on last page
+                if (1 >= ceil(($this->tagdiv_query->found_posts - $this->atts['offset']) / $this->atts['limit'])) {
+                    $tagdiv_hide_next = true; //hide link on last page
                 }
-            } else if (1 >= $this->td_query->max_num_pages) {
-                $td_hide_next = true; //hide link on last page
+            } else if (1 >= $this->tagdiv_query->max_num_pages) {
+                $tagdiv_hide_next = true; //hide link on last page
             }
 
             // this will be send to JS bellow
             $buffyArray = array (
-                'td_data' => $this->inner($this->td_query->posts, $td_column_number),
-                'td_block_id' => $this->block_uid,
-                'td_hide_prev' => true,  // this is the first page
-                'td_hide_next' => $td_hide_next
+                'tagdiv_data' => $this->inner($this->tagdiv_query->posts, $tagdiv_column_number),
+                'tagdiv_block_id' => $this->block_uid,
+                'tagdiv_hide_prev' => true,  // this is the first page
+                'tagdiv_hide_next' => $tagdiv_hide_next
             );
 
 
@@ -531,34 +531,34 @@ class td_block {
                 var currentBlockObjSignature = JSON.stringify(tmpObj);
                 tdLocalCache.set(currentBlockObjSignature, JSON.stringify(<?php echo json_encode($buffyArray) ?>));
                 <?php
-                    foreach ($this->td_block_template_data['td_pull_down_items'] as $count => $item) {
+                    foreach ($this->tagdiv_block_template_data['tagdiv_pull_down_items'] as $count => $item) {
                         if (empty($item['id'])) {
                             continue;
                         }
 
                         // preload only 6 or 20 items depending on the setting
-                        if ($this->atts['td_ajax_preloading'] == 'preload_all' and $count > 20) {
+                        if ($this->atts['tagdiv_ajax_preloading'] == 'preload_all' and $count > 20) {
                             break;
                         }
-                        else if ($this->atts['td_ajax_preloading'] == 'preload' and $count > 6) {
+                        else if ($this->atts['tagdiv_ajax_preloading'] == 'preload' and $count > 6) {
                             break;
                         }
 
                         $ajax_parameters = array (
-                            'td_atts' => $this->atts,            // original block atts
-                            'td_column_number' => $td_column_number,    // should not be 0 (1 - 2 - 3)
-                            'td_current_page' => 1,    // the current page of the block
-                            'td_block_id' => $this->block_uid,        // block uid
+                            'tagdiv_atts' => $this->atts,            // original block atts
+                            'tagdiv_column_number' => $tagdiv_column_number,    // should not be 0 (1 - 2 - 3)
+                            'tagdiv_current_page' => 1,    // the current page of the block
+                            'tagdiv_block_id' => $this->block_uid,        // block uid
                             'block_type' => get_class($this),         // the type of the block / block class
-                            'td_filter_value' => $item['id']     // the id for this specific filter type. The filter type is in the td_atts
+                            'tagdiv_filter_value' => $item['id']     // the id for this specific filter type. The filter type is in the tagdiv_atts
                         );
                         ?>
                             tmpObj = JSON.parse(JSON.stringify(<?php echo $block_item ?>));
                             tmpObj.is_ajax_running = true;
-                            tmpObj.td_current_page = 1;
-                            tmpObj.td_filter_value = <?php echo json_encode($item['id']) ?>;
+                            tmpObj.tagdiv_current_page = 1;
+                            tmpObj.tagdiv_filter_value = <?php echo json_encode($item['id']) ?>;
                             var currentBlockObjSignature = JSON.stringify(tmpObj);
-                            tdLocalCache.set(currentBlockObjSignature, JSON.stringify(<?php echo td_ajax::on_ajax_block($ajax_parameters) ?>));
+                            tdLocalCache.set(currentBlockObjSignature, JSON.stringify(<?php echo tagdiv_ajax::on_ajax_block($ajax_parameters) ?>));
                         <?php
                     }
                 ?>
@@ -593,7 +593,7 @@ class td_block {
 
 		// If this is not a loop block or if we don't have pull down ajax filters, do not run. This is just to fix the pulldown items on
 		// content blocks
-		if ($this->is_loop_block() === true && !empty($this->td_block_template_data['td_pull_down_items'])) {
+		if ($this->is_loop_block() === true && !empty($this->tagdiv_block_template_data['tagdiv_pull_down_items'])) {
 			ob_start();
 			?>
 			<script>
@@ -615,7 +615,7 @@ class td_block {
 
 			</script>
 			<?php
-			$buffy .= td_util::remove_script_tag(ob_get_clean());
+			$buffy .= tagdiv_util::remove_script_tag(ob_get_clean());
 		}
 
 
@@ -630,7 +630,7 @@ class td_block {
 
 	/**
 	 * tagDiv composer specific code:
-	 *  - it's added to the end of the iFrame when the live editor is active (when @see td_util::tdc_is_live_editor_iframe()  === true)
+	 *  - it's added to the end of the iFrame when the live editor is active (when @see tagdiv_util::tdc_is_live_editor_iframe()  === true)
 	 *  - it is injected int he iFrame and evaluated there in the global scoupe when a new block is added to the page via AJAX!
 	 * @return string the JS without <script> tags
 	 */
@@ -668,13 +668,13 @@ class td_block {
 					// delete the weather item if available NOTE USED YET
 					//tdWeather.deleteItem(blockUid);
 
-					tdcDebug.log('td_block.php js_tdc_get_composer_block  -  callbackDelete(' + blockUid + ') - td_block base callback runned');
+					tdcDebug.log('tagdiv_block.php js_tdc_get_composer_block  -  callbackDelete(' + blockUid + ') - tagdiv_block base callback runned');
 				};
 				tdcComposerBlocksApi.addItem(tdComposerBlockItem);
 			})();
 		</script>
 		<?php
-		return td_util::remove_script_tag(ob_get_clean());
+		return tagdiv_util::remove_script_tag(ob_get_clean());
 	}
 
 
@@ -709,7 +709,7 @@ class td_block {
 
         //add the block wrap and block id class
         $block_classes = array(
-            'td_block_wrap',
+            'tagdiv_block_wrap',
 	        get_class($this)
         );
 
@@ -754,11 +754,11 @@ class td_block {
 
 
 	    /**
-	     * - used to add td_block_loading css class on the blocks having pagination
+	     * - used to add tagdiv_block_loading css class on the blocks having pagination
 	     * - the class has a force css transform for lazy devices
 	     */
 	    if (!empty($ajax_pagination)) {
-		    $block_classes[]= 'td_with_ajax_pagination';
+		    $block_classes[]= 'tagdiv_with_ajax_pagination';
 	    }
 
 
@@ -805,10 +805,10 @@ class td_block {
      * @throws ErrorException - no template instance found
      */
     private function block_template() {
-        if (isset($this->td_block_template_instance)) {
-            return $this->td_block_template_instance;
+        if (isset($this->tagdiv_block_template_instance)) {
+            return $this->tagdiv_block_template_instance;
         } else {
-	        td_util::error(__FILE__, "td_block: " . get_class($this) . " did not call render, no td_block_template_instance in td_block");
+	        tagdiv_util::error(__FILE__, "tagdiv_block: " . get_class($this) . " did not call render, no tagdiv_block_template_instance in tagdiv_block");
 	        die;
         }
     }
@@ -821,13 +821,13 @@ class td_block {
 	 */
 	protected function get_att($att_name) {
 		if (empty($this->atts)) {
-			td_util::error(__FILE__, get_class($this) . '->get_att(' . $att_name . ') Internal error: The atts are not set yet(AKA: the render method was not called yet and the system tried to read an att)');
+			tagdiv_util::error(__FILE__, get_class($this) . '->get_att(' . $att_name . ') Internal error: The atts are not set yet(AKA: the render method was not called yet and the system tried to read an att)');
 			die;
 		}
 
 		if (!isset($this->atts[$att_name])) {
 			var_dump($this->atts);
-			td_util::error(__FILE__, 'Internal error: The system tried to use an att that does not exists! class_name: ' . get_class($this) . '  Att name: "' . $att_name . '" The list with available atts is in td_block::render');
+			tagdiv_util::error(__FILE__, 'Internal error: The system tried to use an att that does not exists! class_name: ' . get_class($this) . '  Att name: "' . $att_name . '" The list with available atts is in tagdiv_block::render');
 			die;
 		}
 
@@ -837,7 +837,7 @@ class td_block {
 
 	/**
 	 * parses a design panel generated css string and get's the classes and the
-	 *   - It's not private because it's used by td_block_ad_box because that block uses special classes to avoid adblock
+	 *   - It's not private because it's used by tagdiv_block_ad_box because that block uses special classes to avoid adblock
 	 *   - it should be the same with @see tdc_composer_block::parse_css_att from the tdc plugin
 	 * @param $user_css_att
 	 *

@@ -1,5 +1,5 @@
 <?php
-class td_api_base {
+class tagdiv_api_base {
 
 
     // flag marked by get_by_id and get_key function. It's used just for debugging
@@ -33,7 +33,7 @@ class td_api_base {
 	        self::$components_list[$id] = $params_array;
 
         } else {
-            td_util::error(__FILE__, "td_api_base: A component with the ID: $id it's already registered in td_api_base", self::$components_list[$id]);
+            tagdiv_util::error(__FILE__, "tagdiv_api_base: A component with the ID: $id it's already registered in tagdiv_api_base", self::$components_list[$id]);
         }
     }
 
@@ -92,7 +92,7 @@ class td_api_base {
 			    return $component_value[$key];
 		    }
 	    }
-	    td_util::error(__FILE__, "td_api_base::get_default_component_key : no component of type $class_name . Wp booster tried to get
+	    tagdiv_util::error(__FILE__, "tagdiv_api_base::get_default_component_key : no component of type $class_name . Wp booster tried to get
         the default component (the first registered component) but there are no components registered.");
     }
 
@@ -115,7 +115,7 @@ class td_api_base {
                 return $component_id;
             }
         }
-        td_util::error(__FILE__, "td_api_base::get_default_component_id  : no component of type $class_name . Wp booster tried to get
+        tagdiv_util::error(__FILE__, "tagdiv_api_base::get_default_component_id  : no component of type $class_name . Wp booster tried to get
         the default component (the first registered component) but there are no components registered.");
     }
 
@@ -169,7 +169,7 @@ class td_api_base {
 	 * @return mixed
 	 */
     static function _display_file_path($id) {
-       return 'file path: ' . str_replace(td_global::$get_template_directory, '', self::get_key($id, 'file'));
+       return 'file path: ' . str_replace(tagdiv_global::$get_template_directory, '', self::get_key($id, 'file'));
     }
 
 
@@ -285,11 +285,11 @@ class td_api_base {
 
 
     /**
-     * sets the component's td_api_base::CLASS_AUTOLOADED key to true at runtime.
+     * sets the component's tagdiv_api_base::CLASS_AUTOLOADED key to true at runtime.
      * @param $component_id
      */
     static function _debug_set_class_is_autoloaded($component_id) {
-        self::$components_list[$component_id][td_api_base::CLASS_AUTOLOADED] = true;
+        self::$components_list[$component_id][tagdiv_api_base::CLASS_AUTOLOADED] = true;
     }
 
 
@@ -315,9 +315,9 @@ class td_api_base {
              * @deprecated @todo should be removed in v2  compatiblity for social counter old old
              */
 
-            if (($id == 'td_social_counter' or $id == 'td_block_social_counter')) {
+            if (($id == 'tagdiv_social_counter' or $id == 'tagdiv_block_social_counter')) {
                 if (is_user_logged_in()) {
-                    td_util::error('', "Please update your [tagDiv social counter] Plugin!");
+                    tagdiv_util::error('', "Please update your [tagDiv social counter] Plugin!");
                 }
                 return;
             }
@@ -328,7 +328,7 @@ class td_api_base {
              * - the user is on the login page / register
              * - the user tries to log in via wp-admin (that is why is_admin() is required)
              */
-            td_util::error(__FILE__, "td_api_base::mark_used_on_page : a component with the ID: $id is not set.");
+            tagdiv_util::error(__FILE__, "tagdiv_api_base::mark_used_on_page : a component with the ID: $id is not set.");
         }
         self::$components_list[$id][self::USED_ON_PAGE] = true;
     }
@@ -381,7 +381,7 @@ class td_api_base {
      */
     private static function check_used_on_page($id, $requested_operation) {
         if ( array_key_exists( $id, self::$components_list ) and array_key_exists( self::USED_ON_PAGE, self::$components_list[$id] ) ) {
-            td_util::error(__FILE__, "td_api_base::check_used_on_page: You requested a $requested_operation for ID: $id BUT it's already used on page. This usually means that you are using a wrong hook - you are trying to modify the component after it already rendered / was used.", self::$components_list[$id]);
+            tagdiv_util::error(__FILE__, "tagdiv_api_base::check_used_on_page: You requested a $requested_operation for ID: $id BUT it's already used on page. This usually means that you are using a wrong hook - you are trying to modify the component after it already rendered / was used.", self::$components_list[$id]);
         }
     }
 

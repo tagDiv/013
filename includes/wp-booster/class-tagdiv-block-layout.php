@@ -5,10 +5,10 @@
  * This class makes the layout for blocks
  * used by:
  *  - blocks
- *  - includes/td_page_generator/td_template_layout.php (author page, tag page)
+ *  - includes/tagdiv_page_generator/tagdiv_template_layout.php (author page, tag page)
  */
 
-class td_block_layout {
+class tagdiv_block_layout {
 
 
     var $row_is_open = false;

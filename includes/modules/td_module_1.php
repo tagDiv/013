@@ -1,6 +1,6 @@
 <?php
 
-class td_module_1 extends td_module {
+class tagdiv_module_1 extends tagdiv_module {
 
     function __construct($post) {
         //run the parrent constructor
@@ -13,8 +13,8 @@ class td_module_1 extends td_module {
 
         <div class="<?php echo $this->get_module_classes();?>" <?php echo $this->get_item_scope();?>>
             <div class="td-module-image">
-                <?php echo $this->get_image('td_300x220');?>
-                <div class="td-post-category-wrap"><?php if (td_util::get_option('tds_category_module_1') == 'yes') { echo $this->get_category(); }?></div>
+                <?php echo $this->get_image('tagdiv_300x220');?>
+                <div class="td-post-category-wrap"><?php if (tagdiv_util::get_option('tds_category_module_1') == 'yes') { echo $this->get_category(); }?></div>
             </div>
             
             <?php echo $this->get_title();?>

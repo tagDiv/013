@@ -1,5 +1,5 @@
 <?php
-class td_data_source {
+class tagdiv_data_source {
 
     static $fake_loop_offset = 0; //used by the found row hook in templates to fix pagination. The blocks do not use this since we use custom pagination there.
 
@@ -88,25 +88,25 @@ class td_data_source {
                         $cat_id = trim($cat_id);
 
                         //get the category object
-                        $td_tmp_cat_obj =  get_category($cat_id);
+                        $tagdiv_tmp_cat_obj =  get_category($cat_id);
 
                         //make the $args
                         if (empty($wp_query_args['category_name'])) {
-                            $wp_query_args['category_name'] = $td_tmp_cat_obj->slug; //get by slug (we get the children categories too)
+                            $wp_query_args['category_name'] = $tagdiv_tmp_cat_obj->slug; //get by slug (we get the children categories too)
                         } else {
-                            $wp_query_args['category_name'] .= ',' . $td_tmp_cat_obj->slug; //get by slug (we get the children categories too)
+                            $wp_query_args['category_name'] .= ',' . $tagdiv_tmp_cat_obj->slug; //get by slug (we get the children categories too)
                         }
-                        unset($td_tmp_cat_obj);
+                        unset($tagdiv_tmp_cat_obj);
                     }
                 }
 
-                $wp_query_args['cat'] = get_cat_ID(TD_FEATURED_CAT); //add the fetured cat
+                $wp_query_args['cat'] = get_cat_ID(tagdiv_FEATURED_CAT); //add the fetured cat
                 break;
             case 'oldest_posts':
                 $wp_query_args['order'] = 'ASC';
                 break;
             case 'popular':
-                $wp_query_args['meta_key'] = td_page_views::$post_view_counter_key;
+                $wp_query_args['meta_key'] = tagdiv_page_views::$post_view_counter_key;
                 $wp_query_args['orderby'] = 'meta_value_num';
                 $wp_query_args['order'] = 'DESC';
                 break;
@@ -114,21 +114,21 @@ class td_data_source {
                 $wp_query_args['meta_query'] = 	array(
                     'relation' => 'AND',
                     array(
-                        'key'     => td_page_views::$post_view_counter_7_day_total,
+                        'key'     => tagdiv_page_views::$post_view_counter_7_day_total,
                         'type'    => 'numeric'
                     ),
                     array(
-                        'key'     => td_page_views::$post_view_counter_7_day_last_date,
+                        'key'     => tagdiv_page_views::$post_view_counter_7_day_last_date,
                         'value'   => (date('U') - 604800), // current date minus 7 days
                         'type'    => 'numeric',
                         'compare' => '>'
                     )
                 );
-                $wp_query_args['orderby'] = td_page_views::$post_view_counter_7_day_total;
+                $wp_query_args['orderby'] = tagdiv_page_views::$post_view_counter_7_day_total;
                 $wp_query_args['order'] = 'DESC';
                 break;
             case 'review_high':
-                $wp_query_args['meta_key'] = 'td_review_key';
+                $wp_query_args['meta_key'] = 'tagdiv_review_key';
                 $wp_query_args['orderby'] = 'meta_value_num';
                 $wp_query_args['order'] = 'DESC';
                 break;
@@ -178,8 +178,8 @@ class td_data_source {
 
 
         /**
-         * the live filters are generated in td_block.php and are added when the block is rendered on the page in the atts of the block
-         * @see td_block::add_live_filter_atts
+         * the live filters are generated in tagdiv_block.php and are added when the block is rendered on the page in the atts of the block
+         * @see tagdiv_block::add_live_filter_atts
          */
         if (!empty($live_filter)) {
             switch ($live_filter) {
@@ -221,11 +221,11 @@ class td_data_source {
 
 
         //show only unique posts if that setting is enabled on the template
-        /*if (td_unique_posts::$show_only_unique == true) {
-            $wp_query_args['post__not_in'] = td_unique_posts::$rendered_posts_ids;
+        /*if (tagdiv_unique_posts::$show_only_unique == true) {
+            $wp_query_args['post__not_in'] = tagdiv_unique_posts::$rendered_posts_ids;
         }*/
-//        if (td_unique_posts::$unique_articles_enabled == true) {
-//            $wp_query_args['post__not_in'] = td_unique_posts::$rendered_posts_ids;
+//        if (tagdiv_unique_posts::$unique_articles_enabled == true) {
+//            $wp_query_args['post__not_in'] = tagdiv_unique_posts::$rendered_posts_ids;
 //        }
 
 
@@ -305,24 +305,24 @@ class td_data_source {
 
     /**
      * converts a post metabox value array to a wordpress query args array
-     * @param $td_homepage_loop_filter - the post loop filer metadata array [$td_homepage_loop will be applied actually]
+     * @param $tagdiv_homepage_loop_filter - the post loop filer metadata array [$tagdiv_homepage_loop will be applied actually]
      * @param string $paged
      * @return array
      */
-    static function metabox_to_args($td_homepage_loop_filter, $paged = '') {
+    static function metabox_to_args($tagdiv_homepage_loop_filter, $paged = '') {
 
 
-        $wp_query_args = self::shortcode_to_args($td_homepage_loop_filter, $paged);
+        $wp_query_args = self::shortcode_to_args($tagdiv_homepage_loop_filter, $paged);
 
 
 
         //$wp_query_args['paged'] = $paged;
 
-        if (!empty($td_homepage_loop_filter['show_featured_posts'])) {
+        if (!empty($tagdiv_homepage_loop_filter['show_featured_posts'])) {
             if (empty($wp_query_args['cat'])) {
-                $wp_query_args['cat'] = '-' . get_cat_ID(TD_FEATURED_CAT);
+                $wp_query_args['cat'] = '-' . get_cat_ID(tagdiv_FEATURED_CAT);
             } else {
-                $wp_query_args['cat'] .= ',-' . get_cat_ID(TD_FEATURED_CAT);
+                $wp_query_args['cat'] .= ',-' . get_cat_ID(tagdiv_FEATURED_CAT);
             }
         }
 
@@ -344,7 +344,7 @@ class td_data_source {
     // custom pagination for the fake template loops - used by hook
     static function hook_fix_offset_pagination($found_posts, $query) {
         remove_filter('found_posts','hook_fix_offset_pagination');
-        return $found_posts - td_data_source::$fake_loop_offset;
+        return $found_posts - tagdiv_data_source::$fake_loop_offset;
     }
 
 
@@ -360,8 +360,8 @@ class td_data_source {
     static function &get_wp_query ($atts = '', $paged = '') { //by ref
         $args = self::shortcode_to_args($atts, $paged);
 
-        $td_query = new WP_Query($args);
-        return $td_query;
+        $tagdiv_query = new WP_Query($args);
+        return $tagdiv_query;
     }
 
 
@@ -378,8 +378,8 @@ class td_data_source {
             'post_status' => 'publish'
         );
 
-        $td_query = new WP_Query($args);
-        return $td_query;
+        $tagdiv_query = new WP_Query($args);
+        return $tagdiv_query;
     }
 
 

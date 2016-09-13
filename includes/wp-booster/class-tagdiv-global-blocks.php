@@ -1,11 +1,11 @@
 <?php
 /**
- * td_global_blocks.php
- * no td_util loaded, no access to settings
+ * tagdiv_global_blocks.php
+ * no tagdiv_util loaded, no access to settings
  */
 
 
-class td_global_blocks {
+class tagdiv_global_blocks {
     private static $global_instances = array();
     private static $global_id_lazy_instances = array();
 
@@ -21,7 +21,7 @@ class td_global_blocks {
      */
     static function add_lazy_shortcode($block_id) {
         self::$global_id_lazy_instances[] = $block_id;
-        add_shortcode($block_id, array('td_global_blocks', 'proxy_function'));
+        add_shortcode($block_id, array('tagdiv_global_blocks', 'proxy_function'));
     }
 
     static function proxy_function($atts, $content, $tag) {
@@ -37,9 +37,9 @@ class td_global_blocks {
             return $new_instance;
         } else {
             /**
-             * return a fake new instance of td_block - so that we have the render() method for decoupling - when the blocks are deleted :)  @todo wtf?
+             * return a fake new instance of tagdiv_block - so that we have the render() method for decoupling - when the blocks are deleted :)  @todo wtf?
              */
-            return new td_block();
+            return new tagdiv_block();
         }
     }
 
@@ -48,9 +48,9 @@ class td_global_blocks {
      * map all the blocks in the pagebuilder
      */
     static function wpb_map_all() {
-        //print_r(td_block_api::get_all()); die;
+        //print_r(tagdiv_block_api::get_all()); die;
 
-        foreach (td_api_block::get_all() as $block_settings) {
+        foreach (tagdiv_api_block::get_all() as $block_settings) {
             // shortcodes that have no $block_settings['map_in_visual_composer'] are maped!
             // shrotcodes that have $block_settings['map_in_visual_composer'] !== false are maped
             if (isset($block_settings['map_in_visual_composer']) and $block_settings['map_in_visual_composer'] !== false) {

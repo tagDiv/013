@@ -6,10 +6,10 @@
 
 
 /**
- * The theme's module api, usable via the td_global_after hook
- * Class td_api_module static module api
+ * The theme's module api, usable via the tagdiv_global_after hook
+ * Class tagdiv_api_module static module api
  */
-class td_api_module extends td_api_base {
+class tagdiv_api_module extends tagdiv_api_base {
 
     /**
      * This method to register a new module
@@ -36,7 +36,7 @@ class td_api_module extends td_api_base {
 
     	// put a default image if we don't have any image, useful when developing a new module
     	if (empty($params_array['img'])) {
-		    $params_array['img'] = td_global::$get_template_directory_uri . '/includes/wp_booster/wp-admin/images/panel/panel-placeholders/no_module_image.png';
+		    $params_array['img'] = tagdiv_global::$get_template_directory_uri . '/includes/wp_booster/wp-admin/images/panel/panel-placeholders/no_module_image.png';
 	    }
 
         parent::add_component(__CLASS__, $module_id, $params_array);
@@ -48,13 +48,13 @@ class td_api_module extends td_api_base {
 
 
     /**
-     * This method gets the value for the ('td_api_module') key in the main settings array of the theme.
+     * This method gets the value for the ('tagdiv_api_module') key in the main settings array of the theme.
      * It filters the settings using the 'group' key, to allow extracting only the modules info for the desired theme.
      * The parameter $group could have the following values '' (the main theme), 'mob' (the mobile theme), 'woo' (the woo theme), etc.
      *
      * @param string $group The group of the module.
      *
-     * @return mixed array The value set for the 'td_api_module' in the main settings array of the theme
+     * @return mixed array The value set for the 'tagdiv_api_module' in the main settings array of the theme
      */
     static function get_all($group = '') {
         $components = parent::get_all_components_metadata(__CLASS__);
@@ -108,17 +108,17 @@ class td_api_module extends td_api_base {
 
 
 	/**
-	 * FOR LEGACY MODULES that have names like td_module_x (where x is a number)
-	 *  - converts module classes to module id's for loop settings. td_module_2 -> 2 (we store the 2 in the database)
+	 * FOR LEGACY MODULES that have names like tagdiv_module_x (where x is a number)
+	 *  - converts module classes to module id's for loop settings. tagdiv_module_2 -> 2 (we store the 2 in the database)
 	 *
 	 * @param $module_class
-	 * @return integer id of the module td_module_2 returns 2
+	 * @return integer id of the module tagdiv_module_2 returns 2
 	 */
 	static function _helper_get_module_loop_id ($module_class){
 
 		// DEAL WITH LEGACY MODULE NAMES
-		// if we get a string, try to trim td_module_ and see if we are left with a number
-		$trim_result = str_replace('td_module_', '', $module_class);
+		// if we get a string, try to trim tagdiv_module_ and see if we are left with a number
+		$trim_result = str_replace('tagdiv_module_', '', $module_class);
 		if ( is_numeric($trim_result) ) {
 			return filter_var($module_class, FILTER_SANITIZE_NUMBER_INT);
 		}
@@ -135,13 +135,13 @@ class td_api_module extends td_api_base {
 	 * @return string
 	 */
 	static function _helper_get_module_name_from_class($module_class) {
-		return str_replace('td_', '', $module_class);
+		return str_replace('tagdiv_', '', $module_class);
 	}
 
 
 	/**
-	 * FOR LEGACY MODULES that have names like td_module_x (where x is a number)
-	 *  - Gets the class from a loop id that is stored in the database. ex: 2 -> td_module_2
+	 * FOR LEGACY MODULES that have names like tagdiv_module_x (where x is a number)
+	 *  - Gets the class from a loop id that is stored in the database. ex: 2 -> tagdiv_module_2
 	 *
  	 * @param $module_id
 	 * @return string
@@ -150,7 +150,7 @@ class td_api_module extends td_api_base {
 		// DEAL WITH LEGACY MODULE NAMES where we only have the id in the database, we can't have a module that is
 		// all numbers because php dosn't allow classes like that
 		if (is_numeric($module_id)) {
-			return 'td_module_'  . $module_id;
+			return 'tagdiv_module_'  . $module_id;
 		}
 		return $module_id;
 	}

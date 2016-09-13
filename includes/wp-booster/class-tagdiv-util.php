@@ -1,11 +1,11 @@
 <?php
-class td_util {
+class tagdiv_util {
 
 
     private static $authors_array_cache = ''; //cache the results from  create_array_authors
 
 
-	private static $theme_options_is_shutdown_hooked = false; /** flag used by @see td_util::update_option to hook only once on shutdown hook */
+	private static $theme_options_is_shutdown_hooked = false; /** flag used by @see tagdiv_util::update_option to hook only once on shutdown hook */
 
 
 
@@ -32,7 +32,7 @@ class td_util {
     /**
      * gets a category option for a specific category id.
      * - We have no update method because the panel has it's own update
-     *   implementation in @see td_panel_data_source::update_category
+     *   implementation in @see tagdiv_panel_data_source::update_category
      * - the panel uses this function to read settings for specific categories
      * - it is used also in the entire theme
      * @param $category_id
@@ -40,8 +40,8 @@ class td_util {
      * @return string
      */
     static function get_category_option($category_id, $option_id) {
-        if (isset(td_global::$td_options['category_options'][$category_id][$option_id])) {
-            return td_global::$td_options['category_options'][$category_id][$option_id];
+        if (isset(tagdiv_global::$tagdiv_options['category_options'][$category_id][$option_id])) {
+            return tagdiv_global::$tagdiv_options['category_options'][$category_id][$option_id];
         } else {
             return '';
         }
@@ -52,7 +52,7 @@ class td_util {
     /**
      * gets a custom post type option for a specific post type name.
      * - We have no update method because the panel has it's own update
-     *   implementation in @see td_panel_data_source::update_td_cpt
+     *   implementation in @see tagdiv_panel_data_source::update_tagdiv_cpt
      * - the panel uses this function to read settings for specific categories
      * - it is used also in the entire theme
      * @param $custom_post_type
@@ -60,8 +60,8 @@ class td_util {
      * @return string
      */
     static function get_ctp_option($custom_post_type, $option_id) {
-        if (isset(td_global::$td_options['td_cpt'][$custom_post_type][$option_id])) {
-            return td_global::$td_options['td_cpt'][$custom_post_type][$option_id];
+        if (isset(tagdiv_global::$tagdiv_options['tagdiv_cpt'][$custom_post_type][$option_id])) {
+            return tagdiv_global::$tagdiv_options['tagdiv_cpt'][$custom_post_type][$option_id];
         } else {
             return '';
         }
@@ -70,7 +70,7 @@ class td_util {
     /**
      * gets a custom taxonomy option for a specific taxonomy.
      * - We have no update method because the panel has it's own update
-     *   implementation in @see td_panel_data_source::update_td_taxonomy
+     *   implementation in @see tagdiv_panel_data_source::update_tagdiv_taxonomy
      * - the panel uses this function to read settings for specific categories
      * - it is used also in the entire theme
      * @param $taxonomy_name
@@ -78,8 +78,8 @@ class td_util {
      * @return string
      */
     static function get_taxonomy_option($taxonomy_name, $option_id) {
-        if (isset(td_global::$td_options['td_taxonomy'][$taxonomy_name][$option_id])) {
-            return td_global::$td_options['td_taxonomy'][$taxonomy_name][$option_id];
+        if (isset(tagdiv_global::$tagdiv_options['tagdiv_taxonomy'][$taxonomy_name][$option_id])) {
+            return tagdiv_global::$tagdiv_options['tagdiv_taxonomy'][$taxonomy_name][$option_id];
         } else {
             return '';
         }
@@ -94,10 +94,10 @@ class td_util {
      * @param $ad_position_id - header / sidebar etc...
      * @return string
      */
-    static function get_td_ads($ad_position_id) {
-        //print_r(td_global::$td_options);
-        if (isset(td_global::$td_options['td_ads'][$ad_position_id])) {
-            return td_global::$td_options['td_ads'];
+    static function get_tagdiv_ads($ad_position_id) {
+        //print_r(tagdiv_global::$tagdiv_options);
+        if (isset(tagdiv_global::$tagdiv_options['tagdiv_ads'][$ad_position_id])) {
+            return tagdiv_global::$tagdiv_options['tagdiv_ads'];
         } else {
             return '';
         }
@@ -110,7 +110,7 @@ class td_util {
      * @return bool
      */
     static function is_ad_spot_enabled($ad_spot_id) {
-        if (empty(td_global::$td_options['td_ads'][$ad_spot_id]['ad_code'])) {
+        if (empty(tagdiv_global::$tagdiv_options['tagdiv_ads'][$ad_spot_id]['ad_code'])) {
             return false;
         } else {
             return true;
@@ -125,10 +125,10 @@ class td_util {
      * @return string|array
      */
     static function get_option($optionName, $default_value = '') {
-        //$theme_options = get_option(TD_THEME_OPTIONS_NAME);
+        //$theme_options = get_option(tagdiv_THEME_OPTIONS_NAME);
 
-        if (!empty(td_global::$td_options[$optionName])) {
-            return td_global::$td_options[$optionName];
+        if (!empty(tagdiv_global::$tagdiv_options[$optionName])) {
+            return tagdiv_global::$tagdiv_options[$optionName];
         } else {
             if (!empty($default_value)) {
                 return $default_value;
@@ -138,9 +138,9 @@ class td_util {
         }
     }
 
-    //updates a theme option @todo sa updateze globala td_util::$td_options
+    //updates a theme option @todo sa updateze globala tagdiv_util::$tagdiv_options
     static function update_option($optionName, $newValue) {
-        td_global::$td_options[$optionName] = $newValue;
+        tagdiv_global::$tagdiv_options[$optionName] = $newValue;
 
 	    //  hook the shutdown action only once - on shutdown we save the theme settings to the DB
 	    if (self::$theme_options_is_shutdown_hooked === false) {
@@ -153,7 +153,7 @@ class td_util {
 
 	// hook used to save the theme options to the database on update
 	static function on_shutdown_save_theme_options() {
-		update_option(TD_THEME_OPTIONS_NAME, td_global::$td_options);
+		update_option(tagdiv_THEME_OPTIONS_NAME, tagdiv_global::$tagdiv_options);
 	}
 
 
@@ -167,7 +167,7 @@ class td_util {
     static function cut_title($cut_parms, $title) {
         //trim and get the excerpt
         $title = trim($title);
-        $title = td_util::excerpt($title,$cut_parms['excerpt']);
+        $title = tagdiv_util::excerpt($title,$cut_parms['excerpt']);
 
         //get an array of chars
         $title_chars = str_split($title);
@@ -217,12 +217,12 @@ class td_util {
 
     //gets the sidebar setting or default if no sidebar is selected for a specific setting id
     static function show_sidebar($template_id) {
-        $tds_cur_sidebar = td_util::get_option('tds_' . $template_id . '_sidebar');
+        $tds_cur_sidebar = tagdiv_util::get_option('tds_' . $template_id . '_sidebar');
         if (!empty($tds_cur_sidebar)) {
             dynamic_sidebar($tds_cur_sidebar);
         } else {
             //show default
-            if (!dynamic_sidebar(TD_THEME_NAME . ' default')) {
+            if (!dynamic_sidebar(tagdiv_THEME_NAME . ' default')) {
                 ?>
                 <!-- .no sidebar -->
                 <?php
@@ -231,7 +231,7 @@ class td_util {
     }
 
 
-    static function get_image_attachment_data($post_id, $size = 'td_180x135', $count = 1 ) {//'thumbnail'
+    static function get_image_attachment_data($post_id, $size = 'tagdiv_180x135', $count = 1 ) {//'thumbnail'
         $objMeta = array();
         $meta = '';// (stdClass)
         $args = array(
@@ -287,7 +287,7 @@ class td_util {
 
 
     /*  ----------------------------------------------------------------------------
-        used by the css compiler in /includes/app/td_css_generator.php
+        used by the css compiler in /includes/app/tagdiv_css_generator.php
      */
     static function adjustBrightness($hex, $steps) {
         // Steps should be between -255 and 255. Negative = darker, positive = lighter
@@ -431,7 +431,7 @@ class td_util {
 
 
     /**
-     * create $td_authors array in format id_author => display_name_author
+     * create $tagdiv_authors array in format id_author => display_name_author
      * @return array id_author => display_name_author
      */
     static function create_array_authors() {
@@ -443,21 +443,21 @@ class td_util {
                 return self::$authors_array_cache;
             }
 
-            $td_authors = array();
-            $td_return_obj_authors = get_users('role=Administrator');
+            $tagdiv_authors = array();
+            $tagdiv_return_obj_authors = get_users('role=Administrator');
 
-            $td_authors[' - No author filter - '] = '';
-            foreach($td_return_obj_authors as $obj_autor){
+            $tagdiv_authors[' - No author filter - '] = '';
+            foreach($tagdiv_return_obj_authors as $obj_autor){
                 $auth_id = $obj_autor->ID;
                 $auth_name = $obj_autor->display_name;
 
-                $td_authors[$auth_name] = $auth_id;
+                $tagdiv_authors[$auth_name] = $auth_id;
             }
 
-            self::$authors_array_cache = $td_authors;
+            self::$authors_array_cache = $tagdiv_authors;
 
-            //print_r($td_authors);
-            return $td_authors;
+            //print_r($tagdiv_authors);
+            return $tagdiv_authors;
         }
     }
 
@@ -497,7 +497,7 @@ class td_util {
 	    //$post_content = preg_replace('~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i', '', $post_content);
 
         //excerpt for letters
-        if (td_util::get_option('tds_excerpts_type') == 'letters') {
+        if (tagdiv_util::get_option('tds_excerpts_type') == 'letters') {
 
             $ret_excerpt = mb_substr($post_content, 0, $limit);
             if (mb_strlen($post_content)>=$limit) {
@@ -545,22 +545,22 @@ class td_util {
      * @param bool $add_all_category = if true ads - All categories - at the begining of the list (used for dropdowns)
      * @return mixed
      */
-    static $td_category2id_array_walker_buffer = array();
+    static $tagdiv_category2id_array_walker_buffer = array();
     static function get_category2id_array($add_all_category = true) {
 
         if (is_admin() === false) {
             return;
         }
 
-        if (empty(self::$td_category2id_array_walker_buffer)) {
+        if (empty(self::$tagdiv_category2id_array_walker_buffer)) {
             $categories = get_categories(array(
                 'hide_empty' => 0,
                 'number' => 1000
             ));
 
-            $td_category2id_array_walker = new td_category2id_array_walker;
-            $td_category2id_array_walker->walk($categories, 4);
-            self::$td_category2id_array_walker_buffer = $td_category2id_array_walker->td_array_buffer;
+            $tagdiv_category2id_array_walker = new tagdiv_category2id_array_walker;
+            $tagdiv_category2id_array_walker->walk($categories, 4);
+            self::$tagdiv_category2id_array_walker_buffer = $tagdiv_category2id_array_walker->tagdiv_array_buffer;
         }
 
 
@@ -568,10 +568,10 @@ class td_util {
             $categories_buffer['- All categories -'] = '';
             return array_merge(
                 $categories_buffer,
-                self::$td_category2id_array_walker_buffer
+                self::$tagdiv_category2id_array_walker_buffer
             );
         } else {
-            return self::$td_category2id_array_walker_buffer;
+            return self::$tagdiv_category2id_array_walker_buffer;
         }
     }
 
@@ -626,7 +626,7 @@ class td_util {
 	 */
 	static function is_pagebuilder_content($post) {
 
-		if ( td_util::tdc_is_live_editor_iframe() ) {
+		if ( tagdiv_util::tdc_is_live_editor_iframe() ) {
 			return true;
 		}
 
@@ -664,19 +664,19 @@ class td_util {
 
 
 
-    static function vc_set_column_number($td_columns) {
-        global $td_row_count, $td_column_count;
-        $td_row_count = 1;
+    static function vc_set_column_number($tagdiv_columns) {
+        global $tagdiv_row_count, $tagdiv_column_count;
+        $tagdiv_row_count = 1;
 
-        switch ($td_columns) {
+        switch ($tagdiv_columns) {
             case '1':
-                $td_column_count = '1/3';
+                $tagdiv_column_count = '1/3';
                 break;
             case '2':
-                $td_column_count = '2/3';
+                $tagdiv_column_count = '2/3';
                 break;
             case '3':
-                $td_column_count = '1/1';
+                $tagdiv_column_count = '1/1';
                 break;
 
         }
@@ -704,18 +704,18 @@ class td_util {
 
     /**
      * tries to determine on how many td-columns a block is  (1, 2 or 3)
-     * $td_row_count, $td_column_count are from the pagebuilder
+     * $tagdiv_row_count, $tagdiv_column_count are from the pagebuilder
      * @return int
      */
     static function vc_get_column_number() {
-        global $td_row_count, $td_column_count, $post;
+        global $tagdiv_row_count, $tagdiv_column_count, $post;
 
-        //echo 'xxxxx col: ' . $td_column_count . ' row: ' . $td_row_count;
+        //echo 'xxxxx col: ' . $tagdiv_column_count . ' row: ' . $tagdiv_row_count;
         $columns = 1;//number of column
 
-        if ($td_row_count == 1) {
+        if ($tagdiv_row_count == 1) {
             //first row
-            switch ($td_column_count) {
+            switch ($tagdiv_column_count) {
                 case '1/1':
                     $columns = 3;
                     break;
@@ -734,11 +734,11 @@ class td_util {
             }
         } else {
             //row in row
-            if ($td_column_count == '1/2') {
+            if ($tagdiv_column_count == '1/2') {
                 $columns = 1;
             }
 
-            if ($td_column_count == '1/3') {
+            if ($tagdiv_column_count == '1/3') {
                 // works if parent is empty (1/1)
                 $columns = 1;
             }
@@ -749,15 +749,15 @@ class td_util {
          * we are on 'page-title-sidebar' template here
          * we have to recalculate the columns to account for the optional sidebar of the template
          */
-        if(td_global::$current_template == 'page-title-sidebar'){
-            $td_page = get_post_meta($post->ID, 'td_page', true);
+        if(tagdiv_global::$current_template == 'page-title-sidebar'){
+            $tagdiv_page = get_post_meta($post->ID, 'tagdiv_page', true);
 
             //check for this page sidebar position
-            if (!empty($td_page['td_sidebar_position'])) {
-                $sidebar_position_pos = $td_page['td_sidebar_position'];
+            if (!empty($tagdiv_page['tagdiv_sidebar_position'])) {
+                $sidebar_position_pos = $tagdiv_page['tagdiv_sidebar_position'];
             } else {
                 //if sidebar position is set to default, then check the Default Sidebar Position (from Theme Panel - Template Settings - Page template)
-                $sidebar_position_pos = td_util::get_option('tds_page_sidebar_pos');
+                $sidebar_position_pos = tagdiv_util::get_option('tds_page_sidebar_pos');
             }
 
             switch ($sidebar_position_pos) {
@@ -789,10 +789,10 @@ class td_util {
 
     static function get_featured_image_src($post_id, $thumb_type) {
         $attachment_id = get_post_thumbnail_id($post_id);
-        $td_temp_image_url = wp_get_attachment_image_src($attachment_id, $thumb_type);
+        $tagdiv_temp_image_url = wp_get_attachment_image_src($attachment_id, $thumb_type);
 
-        if (!empty($td_temp_image_url[0])) {
-            return $td_temp_image_url[0];
+        if (!empty($tagdiv_temp_image_url[0])) {
+            return $tagdiv_temp_image_url[0];
         } else {
             return '';
         }
@@ -894,7 +894,7 @@ class td_util {
      * @param $crop
      */
     static function add_image_size_if_enabled($id, $x, $y, $crop) {
-        if (td_util::get_option('tds_thumb_' . $id) != '') {
+        if (tagdiv_util::get_option('tds_thumb_' . $id) != '') {
             add_image_size($id, $x, $y, $crop);
         }
     }
@@ -962,11 +962,11 @@ class td_util {
 
 	/**
 	 * Checks if a demo is loaded. If one is loaded the function returns the demo NAME/ID. If no demo is loaded we get FALSE
-	 * @see td_demo_state::update_state
+	 * @see tagdiv_demo_state::update_state
 	 * @return bool|string - false if no demo is loaded OR string - the demo id
 	 */
 	static function get_loaded_demo_id() {
-		$demo_state = get_option(TD_THEME_NAME . '_demo_state');  // get the current loaded demo... from wp cache
+		$demo_state = get_option(tagdiv_THEME_NAME . '_demo_state');  // get the current loaded demo... from wp cache
 		if (!empty($demo_state['demo_id'])) {
 			return $demo_state['demo_id'];
 		}
@@ -977,7 +977,7 @@ class td_util {
 	/**
 	 * Helper function used to check if the mobile theme is active.
 	 * Important! On ajax requests from mobile theme, please consider that the main theme is only known in wp-admin. That's why for this case
-	 * we check only for the 'td_mobile_theme' class existence.
+	 * we check only for the 'tagdiv_mobile_theme' class existence.
 	 *
 	 * @return bool
 	 */
@@ -989,13 +989,13 @@ class td_util {
 		 */
 
 		if (defined('DOING_AJAX') && DOING_AJAX) {
-			if (class_exists('td_mobile_theme', false)) {
+			if (class_exists('tagdiv_mobile_theme', false)) {
 				return true;
 			}
 		} else {
 			$current_theme_name = get_template();
 
-			if (empty($current_theme_name) and class_exists('td_mobile_theme', false)) {
+			if (empty($current_theme_name) and class_exists('tagdiv_mobile_theme', false)) {
 				return true;
 			}
 		}
@@ -1006,7 +1006,7 @@ class td_util {
     /**
      * Returns the srcset and sizes parameters or an empty string
      * @param $thumb_id - thumbnail id
-     * @param $thumb_type - thumbnail name/type (ex. td_356x220)
+     * @param $thumb_type - thumbnail name/type (ex. tagdiv_356x220)
      * @param $thumb_width - thumbnail width
      * @param $thumb_url - thumbnail url
      * @return string
@@ -1014,7 +1014,7 @@ class td_util {
 	static function get_srcset_sizes($thumb_id, $thumb_type, $thumb_width, $thumb_url) {
         $return_buffer = '';
         //retina srcset and sizes
-        if (td_util::get_option('tds_thumb_' . $thumb_type . '_retina') == 'yes' && !empty($thumb_width)) {
+        if (tagdiv_util::get_option('tds_thumb_' . $thumb_type . '_retina') == 'yes' && !empty($thumb_width)) {
             $thumb_w = ' ' . $thumb_width . 'w';
             $retina_thumb_width = $thumb_width * 2;
             $retina_thumb_w = ' ' . $retina_thumb_width . 'w';
@@ -1037,17 +1037,17 @@ class td_util {
         return $return_buffer;
     }
 
-}//end class td_util
+}//end class tagdiv_util
 
 
 
 
 
-class td_category2id_array_walker extends Walker {
+class tagdiv_category2id_array_walker extends Walker {
     var $tree_type = 'category';
     var $db_fields = array ('parent' => 'parent', 'id' => 'term_id');
 
-    var $td_array_buffer = array();
+    var $tagdiv_array_buffer = array();
 
     function start_lvl( &$output, $depth = 0, $args = array() ) {
     }
@@ -1057,7 +1057,7 @@ class td_category2id_array_walker extends Walker {
 
 
     function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
-        $this->td_array_buffer[str_repeat(' - ', $depth) .  $category->name . ' - [ id: ' . $category->term_id . ' ]' ] = $category->term_id;
+        $this->tagdiv_array_buffer[str_repeat(' - ', $depth) .  $category->name . ' - [ id: ' . $category->term_id . ' ]' ] = $category->term_id;
     }
 
 
