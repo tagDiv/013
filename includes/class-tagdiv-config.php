@@ -25,7 +25,7 @@ class Tagdiv_Config {
 		 */
 		tagdiv_api_module::add('tagdiv_module_1',
 			array(
-				'file' => tagdiv_global::$get_template_directory . '/includes/modules/tagdiv_module_1.php',
+				'file' => tagdiv_global::$get_template_directory . '/includes/modules/class-tagdiv-module-1.php',
 				'text' => 'Module 1',
 				'img' => tagdiv_global::$get_template_directory_uri . '/images/panel/modules/tagdiv_module_1.png',
 				'used_on_blocks' => array('tagdiv_block_3'),
@@ -53,7 +53,7 @@ class Tagdiv_Config {
 				"controls" => "full",
 				"category" => 'Blocks',
 				'icon' => 'icon-pagebuilder-tagdiv_block_1',
-				'file' => tagdiv_global::$get_template_directory . '/includes/shortcodes/tagdiv_block_1.php',
+				'file' => tagdiv_global::$get_template_directory . '/includes/shortcodes/class-tagdiv-block-1.php',
 //				"params" => array_merge(
 //					self::get_map_block_general_array(),
 //					self::get_map_filter_array(),
@@ -70,7 +70,7 @@ class Tagdiv_Config {
 		 */
 		tagdiv_api_block_template::add('tagdiv_block_template_1',
 			array (
-				'file' => tagdiv_global::$get_template_directory . '/includes/block_templates/tagdiv_block_template_1.php',
+				'file' => tagdiv_global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
 			)
 		);
 
