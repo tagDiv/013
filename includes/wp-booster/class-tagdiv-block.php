@@ -130,7 +130,7 @@ class Tagdiv_Block {
          * tagdiv_block_template_x - Loaded via autoload
          * @see tagdiv_autoload_classes::loading_classes
          */
-        $tagdiv_block_template_id = 'tagdiv_block_template_1';
+        $tagdiv_block_template_id = 'Tagdiv_Block_Template_1';
 
         $this->tagdiv_block_template_data = array(
             'atts' => $this->atts,

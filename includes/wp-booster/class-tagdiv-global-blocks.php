@@ -1,7 +1,8 @@
 <?php
 /**
- * tagdiv_global_blocks.php
- * no tagdiv_util loaded, no access to settings
+ * @package wp-booster
+ * .org update
+ *  - get_instance() - added error message when a block_id does not exists in
  */
 
 
@@ -29,6 +30,9 @@ class Tagdiv_Global_Blocks {
     }
 
     static function get_instance($block_id) {
+	    //$block_id = Tagdiv_Util::orgid_to_tdid($block_id);
+
+
         if (isset(self::$global_instances[$block_id])) {
             return self::$global_instances[$block_id];
         } else if (in_array($block_id, self::$global_id_lazy_instances)) {
@@ -36,6 +40,7 @@ class Tagdiv_Global_Blocks {
             self::$global_instances[$block_id] = $new_instance;
             return $new_instance;
         } else {
+        	Tagdiv_Util::error(__FILE__, 'get_instance - was called with a $block_id that does not exists: ' . $block_id);
             /**
              * return a fake new instance of tagdiv_block - so that we have the render() method for decoupling - when the blocks are deleted :)  @todo wtf?
              */

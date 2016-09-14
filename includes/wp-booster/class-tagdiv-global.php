@@ -358,34 +358,3 @@ class Tagdiv_Global {
 }
 
 
-if (is_ssl()) {
-    Tagdiv_Global::$http_or_https = 'https';
-}
-
-
-require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-if (is_plugin_active('woocommerce/woocommerce.php')) {
-    Tagdiv_Global::$is_woocommerce_installed = true;
-}
-
-
-/**
- * tagdiv_global::$get_template_directory must be used instead of get_template_directory()
- * tagdiv_global::$get_template_directory_uri must be used instead of get_template_directory_uri()
- *
- * They supplies the get_template_directory() and get_template_directory_uri() if the mobile theme is not activated (actually, the mobile plugin is not activated).
- *
- * If the mobile plugin is activated, they will return the same values, but for doing this it needs to consider the tagdiv_mobile_theme class who saves these values. In this case,
- * the get_template_directory() and get_template_directory_uri() returns values corresponding to the mobile theme, and not to the main theme.
- */
-
-$current_theme_name = get_template();
-
-if (empty($current_theme_name) and class_exists('tagdiv_mobile_theme')) {
-	Tagdiv_Global::$get_template_directory     = tagdiv_mobile_theme::$main_dir_path;
-	Tagdiv_Global::$get_template_directory_uri = tagdiv_mobile_theme::$main_uri_path;
-} else {
-	Tagdiv_Global::$get_template_directory     = get_template_directory();
-	Tagdiv_Global::$get_template_directory_uri = get_template_directory_uri();
-}
-

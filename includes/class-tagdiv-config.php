@@ -23,7 +23,7 @@ class Tagdiv_Config {
 		/**
 		 * modules list
 		 */
-		Tagdiv_API_Module::add('tagdiv_module_1',
+		Tagdiv_API_Module::add('Tagdiv_Module_1',
 			array(
 				'file' => Tagdiv_Global::$get_template_directory . '/includes/modules/class-tagdiv-module-1.php',
 				'text' => 'Module 1',
@@ -44,7 +44,7 @@ class Tagdiv_Config {
 		/**
 		 * the blocks
 		 */
-		Tagdiv_API_Block::add('tagdiv_block_1',
+		Tagdiv_API_Block::add('Tagdiv_Block_1',
 			array(
 				'map_in_visual_composer' => true,
 				"name" => 'Block 1',
@@ -68,17 +68,23 @@ class Tagdiv_Config {
 		/**
 		 * block templates
 		 */
-		Tagdiv_API_Block_Template::add('tagdiv_block_template_1',
+		Tagdiv_API_Block_Template::add('Tagdiv_Block_Template_1',
 			array (
 				'file' => Tagdiv_Global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
 			)
 		);
 
+//		Tagdiv_API_Block_Template::add('tagdiv_block_template_1',
+//			array (
+//				'file' => Tagdiv_Global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
+//			)
+//		);
 
 
-		Tagdiv_API_Thumb::add('tagdiv_300x220',
+
+		Tagdiv_API_Thumb::add('td_300x220',
 			array(
-				'name' => 'tagdiv_300x220',
+				'name' => 'td_300x220',
 				'width' => 300,
 				'height' => 220,
 				'crop' => array('center', 'top'),

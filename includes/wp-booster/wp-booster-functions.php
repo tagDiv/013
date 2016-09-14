@@ -9,6 +9,16 @@ do_action('tagdiv_wp-booster_before');  //@todo is probably not used by anyone
 // theme utility files
 require_once('class-tagdiv-global.php');
 Tagdiv_Global::$tagdiv_options = get_option(tagdiv_THEME_OPTIONS_NAME); //read the theme settings once
+if (is_ssl()) {
+	Tagdiv_Global::$http_or_https = 'https';
+}
+Tagdiv_Global::$get_template_directory     = get_template_directory();
+Tagdiv_Global::$get_template_directory_uri = get_template_directory_uri();
+
+
+
+
+
 
 require_once('class-tagdiv-util.php');
 
@@ -19,8 +29,10 @@ require_once('class-tagdiv-api-block.php');
 require_once('class-tagdiv-api-module.php');
 require_once('class-tagdiv-api-block-template.php');
 require_once('class-tagdiv-api-thumb.php');
+require_once('class-tagdiv-api-autoload.php');
 
 
+require_once('class-tagdiv-autoload-classes.php');
 
 // hook here to use the theme api
 do_action('tagdiv_global_after');
