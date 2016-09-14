@@ -8,7 +8,7 @@
  *  - includes/tagdiv_page_generator/tagdiv_template_layout.php (author page, tag page)
  */
 
-class tagdiv_block_layout {
+class Tagdiv_Block_Layout {
 
 
     var $row_is_open = false;

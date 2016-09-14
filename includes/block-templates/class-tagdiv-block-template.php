@@ -3,7 +3,7 @@
  * this is the default block template
  * Class tagdiv_block_header_1
  */
-class tagdiv_block_template_1 {
+class Tagdiv_Block_Template_1 {
 
     /**
      * @var string the template data, it's set on construct
@@ -108,7 +108,7 @@ class tagdiv_block_template_1 {
         </style>
     ";
 
-        $tagdiv_css_compiler = new tagdiv_css_compiler($raw_css);
+        $tagdiv_css_compiler = new Tagdiv_CSS_Compiler($raw_css);
         $tagdiv_css_compiler->load_setting_raw('header_color', $header_color);
         $tagdiv_css_compiler->load_setting_raw('header_text_color', $header_text_color);
 
@@ -171,7 +171,7 @@ class tagdiv_block_template_1 {
         //builde the dropdown
         $buffy .= '<ul class="td-pulldown-filter-list">';
         foreach ($this->template_data_array['tagdiv_pull_down_items'] as $item) {
-            $buffy .= '<li class="td-pulldown-filter-item"><a class="td-pulldown-filter-link" id="' . tagdiv_global::tagdiv_generate_unique_id() . '" data-tagdiv_filter_value="' . $item['id'] . '" data-tagdiv_block_id="' . $this->template_data_array['block_uid'] . '" href="#">' . $item['name'] . '</a></li>';
+            $buffy .= '<li class="td-pulldown-filter-item"><a class="td-pulldown-filter-link" id="' . Tagdiv_Global::tagdiv_generate_unique_id() . '" data-tagdiv_filter_value="' . $item['id'] . '" data-tagdiv_block_id="' . $this->template_data_array['block_uid'] . '" href="#">' . $item['name'] . '</a></li>';
         }
         $buffy .= '</ul>';
 

@@ -4,7 +4,7 @@
  * The theme's css buffer. Has a _hook method that is called at the end of this file.
  * Class tagdiv_css_buffer
  */
-class tagdiv_css_buffer {
+class Tagdiv_Css_Buffer {
 
 
 	// here we hold the two buffers
@@ -93,7 +93,7 @@ class tagdiv_css_buffer {
 
 
 	/**
-	 * trims and renders the css for the header. If wp-booster is installed, it will render in footer @see tagdiv_css_buffer::schedule_css_header_buffer_render
+	 * trims and renders the css for the header. If wp-booster is installed, it will render in footer @see Tagdiv_Css_Buffer::schedule_css_header_buffer_render
 	 */
 	static function on_wp_header_render_header_css() {
 		self::$css_header_buffer_has_rendered = true;

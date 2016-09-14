@@ -9,7 +9,7 @@
  * The theme's module api, usable via the tagdiv_global_after hook
  * Class tagdiv_api_module static module api
  */
-class tagdiv_api_module extends tagdiv_api_base {
+class Tagdiv_API_Module extends Tagdiv_API_Base {
 
     /**
      * This method to register a new module
@@ -36,7 +36,7 @@ class tagdiv_api_module extends tagdiv_api_base {
 
     	// put a default image if we don't have any image, useful when developing a new module
     	if (empty($params_array['img'])) {
-		    $params_array['img'] = tagdiv_global::$get_template_directory_uri . '/includes/wp_booster/wp-admin/images/panel/panel-placeholders/no_module_image.png';
+		    $params_array['img'] = Tagdiv_Global::$get_template_directory_uri . '/includes/wp_booster/wp-admin/images/panel/panel-placeholders/no_module_image.png';
 	    }
 
         parent::add_component(__CLASS__, $module_id, $params_array);

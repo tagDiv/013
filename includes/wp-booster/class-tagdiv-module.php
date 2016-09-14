@@ -1,5 +1,5 @@
 <?php
-abstract class tagdiv_module {
+abstract class Tagdiv_Module {
     var $post;
 
     var $title_attribute;
@@ -29,7 +29,7 @@ abstract class tagdiv_module {
      */
     function __construct($post) {
         if (gettype($post) != 'object' or get_class($post) != 'WP_Post') {
-            tagdiv_util::error(__FILE__, 'tagdiv_module: ' . get_Class($this) . '($post): $post is not WP_Post');
+            Tagdiv_Util::error(__FILE__, 'tagdiv_module: ' . get_Class($this) . '($post): $post is not WP_Post');
         }
 
 
@@ -88,7 +88,7 @@ abstract class tagdiv_module {
 
 
 	    // each module setting has a 'class' key to customize css
-	    $module_class = tagdiv_api_module::get_key(get_class($this), 'class');
+	    $module_class = Tagdiv_API_Module::get_key(get_class($this), 'class');
 
 	    if ($module_class != '') {
 		    $buffy .= ' ' . $module_class;
@@ -96,12 +96,12 @@ abstract class tagdiv_module {
 
 
         //show no thumb only if no thumb is detected and image placeholders are disabled
-        if (is_null($this->post_thumb_id) and tagdiv_util::get_option('tds_hide_featured_image_placeholder') == 'hide_placeholder') {
+        if ( is_null($this->post_thumb_id) and Tagdiv_Util::get_option('tds_hide_featured_image_placeholder') == 'hide_placeholder') {
             $buffy .= ' tagdiv_module_no_thumb';
         }
 
         // fix the meta info space when all options are off
-        if (tagdiv_util::get_option('tds_m_show_author_name') == 'hide' and tagdiv_util::get_option('tds_m_show_date') == 'hide' and tagdiv_util::get_option('tds_m_show_comments') == 'hide') {
+        if ( Tagdiv_Util::get_option('tds_m_show_author_name') == 'hide' and Tagdiv_Util::get_option('tds_m_show_date') == 'hide' and Tagdiv_Util::get_option('tds_m_show_comments') == 'hide') {
             $buffy .= ' td-meta-info-hide';
         }
 
@@ -120,10 +120,10 @@ abstract class tagdiv_module {
         $buffy = '';
 
         if ($this->is_review === false) {
-            if (tagdiv_util::get_option('tds_m_show_author_name') != 'hide') {
+            if ( Tagdiv_Util::get_option('tds_m_show_author_name') != 'hide') {
                 $buffy .= '<span class="td-post-author-name">';
                 $buffy .= '<a href="' . get_author_posts_url($this->post->post_author) . '">' . get_the_author_meta('display_name', $this->post->post_author) . '</a>' ;
-                if (tagdiv_util::get_option('tds_m_show_author_name') != 'hide' and tagdiv_util::get_option('tds_m_show_date') != 'hide') {
+                if ( Tagdiv_Util::get_option('tds_m_show_author_name') != 'hide' and Tagdiv_Util::get_option('tds_m_show_date') != 'hide') {
                     $buffy .= ' <span>-</span> ';
                 }
                 $buffy .= '</span>';
@@ -137,7 +137,7 @@ abstract class tagdiv_module {
 
     function get_date($show_stars_on_review = true) {
         $visibility_class = '';
-        if (tagdiv_util::get_option('tds_m_show_date') == 'hide') {
+        if ( Tagdiv_Util::get_option('tds_m_show_date') == 'hide') {
             $visibility_class = ' td-visibility-hidden';
         }
 
@@ -149,7 +149,7 @@ abstract class tagdiv_module {
             $buffy .= '</div>';
 
         } else {
-            if (tagdiv_util::get_option('tds_m_show_date') != 'hide') {
+            if ( Tagdiv_Util::get_option('tds_m_show_date') != 'hide') {
                 $tagdiv_article_date_unix = get_the_time('U', $this->post->ID);
                 $buffy .= '<span class="td-post-date">';
                     $buffy .= '<time class="entry-date updated td-module-date' . $visibility_class . '" datetime="' . date(DATE_W3C, $tagdiv_article_date_unix) . '" >' . get_the_time(get_option('date_format'), $this->post->ID) . '</time>';
@@ -162,7 +162,7 @@ abstract class tagdiv_module {
 
     function get_comments() {
         $buffy = '';
-        if (tagdiv_util::get_option('tds_m_show_comments') != 'hide') {
+        if ( Tagdiv_Util::get_option('tds_m_show_comments') != 'hide') {
             $buffy .= '<div class="td-module-comments">';
                 $buffy .= '<a href="' . get_comments_link($this->post->ID) . '">';
                     $buffy .= get_comments_number($this->post->ID);
@@ -182,7 +182,7 @@ abstract class tagdiv_module {
      */
     function get_image($thumbType) {
         $buffy = ''; //the output buffer
-        $tds_hide_featured_image_placeholder = tagdiv_util::get_option('tds_hide_featured_image_placeholder');
+        $tds_hide_featured_image_placeholder = Tagdiv_Util::get_option('tds_hide_featured_image_placeholder');
         //retina image
         $srcset_sizes = '';
 
@@ -193,7 +193,7 @@ abstract class tagdiv_module {
                 //if we have a thumb
                 // check to see if the thumb size is enabled in the panel, we don't have to check for the default wordpress
                 // thumbs (the default ones are already cut and we don't have  a panel setting for them)
-                if (tagdiv_util::get_option('tds_thumb_' . $thumbType) != 'yes' and $thumbType != 'thumbnail') {
+                if ( Tagdiv_Util::get_option( 'tds_thumb_' . $thumbType) != 'yes' and $thumbType != 'thumbnail') {
                     //the thumb is disabled, show a placeholder thumb from the theme with the "thumb disabled" message
                     global $_wp_additional_image_sizes;
 
@@ -210,7 +210,7 @@ abstract class tagdiv_module {
                     }
 
 
-                    $tagdiv_temp_image_url[0] = tagdiv_global::$get_template_directory_uri . '/images/thumb-disabled/' . $thumbType . '.png';
+                    $tagdiv_temp_image_url[0] = Tagdiv_Global::$get_template_directory_uri . '/images/thumb-disabled/' . $thumbType . '.png';
                     $attachment_alt = 'alt=""';
                     $attachment_title = '';
 
@@ -234,7 +234,7 @@ abstract class tagdiv_module {
                     }
 
                     //retina image
-                    $srcset_sizes = tagdiv_util::get_srcset_sizes($this->post_thumb_id, $thumbType, $tagdiv_temp_image_url[1], $tagdiv_temp_image_url[0]);
+                    $srcset_sizes = Tagdiv_Util::get_srcset_sizes($this->post_thumb_id, $thumbType, $tagdiv_temp_image_url[1], $tagdiv_temp_image_url[0]);
 
                 } // end panel thumb enabled check
 
@@ -264,13 +264,13 @@ abstract class tagdiv_module {
                  * This should be enough to avoid getting a non existing id using api thumb.
                  */
 	            if (!empty($_wp_additional_image_sizes) && array_key_exists($thumbType, $_wp_additional_image_sizes) && ($tagdiv_temp_image_url[1] == '' || $tagdiv_temp_image_url[2] == '')) {
-                    $tagdiv_thumb_parameters = tagdiv_api_thumb::get_by_id($thumbType);
+                    $tagdiv_thumb_parameters = Tagdiv_API_Thumb::get_by_id($thumbType);
 	                $tagdiv_temp_image_url[1] = $tagdiv_thumb_parameters['width'];
                     $tagdiv_temp_image_url[2] = $tagdiv_thumb_parameters['height'];
                 }
 
 
-                $tagdiv_temp_image_url[0] = tagdiv_global::$get_template_directory_uri . '/images/no-thumb/' . $thumbType . '.png';
+                $tagdiv_temp_image_url[0] = Tagdiv_Global::$get_template_directory_uri . '/images/no-thumb/' . $thumbType . '.png';
                 $attachment_alt = 'alt=""';
                 $attachment_title = '';
             } //end    if ($this->post_has_thumb) {
@@ -290,7 +290,7 @@ abstract class tagdiv_module {
 
                             $use_small_post_format_icon_size = false;
                             // search in all the thumbs for the one that we are currently using here and see if it has post_format_icon_size = small
-                            foreach (tagdiv_api_thumb::get_all() as $thumb_from_thumb_list) {
+                            foreach (Tagdiv_API_Thumb::get_all() as $thumb_from_thumb_list) {
                                 if ($thumb_from_thumb_list['name'] == $thumbType and $thumb_from_thumb_list['post_format_icon_size'] == 'small') {
                                     $use_small_post_format_icon_size = true;
                                     break;
@@ -299,9 +299,9 @@ abstract class tagdiv_module {
 
                             // load the small or medium play icon
                             if ($use_small_post_format_icon_size === true) {
-                                $buffy .= '<span class="td-video-play-ico td-video-small"><img width="20" height="20" class="td-retina" src="' . tagdiv_global::$get_template_directory_uri . '/images/icons/video-small.png' . '" alt="video"/></span>';
+                                $buffy .= '<span class="td-video-play-ico td-video-small"><img width="20" height="20" class="td-retina" src="' . Tagdiv_Global::$get_template_directory_uri . '/images/icons/video-small.png' . '" alt="video"/></span>';
                             } else {
-                                $buffy .= '<span class="td-video-play-ico"><img width="40" height="40" class="td-retina" src="' . tagdiv_global::$get_template_directory_uri . '/images/icons/ico-video-large.png' . '" alt="video"/></span>';
+                                $buffy .= '<span class="td-video-play-ico"><img width="40" height="40" class="td-retina" src="' . Tagdiv_Global::$get_template_directory_uri . '/images/icons/ico-video-large.png' . '" alt="video"/></span>';
                             }
                         } // end on video if
 
@@ -329,26 +329,26 @@ abstract class tagdiv_module {
         //see if we have to cut the title and if we have the title lenght in the panel for ex: tagdiv_module_6__title_excerpt
         if ($cut_at != '') {
             //cut at the hard coded size
-            $buffy .= tagdiv_util::excerpt($this->title, $cut_at, 'show_shortcodes');
+            $buffy .= Tagdiv_Util::excerpt($this->title, $cut_at, 'show_shortcodes');
 
         } else {
             $current_module_class = get_class($this);
 
             //see if we have a default setting for this module, and if so only apply it if we don't get other things form theme panel.
-            if (tagdiv_api_module::_helper_check_excerpt_title($current_module_class)) {
-                $db_title_excerpt = tagdiv_util::get_option($current_module_class . '_title_excerpt');
+            if (Tagdiv_API_Module::_helper_check_excerpt_title($current_module_class)) {
+                $db_title_excerpt = Tagdiv_Util::get_option( $current_module_class . '_title_excerpt');
                 if ($db_title_excerpt != '') {
                     //cut from the database settings
-                    $buffy .= tagdiv_util::excerpt($this->title, $db_title_excerpt, 'show_shortcodes');
+                    $buffy .= Tagdiv_Util::excerpt($this->title, $db_title_excerpt, 'show_shortcodes');
                 } else {
                     //cut at the default size
-                    $module_api = tagdiv_api_module::get_by_id($current_module_class);
-                    $buffy .= tagdiv_util::excerpt($this->title, $module_api['excerpt_title'], 'show_shortcodes');
+                    $module_api = Tagdiv_API_Module::get_by_id($current_module_class);
+                    $buffy .= Tagdiv_Util::excerpt($this->title, $module_api['excerpt_title'], 'show_shortcodes');
                 }
             } else {
                 /**
                  * no $cut_at provided and no setting in tagdiv_config -> return the full title
-                 * @see tagdiv_global::$modules_list
+                 * @see Tagdiv_Global::$modules_list
                  */
                 $buffy .= $this->title;
             }
@@ -376,25 +376,25 @@ abstract class tagdiv_module {
         $buffy = '';
         if ($cut_at != '') {
             // simple, $cut_at and return
-            $buffy .= tagdiv_util::excerpt($this->post->post_content, $cut_at);
+            $buffy .= Tagdiv_Util::excerpt($this->post->post_content, $cut_at);
         } else {
             $current_module_class = get_class($this);
 
             //see if we have a default setting for this module, and if so only apply it if we don't get other things form theme panel.
-            if (tagdiv_api_module::_helper_check_excerpt_content($current_module_class)) {
-                $db_content_excerpt = tagdiv_util::get_option($current_module_class . '_content_excerpt');
+            if (Tagdiv_API_Module::_helper_check_excerpt_content($current_module_class)) {
+                $db_content_excerpt = Tagdiv_Util::get_option( $current_module_class . '_content_excerpt');
                 if ($db_content_excerpt != '') {
                     //cut from the database settings
-                    $buffy .= tagdiv_util::excerpt($this->post->post_content, $db_content_excerpt);
+                    $buffy .= Tagdiv_Util::excerpt($this->post->post_content, $db_content_excerpt);
                 } else {
                     //cut at the default size
-                    $module_api = tagdiv_api_module::get_by_id($current_module_class);
-                    $buffy .= tagdiv_util::excerpt($this->post->post_content, $module_api['excerpt_content']);
+                    $module_api = Tagdiv_API_Module::get_by_id($current_module_class);
+                    $buffy .= Tagdiv_Util::excerpt($this->post->post_content, $module_api['excerpt_content']);
                 }
             } else {
                 /**
                  * no $cut_at provided and no setting in tagdiv_config -> return the full $this->post->post_content
-                 * @see tagdiv_global::$modules_list
+                 * @see Tagdiv_Global::$modules_list
                  */
                 $buffy .= $this->post->post_content;
             }
@@ -505,7 +505,7 @@ abstract class tagdiv_module {
     function get_quotes_on_blocks() {
 
         // do not show the quote on WordPress loops
-        if (tagdiv_global::$is_wordpress_loop === true or tagdiv_util::vc_get_column_number() != 1) {
+        if ( Tagdiv_Global::$is_wordpress_loop === true or Tagdiv_Util::vc_get_column_number() != 1) {
             return '';
         }
 

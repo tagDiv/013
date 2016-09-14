@@ -1018,7 +1018,7 @@ function tagdiv_css_generator() {
 
 
 
-    $tagdiv_css_compiler = new tagdiv_css_compiler($raw_css);
+    $tagdiv_css_compiler = new Tagdiv_CSS_Compiler($raw_css);
 
 
     //output the style

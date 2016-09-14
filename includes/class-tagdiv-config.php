@@ -16,18 +16,18 @@ class Tagdiv_Config {
 
 	/**
 	 * setup the global theme specific variables
-	 * @depends tagdiv_global
+	 * @depends Tagdiv_Global
 	 */
 	static function on_tagdiv_global_after_config() {
 
 		/**
 		 * modules list
 		 */
-		tagdiv_api_module::add('tagdiv_module_1',
+		Tagdiv_API_Module::add('tagdiv_module_1',
 			array(
-				'file' => tagdiv_global::$get_template_directory . '/includes/modules/class-tagdiv-module-1.php',
+				'file' => Tagdiv_Global::$get_template_directory . '/includes/modules/class-tagdiv-module-1.php',
 				'text' => 'Module 1',
-				'img' => tagdiv_global::$get_template_directory_uri . '/images/panel/modules/tagdiv_module_1.png',
+				'img' => Tagdiv_Global::$get_template_directory_uri . '/images/panel/modules/tagdiv_module_1.png',
 				'used_on_blocks' => array('tagdiv_block_3'),
 				'excerpt_title' => 12,
 				'excerpt_content' => '',
@@ -44,7 +44,7 @@ class Tagdiv_Config {
 		/**
 		 * the blocks
 		 */
-		tagdiv_api_block::add('tagdiv_block_1',
+		Tagdiv_API_Block::add('tagdiv_block_1',
 			array(
 				'map_in_visual_composer' => true,
 				"name" => 'Block 1',
@@ -53,7 +53,7 @@ class Tagdiv_Config {
 				"controls" => "full",
 				"category" => 'Blocks',
 				'icon' => 'icon-pagebuilder-tagdiv_block_1',
-				'file' => tagdiv_global::$get_template_directory . '/includes/shortcodes/class-tagdiv-block-1.php',
+				'file' => Tagdiv_Global::$get_template_directory . '/includes/shortcodes/class-tagdiv-block-1.php',
 //				"params" => array_merge(
 //					self::get_map_block_general_array(),
 //					self::get_map_filter_array(),
@@ -68,15 +68,15 @@ class Tagdiv_Config {
 		/**
 		 * block templates
 		 */
-		tagdiv_api_block_template::add('tagdiv_block_template_1',
+		Tagdiv_API_Block_Template::add('tagdiv_block_template_1',
 			array (
-				'file' => tagdiv_global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
+				'file' => Tagdiv_Global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
 			)
 		);
 
 
 
-		tagdiv_api_thumb::add('tagdiv_300x220',
+		Tagdiv_API_Thumb::add('tagdiv_300x220',
 			array(
 				'name' => 'tagdiv_300x220',
 				'width' => 300,

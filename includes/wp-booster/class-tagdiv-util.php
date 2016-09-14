@@ -1,11 +1,11 @@
 <?php
-class tagdiv_util {
+class Tagdiv_Util {
 
 
     private static $authors_array_cache = ''; //cache the results from  create_array_authors
 
 
-	private static $theme_options_is_shutdown_hooked = false; /** flag used by @see tagdiv_util::update_option to hook only once on shutdown hook */
+	private static $theme_options_is_shutdown_hooked = false; /** flag used by @see Tagdiv_Util::update_option to hook only once on shutdown hook */
 
 
 
@@ -40,8 +40,8 @@ class tagdiv_util {
      * @return string
      */
     static function get_category_option($category_id, $option_id) {
-        if (isset(tagdiv_global::$tagdiv_options['category_options'][$category_id][$option_id])) {
-            return tagdiv_global::$tagdiv_options['category_options'][$category_id][$option_id];
+        if (isset(Tagdiv_Global::$tagdiv_options['category_options'][$category_id][$option_id])) {
+            return Tagdiv_Global::$tagdiv_options['category_options'][$category_id][$option_id];
         } else {
             return '';
         }
@@ -60,8 +60,8 @@ class tagdiv_util {
      * @return string
      */
     static function get_ctp_option($custom_post_type, $option_id) {
-        if (isset(tagdiv_global::$tagdiv_options['tagdiv_cpt'][$custom_post_type][$option_id])) {
-            return tagdiv_global::$tagdiv_options['tagdiv_cpt'][$custom_post_type][$option_id];
+        if (isset(Tagdiv_Global::$tagdiv_options['tagdiv_cpt'][$custom_post_type][$option_id])) {
+            return Tagdiv_Global::$tagdiv_options['tagdiv_cpt'][$custom_post_type][$option_id];
         } else {
             return '';
         }
@@ -78,8 +78,8 @@ class tagdiv_util {
      * @return string
      */
     static function get_taxonomy_option($taxonomy_name, $option_id) {
-        if (isset(tagdiv_global::$tagdiv_options['tagdiv_taxonomy'][$taxonomy_name][$option_id])) {
-            return tagdiv_global::$tagdiv_options['tagdiv_taxonomy'][$taxonomy_name][$option_id];
+        if (isset(Tagdiv_Global::$tagdiv_options['tagdiv_taxonomy'][$taxonomy_name][$option_id])) {
+            return Tagdiv_Global::$tagdiv_options['tagdiv_taxonomy'][$taxonomy_name][$option_id];
         } else {
             return '';
         }
@@ -96,8 +96,8 @@ class tagdiv_util {
      */
     static function get_tagdiv_ads($ad_position_id) {
         //print_r(tagdiv_global::$tagdiv_options);
-        if (isset(tagdiv_global::$tagdiv_options['tagdiv_ads'][$ad_position_id])) {
-            return tagdiv_global::$tagdiv_options['tagdiv_ads'];
+        if (isset(Tagdiv_Global::$tagdiv_options['tagdiv_ads'][$ad_position_id])) {
+            return Tagdiv_Global::$tagdiv_options['tagdiv_ads'];
         } else {
             return '';
         }
@@ -110,7 +110,7 @@ class tagdiv_util {
      * @return bool
      */
     static function is_ad_spot_enabled($ad_spot_id) {
-        if (empty(tagdiv_global::$tagdiv_options['tagdiv_ads'][$ad_spot_id]['ad_code'])) {
+        if (empty(Tagdiv_Global::$tagdiv_options['tagdiv_ads'][$ad_spot_id]['ad_code'])) {
             return false;
         } else {
             return true;
@@ -127,8 +127,8 @@ class tagdiv_util {
     static function get_option($optionName, $default_value = '') {
         //$theme_options = get_option(tagdiv_THEME_OPTIONS_NAME);
 
-        if (!empty(tagdiv_global::$tagdiv_options[$optionName])) {
-            return tagdiv_global::$tagdiv_options[$optionName];
+        if (!empty(Tagdiv_Global::$tagdiv_options[$optionName])) {
+            return Tagdiv_Global::$tagdiv_options[$optionName];
         } else {
             if (!empty($default_value)) {
                 return $default_value;
@@ -140,7 +140,7 @@ class tagdiv_util {
 
     //updates a theme option @todo sa updateze globala tagdiv_util::$tagdiv_options
     static function update_option($optionName, $newValue) {
-        tagdiv_global::$tagdiv_options[$optionName] = $newValue;
+        Tagdiv_Global::$tagdiv_options[$optionName] = $newValue;
 
 	    //  hook the shutdown action only once - on shutdown we save the theme settings to the DB
 	    if (self::$theme_options_is_shutdown_hooked === false) {
@@ -153,7 +153,7 @@ class tagdiv_util {
 
 	// hook used to save the theme options to the database on update
 	static function on_shutdown_save_theme_options() {
-		update_option(tagdiv_THEME_OPTIONS_NAME, tagdiv_global::$tagdiv_options);
+		update_option(tagdiv_THEME_OPTIONS_NAME, Tagdiv_Global::$tagdiv_options);
 	}
 
 
@@ -167,7 +167,7 @@ class tagdiv_util {
     static function cut_title($cut_parms, $title) {
         //trim and get the excerpt
         $title = trim($title);
-        $title = tagdiv_util::excerpt($title,$cut_parms['excerpt']);
+        $title = Tagdiv_Util::excerpt($title,$cut_parms['excerpt']);
 
         //get an array of chars
         $title_chars = str_split($title);
@@ -217,7 +217,7 @@ class tagdiv_util {
 
     //gets the sidebar setting or default if no sidebar is selected for a specific setting id
     static function show_sidebar($template_id) {
-        $tds_cur_sidebar = tagdiv_util::get_option('tds_' . $template_id . '_sidebar');
+        $tds_cur_sidebar = Tagdiv_Util::get_option( 'tds_' . $template_id . '_sidebar');
         if (!empty($tds_cur_sidebar)) {
             dynamic_sidebar($tds_cur_sidebar);
         } else {
@@ -497,7 +497,7 @@ class tagdiv_util {
 	    //$post_content = preg_replace('~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i', '', $post_content);
 
         //excerpt for letters
-        if (tagdiv_util::get_option('tds_excerpts_type') == 'letters') {
+        if ( Tagdiv_Util::get_option('tds_excerpts_type') == 'letters') {
 
             $ret_excerpt = mb_substr($post_content, 0, $limit);
             if (mb_strlen($post_content)>=$limit) {
@@ -626,7 +626,7 @@ class tagdiv_util {
 	 */
 	static function is_pagebuilder_content($post) {
 
-		if ( tagdiv_util::tdc_is_live_editor_iframe() ) {
+		if ( Tagdiv_Util::tdc_is_live_editor_iframe() ) {
 			return true;
 		}
 
@@ -749,7 +749,7 @@ class tagdiv_util {
          * we are on 'page-title-sidebar' template here
          * we have to recalculate the columns to account for the optional sidebar of the template
          */
-        if(tagdiv_global::$current_template == 'page-title-sidebar'){
+        if( Tagdiv_Global::$current_template == 'page-title-sidebar'){
             $tagdiv_page = get_post_meta($post->ID, 'tagdiv_page', true);
 
             //check for this page sidebar position
@@ -757,7 +757,7 @@ class tagdiv_util {
                 $sidebar_position_pos = $tagdiv_page['tagdiv_sidebar_position'];
             } else {
                 //if sidebar position is set to default, then check the Default Sidebar Position (from Theme Panel - Template Settings - Page template)
-                $sidebar_position_pos = tagdiv_util::get_option('tds_page_sidebar_pos');
+                $sidebar_position_pos = Tagdiv_Util::get_option('tds_page_sidebar_pos');
             }
 
             switch ($sidebar_position_pos) {
@@ -894,7 +894,7 @@ class tagdiv_util {
      * @param $crop
      */
     static function add_image_size_if_enabled($id, $x, $y, $crop) {
-        if (tagdiv_util::get_option('tds_thumb_' . $id) != '') {
+        if ( Tagdiv_Util::get_option( 'tds_thumb_' . $id) != '') {
             add_image_size($id, $x, $y, $crop);
         }
     }
@@ -1014,7 +1014,7 @@ class tagdiv_util {
 	static function get_srcset_sizes($thumb_id, $thumb_type, $thumb_width, $thumb_url) {
         $return_buffer = '';
         //retina srcset and sizes
-        if (tagdiv_util::get_option('tds_thumb_' . $thumb_type . '_retina') == 'yes' && !empty($thumb_width)) {
+        if ( Tagdiv_Util::get_option( 'tds_thumb_' . $thumb_type . '_retina') == 'yes' && !empty($thumb_width)) {
             $thumb_w = ' ' . $thumb_width . 'w';
             $retina_thumb_width = $thumb_width * 2;
             $retina_thumb_w = ' ' . $retina_thumb_width . 'w';

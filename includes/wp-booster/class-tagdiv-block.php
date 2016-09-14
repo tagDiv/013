@@ -6,7 +6,7 @@
  */
 
 
-class tagdiv_block {
+class Tagdiv_Block {
 	var $block_uid; // the block unique id on the page, it changes on every render
 	var $tagdiv_query; //the query used to rendering the current block
 	protected $tagdiv_block_template_data;
@@ -55,7 +55,7 @@ class tagdiv_block {
 			    'header_text_color' => '',  // used in tagdiv_block_template_1.php
 
 			    'ajax_pagination_infinite_stop' => '',
-			    'tagdiv_column_number' => tagdiv_util::vc_get_column_number(), // if no column number passed, get from VC
+			    'tagdiv_column_number' => Tagdiv_Util::vc_get_column_number(), // if no column number passed, get from VC
 
 			    // ajax preloader
 			    'tagdiv_ajax_preloading' => '',
@@ -80,8 +80,8 @@ class tagdiv_block {
 			    'live_filter' => '',
 
 			    // the two live filters are set by @see tagdiv_block::add_live_filter_atts
-			    'live_filter_cur_post_id' => '',      /** @see tagdiv_block::add_live_filter_atts */
-			    'live_filter_cur_post_author' => '',  /** @see tagdiv_block::add_live_filter_atts */
+			    'live_filter_cur_post_id' => '',      /** @see Tagdiv_Block::add_live_filter_atts */
+			    'live_filter_cur_post_author' => '',  /** @see Tagdiv_Block::add_live_filter_atts */
 		    ),
 		    $atts
 	    );
@@ -99,7 +99,7 @@ class tagdiv_block {
 
 
 	    //update unique id on each render
-        $this->block_uid = tagdiv_global::tagdiv_generate_unique_id();
+        $this->block_uid = Tagdiv_Global::tagdiv_generate_unique_id();
 
 	    /** add the unique class to the block. The _rand class is used by the blocks js. @see tdBlocks.js  */
 	    $unique_block_class = $this->block_uid . '_rand';
@@ -115,7 +115,7 @@ class tagdiv_block {
 		if ($this->is_loop_block() === true) {
 
 			//by ref do the query
-			$this->tagdiv_query = &tagdiv_data_source::get_wp_query($this->atts);
+			$this->tagdiv_query = &Tagdiv_Data_Source::get_wp_query($this->atts);
 
 			// get the pull down items
 			$tagdiv_pull_down_items = $this->block_loop_get_pull_down_items();
@@ -163,7 +163,7 @@ class tagdiv_block {
 
 		// VC adds the CSS att automatically so we don't have to do it
 		if (
-			( !tagdiv_util::is_vc_installed() || tagdiv_util::tdc_is_live_editor_iframe() || tagdiv_util::tdc_is_live_editor_ajax() ) && !empty($css)
+			( !Tagdiv_Util::is_vc_installed() || Tagdiv_Util::tdc_is_live_editor_iframe() || Tagdiv_Util::tdc_is_live_editor_ajax() ) && !empty($css)
 		) {
 			$buffy .= PHP_EOL . '/* inline css att */' . PHP_EOL . $css;
 		}
@@ -411,18 +411,18 @@ class tagdiv_block {
 	    // @see tdc_ajax.php -> on_ajax_render_shortcode in td-composer
 	    do_action('tagdiv_block__get_block_js', array(&$this));
 
-	    if (tagdiv_util::tdc_is_live_editor_iframe()) {
+	    if (Tagdiv_Util::tdc_is_live_editor_iframe()) {
 		    tagdiv_js_buffer::add_to_footer($this->js_tdc_get_composer_block());
 		    return '';
 	    }
 
 		// do not run in ajax requests
-	    if (tagdiv_util::tdc_is_live_editor_ajax()) {
+	    if (Tagdiv_Util::tdc_is_live_editor_ajax()) {
 		    return '';
 	    }
 
         //get the js for this block - do not load it in inline mode in visual composer
-        if (tagdiv_util::vc_is_inline()) {
+        if (Tagdiv_Util::vc_is_inline()) {
             return '';
         }
 
@@ -478,7 +478,7 @@ class tagdiv_block {
 
         $tagdiv_column_number = $this->get_att('tagdiv_column_number');
         if (empty($tagdiv_column_number)) {
-            $tagdiv_column_number = tagdiv_util::vc_get_column_number(); // get the column width of the block so we can sent it to the server. If the shortcode already has a user defined column number, we use that
+            $tagdiv_column_number = Tagdiv_Util::vc_get_column_number(); // get the column width of the block so we can sent it to the server. If the shortcode already has a user defined column number, we use that
         }
 
 
@@ -615,7 +615,7 @@ class tagdiv_block {
 
 			</script>
 			<?php
-			$buffy .= tagdiv_util::remove_script_tag(ob_get_clean());
+			$buffy .= Tagdiv_Util::remove_script_tag(ob_get_clean());
 		}
 
 
@@ -630,7 +630,7 @@ class tagdiv_block {
 
 	/**
 	 * tagDiv composer specific code:
-	 *  - it's added to the end of the iFrame when the live editor is active (when @see tagdiv_util::tdc_is_live_editor_iframe()  === true)
+	 *  - it's added to the end of the iFrame when the live editor is active (when @see Tagdiv_Util::tdc_is_live_editor_iframe()  === true)
 	 *  - it is injected int he iFrame and evaluated there in the global scoupe when a new block is added to the page via AJAX!
 	 * @return string the JS without <script> tags
 	 */
@@ -674,7 +674,7 @@ class tagdiv_block {
 			})();
 		</script>
 		<?php
-		return tagdiv_util::remove_script_tag(ob_get_clean());
+		return Tagdiv_Util::remove_script_tag(ob_get_clean());
 	}
 
 
@@ -808,7 +808,7 @@ class tagdiv_block {
         if (isset($this->tagdiv_block_template_instance)) {
             return $this->tagdiv_block_template_instance;
         } else {
-	        tagdiv_util::error(__FILE__, "tagdiv_block: " . get_class($this) . " did not call render, no tagdiv_block_template_instance in tagdiv_block");
+	        Tagdiv_Util::error(__FILE__, "tagdiv_block: " . get_class($this) . " did not call render, no tagdiv_block_template_instance in tagdiv_block");
 	        die;
         }
     }
@@ -821,13 +821,13 @@ class tagdiv_block {
 	 */
 	protected function get_att($att_name) {
 		if (empty($this->atts)) {
-			tagdiv_util::error(__FILE__, get_class($this) . '->get_att(' . $att_name . ') Internal error: The atts are not set yet(AKA: the render method was not called yet and the system tried to read an att)');
+			Tagdiv_Util::error(__FILE__, get_class($this) . '->get_att(' . $att_name . ') Internal error: The atts are not set yet(AKA: the render method was not called yet and the system tried to read an att)');
 			die;
 		}
 
 		if (!isset($this->atts[$att_name])) {
 			var_dump($this->atts);
-			tagdiv_util::error(__FILE__, 'Internal error: The system tried to use an att that does not exists! class_name: ' . get_class($this) . '  Att name: "' . $att_name . '" The list with available atts is in tagdiv_block::render');
+			Tagdiv_Util::error(__FILE__, 'Internal error: The system tried to use an att that does not exists! class_name: ' . get_class($this) . '  Att name: "' . $att_name . '" The list with available atts is in tagdiv_block::render');
 			die;
 		}
 

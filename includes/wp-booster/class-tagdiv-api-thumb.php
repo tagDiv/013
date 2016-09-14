@@ -3,7 +3,7 @@
  * Created by ra on 2/13/2015.
  */
 
-class tagdiv_api_thumb extends tagdiv_api_base {
+class Tagdiv_API_Thumb extends Tagdiv_API_Base {
 
     /**
      * This method to register a new thumb

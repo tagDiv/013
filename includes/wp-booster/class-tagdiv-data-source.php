@@ -1,5 +1,5 @@
 <?php
-class tagdiv_data_source {
+class Tagdiv_Data_Source {
 
     static $fake_loop_offset = 0; //used by the found row hook in templates to fix pagination. The blocks do not use this since we use custom pagination there.
 
@@ -179,7 +179,7 @@ class tagdiv_data_source {
 
         /**
          * the live filters are generated in tagdiv_block.php and are added when the block is rendered on the page in the atts of the block
-         * @see tagdiv_block::add_live_filter_atts
+         * @see Tagdiv_Block::add_live_filter_atts
          */
         if (!empty($live_filter)) {
             switch ($live_filter) {
@@ -344,7 +344,7 @@ class tagdiv_data_source {
     // custom pagination for the fake template loops - used by hook
     static function hook_fix_offset_pagination($found_posts, $query) {
         remove_filter('found_posts','hook_fix_offset_pagination');
-        return $found_posts - tagdiv_data_source::$fake_loop_offset;
+        return $found_posts - Tagdiv_Data_Source::$fake_loop_offset;
     }
 
 

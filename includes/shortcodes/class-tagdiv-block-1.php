@@ -1,10 +1,10 @@
 <?php
-class tagdiv_block_1 extends tagdiv_block {
+class Tagdiv_Block_1 extends Tagdiv_Block {
     function render($atts, $content = null) {
         parent::render($atts); // sets the live atts, $this->atts, $this->block_uid, $this->tagdiv_query (it runs the query)
 
 	    if (empty($tagdiv_column_number)) {
-            $tagdiv_column_number = tagdiv_util::vc_get_column_number(); // get the column width of the block from the page builder API
+            $tagdiv_column_number = Tagdiv_Util::vc_get_column_number(); // get the column width of the block from the page builder API
         }
 
         $buffy = ''; //output buffer
@@ -36,9 +36,9 @@ class tagdiv_block_1 extends tagdiv_block {
     function inner($posts, $tagdiv_column_number = '') {
         $buffy = '';
 
-        $tagdiv_block_layout = new tagdiv_block_layout();
+        $tagdiv_block_layout = new Tagdiv_Block_Layout();
         if (empty($tagdiv_column_number)) {
-            $tagdiv_column_number = tagdiv_util::vc_get_column_number(); // get the column width of the block from the page builder API
+            $tagdiv_column_number = Tagdiv_Util::vc_get_column_number(); // get the column width of the block from the page builder API
         }
 
         $tagdiv_post_count = 0; // the number of posts rendered
@@ -46,7 +46,7 @@ class tagdiv_block_1 extends tagdiv_block {
 
         if (!empty($posts)) {
             foreach ($posts as $post) {
-                $tagdiv_module_1 = new tagdiv_module_1($post);
+                $tagdiv_module_1 = new Tagdiv_Module_1($post);
 
                 switch ($tagdiv_column_number) {
 

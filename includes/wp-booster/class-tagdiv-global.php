@@ -8,7 +8,7 @@
  *  - no tagdiv_util loaded, no access to settings
  */
 
-class tagdiv_global {
+class Tagdiv_Global {
 
 
 
@@ -359,13 +359,13 @@ class tagdiv_global {
 
 
 if (is_ssl()) {
-    tagdiv_global::$http_or_https = 'https';
+    Tagdiv_Global::$http_or_https = 'https';
 }
 
 
 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 if (is_plugin_active('woocommerce/woocommerce.php')) {
-    tagdiv_global::$is_woocommerce_installed = true;
+    Tagdiv_Global::$is_woocommerce_installed = true;
 }
 
 
@@ -382,10 +382,10 @@ if (is_plugin_active('woocommerce/woocommerce.php')) {
 $current_theme_name = get_template();
 
 if (empty($current_theme_name) and class_exists('tagdiv_mobile_theme')) {
-	tagdiv_global::$get_template_directory = tagdiv_mobile_theme::$main_dir_path;
-	tagdiv_global::$get_template_directory_uri = tagdiv_mobile_theme::$main_uri_path;
+	Tagdiv_Global::$get_template_directory     = tagdiv_mobile_theme::$main_dir_path;
+	Tagdiv_Global::$get_template_directory_uri = tagdiv_mobile_theme::$main_uri_path;
 } else {
-	tagdiv_global::$get_template_directory = get_template_directory();
-	tagdiv_global::$get_template_directory_uri = get_template_directory_uri();
+	Tagdiv_Global::$get_template_directory     = get_template_directory();
+	Tagdiv_Global::$get_template_directory_uri = get_template_directory_uri();
 }
 

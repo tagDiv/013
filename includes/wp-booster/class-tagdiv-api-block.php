@@ -9,7 +9,7 @@
  * The theme's block api, usable via the tagdiv_global_after hook
  * Class tagdiv_api_block static block api
  */
-class tagdiv_api_block extends tagdiv_api_base {
+class Tagdiv_API_Block extends Tagdiv_API_Base {
 
     /**
      * This method to register a new block
