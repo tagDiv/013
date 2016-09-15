@@ -111,9 +111,15 @@ do_action('tagdiv_wp-booster_loaded'); //used by our plugins
 add_theme_support('post-thumbnails');
 add_theme_support('post-formats', array('video'));
 add_theme_support('automatic-feed-links');
-add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
-add_theme_support('woocommerce');
+add_theme_support('html5', array(
+	'comment-list',
+	'comment-form',
+	'search-form',
+	'gallery',
+	'caption'
+) );
 
+add_theme_support( 'title-tag' );
 
 
 /* ----------------------------------------------------------------------------
@@ -417,6 +423,14 @@ function tagdiv_init_booster() {
 	// content width - this is overwritten in post
 	if (!isset($content_width)) {
 		$content_width = 640;
+	}
+
+
+	/* ----------------------------------------------------------------------------
+	 * add_image_size for WordPress - register all the thumbs from the thumblist
+	 */
+	foreach (Tagdiv_API_Thumb::get_all() as $thumb_array) {
+			add_image_size($thumb_array['name'], $thumb_array['width'], $thumb_array['height'], $thumb_array['crop']);
 	}
 
 

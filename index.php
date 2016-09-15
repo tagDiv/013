@@ -13,12 +13,12 @@
  */
 
 
-//echo tagdiv_global_blocks::get_instance('Tagdiv_Block_1')->render(array(
-//	'custom_title' => 'ra',
-//	'limit' => 4
-//));
-//echo 'works';
-//die;
+echo tagdiv_global_blocks::get_instance('Tagdiv_Block_1')->render(array(
+	'custom_title' => 'ra',
+	'limit' => 4
+));
+echo 'works';
+die;
 
 get_header(); ?>
 

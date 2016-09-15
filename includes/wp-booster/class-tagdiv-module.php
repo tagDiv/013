@@ -29,12 +29,12 @@ abstract class Tagdiv_Module {
      */
     function __construct($post) {
         if (gettype($post) != 'object' or get_class($post) != 'WP_Post') {
-            Tagdiv_Util::error(__FILE__, 'tagdiv_module: ' . get_Class($this) . '($post): $post is not WP_Post');
+            Tagdiv_Util::error(__FILE__, 'td_module: ' . get_Class($this) . '($post): $post is not WP_Post');
         }
 
 
         //this filter is used by tagdiv_unique_posts.php - to add unique posts to the array for the datasource
-        apply_filters("tagdiv_wp_booster_module_constructor", $this, $post);
+        apply_filters("td_wp_booster_module_constructor", $this, $post);
 
         $this->post = $post;
 
@@ -53,7 +53,7 @@ abstract class Tagdiv_Module {
 
         //get the review metadata
         //$this->tagdiv_review = get_post_meta($this->post->ID, 'tagdiv_review', true); @todo $this->tagdiv_review variable name must be replaced and the 'get_quotes_on_blocks', 'get_category' methods also
-	    $this->tagdiv_review = get_post_meta($this->post->ID, 'tagdiv_post_theme_settings', true);
+	    $this->tagdiv_review = get_post_meta($this->post->ID, 'td_post_theme_settings', true);
 
 	    if (!empty($this->tagdiv_review['has_review']) and (
 			    !empty($this->tagdiv_review['p_review_stars']) or
@@ -97,7 +97,7 @@ abstract class Tagdiv_Module {
 
         //show no thumb only if no thumb is detected and image placeholders are disabled
         if ( is_null($this->post_thumb_id) and Tagdiv_Util::get_option('tds_hide_featured_image_placeholder') == 'hide_placeholder') {
-            $buffy .= ' tagdiv_module_no_thumb';
+            $buffy .= ' td_module_no_thumb';
         }
 
         // fix the meta info space when all options are off
@@ -190,31 +190,7 @@ abstract class Tagdiv_Module {
         if (!is_null($this->post_thumb_id) or ($tds_hide_featured_image_placeholder != 'hide_placeholder')) {
 
             if (!is_null($this->post_thumb_id)) {
-                //if we have a thumb
-                // check to see if the thumb size is enabled in the panel, we don't have to check for the default wordpress
-                // thumbs (the default ones are already cut and we don't have  a panel setting for them)
-                if ( Tagdiv_Util::get_option( 'tds_thumb_' . $thumbType) != 'yes' and $thumbType != 'thumbnail') {
-                    //the thumb is disabled, show a placeholder thumb from the theme with the "thumb disabled" message
-                    global $_wp_additional_image_sizes;
 
-                    if (empty($_wp_additional_image_sizes[$thumbType]['width'])) {
-                        $tagdiv_temp_image_url[1] = '';
-                    } else {
-                        $tagdiv_temp_image_url[1] = $_wp_additional_image_sizes[$thumbType]['width'];
-                    }
-
-                    if (empty($_wp_additional_image_sizes[$thumbType]['height'])) {
-                        $tagdiv_temp_image_url[2] = '';
-                    } else {
-                        $tagdiv_temp_image_url[2] = $_wp_additional_image_sizes[$thumbType]['height'];
-                    }
-
-
-                    $tagdiv_temp_image_url[0] = Tagdiv_Global::$get_template_directory_uri . '/images/thumb-disabled/' . $thumbType . '.png';
-                    $attachment_alt = 'alt=""';
-                    $attachment_title = '';
-
-                } else {
                     // the thumb is enabled from the panel, it's time to show the real thumb
                     $tagdiv_temp_image_url = wp_get_attachment_image_src($this->post_thumb_id, $thumbType);
                     $attachment_alt = get_post_meta($this->post_thumb_id, '_wp_attachment_image_alt', true );
@@ -235,10 +211,6 @@ abstract class Tagdiv_Module {
 
                     //retina image
                     $srcset_sizes = Tagdiv_Util::get_srcset_sizes($this->post_thumb_id, $thumbType, $tagdiv_temp_image_url[1], $tagdiv_temp_image_url[0]);
-
-                } // end panel thumb enabled check
-
-
 
             } else {
                 //we have no thumb but the placeholder one is activated
@@ -419,10 +391,10 @@ abstract class Tagdiv_Module {
 		    // default post type
 
 		    //read the post meta to get the custom primary category
-		    $tagdiv_post_theme_settings = get_post_meta($this->post->ID, 'tagdiv_post_theme_settings', true);
-		    if (!empty($tagdiv_post_theme_settings['tagdiv_primary_cat'])) {
+		    $tagdiv_post_theme_settings = get_post_meta($this->post->ID, 'td_post_theme_settings', true);
+		    if (!empty($tagdiv_post_theme_settings['td_primary_cat'])) {
 			    //we have a custom category selected
-			    $selected_category_obj = get_category($tagdiv_post_theme_settings['tagdiv_primary_cat']);
+			    $selected_category_obj = get_category($tagdiv_post_theme_settings['td_primary_cat']);
 		    } else {
 
 			    //get one auto
@@ -511,10 +483,10 @@ abstract class Tagdiv_Module {
 
 
         //get quotes data from database
-        $post_data_from_db = get_post_meta($this->post->ID, 'tagdiv_post_theme_settings', true);
+        $post_data_from_db = get_post_meta($this->post->ID, 'td_post_theme_settings', true);
 
-        if(!empty($post_data_from_db['tagdiv_quote_on_blocks'])) {
-            return '<div class="tagdiv_quote_on_blocks">' . $post_data_from_db['tagdiv_quote_on_blocks'] . '</div>';
+        if(!empty($post_data_from_db['td_quote_on_blocks'])) {
+            return '<div class="tagdiv_quote_on_blocks">' . $post_data_from_db['td_quote_on_blocks'] . '</div>';
         }
     }
 }

@@ -13,7 +13,7 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 
         <div class="<?php echo $this->get_module_classes();?>" <?php echo $this->get_item_scope();?>>
             <div class="td-module-image">
-                <?php echo $this->get_image('tagdiv_300x220');?>
+                <?php echo $this->get_image('td_300x220');?>
                 <div class="td-post-category-wrap"><?php if ( Tagdiv_Util::get_option('tds_category_module_1') == 'yes') { echo $this->get_category(); }?></div>
             </div>
             

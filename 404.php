@@ -26,7 +26,8 @@ get_header(); ?>
 						the_widget( 'WP_Widget_Recent_Posts' );
 
 						// Only show the widget if site has multiple categories.
-						if ( tdmag_categorized_blog() ) :
+					//tdmag_categorized_blog()
+						if ( true == true ) :
 					?>
 
 					<div class="widget widget_categories">
