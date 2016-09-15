@@ -122,39 +122,6 @@ add_theme_support('html5', array(
 add_theme_support( 'title-tag' );
 
 
-/* ----------------------------------------------------------------------------
- * front end css files
- */
-add_action('wp_enqueue_scripts', 'load_front_css', 1001);   // 1001 priority because visual composer uses 1000
-function load_front_css() {
-
-
-
-	$demo_id = Tagdiv_Util::get_loaded_demo_id();
-
-
-	if (tagdiv_DEBUG_USE_LESS) {
-		wp_enqueue_style('td-theme', Tagdiv_Global::$get_template_directory_uri . '/tagdiv_less_style.css.php?part=style.css_v2',  '', tagdiv_THEME_VERSION, 'all' );
-
-		if ( Tagdiv_Global::$is_woocommerce_installed === true) {
-			wp_enqueue_style('td-theme-woo', Tagdiv_Global::$get_template_directory_uri . '/tagdiv_less_style.css.php?part=woocommerce', '', tagdiv_THEME_VERSION, 'all');
-		}
-
-		if ($demo_id !== false and Tagdiv_Global::$demo_list[$demo_id]['uses_custom_style_css'] === true) {
-			wp_enqueue_style('td-theme-demo-style', Tagdiv_Global::$get_template_directory_uri . '/tagdiv_less_style.css.php?part=' . $demo_id, '', tagdiv_THEME_VERSION, 'all');
-		}
-	} else {
-		wp_enqueue_style('td-theme', get_stylesheet_uri(), '', tagdiv_THEME_VERSION, 'all' );
-		if ( Tagdiv_Global::$is_woocommerce_installed === true) {
-			wp_enqueue_style('td-theme-woo', Tagdiv_Global::$get_template_directory_uri . '/style-woocommerce.css',  '', tagdiv_THEME_VERSION, 'all' );
-		}
-
-		if ($demo_id !== false and Tagdiv_Global::$demo_list[$demo_id]['uses_custom_style_css'] === true) {
-			wp_enqueue_style('td-theme-demo-style', Tagdiv_Global::$get_template_directory_uri . '/includes/demos/' . $demo_id . '/demo_style.css', '', tagdiv_THEME_VERSION, 'all');
-		}
-
-	}
-}
 
 /** ---------------------------------------------------------------------------
  * front end user compiled css @see  tagdiv_css_generator.php
@@ -194,72 +161,6 @@ add_action('wp_head', 'tagdiv_include_user_compiled_css', 10);
 
 
 
-/* ----------------------------------------------------------------------------
- * front end javascript files
- */
-add_action('wp_enqueue_scripts', 'load_front_js');
-function load_front_js() {
-	$tagdiv_deploy_mode = tagdiv_DEPLOY_MODE;
-
-	//switch the deploy mode to demo if we have tagDiv speed booster
-	if (defined('tagdiv_SPEED_BOOSTER')) {
-		$tagdiv_deploy_mode = 'demo';
-	}
-
-
-	switch ($tagdiv_deploy_mode) {
-		default: //deploy
-			wp_enqueue_script('td-site', Tagdiv_Global::$get_template_directory_uri . '/js/tagdiv_theme.js', array('jquery'), tagdiv_THEME_VERSION, true);
-			break;
-
-		case 'demo':
-			wp_enqueue_script('td-site-min', Tagdiv_Global::$get_template_directory_uri . '/js/tagdiv_theme.min.js', array('jquery'), tagdiv_THEME_VERSION, true);
-			break;
-
-		case 'dev':
-			// dev version - load each file separately
-			$last_js_file_id = '';
-			foreach (Tagdiv_Global::$js_files as $js_file_id => $js_file) {
-				if ($last_js_file_id == '') {
-					wp_enqueue_script($js_file_id, Tagdiv_Global::$get_template_directory_uri . $js_file, array('jquery'), tagdiv_THEME_VERSION, true); //first, load it with jQuery dependency
-				} else {
-					wp_enqueue_script($js_file_id, Tagdiv_Global::$get_template_directory_uri . $js_file, array($last_js_file_id), tagdiv_THEME_VERSION, true);  //not first - load with the last file dependency
-				}
-				$last_js_file_id = $js_file_id;
-			}
-			break;
-
-	}
-
-	//add the comments reply to script on single pages
-	if (is_singular()) {
-		wp_enqueue_script('comment-reply');
-	}
-}
-
-
-
-
-/* ----------------------------------------------------------------------------
- * css for wp-admin / backend
- */
-add_action('admin_enqueue_scripts', 'load_wp_admin_css');
-function load_wp_admin_css() {
-	//load the panel font in wp-admin
-	$tagdiv_protocol = is_ssl() ? 'https' : 'http';
-	wp_enqueue_style('google-font-ubuntu', $tagdiv_protocol . '://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic'); //used on content
-	if (tagdiv_DEPLOY_MODE == 'dev') {
-		wp_enqueue_style('td-wp-admin-td-panel-2', Tagdiv_Global::$get_template_directory_uri . '/tagdiv_less_style.css.php?part=wp-admin.css', false, tagdiv_THEME_VERSION, 'all' );
-	} else {
-		wp_enqueue_style('td-wp-admin-td-panel-2', Tagdiv_Global::$get_template_directory_uri . '/includes/wp-booster/wp-admin/css/wp-admin.css', false, tagdiv_THEME_VERSION, 'all' );
-	}
-
-
-	//load the colorpicker
-	wp_enqueue_style( 'wp-color-picker' );
-}
-
-
 
 
 /* ----------------------------------------------------------------------------
@@ -273,45 +174,6 @@ function tagdiv_on_admin_print_styles_farbtastic() {
 }
 add_action('admin_print_scripts-widgets.php', 'tagdiv_on_admin_print_scripts_farbtastic');
 add_action('admin_print_styles-widgets.php', 'tagdiv_on_admin_print_styles_farbtastic');
-
-
-
-
-/* ----------------------------------------------------------------------------
- * js for wp-admin / backend   admin js - we use this strange thing to make sure that our scripts are depended on each other
- * and appear one after another exactly like we add them in tagdiv_global.php
- */
-add_action('admin_enqueue_scripts', 'load_wp_admin_js');
-function load_wp_admin_js() {
-
-
-	$current_page_slug = '';
-	if (isset($_GET['page'])) {
-		$current_page_slug = $_GET['page'];
-	}
-
-
-	// dev version - load each file separately
-	$last_js_file_id = '';
-	foreach (Tagdiv_Global::$js_files_for_wp_admin as $js_file_id => $js_file_params) {
-
-		// skip a file if it has custom page_slugs
-		if (!empty($js_file_params['show_only_on_page_slugs']) and !in_array($current_page_slug, $js_file_params['show_only_on_page_slugs'])) {
-			continue;
-		}
-
-		if ($last_js_file_id == '') {
-			wp_enqueue_script($js_file_id, Tagdiv_Global::$get_template_directory_uri . $js_file_params['url'], array('jquery', 'wp-color-picker'), tagdiv_THEME_VERSION, false); //first, load it with jQuery dependency
-		} else {
-			wp_enqueue_script($js_file_id, Tagdiv_Global::$get_template_directory_uri . $js_file_params['url'], array($last_js_file_id), tagdiv_THEME_VERSION, false);  //not first - load with the last file dependency
-		}
-		$last_js_file_id = $js_file_id;
-	}
-
-	wp_enqueue_script('thickbox');
-	add_thickbox();
-
-}
 
 
 

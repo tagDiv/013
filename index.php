@@ -13,12 +13,12 @@
  */
 
 
-echo tagdiv_global_blocks::get_instance('Tagdiv_Block_1')->render(array(
-	'custom_title' => 'ra',
-	'limit' => 4
-));
-echo 'works';
-die;
+//echo tagdiv_global_blocks::get_instance('Tagdiv_Block_1')->render(array(
+//	'custom_title' => 'ra',
+//	'limit' => 4
+//));
+//echo 'works';
+//die;
 
 get_header(); ?>
 
@@ -41,16 +41,11 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-//				global $post;
-//				$tagdiv_modul_1 = new tagdiv_module_1($post);
-//				echo $tagdiv_modul_1->render();
+				global $post;
+				$tagdiv_modul_1 = new Tagdiv_Module_1($post);
+				echo $tagdiv_modul_1->render();
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+
 
 			endwhile;
 

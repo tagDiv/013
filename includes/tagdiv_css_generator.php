@@ -1022,6 +1022,6 @@ function tagdiv_css_generator() {
 
 
     //output the style
-    return $tagdiv_fonts_css_buffer . $tagdiv_css_compiler->compile_css();
+    return $tagdiv_css_compiler->compile_css();
 
 }

@@ -4,6 +4,9 @@
  * Date: 9/13/2016
  */
 
+define('TAGDIV_THEME_NAME', '013');
+define('TAGDIV_THEME_VERSION', '__td_deploy_version__');
+
 
 
 /**
