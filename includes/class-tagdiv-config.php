@@ -4,8 +4,8 @@
  * Date: 9/13/2016
  */
 
-define('TAGDIV_THEME_NAME', '013');
-define('TAGDIV_THEME_VERSION', '__td_deploy_version__');
+define( 'TAGDIV_THEME_NAME', '013' );
+define( 'TAGDIV_THEME_VERSION', '__td_deploy_version__' );
 
 
 
@@ -26,7 +26,7 @@ class Tagdiv_Config {
 		/**
 		 * modules list
 		 */
-		Tagdiv_API_Module::add('Tagdiv_Module_1',
+		Tagdiv_API_Module::add( 'Tagdiv_Module_1',
 			array(
 				'file' => Tagdiv_Global::$get_template_directory . '/includes/modules/class-tagdiv-module-1.php',
 				'text' => 'Module 1',
@@ -47,7 +47,7 @@ class Tagdiv_Config {
 		/**
 		 * the blocks
 		 */
-		Tagdiv_API_Block::add('Tagdiv_Block_1',
+		Tagdiv_API_Block::add( 'Tagdiv_Block_1',
 			array(
 				'map_in_visual_composer' => true,
 				"name" => 'Block 1',
@@ -71,7 +71,7 @@ class Tagdiv_Config {
 		/**
 		 * block templates
 		 */
-		Tagdiv_API_Block_Template::add('Tagdiv_Block_Template_1',
+		Tagdiv_API_Block_Template::add( 'Tagdiv_Block_Template_1',
 			array (
 				'file' => Tagdiv_Global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
 			)
@@ -85,7 +85,7 @@ class Tagdiv_Config {
 
 
 
-		Tagdiv_API_Thumb::add('td_300x220',
+		Tagdiv_API_Thumb::add( 'td_300x220',
 			array(
 				'name' => 'td_300x220',
 				'width' => 300,
