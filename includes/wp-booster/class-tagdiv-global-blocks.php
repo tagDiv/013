@@ -60,7 +60,7 @@ class Tagdiv_Global_Blocks {
 		foreach ( Tagdiv_API_Block::get_all() as $block_settings ) {
 			// shortcodes that have no $block_settings['map_in_visual_composer'] are maped!
 			// shrotcodes that have $block_settings['map_in_visual_composer'] !== false are maped
-			if ( isset( $block_settings['map_in_visual_composer'] ) and $block_settings['map_in_visual_composer'] !== false ) {
+			if ( isset( $block_settings['map_in_visual_composer'] ) && $block_settings['map_in_visual_composer'] !== false ) {
 				vc_map( $block_settings );
 			}
 		}

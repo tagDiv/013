@@ -474,7 +474,7 @@ class Tagdiv_Block {
 		// @todo preloading "all" filter content should happen regardless of the setting
 		if (
 			! empty( $this->tagdiv_block_template_data['tagdiv_pull_down_items'] )
-			and ! empty( $this->atts['tagdiv_ajax_preloading'] )
+			&& ! empty( $this->atts['tagdiv_ajax_preloading'] )
 		) {
 
 
@@ -519,9 +519,9 @@ class Tagdiv_Block {
 				}
 
 				// preload only 6 or 20 items depending on the setting
-				if ( $this->atts['tagdiv_ajax_preloading'] == 'preload_all' and $count > 20 ) {
+				if ( $this->atts['tagdiv_ajax_preloading'] == 'preload_all' && $count > 20 ) {
 					break;
-				} else if ( $this->atts['tagdiv_ajax_preloading'] == 'preload' and $count > 6 ) {
+				} else if ( $this->atts['tagdiv_ajax_preloading'] == 'preload' && $count > 6 ) {
 					break;
 				}
 

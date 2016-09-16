@@ -59,7 +59,7 @@ class Tagdiv_Data_Source {
 					'days'  => 2,
 					'limit' => $limit + 5
 				) );
-				if ( ! empty( $jetpack_api_posts ) and is_array( $jetpack_api_posts ) ) {
+				if ( ! empty( $jetpack_api_posts ) && is_array( $jetpack_api_posts ) ) {
 					$wp_query_args['post__in']       = wp_list_pluck( $jetpack_api_posts, 'post_id' );
 					$wp_query_args['posts_per_page'] = $limit;
 
@@ -72,7 +72,7 @@ class Tagdiv_Data_Source {
 
 
 		//the query goes only via $category_ids - for both options ($category_ids and $category_id) also $category_ids overwrites $category_id
-		if ( ! empty( $category_id ) and empty( $category_ids ) ) {
+		if ( ! empty( $category_id ) && empty( $category_ids ) ) {
 			$category_ids = $category_id;
 		}
 
@@ -289,7 +289,7 @@ class Tagdiv_Data_Source {
 		}
 
 		// offset + custom pagination - if we have offset, wordpress overwrites the pagination and works with offset + limit
-		if ( ! empty( $offset ) and $paged > 1 ) {
+		if ( ! empty( $offset ) && $paged > 1 ) {
 			$wp_query_args['offset'] = $offset + ( ( $paged - 1 ) * $limit );
 		} else {
 			$wp_query_args['offset'] = $offset;
@@ -334,7 +334,7 @@ class Tagdiv_Data_Source {
 		$wp_query_args['ignore_sticky_posts'] = 0;
 
 		// custom pagination for the fake template loops
-		if ( isset( $wp_query_args['offset'] ) and $wp_query_args['offset'] > 0 ) {
+		if ( isset( $wp_query_args['offset'] ) && $wp_query_args['offset'] > 0 ) {
 			//fix reported posts for the fake loops
 			add_filter( 'found_posts', array( __CLASS__, 'hook_fix_offset_pagination' ), 1, 2 );
 		}

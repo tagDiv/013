@@ -54,7 +54,7 @@ class Tagdiv_API_Base {
 
 		foreach ( self::$components_list as $component_key => $component_value ) {
 			if ( isset( $component_value[ self::TYPE ] )
-			     and $component_value[ self::TYPE ] == $class_name
+			     && $component_value[ self::TYPE ] == $class_name
 			) {
 
 				// to get the actual final file :) you need to use get_key 'file'. This is because a child theme can overwrite the file
@@ -85,7 +85,7 @@ class Tagdiv_API_Base {
 		foreach ( self::$components_list as $component_id => $component_value ) {
 
 			if ( isset( $component_value[ self::TYPE ] )
-			     and $component_value[ self::TYPE ] == $class_name
+			     && $component_value[ self::TYPE ] == $class_name
 			) {
 
 				self::mark_used_on_page( $component_id );
@@ -113,7 +113,7 @@ class Tagdiv_API_Base {
 		foreach ( self::$components_list as $component_id => $component_value ) {
 
 			if ( isset( $component_value[ self::TYPE ] )
-			     and $component_value[ self::TYPE ] == $class_name
+			     && $component_value[ self::TYPE ] == $class_name
 			) {
 
 				self::mark_used_on_page( $component_id );
@@ -261,7 +261,7 @@ class Tagdiv_API_Base {
 		$buffy_array = array();
 		foreach ( self::$components_list as $component_id => $component ) {
 
-			if ( isset( $component[ self::CLASS_AUTOLOADED ] ) and $component[ self::CLASS_AUTOLOADED ] === true ) {
+			if ( isset( $component[ self::CLASS_AUTOLOADED ] ) && $component[ self::CLASS_AUTOLOADED ] === true ) {
 				$buffy_array [ $component_id ] = $component;
 			}
 		}
@@ -317,7 +317,7 @@ class Tagdiv_API_Base {
 			 * @deprecated @todo should be removed in v2  compatiblity for social counter old old
 			 */
 
-			if ( ( $id == 'tagdiv_social_counter' or $id == 'tagdiv_block_social_counter' ) ) {
+			if ( ( $id == 'tagdiv_social_counter' || $id == 'tagdiv_block_social_counter' ) ) {
 				if ( is_user_logged_in() ) {
 					Tagdiv_Util::error( '', "Please update your [tagDiv social counter] Plugin!" );
 				}
@@ -358,9 +358,9 @@ class Tagdiv_API_Base {
 		}
 
 		if ( ( $the_component != null )
-		     and ( stripos( $the_component['file'], TEMPLATEPATH ) == 0 )
-		         and ! empty( $the_component['file'] )
-		             and ! isset( $the_component['located_in_child'] )
+		     && ( stripos( $the_component['file'], TEMPLATEPATH ) == 0 )
+		     && ! empty( $the_component['file'] )
+		     && ! isset( $the_component['located_in_child'] )
 		) {
 
 			$child_path = STYLESHEETPATH . str_replace( TEMPLATEPATH, '', $the_component['file'] );
@@ -383,7 +383,7 @@ class Tagdiv_API_Base {
 	 * @internal param string $class_name The array key in self::$component_list
 	 */
 	private static function check_used_on_page( $id, $requested_operation ) {
-		if ( array_key_exists( $id, self::$components_list ) and array_key_exists( self::USED_ON_PAGE, self::$components_list[ $id ] ) ) {
+		if ( array_key_exists( $id, self::$components_list ) && array_key_exists( self::USED_ON_PAGE, self::$components_list[ $id ] ) ) {
 			Tagdiv_Util::error( __FILE__, "tagdiv_api_base::check_used_on_page: You requested a $requested_operation for ID: $id BUT it's already used on page. This usually means that you are using a wrong hook - you are trying to modify the component after it already rendered / was used.", self::$components_list[ $id ] );
 		}
 	}

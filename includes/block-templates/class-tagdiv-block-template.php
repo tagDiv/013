@@ -28,7 +28,7 @@ class Tagdiv_Block_Template_1 {
 
 
 		// check if we have a header color, do nothing if we don't have a header_color or header_text_color
-		if ( ( empty( $header_color ) or $header_color == '#' ) and ( empty( $header_text_color ) or $header_text_color == '#' ) ) {
+		if ( ( empty( $header_color ) || $header_color == '#' ) && ( empty( $header_text_color ) || $header_text_color == '#' ) ) {
 			return '';
 		}
 

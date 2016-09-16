@@ -30,7 +30,7 @@ abstract class Tagdiv_Module {
 	 * @throws ErrorException
 	 */
 	function __construct( $post ) {
-		if ( gettype( $post ) != 'object' or get_class( $post ) != 'WP_Post' ) {
+		if ( gettype( $post ) != 'object' || get_class( $post ) != 'WP_Post' ) {
 			Tagdiv_Util::error( __FILE__, 'td_module: ' . get_Class( $this ) . '($post): $post is not WP_Post' );
 		}
 
@@ -57,9 +57,9 @@ abstract class Tagdiv_Module {
 		//$this->tagdiv_review = get_post_meta($this->post->ID, 'tagdiv_review', true); @todo $this->tagdiv_review variable name must be replaced and the 'get_quotes_on_blocks', 'get_category' methods also
 		$this->tagdiv_review = get_post_meta( $this->post->ID, 'td_post_theme_settings', true );
 
-		if ( ! empty( $this->tagdiv_review['has_review'] ) and (
-				! empty( $this->tagdiv_review['p_review_stars'] ) or
-				! empty( $this->tagdiv_review['p_review_percents'] ) or
+		if ( ! empty( $this->tagdiv_review['has_review'] ) && (
+				! empty( $this->tagdiv_review['p_review_stars'] ) ||
+				! empty( $this->tagdiv_review['p_review_percents'] ) ||
 				! empty( $this->tagdiv_review['p_review_points'] )
 			)
 		) {
@@ -98,12 +98,12 @@ abstract class Tagdiv_Module {
 
 
 		//show no thumb only if no thumb is detected and image placeholders are disabled
-		if ( is_null( $this->post_thumb_id ) and Tagdiv_Util::get_option( 'tds_hide_featured_image_placeholder' ) == 'hide_placeholder' ) {
+		if ( is_null( $this->post_thumb_id ) && Tagdiv_Util::get_option( 'tds_hide_featured_image_placeholder' ) == 'hide_placeholder' ) {
 			$buffy .= ' td_module_no_thumb';
 		}
 
 		// fix the meta info space when all options are off
-		if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) == 'hide' and Tagdiv_Util::get_option( 'tds_m_show_date' ) == 'hide' and Tagdiv_Util::get_option( 'tds_m_show_comments' ) == 'hide' ) {
+		if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) == 'hide' && Tagdiv_Util::get_option( 'tds_m_show_date' ) == 'hide' && Tagdiv_Util::get_option( 'tds_m_show_comments' ) == 'hide' ) {
 			$buffy .= ' td-meta-info-hide';
 		}
 
@@ -125,7 +125,7 @@ abstract class Tagdiv_Module {
 			if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) != 'hide' ) {
 				$buffy .= '<span class="td-post-author-name">';
 				$buffy .= '<a href="' . get_author_posts_url( $this->post->post_author ) . '">' . get_the_author_meta( 'display_name', $this->post->post_author ) . '</a>';
-				if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) != 'hide' and Tagdiv_Util::get_option( 'tds_m_show_date' ) != 'hide' ) {
+				if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) != 'hide' && Tagdiv_Util::get_option( 'tds_m_show_date' ) != 'hide' ) {
 					$buffy .= ' <span>-</span> ';
 				}
 				$buffy .= '</span>';
@@ -145,7 +145,7 @@ abstract class Tagdiv_Module {
 		}
 
 		$buffy = '';
-		if ( $this->is_review and $show_stars_on_review === true ) {
+		if ( $this->is_review && $show_stars_on_review === true ) {
 			//if review show stars
 			$buffy .= '<div class="entry-review-stars">';
 			$buffy .= tagdiv_review::render_stars( $this->tagdiv_review );
@@ -191,7 +191,7 @@ abstract class Tagdiv_Module {
 		$srcset_sizes = '';
 
 		// do we have a post thumb or a placeholder?
-		if ( ! is_null( $this->post_thumb_id ) or ( $tds_hide_featured_image_placeholder != 'hide_placeholder' ) ) {
+		if ( ! is_null( $this->post_thumb_id ) || ( $tds_hide_featured_image_placeholder != 'hide_placeholder' ) ) {
 
 			if ( ! is_null( $this->post_thumb_id ) ) {
 
@@ -266,7 +266,7 @@ abstract class Tagdiv_Module {
 				$use_small_post_format_icon_size = false;
 				// search in all the thumbs for the one that we are currently using here and see if it has post_format_icon_size = small
 				foreach ( Tagdiv_API_Thumb::get_all() as $thumb_from_thumb_list ) {
-					if ( $thumb_from_thumb_list['name'] == $thumbType and $thumb_from_thumb_list['post_format_icon_size'] == 'small' ) {
+					if ( $thumb_from_thumb_list['name'] == $thumbType && $thumb_from_thumb_list['post_format_icon_size'] == 'small' ) {
 						$use_small_post_format_icon_size = true;
 						break;
 					}
@@ -416,8 +416,8 @@ abstract class Tagdiv_Module {
 					}
 				}
 
-				if ( empty( $selected_category_obj ) and ! empty( $categories[0] ) ) {
-					if ( $categories[0]->name === tagdiv_FEATURED_CAT and ! empty( $categories[1] ) ) {
+				if ( empty( $selected_category_obj ) && ! empty( $categories[0] ) ) {
+					if ( $categories[0]->name === tagdiv_FEATURED_CAT && ! empty( $categories[1] ) ) {
 						$selected_category_obj = $categories[1];
 					} else {
 						$selected_category_obj = $categories[0];
@@ -484,7 +484,7 @@ abstract class Tagdiv_Module {
 	function get_quotes_on_blocks() {
 
 		// do not show the quote on WordPress loops
-		if ( Tagdiv_Global::$is_wordpress_loop === true or Tagdiv_Util::vc_get_column_number() != 1 ) {
+		if ( Tagdiv_Global::$is_wordpress_loop === true || Tagdiv_Util::vc_get_column_number() != 1 ) {
 			return '';
 		}
 

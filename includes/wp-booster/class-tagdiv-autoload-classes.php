@@ -19,7 +19,7 @@ class Tagdiv_Autoload_Classes {
 		$path_regex = 'Tagdiv';
 
 		// foreach regex path, the class name is verified for a start matching
-		if ( ( strpos( $class_name, $path_regex ) !== false ) and ( strpos( $class_name, $path_regex ) === 0 ) ) {
+		if ( ( strpos( $class_name, $path_regex ) !== false ) && ( strpos( $class_name, $path_regex ) === 0 ) ) {
 
 			//$class_name = str_replace('Tagdiv', 'td', strtolower($class_name));
 
@@ -29,7 +29,7 @@ class Tagdiv_Autoload_Classes {
 				if ( array_key_exists( 'file', $class_settings ) ) {
 					$class_file_path = $class_settings['file'];
 
-					if ( isset( $class_file_path ) and ! empty( $class_file_path ) ) {
+					if ( isset( $class_file_path ) && ! empty( $class_file_path ) ) {
 						// set the autoloaded key for that component
 						Tagdiv_API_Autoload::_debug_set_class_is_autoloaded( $class_name );
 

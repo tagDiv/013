@@ -17,7 +17,7 @@ class Tagdiv_Util {
 
 	//returns the $class if the variable is not empty or false
 	static function if_show( $variable, $class ) {
-		if ( $variable !== false and ! empty( $variable ) ) {
+		if ( $variable !== false && ! empty( $variable ) ) {
 			return ' ' . $class;
 		} else {
 			return '';
@@ -26,7 +26,7 @@ class Tagdiv_Util {
 
 	//returns the class if the variable is empty or false
 	static function if_not_show( $variable, $class ) {
-		if ( $variable === false or empty( $variable ) ) {
+		if ( $variable === false || empty( $variable ) ) {
 			return ' ' . $class;
 		} else {
 			return '';
@@ -199,7 +199,7 @@ class Tagdiv_Util {
 				$current_char_on_line ++;
 			}
 
-			if ( $title_char == ' ' and $has_to_cut === true ) {
+			if ( $title_char == ' ' && $has_to_cut === true ) {
 				//we have to cut, it's a white space so we ignore it (not added to buffy)
 				$buffy .= $cut_parms['line_wrap_end'] . $cut_parms['line_wrap_start'];
 				$has_to_cut = false;
@@ -931,7 +931,7 @@ class Tagdiv_Util {
 	static function error( $file, $message, $more_data = '' ) {
 		echo '<br><br>wp booster error:<br>';
 		echo $message;
-		if ( is_user_logged_in() and current_user_can( 'switch_themes' ) ) {
+		if ( is_user_logged_in() && current_user_can( 'switch_themes' ) ) {
 			echo '<br>' . $file;
 			if ( ! empty( $more_data ) ) {
 				echo '<br><br><pre>';
@@ -1015,7 +1015,7 @@ class Tagdiv_Util {
 		} else {
 			$current_theme_name = get_template();
 
-			if ( empty( $current_theme_name ) and class_exists( 'tagdiv_mobile_theme', false ) ) {
+			if ( empty( $current_theme_name ) && class_exists( 'tagdiv_mobile_theme', false ) ) {
 				return true;
 			}
 		}

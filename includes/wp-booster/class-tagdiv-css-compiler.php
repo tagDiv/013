@@ -54,7 +54,7 @@ class Tagdiv_CSS_Compiler {
 		$css_splits = explode( '/*', $this->raw_css );
 		foreach ( $css_splits as $css_split ) {
 			$css_split_parts = explode( '*/', $css_split );
-			if ( ! empty( $css_split_parts[0] ) and ! empty( $css_split_parts[1] ) ) {
+			if ( ! empty( $css_split_parts[0] ) && ! empty( $css_split_parts[1] ) ) {
 				$this->css_sections[ trim( $css_split_parts[0] ) ] = $css_split_parts[1];
 			}
 		}
@@ -62,7 +62,7 @@ class Tagdiv_CSS_Compiler {
 
 
 	function compile_sections() {
-		if ( ! empty( $this->css_sections ) and ! empty( $this->settings ) ) {
+		if ( ! empty( $this->css_sections ) && ! empty( $this->settings ) ) {
 			foreach ( $this->css_sections as $section_name => &$section_css ) {
 				foreach ( $this->settings as $setting_name => $setting_value ) {
 

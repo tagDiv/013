@@ -79,7 +79,7 @@ class Tagdiv_API_Module extends Tagdiv_API_Base {
 	static function _helper_check_excerpt_title( $module_id ) {
 		$module_settings = self::get_by_id( $module_id );
 
-		if ( isset( $module_settings ) and ! empty( $module_settings['excerpt_title'] ) ) {
+		if ( isset( $module_settings ) && ! empty( $module_settings['excerpt_title'] ) ) {
 			return true;
 		}
 
@@ -100,7 +100,7 @@ class Tagdiv_API_Module extends Tagdiv_API_Base {
 	static function _helper_check_excerpt_content( $module_id ) {
 		$module_settings = self::get_by_id( $module_id );
 
-		if ( isset( $module_settings ) and ! empty( $module_settings['excerpt_content'] ) ) {
+		if ( isset( $module_settings ) && ! empty( $module_settings['excerpt_content'] ) ) {
 			return true;
 		}
 
