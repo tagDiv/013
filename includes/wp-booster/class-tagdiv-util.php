@@ -236,7 +236,7 @@ class Tagdiv_Util {
 			dynamic_sidebar( $tds_cur_sidebar );
 		} else {
 			//show default
-			if ( ! dynamic_sidebar( tagdiv_THEME_NAME . ' default' ) ) {
+			if ( ! dynamic_sidebar( TAGDIV_THEME_NAME . ' default' ) ) {
 				?>
 				<!-- .no sidebar -->
 				<?php
@@ -986,7 +986,7 @@ class Tagdiv_Util {
 	 * @return bool|string - false if no demo is loaded OR string - the demo id
 	 */
 	static function get_loaded_demo_id() {
-		$demo_state = get_option( tagdiv_THEME_NAME . '_demo_state' );  // get the current loaded demo... from wp cache
+		$demo_state = get_option( TAGDIV_THEME_NAME . '_demo_state' );  // get the current loaded demo... from wp cache
 		if ( ! empty( $demo_state['demo_id'] ) ) {
 			return $demo_state['demo_id'];
 		}

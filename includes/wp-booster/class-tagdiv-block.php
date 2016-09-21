@@ -72,7 +72,7 @@ class Tagdiv_Block {
 				// drop down list + other live filters?
 				'tagdiv_ajax_filter_type'       => '',
 				'tagdiv_ajax_filter_ids'        => '',
-				'tagdiv_filter_default_txt'     => __td( 'All', tagdiv_THEME_NAME ),
+				'tagdiv_filter_default_txt'     => __td( 'All', TAGDIV_THEME_NAME ),
 
 				// classes?  @see get_block_classes
 				'color_preset'                  => '',
@@ -274,11 +274,11 @@ class Tagdiv_Block {
 
 					case 'tagdiv_popularity_filter_fa': // by popularity
 						$tagdiv_pull_down_items [] = array(
-							'name' => __td( 'Featured', tagdiv_THEME_NAME ),
+							'name' => __td( 'Featured', TAGDIV_THEME_NAME ),
 							'id'   => 'featured',
 						);
 						$tagdiv_pull_down_items [] = array(
-							'name' => __td( 'All time popular', tagdiv_THEME_NAME ),
+							'name' => __td( 'All time popular', TAGDIV_THEME_NAME ),
 							'id'   => 'popular',
 						);
 						break;
@@ -368,7 +368,7 @@ class Tagdiv_Block {
 				//if ($this->tagdiv_query->found_posts > $limit) {
 				if ( $this->tagdiv_query->found_posts - $offset > $limit ) {
 					$buffy .= '<div class="td-load-more-wrap">';
-					$buffy .= '<a href="#" class="tagdiv_ajax_load_more tagdiv_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">' . __td( 'Load more', tagdiv_THEME_NAME );
+					$buffy .= '<a href="#" class="tagdiv_ajax_load_more tagdiv_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">' . __td( 'Load more', TAGDIV_THEME_NAME );
 					$buffy .= '<i class="td-icon-font td-icon-menu-down"></i>';
 					$buffy .= '</a>';
 					$buffy .= '</div>';
@@ -384,7 +384,7 @@ class Tagdiv_Block {
 
 
 					$buffy .= '<div class="td-load-more-wrap td-load-more-infinite-wrap" id="infinite-lm-' . $this->block_uid . '">';
-					$buffy .= '<a href="#" class="tagdiv_ajax_load_more tagdiv_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">' . __td( 'Load more', tagdiv_THEME_NAME );
+					$buffy .= '<a href="#" class="tagdiv_ajax_load_more tagdiv_ajax_load_more_js" id="next-page-' . $this->block_uid . '" data-tagdiv_block_id="' . $this->block_uid . '">' . __td( 'Load more', TAGDIV_THEME_NAME );
 					$buffy .= '<i class="td-icon-font td-icon-menu-down"></i>';
 					$buffy .= '</a>';
 					$buffy .= '</div>';
@@ -681,7 +681,7 @@ class Tagdiv_Block {
 
 		//add the block wrap and block id class
 		$block_classes = array(
-			'tagdiv_block_wrap',
+			'tagdiv-block-wrap',
 			get_class( $this )
 		);
 

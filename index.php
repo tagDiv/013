@@ -22,40 +22,60 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="td-main-content-wrap td-container-wrap">
+		<div class="td-container">
+			<!--<div class="td-crumb-container">
+				<?php /*echo td_page_generator::get_home_breadcrumbs(); */?>
+			</div>-->
 
-		<?php
-		if ( have_posts() ) :
+			<div class="td-pb-row">
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+				<div class="td-pb-span12 td-main-content">
 
-			<?php
-			endif;
+					<?php
+					if ( have_posts() ) :
+
+						if ( is_home() && ! is_front_page() ) : ?>
+							<header>
+								<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+							</header>
+
+							<?php
+						endif;
 
 			//print_r(tagdiv_api_base::_debug_get_components_list());
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+						/* Start the Loop */
+						while ( have_posts() ) : the_post();
 
-				global $post;
-				$tagdiv_modul_1 = new Tagdiv_Module_1($post);
-				echo $tagdiv_modul_1->render();
+							global $post;
+							$tagdiv_modul_1 = new Tagdiv_Module_1($post);
+							echo $tagdiv_modul_1->render();
 
 
 
-			endwhile;
+						endwhile;
 
-			the_posts_navigation();
+						the_posts_navigation();
 
-		else :
+					else :
 
-			get_template_part( 'template-parts/content', 'none' );
+						get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+					endif; ?>
+
+				</div>
+
+			</div> <!-- /.td-pb-row -->
+		</div> <!-- /.td-container -->
+	</div> <!-- /.td-main-content-wrap -->
+
+
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

@@ -38,7 +38,7 @@ do_action( 'tagdiv_global_after' );
 
 
 require_once( 'class-tagdiv-global-blocks.php' );   // no autoload -
-//require_once('tagdiv_menu.php');            // theme menu support
+require_once('class-tagdiv-menu.php');            // theme menu support
 
 
 require_once( 'class-tagdiv-module.php' );          // module builder
@@ -231,7 +231,7 @@ function tagdiv_init_booster() {
 	* register the default sidebars + dynamic ones
 	*/
 	register_sidebar( array(
-		'name'          => tagdiv_THEME_NAME . ' default',
+		'name'          => TAGDIV_THEME_NAME . ' default',
 		'id'            => 'td-default', //the id is used by the importer
 		'before_widget' => '<aside class="widget %2$s">',
 		'after_widget'  => '</aside>',

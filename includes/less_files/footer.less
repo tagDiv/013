@@ -1,0 +1,242 @@
+/* General footer styles */
+.td-footer-outer-wrapper {
+  position: relative;
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center bottom;
+  }
+
+  a {
+    color: #fff;
+
+    &:hover {
+      color: @td_theme_color;
+    }
+  }
+
+  .td-post-category:hover {
+    color: #fff;
+  }
+
+  .tagdiv-block-wrap,
+  .widget {
+    margin-top: 44px;
+    text-align: left;
+  }
+
+  .td-pulldown-filter-display-option span {
+    color: #fff;
+    .opacity(0.6);
+  }
+
+  .block-title a,
+  .block-title span,
+  .block-title label {
+    color: #fff;
+  }
+
+  .widget_categories li span:before {
+    border-color: #fff;
+  }
+
+  .td-author-description,
+  .rssSummary {
+    color: #ccc !important;
+  }
+
+  .rss-date,
+  cite {
+    color: #fff;
+  }
+}
+
+.td-footer-wrapper {
+  padding: 22px 0;
+}
+
+.footer-social-wrap,
+.td-subfooter-menu {
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -1px;
+    margin: 0 auto;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    .opacity(0.11);
+  }
+}
+
+/* Social media */
+.footer-social-wrap {
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 24px;
+
+  .td-social-icon-wrap {
+    display: inline-block;
+    margin: 0 26px;
+
+    a,
+    a span {
+      color: #fff;
+    }
+  }
+
+  .td-icon-font  {
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .td-social-name {
+    font-family: @font2;
+    font-size: 12px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+}
+
+/* Logo */
+.footer-logo-wrap {
+  img {
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      max-width: 70%;
+    }
+  }
+}
+
+// Footer description & email
+.footer-text-wrap {
+  width: 80%;
+  margin: 12px auto;
+  padding: 8px 0;
+  font-family: @font2;
+  font-size: 13px;
+  line-height: 21px;
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    width: 100%;
+  }
+}
+
+.footer-text-wrap .footer-email-wrap {
+  margin-top: 12px;
+
+  a {
+    color: @td_theme_color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+/*  ----------------------------------------------------------------------------
+    Sub Footer
+*/
+.td-sub-footer-container {
+  padding-top: 12px;
+}
+
+// Menu
+.td-subfooter-menu {
+  position: relative;
+  margin: 0 0 15px 0;
+  padding-bottom: 12px;
+
+  li {
+    position: relative !important;
+    display: inline-block;
+    margin-left: 0;
+    padding: 0 28px;
+    line-height: 18px;
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    a {
+      line-height: 18px;
+      display: inline-block;
+      font-family: @font2;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      /* responsive portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        font-size: 12px;
+      }
+    }
+
+    &:last-of-type {
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      bottom: 4px;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      .opacity(0.26);
+    }
+  }
+
+  .menu-item > a:hover,
+  .sfHover > a,
+  .current-menu-ancestor > a,
+  .current-category-ancestor > a,
+  .current-menu-item > a {
+    color: @td_theme_color;
+  }
+
+  ul {
+    display: none;
+  }
+
+  .fa {
+    margin-right: 3px;
+  }
+}
+
+// Copyright
+.td-sub-footer-copy {
+  padding-bottom: 16px;
+  font-size: 13px;
+  color: #ccc;
+
+  i {
+    color: @td_theme_color;
+    margin: 0 5px;
+    position: relative;
+    top: 1px;
+  }
+}

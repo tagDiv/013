@@ -29,5 +29,58 @@ Tags: black, white, one-column, two-columns, fixed-layout
 */
 
 body {
-  background-color: #fceeff;
+  background-color: #fff;
 }
+
+@import "variables.less";
+@import "mixin.less";
+
+// Reset
+@import "normalize.less";
+
+// Reset the box-sizing
+//
+// Heads up! This reset may cause conflicts with some third-party widgets.
+// For recommendations on resolving such conflicts, see
+// http://getbootstrap.com/getting-started/#third-box-sizing
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  width : auto\9;
+  height: auto;
+}
+
+.clearfix {
+  .clearfix();
+}
+
+// grid
+@import "grid/grid.less";
+
+
+//header
+@import "header-styles.less";
+@import "header-search.less";
+@import "menu-header.less";
+
+// misc
+@import "font-icons.less";
+@import "widgets-default.less";
+
+// type
+@import "type.less";
+
+// footer
+@import "footer.less";
