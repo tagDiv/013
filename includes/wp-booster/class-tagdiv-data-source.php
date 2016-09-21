@@ -107,7 +107,7 @@ class Tagdiv_Data_Source {
 					}
 				}
 
-				$wp_query_args['cat'] = get_cat_ID( tagdiv_FEATURED_CAT ); //add the fetured cat
+				$wp_query_args['cat'] = get_cat_ID( TAGDIV_FEATURED_CAT ); //add the fetured cat
 				break;
 			case 'oldest_posts':
 				$wp_query_args['order'] = 'ASC';
@@ -324,9 +324,9 @@ class Tagdiv_Data_Source {
 
 		if ( ! empty( $tagdiv_homepage_loop_filter['show_featured_posts'] ) ) {
 			if ( empty( $wp_query_args['cat'] ) ) {
-				$wp_query_args['cat'] = '-' . get_cat_ID( tagdiv_FEATURED_CAT );
+				$wp_query_args['cat'] = '-' . get_cat_ID( TAGDIV_FEATURED_CAT );
 			} else {
-				$wp_query_args['cat'] .= ',-' . get_cat_ID( tagdiv_FEATURED_CAT );
+				$wp_query_args['cat'] .= ',-' . get_cat_ID( TAGDIV_FEATURED_CAT );
 			}
 		}
 

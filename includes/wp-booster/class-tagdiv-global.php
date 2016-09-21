@@ -320,7 +320,7 @@ class Tagdiv_Global {
 
 			$categories = get_the_category( self::$post->ID );
 			foreach ( $categories as $category ) {
-				if ( $category->name != tagdiv_FEATURED_CAT ) { //ignore the featured category name
+				if ( $category->name != TAGDIV_FEATURED_CAT ) { //ignore the featured category name
 					self::$primary_category = $category->cat_ID;
 					break;
 				}

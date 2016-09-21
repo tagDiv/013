@@ -1,0 +1,98 @@
+/* responsive portrait tablet */
+@media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+  /*  ----------------------------------------------------------------------------
+    rows
+  */
+  .td-pb-row {
+    .mx-row();
+    margin-right: -12px;
+    margin-left: -12px;
+  }
+
+  /*  ----------------------------------------------------------------------------
+    all spans
+  */
+  .td-pb-row [class*="td-pb-span"] {
+    display: block;
+    min-height: 1px;
+    float: left;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  /*  ----------------------------------------------------------------------------
+       blocks grid
+  */
+  /* block row + global block spans */
+  .td-block-row {
+    .mx-row-and-span(td-block-span);
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+}
+
+
+/* responsive portrait phone */
+@media (max-width: @responsive_p_phone_max) {
+
+  /* container */
+  .td-container,
+  .tdc-row {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .td-pb-row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /*  ----------------------------------------------------------------------------
+    all spans
+  */
+  .td-pb-row [class*="td-pb-span"] {
+    display: block;
+    min-height: 1px;
+    float: left;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  //disable the span floats
+  .td-pb-row {
+    .td-pb-span1,
+    .td-pb-span2,
+    .td-pb-span3,
+    .td-pb-span4,
+    .td-pb-span5,
+    .td-pb-span6,
+    .td-pb-span7,
+    .td-pb-span8,
+    .td-pb-span9,
+    .td-pb-span10,
+    .td-pb-span11,
+    .td-pb-span12 {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  /*  ----------------------------------------------------------------------------
+       blocks grid
+  */
+  /* block row + global block spans */
+  .td-block-row {
+    .mx-row-and-span(td-block-span);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  //disable the span floats in blocks
+  .td-block-span4,
+  .td-block-span6,
+  .td-block-span12 {
+    float: none;
+    width: 100%;
+  }
+}

@@ -6,6 +6,7 @@
 
 define( 'TAGDIV_THEME_NAME', '013' );
 define( 'TAGDIV_THEME_VERSION', '__td_deploy_version__' );
+define( 'TAGDIV_FEATURED_CAT', 'Featured' );
 
 
 

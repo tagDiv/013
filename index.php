@@ -43,17 +43,21 @@ get_header(); ?>
 							<?php
 						endif;
 
-			//print_r(tagdiv_api_base::_debug_get_components_list());
+//						echo '<pre>';
+//						print_r(tagdiv_api_base::_debug_get_components_list());
+//						print_r(get_post_format());
+//						echo '</pre>';
 
 						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+						while ( have_posts() ) : the_post(); ?>
 
-							global $post;
-							$tagdiv_modul_1 = new Tagdiv_Module_1($post);
-							echo $tagdiv_modul_1->render();
+						<div class="td-pb-span4">
 
+						<?php	get_template_part( 'template-parts/content', get_post_format() ); ?>
 
+						</div>
 
+						<?php
 						endwhile;
 
 						the_posts_navigation();

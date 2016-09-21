@@ -417,7 +417,7 @@ abstract class Tagdiv_Module {
 				}
 
 				if ( empty( $selected_category_obj ) && ! empty( $categories[0] ) ) {
-					if ( $categories[0]->name === tagdiv_FEATURED_CAT && ! empty( $categories[1] ) ) {
+					if ( $categories[0]->name === TAGDIV_FEATURED_CAT && ! empty( $categories[1] ) ) {
 						$selected_category_obj = $categories[1];
 					} else {
 						$selected_category_obj = $categories[0];
