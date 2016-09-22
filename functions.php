@@ -70,8 +70,8 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+			<div class="post-thumbnail ">
+				<?php the_post_thumbnail( 'td_640x0', array( 'alt' => get_the_title(), 'class' => 'entry-thumb, ' ) ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -80,13 +80,7 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) :
 
 				<?php if ( current_user_can( 'edit_posts' ) ) { ?>
 					<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
-				<?php }
-
-//				echo '<pre>';
-//				print_r(esc_url( get_permalink() ));
-//				echo '</pre>';
-
-				?>
+				<?php } ?>
 
 				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" title="">
 
@@ -101,14 +95,8 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) :
 				</div> <!-- .td-module-thumb-->
 
 				</a>
+
 			</div> <!-- .td-module-image-->
-
-
-			<!--<a class="post-thumbnail" href="<?php /*the_permalink(); */?>" aria-hidden="true">
-				<?php
-/*				the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
-				*/?>
-			</a>-->
 
 		<?php endif; // End is_singular()
 	}
@@ -205,8 +193,133 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) :
 		endif; // End is_singular()
 
 	}
+
 endif;
 
+
+if ( ! function_exists( 'tagdiv_post_header' ) ) :
+
+	/**
+	 * Display the post header.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 */
+
+	function tagdiv_post_header() {
+
+		global $post;
+
+		if ( is_singular() ) : ?>
+
+			<div class="td-post-header">
+
+				<?php echo tagdiv_post_category(); ?>
+
+				<header class="td-post-title">
+
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+
+					<!--post subtitles-->
+					<?php /*if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { */?><!--
+						<p class="td-post-sub-title"><?php /*echo $td_mod_single->td_post_theme_settings['td_subtitle'];*/?></p>
+					--><?php /*} */?>
+
+					<div class="td-module-meta-info">
+
+						<span class="td-post-author-name"><div class="td-author-by">By</div>
+							<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+						<span>-</span>
+						</span>
+
+						<span class="td-post-date">
+						<time class="entry-date updated td-module-date" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>" ><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
+						</span>
+
+						<div class="td-module-comments">
+							<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
+						</div>
+
+						<!--post views-->
+						<!--<div class="td-post-views-wrap">
+							<?php /*echo $td_mod_single->get_views();*/?>
+							<span class="td-post-views-text">views</span>
+						</div>-->
+
+					</div> <!-- .td-module-meta-info-->
+				</header> <!-- .td-post-title -->
+			</div> <!-- .td-post-header -->
+
+		<?php else : ?>
+
+			<header class="entry-header">
+				<?php the_title( sprintf( '<h3 class="entry-title td-module-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' );	?>
+
+
+				<div class="td-module-meta-info">
+
+					<span class="td-post-author-name">
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+					<span>-</span>
+					</span>
+
+					<span class="td-post-date">
+					<time class="entry-date updated td-module-date" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>" ><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
+					</span>
+
+					<div class="td-module-comments">
+						<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
+					</div>
+
+				</div>
+			</header><!-- .entry-header -->
+
+		<?php endif; // End is_singular()
+	}
+
+endif;
+
+if ( ! function_exists( 'tagdiv_post_tags' ) ) :
+
+	/**
+	 * Display the post tags.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 */
+
+	function tagdiv_post_tags() {
+
+		$tags_array  = array();
+
+		$post_tags = '';
+
+		if ( is_singular() ) :
+
+			$tags = get_the_tags();
+			if (!empty($tags)) {
+				foreach ($tags as $tag) {
+					$tags_array[$tag->name] = array (
+						'url' => get_tag_link($tag->term_id)
+					);
+				}
+			}
+
+			if (!empty($tags_array)) {
+				$post_tags .= '<ul class="td-tags td-post-small-box clearfix">';
+				$post_tags .= '<li><span>TAGS</span></li>';
+				foreach ($tags_array as $tag_name => $tag_params) {
+					$post_tags .=  '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
+				}
+				$post_tags .= '</ul>';
+			}
+
+			return $post_tags;
+
+			endif; // End is_singular()
+		return '';
+	}
+
+endif;
 
 /**
  * Filter the except length to 20 characters.

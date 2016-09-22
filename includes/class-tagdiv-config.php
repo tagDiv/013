@@ -99,5 +99,18 @@ class Tagdiv_Config {
 			)
 		);
 
+		Tagdiv_API_Thumb::add('td_640x0',
+			array(
+				'name' => 'td_640x0',
+				'width' => 640,
+				'height' => 0,
+				'crop' => array('center', 'top'),
+				'post_format_icon_size' => 'normal',
+				'used_on' => array(
+					'Post template default'
+				)
+			)
+		);
+
 	}
 }

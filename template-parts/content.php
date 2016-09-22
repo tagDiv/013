@@ -11,58 +11,70 @@
 ?>
 
 
-<div class="tagdiv-module td-module-wrap" >
+<?php if ( is_single() ) : ?>
+
+	<div class="td-post-template">
+
+<?php else : ?>
+
+	<div class="tagdiv-module td-module-wrap" >
+
+<?php endif; ?>
+
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-		// Post thumbnail.
-		tagdiv_post_thumbnail();
-	?>
 
-	<header class="entry-header">
-		<?php
-			if ( is_single() ) :
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			else :
-				the_title( sprintf( '<h3 class="entry-title td-module-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' );
-			endif;
-		?>
-	</header><!-- .entry-header -->
+	<?php if ( is_single() ) : ?>
 
-	<div class="td-module-meta-info">
+		<?php tagdiv_post_header(); // Post header. ?>
+		<?php tagdiv_post_thumbnail(); // Post thumbnail. ?>
 
-		<span class="td-post-author-name">
-			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
- 		<span>-</span>
-		</span>
+		<?php else : ?>
 
-		<span class="td-post-date">
-		<time class="entry-date updated td-module-date" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>" ><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
-		</span>
+		<?php tagdiv_post_thumbnail(); // Post thumbnail. ?>
+		<?php tagdiv_post_header(); // Post header. ?>
 
-		<div class="td-module-comments">
-		<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
-		</div>
-
-	</div>
+	<?php endif; ?>
 
 	<div class="entry-content">
 		<?php
 
-		if ( is_single() ) :
-			/* translators: %s: Name of current post */
+		if ( is_single() ) : ?>
+
+		<div class="td-post-content">
+
+			<?php /* translators: %s: Name of current post */
 			the_content( sprintf(
 				__( 'Continue reading %s', 'twentyfifteen' ),
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) );
+			?>
+		</div>
 
+		<footer>
+
+			<?php
 			wp_link_pages( array(
-				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
-				'after'       => '</div>',
-				'link_before' => '<span>',
-				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
-				'separator'   => '<span class="screen-reader-text">, </span>',
+				'before' => '<div class="page-nav page-nav-post">',
+				'after' => '</div>',
+				'link_before' => '<div>',
+				'link_after' => '</div>',
+				/*'echo' => false,*/
+				'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
+				'previouspagelink' => '<i class="td-icon-menu-left"></i>'
 			) );
+			?>
+
+			<div class="td-post-tags">
+				<?php echo tagdiv_post_tags(); ?>
+			</div>
+
+
+
+		</footer>
+
+			<?php
+
 
 		else : ?>
 		<div class="entry-summary td-excerpt">
@@ -85,4 +97,4 @@
 	</footer>--><!-- .entry-footer -->
 
 </article><!-- #post-## -->
-</div> <!-- .tagdiv-module -->
+</div> <!-- .tagdiv-module / .td-post-template -->
