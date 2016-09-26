@@ -37,59 +37,57 @@
 	<?php endif; ?>
 
 	<div class="entry-content">
-		<?php
+		<?php if ( is_single() ) : ?>
 
-		if ( is_single() ) : ?>
+			<div class="td-post-content">
 
-		<div class="td-post-content">
-
-			<?php /* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s', 'twentyfifteen' ),
-				the_title( '<span class="screen-reader-text">', '</span>', false )
-			) );
-			?>
-		</div>
-
-		<footer>
-
-			<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-nav page-nav-post">',
-				'after' => '</div>',
-				'link_before' => '<div>',
-				'link_after' => '</div>',
-				/*'echo' => false,*/
-				'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
-				'previouspagelink' => '<i class="td-icon-menu-left"></i>'
-			) );
-			?>
-
-			<div class="td-post-tags">
-				<?php echo tagdiv_post_tags(); ?>
+				<?php /* translators: %s: Name of current post */
+				the_content( sprintf(
+					__( 'Continue reading %s', 'twentyfifteen' ),
+					the_title( '<span class="screen-reader-text">', '</span>', false )
+				) );
+				?>
 			</div>
 
+			<footer>
 
+				<?php
+				wp_link_pages( array(
+					'before' => '<div class="page-nav page-nav-post">',
+					'after' => '</div>',
+					'link_before' => '<div>',
+					'link_after' => '</div>',
+					/*'echo' => false,*/
+					'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
+					'previouspagelink' => '<i class="td-icon-menu-left"></i>'
+				) );
+				?>
+
+				<div class="td-post-tags">
+					<?php echo tagdiv_post_tags(); ?>
+				</div>
+
+			<?php echo tagdiv_next_prev_posts(); ?>
+			<?php echo tagdiv_author_box(); ?>
 
 		</footer>
 
-			<?php
+		<?php else : ?>
 
+			<div class="entry-summary td-excerpt">
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-summary -->
 
-		else : ?>
-		<div class="entry-summary td-excerpt">
-			<?php the_excerpt(); ?>
-		</div><!-- .entry-summary -->
 		<?php endif; ?>
 
 	</div><!-- .entry-content -->
 
 	<?php
-		// Author bio.
+/*		// Author bio.
 		if ( is_single() && get_the_author_meta( 'description' ) ) :
 			get_template_part( 'author-bio' );
 		endif;
-	?>
+	*/?>
 
 	<!--<footer class="entry-footer">
 		<?php /*//twentyfifteen_entry_meta(); */?>

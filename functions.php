@@ -39,8 +39,8 @@ function twentysixteen_scripts() {
 	}
 
 	wp_enqueue_script( TAGDIV_THEME_NAME . '-script', get_template_directory_uri() . '/includes/js_files/functions.js', array( 'jquery' ), '20160816', true );
-	wp_enqueue_script( TAGDIV_THEME_NAME . 'menu-script', get_template_directory_uri() . '/includes/js_files/tdMenu.js', array( 'jquery' ), '20160819', true );
-	wp_enqueue_script( TAGDIV_THEME_NAME . 'search-script', get_template_directory_uri() . '/includes/js_files/tdSearch.js', array( 'jquery' ), '20160819', true );
+	wp_enqueue_script( TAGDIV_THEME_NAME . '-menu-script', get_template_directory_uri() . '/includes/js_files/tdMenu.js', array( 'jquery' ), '20160819', true );
+	wp_enqueue_script( TAGDIV_THEME_NAME . '-search-script', get_template_directory_uri() . '/includes/js_files/tdSearch.js', array( 'jquery' ), '20160819', true );
 
 	wp_localize_script( TAGDIV_THEME_NAME . '-script', 'screenReaderText', array(
 		'expand'   => __( 'expand child menu', TAGDIV_THEME_NAME ),
@@ -174,12 +174,6 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) :
 
 
 				if ( ! empty( $selected_category_obj ) ) {
-
-//					echo '<pre>';
-//					print_r($selected_category_obj->cat_ID);
-//					print_r($selected_category_obj->name);
-//					echo '</pre>';
-
 					$selected_category_obj_id   = $selected_category_obj->cat_ID;
 					$selected_category_obj_name = $selected_category_obj->name;
 				}
@@ -279,6 +273,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) :
 
 endif;
 
+
 if ( ! function_exists( 'tagdiv_post_tags' ) ) :
 
 	/**
@@ -320,6 +315,107 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) :
 	}
 
 endif;
+
+
+if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) :
+
+	/**
+	 * Display the next/prev posts.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 */
+
+	function tagdiv_next_prev_posts() {
+
+		$next_prev_posts = '';
+
+		$next_post = get_next_post();
+		$prev_post = get_previous_post();
+
+		if ( is_singular() ) :
+
+			if (!empty($next_post) or !empty($prev_post)) {
+
+				$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
+				if (!empty($prev_post)) {
+					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
+					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>Previous article</span>';
+					$next_prev_posts .= '<a href="' . esc_url(get_permalink($prev_post->ID)) . '">' . get_the_title( $prev_post->ID ) . '</a>';
+					$next_prev_posts .= '</div>';
+					$next_prev_posts .= '</div>';
+				} else {
+					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
+					$next_prev_posts .= '</div>';
+				}
+				$next_prev_posts .= '<div class="td-next-prev-separator"></div>';
+				if (!empty($next_post)) {
+					$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
+					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>Next article</span>';
+					$next_prev_posts .= '<a href="' . esc_url(get_permalink($next_post->ID)) . '">' . get_the_title( $next_post->ID ) . '</a>';
+					$next_prev_posts .= '</div>';
+					$next_prev_posts .= '</div>';
+				}
+				$next_prev_posts .= '</div>';
+			}
+
+			return $next_prev_posts;
+
+			endif; // End is_singular()
+		return '';
+	}
+
+endif;
+
+
+if ( ! function_exists( 'tagdiv_author_box' ) ) :
+
+	/**
+	 * Display the post author box.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 */
+
+	function tagdiv_author_box() {
+
+		global $post;
+
+		$author_box = '';
+
+		if ( is_singular() ) :
+
+				$author_box .= '<div class="author-box-wrap">';
+				$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">' ;
+				$author_box .= get_avatar(get_the_author_meta('email', $post->post_author), '96');
+				$author_box .= '</a>';
+
+
+				$author_box .= '<div class="desc">';
+				$author_box .= '<div class="td-author-name vcard author"><span class="fn">';
+				$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">' . get_the_author_meta('display_name', $post->post_author) . '</a>' ;
+				$author_box .= '</span></div>';
+
+				if (get_the_author_meta('user_url', $post->post_author) != '') {
+					$author_box .= '<div class="td-author-url"><a href="' . get_the_author_meta('user_url', $post->post_author) . '">' . get_the_author_meta('user_url', $post->post_author) . '</a></div>';
+				}
+
+				$author_box .= '<div class="td-author-description">';
+				$author_box .=  get_the_author_meta('description', $post->post_author);
+				$author_box .= '</div>';
+
+				$author_box .= '<div class="clearfix"></div>';
+
+				$author_box .= '</div>'; //desc
+				$author_box .= '</div>'; //author-box-wrap
+
+
+			return $author_box;
+
+			endif; // End is_singular()
+		return '';
+	}
+
+endif;
+
 
 /**
  * Filter the except length to 20 characters.
