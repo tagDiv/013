@@ -26,15 +26,13 @@ get_header(); ?>
 				<div class="td-pb-span8 td-main-content">
 
 					<?php
-					if ( have_posts() ) :
+					if ( have_posts() ) {
 
-						if ( is_home() && ! is_front_page() ) : ?>
+						if ( is_home() && ! is_front_page() ) { ?>
 							<header>
 								<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 							</header>
-
-							<?php
-						endif;
+						<?php }
 
 //						echo '<pre>';
 //						print_r(tagdiv_api_base::_debug_get_components_list());
@@ -45,44 +43,32 @@ get_header(); ?>
 						$counter = 0;
 
 						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+						while (have_posts()) : the_post();
 
 							//We are in loop so we can check if counter is odd or even
-							if( $counter % 2 == 0) : //It's odd
-
+							if ( $counter % 2 == 0 ) { //It's odd
 //								echo 'deschide <br>';
 //								echo 'counter =' . $counter;
 								echo '<div class="td-pb-row">'; // open row
-							endif;
+							} ?>
 
+							<div class="td-pb-span6">
+								<?php get_template_part('template-parts/content', get_post_format()); ?>
+							</div>
 
-
-							?>
-
-						<div class="td-pb-span6">
-
-						<?php	get_template_part( 'template-parts/content', get_post_format() ); ?>
-
-						</div>
-
-						<?php
-
-							if( $counter % 2 !== 0 and $counter !== 0) : //It's even
+							<?php if ( $counter % 2 !== 0 and $counter !== 0 ) { //It's even
 //								echo 'inchide <br>';
 //								echo 'counter =' . $counter;
 								echo '</div>'; // close row
-							endif;
+							}
 
 							$counter++;
 						endwhile;
 
 						the_posts_navigation();
-
-					else :
-
+					} else {
 						get_template_part( 'template-parts/content', 'none' );
-
-					endif; ?>
+					} ?>
 
 				</div>
 

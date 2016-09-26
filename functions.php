@@ -16,7 +16,7 @@ require_once('includes/tagdiv_css_generator.php');
 
 
 
-function __td($tagdiv_string, $tagdiv_domain = '') {
+function __td( $tagdiv_string, $tagdiv_domain = '' ) {
 	return $tagdiv_string;
 }
 
@@ -25,7 +25,7 @@ function __td($tagdiv_string, $tagdiv_domain = '') {
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_scripts() {
+function tagdiv_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( TAGDIV_THEME_NAME . '-style', get_stylesheet_uri() );
 
@@ -47,11 +47,10 @@ function twentysixteen_scripts() {
 		'collapse' => __( 'collapse child menu', TAGDIV_THEME_NAME ),
 	) );
 }
-add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
+add_action( 'wp_enqueue_scripts', 'tagdiv_scripts' );
 
-
-if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) :
-	/**
+if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
+/**
 	 * Display an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
@@ -59,363 +58,343 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) :
 	 *
 	 * @since TAGDIV_THEME_NAME 1.0
 	 */
-	function tagdiv_post_thumbnail() {
+function tagdiv_post_thumbnail() {
 		global $post;
-		//print_r($post);
 
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		if ( post_password_required() || is_attachment() || !has_post_thumbnail() ) {
 			return;
 		}
 
-		if ( is_singular() ) :
+		if ( is_singular() ) {
 			?>
 
 			<div class="post-thumbnail ">
-				<?php the_post_thumbnail( 'td_640x0', array( 'alt' => get_the_title(), 'class' => 'entry-thumb, ' ) ); ?>
+				<?php
+				the_post_thumbnail( 'td_640x0', array( 'alt' => get_the_title(), 'class' => 'entry-thumb, ' ) );
+				?>
 			</div><!-- .post-thumbnail -->
 
-		<?php else : ?>
+		<?php } else { ?>
 
 			<div class="td-module-image">
 
-				<?php if ( current_user_can( 'edit_posts' ) ) { ?>
+				<?php if ( current_user_can('edit_posts') ) { ?>
 					<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
 				<?php } ?>
 
 				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" title="">
 
-				<div class="td-module-thumb">
+					<div class="td-module-thumb">
 
-				<?php the_post_thumbnail( 'td_300x220', array( 'alt' => get_the_title(), 'class' => 'entry-thumb' ) ); ?>
+						<?php the_post_thumbnail( 'td_300x220', array('alt' => get_the_title(), 'class' => 'entry-thumb') ); ?>
 
-					<div class="td-post-category-wrap">
-					<?php echo tagdiv_post_category(); ?>
-					</div>
+						<div class="td-post-category-wrap">
+							<?php echo tagdiv_post_category(); ?>
+						</div>
 
-				</div> <!-- .td-module-thumb-->
+					</div><!-- .td-module-thumb-->
 
 				</a>
 
 			</div> <!-- .td-module-image-->
 
-		<?php endif; // End is_singular()
+		<?php }// End is_singular()
 	}
-endif;
+}
 
+if ( ! function_exists( 'tagdiv_post_category' ) ) {
+/**
+ * Display the post categories.
+ *
+ * If multiple this returns the first category on tagdiv module
+ *
+ * and a list of posts categories when on single views.
+ *
+ * @since TAGDIV_THEME_NAME 1.0
+ */
+function tagdiv_post_category() {
 
-if ( ! function_exists( 'tagdiv_post_category' ) ) :
+	global $post;
+	$categories_array = array();
 
-	/**
-	 * Display the post categories.
-	 *
-	 * If multiple this returns the first category on tagdiv module
-	 *
-	 * and a list of posts categories when on single views.
-	 *
-	 * @since TAGDIV_THEME_NAME 1.0
-	 */
+	$post_categories = '';
 
-	function tagdiv_post_category() {
-		global $post;
-		$categories_array  = array();
+	if ( is_singular() ) {
 
-		$post_categories = '';
+		$categories = get_the_category( $post->ID );
 
-		if ( is_singular() ) :
+		if ( ! empty( $categories ) ) {
+			foreach ( $categories as $category ) {
+				if ($category->name != TAGDIV_FEATURED_CAT) { //ignore the featured category name
 
-			$categories = get_the_category( $post->ID );
-
-			if (!empty($categories)) {
-				foreach ( $categories as $category ) {
-					if ( $category->name != TAGDIV_FEATURED_CAT ) { //ignore the featured category name
-
-						$categories_array[ $category->name ]  = array(
-							'link'         => get_category_link( $category->cat_ID )
-						);
-					}
+					$categories_array[$category->name] = array(
+						'link' => get_category_link( $category->cat_ID )
+					);
 				}
 			}
+		}
 
-			$post_categories .= '<ul class="td-category">';
+		$post_categories .= '<ul class="td-category">';
 
 
-			foreach ( $categories_array as $category_name => $category_params ) {
-				$post_categories .= '<li class="entry-category"><a href="' . $category_params['link'] . '">' . $category_name . '</a></li>';
+		foreach ( $categories_array as $category_name => $category_params ) {
+			$post_categories .= '<li class="entry-category"><a href="' . $category_params['link'] . '">' . $category_name . '</a></li>';
+		}
+		$post_categories .= '</ul>';
+
+		return $post_categories;
+
+	} else {
+
+		$selected_category_obj      = '';
+		$selected_category_obj_id   = '';
+		$selected_category_obj_name = '';
+
+		// default post type
+		$categories = get_the_category( $post->ID );
+
+		if ( is_category() ) {
+			foreach ( $categories as $category ) {
+				if ($category->term_id == get_query_var('cat')) {
+					$selected_category_obj = $category;
+					break;
+				}
 			}
-			$post_categories .= '</ul>';
+		}
 
-			return $post_categories;
-
-			else :
-
-				$selected_category_obj = '';
-				$selected_category_obj_id = '';
-				$selected_category_obj_name = '';
-
-				// default post type
-				$categories = get_the_category( $post->ID );
-
-					if ( is_category() ) {
-						foreach ( $categories as $category ) {
-							if ( $category->term_id == get_query_var( 'cat' ) ) {
-								$selected_category_obj = $category;
-								break;
-							}
-						}
-					}
-
-					if ( empty( $selected_category_obj ) && ! empty( $categories[0] ) ) {
-						if ( $categories[0]->name === TAGDIV_FEATURED_CAT && ! empty( $categories[1] ) ) {
-							$selected_category_obj = $categories[1];
-						} else {
-							$selected_category_obj = $categories[0];
-						}
-					}
+		if ( empty( $selected_category_obj ) && ! empty( $categories[0] )) {
+			if ( $categories[0]->name === TAGDIV_FEATURED_CAT && ! empty( $categories[1] ) ) {
+				$selected_category_obj = $categories[1];
+			} else {
+				$selected_category_obj = $categories[0];
+			}
+		}
 
 
-				if ( ! empty( $selected_category_obj ) ) {
-					$selected_category_obj_id   = $selected_category_obj->cat_ID;
-					$selected_category_obj_name = $selected_category_obj->name;
-				}
+		if ( ! empty( $selected_category_obj ) ) {
+			$selected_category_obj_id = $selected_category_obj->cat_ID;
+			$selected_category_obj_name = $selected_category_obj->name;
+		}
 
-				if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) { //@todo catch error here
-					$post_categories .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="td-post-category">' . $selected_category_obj_name . '</a>';
-				}
+		if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) { //@todo catch error here
+			$post_categories .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="td-post-category">' . $selected_category_obj_name . '</a>';
+		}
 
-				return $post_categories;
+		return $post_categories;
 
-		endif; // End is_singular()
+	} // End is_singular()
 
-	}
+}
+}
 
-endif;
+if ( ! function_exists( 'tagdiv_post_header' ) ) {
+/**
+ * Display the post header.
+ *
+ * @since TAGDIV_THEME_NAME 1.0
+ */
+function tagdiv_post_header() {
+	//global $post;
 
+	if ( is_singular() ) { ?>
 
-if ( ! function_exists( 'tagdiv_post_header' ) ) :
+		<div class="td-post-header">
 
-	/**
-	 * Display the post header.
-	 *
-	 * @since TAGDIV_THEME_NAME 1.0
-	 */
+			<?php echo tagdiv_post_category(); ?>
 
-	function tagdiv_post_header() {
+			<header class="td-post-title">
 
-		global $post;
-
-		if ( is_singular() ) : ?>
-
-			<div class="td-post-header">
-
-				<?php echo tagdiv_post_category(); ?>
-
-				<header class="td-post-title">
-
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 
-					<!--post subtitles-->
-					<?php /*if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { */?><!--
-						<p class="td-post-sub-title"><?php /*echo $td_mod_single->td_post_theme_settings['td_subtitle'];*/?></p>
-					--><?php /*} */?>
-
-					<div class="td-module-meta-info">
-
-						<span class="td-post-author-name"><div class="td-author-by">By</div>
-							<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
-						<span>-</span>
-						</span>
-
-						<span class="td-post-date">
-						<time class="entry-date updated td-module-date" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>" ><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
-						</span>
-
-						<div class="td-module-comments">
-							<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
-						</div>
-
-						<!--post views-->
-						<!--<div class="td-post-views-wrap">
-							<?php /*echo $td_mod_single->get_views();*/?>
-							<span class="td-post-views-text">views</span>
-						</div>-->
-
-					</div> <!-- .td-module-meta-info-->
-				</header> <!-- .td-post-title -->
-			</div> <!-- .td-post-header -->
-
-		<?php else : ?>
-
-			<header class="entry-header">
-				<?php the_title( sprintf( '<h3 class="entry-title td-module-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' );	?>
-
+				<!--post subtitles-->
+				<?php /*if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { */ ?><!--
+					<p class="td-post-sub-title"><?php /*echo $td_mod_single->td_post_theme_settings['td_subtitle'];*/ ?></p>
+				--><?php /*} */ ?>
 
 				<div class="td-module-meta-info">
 
 					<span class="td-post-author-name">
+						<span class="td-author-by">By</span>
 						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
 					<span>-</span>
 					</span>
 
 					<span class="td-post-date">
-					<time class="entry-date updated td-module-date" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>" ><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
+					<time class="entry-date updated td-module-date"
+						  datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>"><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
 					</span>
 
 					<div class="td-module-comments">
 						<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
 					</div>
 
+					<!--post views-->
+					<!--<div class="td-post-views-wrap">
+						<?php /*echo $td_mod_single->get_views();*/ ?>
+						<span class="td-post-views-text">views</span>
+					</div>-->
+
 				</div>
-			</header><!-- .entry-header -->
+				<!-- .td-module-meta-info-->
+			</header>
+			<!-- .td-post-title -->
+		</div> <!-- .td-post-header -->
 
-		<?php endif; // End is_singular()
-	}
+	<?php } else { ?>
 
-endif;
+		<header class="entry-header">
+			<?php the_title( sprintf( '<h3 class="entry-title td-module-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
+			<div class="td-module-meta-info">
 
-if ( ! function_exists( 'tagdiv_post_tags' ) ) :
+				<span class="td-post-author-name">
+					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+				<span>-</span>
+				</span>
 
-	/**
-	 * Display the post tags.
-	 *
-	 * @since TAGDIV_THEME_NAME 1.0
-	 */
+				<span class="td-post-date">
+				<time class="entry-date updated td-module-date"
+					  datetime="<?php echo date(DATE_W3C, get_the_time('U', get_the_ID())); ?>"><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
+				</span>
 
-	function tagdiv_post_tags() {
+				<div class="td-module-comments">
+					<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
+				</div>
 
-		$tags_array  = array();
+			</div>
+		</header><!-- .entry-header -->
 
-		$post_tags = '';
+	<?php } // End is_singular()
+}
+}
 
-		if ( is_singular() ) :
+if ( ! function_exists( 'tagdiv_post_tags' ) ) {
+/**
+ * Display the post tags.
+ *
+ * @since TAGDIV_THEME_NAME 1.0
+ */
+function tagdiv_post_tags() {
 
-			$tags = get_the_tags();
-			if (!empty($tags)) {
-				foreach ($tags as $tag) {
-					$tags_array[$tag->name] = array (
-						'url' => get_tag_link($tag->term_id)
-					);
-				}
+	$tags_array = array();
+	$post_tags = '';
+
+	if ( is_singular() ) {
+
+		$tags = get_the_tags();
+		if ( ! empty( $tags ) ) {
+			foreach ( $tags as $tag ) {
+				$tags_array[ $tag->name ] = array(
+					'url' => get_tag_link( $tag->term_id )
+				);
 			}
+		}
 
-			if (!empty($tags_array)) {
-				$post_tags .= '<ul class="td-tags td-post-small-box clearfix">';
-				$post_tags .= '<li><span>TAGS</span></li>';
-				foreach ($tags_array as $tag_name => $tag_params) {
-					$post_tags .=  '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
-				}
-				$post_tags .= '</ul>';
+		if ( ! empty( $tags_array )) {
+			$post_tags .= '<ul class="td-tags td-post-small-box clearfix">';
+			$post_tags .= '<li><span>TAGS</span></li>';
+			foreach ( $tags_array as $tag_name => $tag_params ) {
+				$post_tags .= '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
 			}
+			$post_tags .= '</ul>';
+		}
 
-			return $post_tags;
+		return $post_tags;
 
-			endif; // End is_singular()
-		return '';
-	}
+	} // End is_singular()
+	return '';
+}
+}
 
-endif;
+if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
+/**
+ * Display the next/prev posts.
+ *
+ * @since TAGDIV_THEME_NAME 1.0
+ */
+function tagdiv_next_prev_posts() {
 
+	$next_prev_posts = '';
 
-if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) :
+	$next_post = get_next_post();
+	$prev_post = get_previous_post();
 
-	/**
-	 * Display the next/prev posts.
-	 *
-	 * @since TAGDIV_THEME_NAME 1.0
-	 */
+	if ( is_singular() ) {
 
-	function tagdiv_next_prev_posts() {
+		if ( ! empty( $next_post ) or ! empty( $prev_post ) ) {
 
-		$next_prev_posts = '';
-
-		$next_post = get_next_post();
-		$prev_post = get_previous_post();
-
-		if ( is_singular() ) :
-
-			if (!empty($next_post) or !empty($prev_post)) {
-
-				$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
-				if (!empty($prev_post)) {
-					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
-					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>Previous article</span>';
-					$next_prev_posts .= '<a href="' . esc_url(get_permalink($prev_post->ID)) . '">' . get_the_title( $prev_post->ID ) . '</a>';
-					$next_prev_posts .= '</div>';
-					$next_prev_posts .= '</div>';
-				} else {
-					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
-					$next_prev_posts .= '</div>';
-				}
-				$next_prev_posts .= '<div class="td-next-prev-separator"></div>';
-				if (!empty($next_post)) {
-					$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
-					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>Next article</span>';
-					$next_prev_posts .= '<a href="' . esc_url(get_permalink($next_post->ID)) . '">' . get_the_title( $next_post->ID ) . '</a>';
-					$next_prev_posts .= '</div>';
-					$next_prev_posts .= '</div>';
-				}
+			$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
+			if ( ! empty( $prev_post ) ) {
+				$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
+				$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td( 'Previous article', TAGDIV_THEME_NAME ) . '</span>';
+				$next_prev_posts .= '<a href="' . esc_url( get_permalink( $prev_post->ID ) ) . '">' . get_the_title( $prev_post->ID ) . '</a>';
+				$next_prev_posts .= '</div>';
+				$next_prev_posts .= '</div>';
+			} else {
+				$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
 				$next_prev_posts .= '</div>';
 			}
+			$next_prev_posts .= '<div class="td-next-prev-separator"></div>';
+			if ( ! empty( $next_post ) ) {
+				$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
+				$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td('Next article', TAGDIV_THEME_NAME) . '</span>';
+				$next_prev_posts .= '<a href="' . esc_url( get_permalink( $next_post->ID ) ) . '">' . get_the_title( $next_post->ID ) . '</a>';
+				$next_prev_posts .= '</div>';
+				$next_prev_posts .= '</div>';
+			}
+			$next_prev_posts .= '</div>';
+		}
 
-			return $next_prev_posts;
+		return $next_prev_posts;
 
-			endif; // End is_singular()
-		return '';
-	}
+	} // End is_singular()
+	return '';
+}
+}
 
-endif;
+if ( ! function_exists( 'tagdiv_author_box' ) ) {
+/**
+ * Display the post author box.
+ *
+ * @since TAGDIV_THEME_NAME 1.0
+ */
+function tagdiv_author_box() {
+	global $post;
+	$author_box = '';
 
+	if ( is_singular() ) {
 
-if ( ! function_exists( 'tagdiv_author_box' ) ) :
-
-	/**
-	 * Display the post author box.
-	 *
-	 * @since TAGDIV_THEME_NAME 1.0
-	 */
-
-	function tagdiv_author_box() {
-
-		global $post;
-
-		$author_box = '';
-
-		if ( is_singular() ) :
-
-				$author_box .= '<div class="author-box-wrap">';
-				$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">' ;
-				$author_box .= get_avatar(get_the_author_meta('email', $post->post_author), '96');
-				$author_box .= '</a>';
-
-
-				$author_box .= '<div class="desc">';
-				$author_box .= '<div class="td-author-name vcard author"><span class="fn">';
-				$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">' . get_the_author_meta('display_name', $post->post_author) . '</a>' ;
-				$author_box .= '</span></div>';
-
-				if (get_the_author_meta('user_url', $post->post_author) != '') {
-					$author_box .= '<div class="td-author-url"><a href="' . get_the_author_meta('user_url', $post->post_author) . '">' . get_the_author_meta('user_url', $post->post_author) . '</a></div>';
-				}
-
-				$author_box .= '<div class="td-author-description">';
-				$author_box .=  get_the_author_meta('description', $post->post_author);
-				$author_box .= '</div>';
-
-				$author_box .= '<div class="clearfix"></div>';
-
-				$author_box .= '</div>'; //desc
-				$author_box .= '</div>'; //author-box-wrap
+		$author_box .= '<div class="author-box-wrap">';
+		$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">';
+		$author_box .= get_avatar(get_the_author_meta('email', $post->post_author), '96');
+		$author_box .= '</a>';
 
 
-			return $author_box;
+		$author_box .= '<div class="desc">';
+		$author_box .= '<div class="td-author-name vcard author"><span class="fn">';
+		$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">' . get_the_author_meta('display_name', $post->post_author) . '</a>';
+		$author_box .= '</span></div>';
 
-			endif; // End is_singular()
-		return '';
-	}
+		if (get_the_author_meta('user_url', $post->post_author) != '') {
+			$author_box .= '<div class="td-author-url"><a href="' . get_the_author_meta('user_url', $post->post_author) . '">' . get_the_author_meta('user_url', $post->post_author) . '</a></div>';
+		}
 
-endif;
+		$author_box .= '<div class="td-author-description">';
+		$author_box .= get_the_author_meta('description', $post->post_author);
+		$author_box .= '</div>';
 
+		$author_box .= '<div class="clearfix"></div>';
+
+		$author_box .= '</div>'; //desc
+		$author_box .= '</div>'; //author-box-wrap
+
+		return $author_box;
+
+	} // End is_singular()
+	return '';
+}
+}
 
 /**
  * Filter the except length to 20 characters.

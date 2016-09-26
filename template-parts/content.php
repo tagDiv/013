@@ -11,33 +11,33 @@
 ?>
 
 
-<?php if ( is_single() ) : ?>
+<?php if ( is_single() ) { ?>
 
 	<div class="td-post-template">
 
-<?php else : ?>
+<?php } else {  ?>
 
 	<div class="tagdiv-module td-module-wrap" >
 
-<?php endif; ?>
+<?php } ?>
 
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( is_single() ) : ?>
+	<?php if ( is_single() ) { ?>
 
 		<?php tagdiv_post_header(); // Post header. ?>
 		<?php tagdiv_post_thumbnail(); // Post thumbnail. ?>
 
-		<?php else : ?>
+		<?php } else { ?>
 
 		<?php tagdiv_post_thumbnail(); // Post thumbnail. ?>
 		<?php tagdiv_post_header(); // Post header. ?>
 
-	<?php endif; ?>
+	<?php } ?>
 
 	<div class="entry-content">
-		<?php if ( is_single() ) : ?>
+		<?php if ( is_single() ) { ?>
 
 			<div class="td-post-content">
 
@@ -72,13 +72,13 @@
 
 		</footer>
 
-		<?php else : ?>
+		<?php } else { ?>
 
 			<div class="entry-summary td-excerpt">
 				<?php the_excerpt(); ?>
 			</div><!-- .entry-summary -->
 
-		<?php endif; ?>
+		<?php } ?>
 
 	</div><!-- .entry-content -->
 
@@ -87,7 +87,8 @@
 		if ( is_single() && get_the_author_meta( 'description' ) ) :
 			get_template_part( 'author-bio' );
 		endif;
-	*/?>
+	*/
+	?>
 
 	<!--<footer class="entry-footer">
 		<?php /*//twentyfifteen_entry_meta(); */?>
@@ -95,4 +96,4 @@
 	</footer>--><!-- .entry-footer -->
 
 </article><!-- #post-## -->
-</div> <!-- .tagdiv-module / .td-post-template -->
+</div> <!-- .tagdiv-module /.td-post-template -->
