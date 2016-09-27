@@ -14,24 +14,43 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="td-main-content-wrap td-container-wrap">
+		<div class="td-container">
 
-			<?php
-			while ( have_posts() ) : the_post();
+			<div class="td-crumb-container">
+				<?php //echo td_page_generator::get_home_breadcrumbs(); ?>
+			</div>
 
-				get_template_part( 'template-parts/content', 'page' );
+			<div class="td-pb-row">
+				<div class="td-pb-span8 td-main-content">
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+					<?php if ( have_posts() ) {
 
-			endwhile; // End of the loop.
-			?>
+						while (have_posts()) : the_post();
+							get_template_part('template-parts/content', 'page' );
+						endwhile;
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) {
+							comments_template();
+						}
+					} else {
+						get_template_part( 'template-parts/content', 'none' );
+					} ?>
+
+				</div>
+
+				<div class="td-pb-span4 td-main-sidebar">
+
+					<?php get_sidebar(); ?>
+
+				</div>
+
+			</div> <!-- /.td-pb-row -->
+
+		</div> <!-- /.td-container -->
+	</div> <!-- /.td-main-content-wrap -->
+
 
 <?php
 get_sidebar();

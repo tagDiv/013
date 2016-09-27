@@ -57,7 +57,6 @@
 					'after' => '</div>',
 					'link_before' => '<div>',
 					'link_after' => '</div>',
-					/*'echo' => false,*/
 					'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
 					'previouspagelink' => '<i class="td-icon-menu-left"></i>'
 				) );

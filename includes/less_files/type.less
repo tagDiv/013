@@ -18,19 +18,25 @@ p {
   margin-bottom: 21px;
 }
 
-
-a:active,
-a:focus { /* IE remove focus */
-  outline: none;
-  //ie-dummy: expression(this.hideFocus=true);
-}
-
-
 a {
   color: @td_theme_color;
   text-decoration: none;
 }
 
+a:hover,
+a:focus,
+a:active {
+  color: @td_theme_color;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+a:focus {
+  outline: thin dotted;
+}
 
 ins {
   background: white;

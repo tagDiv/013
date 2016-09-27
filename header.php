@@ -21,9 +21,10 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<!--<a class="skip-link screen-reader-text" href="#content"><?php /*esc_html_e( 'Skip to content', 'tdmag' ); */?></a>-->
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tdmag' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+
 		<!--<div class="site-branding">
 			<?php
 /*			if ( is_front_page() && is_home() ) : */?>
@@ -39,7 +40,6 @@
 			<?php
 /*			endif; */?>
 		</div>--><!-- .site-branding -->
-
 
 		<div class="td-header-wrap td-header-style">
 

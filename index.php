@@ -12,6 +12,13 @@
  * @package tdmag
  */
 
+//echo tagdiv_global_blocks::get_instance('Tagdiv_Block_1')->render(array(
+//	'custom_title' => 'ra',
+//	'limit' => 4
+//));
+//echo 'works';
+//die;
+
 get_header(); ?>
 
 	<div class="td-main-content-wrap td-container-wrap">
@@ -81,16 +88,6 @@ get_header(); ?>
 			</div> <!-- /.td-pb-row -->
 		</div> <!-- /.td-container -->
 	</div> <!-- /.td-main-content-wrap -->
-
-
-
-<!--	<div id="primary" class="content-area">-->
-<!--		<main id="main" class="site-main" role="main">-->
-<!---->
-<!---->
-<!---->
-<!--		</main>--><!-- #main -->
-<!--	</div>--><!-- #primary -->
 
 <?php
 

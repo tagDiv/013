@@ -932,10 +932,12 @@ ul.sf-menu li li.sfHover li ul {
 }
 .sf-menu li:hover,
 .sf-menu li.sfHover,
-.sf-menu a:focus,
 .sf-menu a:hover,
 .sf-menu a:active {
   outline: 0;
+}
+.sf-menu a:focus {
+  outline: thin dotted;
 }
 /*  ----------------------------------------------------------------------------
     arrows
@@ -1018,14 +1020,21 @@ p {
   margin-top: 0;
   margin-bottom: 21px;
 }
-a:active,
-a:focus {
-  /* IE remove focus */
-  outline: none;
-}
 a {
   color: #42bdcd;
   text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #42bdcd;
+}
+a:hover,
+a:active {
+  outline: 0;
+}
+a:focus {
+  outline: thin dotted;
 }
 ins {
   background: white;
@@ -2290,17 +2299,17 @@ body .dropcap3 {
 .td-modules-container:after {
   clear: both;
 }
-.td_module_wrap {
+.tagdiv-module {
   position: relative;
   padding-bottom: 37px;
   /* responsive portrait tablet */
 }
 @media (min-width: 768px) and (max-width: 1018px) {
-  .td_module_wrap {
+  .tagdiv-module {
     padding-bottom: 27px;
   }
 }
-.td_module_wrap:hover .entry-title a {
+.tagdiv-module:hover .entry-title a {
   color: #42bdcd;
 }
 .entry-title {
@@ -2342,6 +2351,9 @@ body .dropcap3 {
 .td-module-thumb .entry-thumb {
   width: 100%;
   display: block;
+}
+.td-module-thumb a:focus {
+  opacity: 0.85;
 }
 .td-module-image {
   position: relative;

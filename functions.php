@@ -406,3 +406,20 @@ function wpdocs_custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+
+function tagdiv_pos_pagination() {
+
+			return	wp_link_pages( array(
+					'before' => '<div class="page-nav page-nav-post">',
+					'after' => '</div>',
+					'link_before' => '<div>',
+					'link_after' => '</div>',
+					'echo' => false,
+					'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
+					'previouspagelink' => '<i class="td-icon-menu-left"></i>'
+				) );
+
+
+}
