@@ -479,8 +479,9 @@ abstract class Tagdiv_Module {
 		return $buffy;
 	}
 
-
-	//get quotes on blocks
+	/**
+	 * @deprecated
+	 */
 	function get_quotes_on_blocks() {
 
 		// do not show the quote on WordPress loops

@@ -15,9 +15,11 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 			<div class="td-module-image">
 				<?php echo $this->get_image( 'td_300x220' ); ?>
 				<div class="td-post-category-wrap">
-					<?php if ( Tagdiv_Util::get_option( 'tds_category_module_1' ) == 'yes' ) {
+					<?php
+					//if ( Tagdiv_Util::get_option( 'tds_category_module_1' ) == 'yes' ) {
 						echo $this->get_category();
-					} ?>
+					//}
+					?>
 				</div>
 			</div>
 
@@ -27,6 +29,10 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 				<?php echo $this->get_author(); ?>
 				<?php echo $this->get_date(); ?>
 				<?php echo $this->get_comments(); ?>
+			</div>
+
+			<div class="td-excerpt">
+				<?php echo $this->get_excerpt(25);?>
 			</div>
 
 			<?php echo $this->get_quotes_on_blocks(); ?>

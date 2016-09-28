@@ -150,8 +150,7 @@ class Tagdiv_Block_Template_1 {
 
 
 	/**
-	 * renders the filter of the block
-	 * @return string
+	 * @deprecated
 	 */
 	function get_pull_down_filter() {
 		$buffy = '';

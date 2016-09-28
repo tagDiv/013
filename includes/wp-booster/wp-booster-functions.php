@@ -47,6 +47,7 @@ require_once( 'class-tagdiv-block-widget.php' );    // no autoload - used to mak
 
 
 require_once( 'class-tagdiv-block-layout.php' );
+require_once( 'class-tagdiv-template-layout.php' );
 require_once( 'class-tagdiv-css-compiler.php' );
 require_once( 'class-tagdiv-css-buffer.php' );
 require_once( 'class-tagdiv-data-source.php' );

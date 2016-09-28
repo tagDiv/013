@@ -19,17 +19,17 @@ class Tagdiv_Block_Layout {
 	var $span12_is_open = false; //
 
 
-	var $row_class = 'td-block-row';
-	var $span3_class = 'td-block-span3';
-	var $span4_class = 'td-block-span4';
-	var $span6_class = 'td-block-span6';
-	var $span12_class = 'td-block-span12'; // this one does not use rows
+	var $row_class = 'td-pb-row';
+	var $span3_class = 'td-pb-span3';
+	var $span4_class = 'td-pb-span4';
+	var $span6_class = 'td-pb-span6';
+	var $span12_class = 'td-pb-span12'; // this one does not use rows
 
 
 	function open_row() {
 		if ( $this->row_is_open ) {
-			//open row only onece
-			return;
+			//open row only once
+			return '';
 		}
 
 		$this->row_is_open = true;
@@ -52,7 +52,7 @@ class Tagdiv_Block_Layout {
 	function open3() {
 		if ( $this->span3_is_open ) {
 			//open row only onece
-			return;
+			return '';
 		}
 		$this->span3_is_open = true;
 
@@ -70,7 +70,7 @@ class Tagdiv_Block_Layout {
 	function open4() {
 		if ( $this->span4_is_open ) {
 			//open row only onece
-			return;
+			return '';
 		}
 		$this->span4_is_open = true;
 
@@ -88,7 +88,7 @@ class Tagdiv_Block_Layout {
 	function open6() {
 		if ( $this->span6_is_open ) {
 			//open row only onece
-			return;
+			return '';
 		}
 		$this->span6_is_open = true;
 
@@ -106,7 +106,7 @@ class Tagdiv_Block_Layout {
 	function open12() {
 		if ( $this->span12_is_open ) {
 			//open only once
-			return;
+			return '';
 		}
 		$this->span12_is_open = true;
 

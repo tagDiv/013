@@ -17,7 +17,7 @@
 
 <?php } else {  ?>
 
-	<div class="tagdiv-module td-module-wrap" >
+	<div class="tagdiv-module-wrap td-module-wrap" >
 
 <?php } ?>
 
