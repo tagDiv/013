@@ -6,7 +6,21 @@
  * Time: 3:09 PM
  */
 
-get_header(); ?>
+get_header();
+
+global $paged,$post/*, $loop_module_id, $loop_sidebar_position, $more*/; //$more is a hack to fix the read more loop
+
+$td_page = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1; //rewrite the global var
+$td_paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; //rewrite the global var
+
+//paged works on single pages, page - works on homepage
+if ( $td_paged > $td_page ) {
+    $paged = $td_paged;
+} else {
+    $paged = $td_page;
+}
+
+?>
 
     <div class="td-main-content-wrap td-container-wrap">
         <div class="td-container">
@@ -15,19 +29,21 @@ get_header(); ?>
                 <?php //echo td_page_generator::get_home_breadcrumbs(); ?>
             </div>
 
+            <?php if (empty($paged) or $paged < 2) { //show this only on the first page ?>
+
             <div class="td-pb-row">
-                <div class="td-pb-span8 td-main-content" role="main">
+                <div class="td-pb-span12 td-main-content" role="main">
                     <?php
                     echo tagdiv_global_blocks::get_instance('Tagdiv_Block_1')->render(array(
                     	'custom_title' => 'Block I',
-                    	'limit' => 2,
-                        'tagdiv_column_number' => 2
+                    	'limit' => 6,
+                        'tagdiv_column_number' => 3
                     ));
                     ?>
                 </div>
-                <div class="td-pb-span4 td-main-sidebar" role="complementary">
-                    <?php //get_sidebar(); ?>
-                </div>
+                <!--<div class="td-pb-span4 td-main-sidebar" role="complementary">
+                    <?php /*//get_sidebar(); */?>
+                </div>-->
             </div> <!-- /.td-pb-row -->
 
             <div class="td-pb-row">
@@ -59,14 +75,16 @@ get_header(); ?>
                 </div>
             </div> <!-- /.td-pb-row -->
 
-            <div class="td-container td-pb-article-list">
+            <?php } ?>
+
+        <div class="td-container td-pb-article-list">
                 <div class="td-pb-row">
 
                     <div class="td-pb-span8 td-main-content" role="main">
-                        <div class="td-ss-main-content">
+
                             <div class="td-block-title-wrap">
                                 <h4 class="block-title">
-                                    <span><?php echo __td('LATEST ARTICLES', TAGDIV_THEME_NAME) ?></span>
+                                    <span><?php echo __td('LATEST ARTICLES', 'tdmag') ?></span>
                                 </h4>
                             </div>
 
@@ -108,8 +126,6 @@ get_header(); ?>
                             }
                             ?>
 
-
-                        </div>
                     </div>
                     <div class="td-pb-span4 td-main-sidebar" role="complementary">
                         <?php get_sidebar(); ?>

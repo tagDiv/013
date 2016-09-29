@@ -7,45 +7,77 @@
  * @package tdmag
  */
 
-get_header(); ?>
+get_header();
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+?>
 
-		<?php
-		if ( have_posts() ) : ?>
+	<div class="td-search-header td-container-wrap">
+		<div class="td-container">
+			<div class="td-pb-span12">
+				<div class="td-crumb-container">
+					<?php //echo td_page_generator::get_search_breadcrumbs(); ?>
+				</div>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'tdmag' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+				<?php get_template_part( 'template-parts/page-search-box'); ?>
+			</div>
+		</div>
+	</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+	<div class="td-main-content-wrap td-container-wrap">
+		<div class="td-container">
 
-				echo '</br>';
-				echo the_title();
-				echo '</br>';
+			<div class="td-pb-row">
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				//get_template_part( 'template-parts/content', 'search' );
+				<div class="td-pb-span8 td-main-content" role="main">
 
-			endwhile;
+						<?php
+						$tagdiv_template_layout = new Tagdiv_Template_Layout('default');
+						if ( have_posts() ) {
 
-			the_posts_navigation();
+							while (have_posts()) : the_post();
 
-		else :
+								echo $tagdiv_template_layout -> layout_open_element();
 
-			get_template_part( 'template-parts/content', 'none' );
+								global $post;
+								$tagdiv_modul_1 = new Tagdiv_Module_1($post);
+								echo $tagdiv_modul_1->render();
 
-		endif; ?>
+								echo $tagdiv_template_layout -> layout_close_element();
+								$tagdiv_template_layout -> layout_next();
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+							endwhile;
+
+							echo $tagdiv_template_layout -> close_all_tags(); ?>
+
+							<div class="page-nav page-nav-post">
+
+								<?php
+								the_posts_pagination( array(
+									'prev_text'          => '',
+									'next_text'          => '',
+									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+								) );
+								?>
+
+							</div>
+
+							<?php
+
+						} else {
+							get_template_part( 'template-parts/content', 'none' );
+						}
+						?>
+
+				</div>
+
+				<div class="td-pb-span4 td-main-sidebar" role="complementary">
+					<?php get_sidebar(); ?>
+				</div>
+
+				</div> <!-- /.td-pb-row -->
+
+		</div> <!-- /.td-container -->
+	</div> <!-- /.td-main-content-wrap -->
 
 <?php
 get_sidebar();

@@ -78,13 +78,13 @@ function tagdiv_post_thumbnail() {
 
 			<div class="td-module-image">
 
-				<?php if ( current_user_can('edit_posts') ) { ?>
-					<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
-				<?php } ?>
-
-				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" title="">
+				<!--<a href="<?php /*echo esc_url( get_permalink() ); */?>" rel="bookmark" title=""> -->
 
 					<div class="td-module-thumb">
+
+						<?php if ( current_user_can('edit_posts') ) { ?>
+							<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
+						<?php } ?>
 
 						<?php the_post_thumbnail( 'td_300x220', array('alt' => get_the_title(), 'class' => 'entry-thumb') ); ?>
 
@@ -94,7 +94,7 @@ function tagdiv_post_thumbnail() {
 
 					</div><!-- .td-module-thumb-->
 
-				</a>
+				<!--</a>-->
 
 			</div> <!-- .td-module-image-->
 
@@ -327,7 +327,7 @@ function tagdiv_next_prev_posts() {
 			$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
 			if ( ! empty( $prev_post ) ) {
 				$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
-				$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td( 'Previous article', TAGDIV_THEME_NAME ) . '</span>';
+				$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td( 'Previous article', 'tdmag' ) . '</span>';
 				$next_prev_posts .= '<a href="' . esc_url( get_permalink( $prev_post->ID ) ) . '">' . get_the_title( $prev_post->ID ) . '</a>';
 				$next_prev_posts .= '</div>';
 				$next_prev_posts .= '</div>';
@@ -338,7 +338,7 @@ function tagdiv_next_prev_posts() {
 			$next_prev_posts .= '<div class="td-next-prev-separator"></div>';
 			if ( ! empty( $next_post ) ) {
 				$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
-				$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td('Next article', TAGDIV_THEME_NAME) . '</span>';
+				$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td('Next article', 'tdmag') . '</span>';
 				$next_prev_posts .= '<a href="' . esc_url( get_permalink( $next_post->ID ) ) . '">' . get_the_title( $next_post->ID ) . '</a>';
 				$next_prev_posts .= '</div>';
 				$next_prev_posts .= '</div>';
@@ -407,19 +407,3 @@ function wpdocs_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
-
-
-function tagdiv_pos_pagination() {
-
-			return	wp_link_pages( array(
-					'before' => '<div class="page-nav page-nav-post">',
-					'after' => '</div>',
-					'link_before' => '<div>',
-					'link_after' => '</div>',
-					'echo' => false,
-					'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
-					'previouspagelink' => '<i class="td-icon-menu-left"></i>'
-				) );
-
-
-}

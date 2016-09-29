@@ -9,43 +9,88 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="td-main-content-wrap td-container-wrap">
+		<div class="td-container">
 
-		<?php
-		if ( have_posts() ) : ?>
+			<div class="td-crumb-container">
+				<?php //echo td_page_generator::get_home_breadcrumbs(); ?>
+			</div>
 
-			<header class="page-header">
 				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
+
+				//prepare the archives page title
+				if ( is_day() ) {
+					$td_archive_title = __td( 'Daily Archives:', 'tdmag' ). ' ' . get_the_date();
+				} elseif ( is_month() ) {
+					$td_archive_title = __td( 'Monthly Archives:', 'tdmag' ) . ' ' . get_the_date( 'F Y' );
+				} elseif ( is_year() ) {
+					$td_archive_title = __td( 'Yearly Archives:', 'tdmag' ) . ' ' . get_the_date( 'Y' );
+				} else {
+					$td_archive_title = __td( 'Archives', 'tdmag' );
+				}
+
 				?>
-			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			<div class="td-pb-row">
+				<div class="td-pb-span8 td-main-content">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+					<div class="td-page-header">
+						<h1 class="entry-title td-page-title">
+							<span><?php echo $td_archive_title; ?></span>
+						</h1>
+					</div>
 
-			endwhile;
+					<?php
+					if ( have_posts() ) {
+						global $wp_query;
 
-			the_posts_navigation();
+						//Set up a post counter
+						$counter = 0;
 
-		else :
+						//Start the Loop
+						while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', 'none' );
+							//We are in loop so we can check if counter is odd or even
+							if ( $counter % 2 == 0 ) { //odd
+								echo '<div class="td-pb-row">'; // open row
+							} ?>
 
-		endif; ?>
+							<div class="td-pb-span6">
+								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+							</div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+							<?php if ( $counter % 2 !== 0 and $counter !== 0 ) { //even
+								echo '</div>'; // close row
+							}
 
+							$counter++;
+
+							if ( $counter == $wp_query->post_count ) {
+								echo '</div>'; // close row
+								//die ("the end");
+							}
+						endwhile; //End of the Loop
+
+						the_posts_navigation(/*array(
+							'prev_text'          => '',
+							'next_text'          => '',
+							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+						)*/);
+					} else {
+						get_template_part( 'template-parts/content', 'none' );
+					} ?>
+
+				</div>
+
+				<div class="td-pb-span4 td-main-sidebar">
+
+					<?php get_sidebar(); ?>
+
+				</div>
+
+			</div> <!-- /.td-pb-row -->
+		</div> <!-- /.td-container -->
+	</div> <!-- /.td-main-content-wrap -->
 <?php
 get_sidebar();
 get_footer();
