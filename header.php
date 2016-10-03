@@ -21,29 +21,13 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tdmag' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-
-		<!--<div class="site-branding">
-			<?php
-/*			if ( is_front_page() && is_home() ) : */?>
-				<h1 class="site-title"><a href="<?php /*echo esc_url( home_url( '/' ) ); */?>" rel="home"><?php /*bloginfo( 'name' ); */?></a></h1>
-			<?php /*else : */?>
-				<p class="site-title"><a href="<?php /*echo esc_url( home_url( '/' ) ); */?>" rel="home"><?php /*bloginfo( 'name' ); */?></a></p>
-			<?php
-/*			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : */?>
-				<p class="site-description"><?php /*echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-/*			endif; */?>
-		</div>--><!-- .site-branding -->
-
 		<div class="td-header-wrap td-header-style">
-
 			<div class="td-header-logo-wrap td-container-wrap">
+
+				<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tdmag' ); ?></a>
+
 				<div class="td-container">
 
 					<div class="td-header-sp-logo">
@@ -65,12 +49,13 @@
 							<!--<div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>-->
 
 							<?php
-							wp_nav_menu(array(
+							wp_nav_menu( array(
 								'theme_location' => 'header-menu',
 								'menu_class'=> 'sf-menu',
-								'fallback_cb' => 'td_wp_page_menu'
-							));
-
+								'fallback_cb' => 'td_wp_page_menu',
+								'link_before'    => '<span class="screen-reader-text">',
+								'link_after'     => '</span>',
+							) );
 
 							//if no menu
 							function td_wp_page_menu() {
@@ -105,11 +90,6 @@
 			</div>
 		</div>
 
-
-<!--		<nav id="site-navigation" class="main-navigation" role="navigation">-->
-<!--			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">--><?php //esc_html_e( 'Primary Menu', 'tdmag' ); ?><!--</button>-->
-<!--			--><?php //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-<!--		</nav>--><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content" tabindex="-1">

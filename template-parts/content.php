@@ -43,8 +43,8 @@
 
 				<?php /* translators: %s: Name of current post */
 				the_content( sprintf(
-					__( 'Continue reading %s', 'twentyfifteen' ),
-					the_title( '<span class="screen-reader-text">', '</span>', false )
+					__td( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'tdmag' ),
+					get_the_title()
 				) );
 				?>
 			</div>
@@ -57,8 +57,8 @@
 					'after' => '</div>',
 					'link_before' => '<div>',
 					'link_after' => '</div>',
-					'nextpagelink'     => '<i class="td-icon-menu-right"></i>',
-					'previouspagelink' => '<i class="td-icon-menu-left"></i>'
+					'separator'   => '<span class="screen-reader-text">, </span>',
+					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>%',
 				) );
 				?>
 

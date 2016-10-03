@@ -16,42 +16,22 @@ get_header(); ?>
 				<?php //echo td_page_generator::get_home_breadcrumbs(); ?>
 			</div>
 
-				<?php
-
-				//prepare the archives page title
-				if ( is_day() ) {
-					$td_archive_title = __td( 'Daily Archives:', 'tdmag' ). ' ' . get_the_date();
-				} elseif ( is_month() ) {
-					$td_archive_title = __td( 'Monthly Archives:', 'tdmag' ) . ' ' . get_the_date( 'F Y' );
-				} elseif ( is_year() ) {
-					$td_archive_title = __td( 'Yearly Archives:', 'tdmag' ) . ' ' . get_the_date( 'Y' );
-				} else {
-					$td_archive_title = __td( 'Archives', 'tdmag' );
-				}
-
-				?>
-
 			<div class="td-pb-row">
 				<div class="td-pb-span8 td-main-content">
 
-					<div class="td-page-header">
-						<h1 class="entry-title td-page-title">
-							<span><?php echo $td_archive_title; ?></span>
-						</h1>
-					</div>
-
 					<?php
+					the_archive_title( '<h1 class="entry-title td-page-title">', '</h1>' );
+
 					if ( have_posts() ) {
-						global $wp_query;
 
-						//Set up a post counter
-						$counter = 0;
+						$tagdiv_column_number = 2;
+						$tagdiv_current_column = 1;
+						$row_is_open = false;
 
-						//Start the Loop
 						while ( have_posts() ) : the_post();
 
-							//We are in loop so we can check if counter is odd or even
-							if ( $counter % 2 == 0 ) { //odd
+							if ( $row_is_open === false ) {
+								$row_is_open = true;
 								echo '<div class="td-pb-row">'; // open row
 							} ?>
 
@@ -59,26 +39,41 @@ get_header(); ?>
 								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 							</div>
 
-							<?php if ( $counter % 2 !== 0 and $counter !== 0 ) { //even
+							<?php if ( $tagdiv_column_number == $tagdiv_current_column and $row_is_open === true ) {
+								$row_is_open = false;
 								echo '</div>'; // close row
 							}
 
-							$counter++;
-
-							if ( $counter == $wp_query->post_count ) {
-								echo '</div>'; // close row
-								//die ("the end");
+							if ( $tagdiv_column_number == $tagdiv_current_column ) {
+								$tagdiv_current_column = 1;
+							} else {
+								$tagdiv_current_column++;
 							}
-						endwhile; //End of the Loop
 
-						the_posts_navigation(/*array(
-							'prev_text'          => '',
-							'next_text'          => '',
-							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-						)*/);
+						endwhile;
+
+						if ( $row_is_open === true ) {
+							$row_is_open = false;
+							echo '</div>'; // close row
+						} ?>
+
+						<div class="page-nav page-nav-post">
+
+							<?php
+							the_posts_pagination( array(
+								'prev_text'          => 'Previous page',
+								'next_text'          => 'Next page',
+								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
+							) );
+							?>
+
+						</div>
+
+					<?php
 					} else {
 						get_template_part( 'template-parts/content', 'none' );
-					} ?>
+					}
+					?>
 
 				</div>
 

@@ -67,11 +67,13 @@
 						<div class="td-pb-row">
 							<div class="td-pb-span12 td-sub-footer-menu">
 								<?php
-								wp_nav_menu(array(
+								wp_nav_menu( array(
 									'theme_location' => 'footer-menu',
 									'menu_class'=> 'td-subfooter-menu',
-									'fallback_cb' => 'td_wp_footer_menu'
-								));
+									'fallback_cb' => 'td_wp_footer_menu',
+									'link_before'    => '<span class="screen-reader-text">',
+									'link_after'     => '</span>',
+								) );
 
 								//if no menu
 								function td_wp_footer_menu() {

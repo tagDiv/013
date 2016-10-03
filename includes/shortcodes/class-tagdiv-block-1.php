@@ -8,6 +8,9 @@ class Tagdiv_Block_1 extends Tagdiv_Block {
 			$tagdiv_column_number = Tagdiv_Util::vc_get_column_number(); // get the column width of the block from the page builder API
 		}
 
+/*		echo '<pre>';
+		var_dump($this->atts);
+		echo '</pre>';*/
 		$buffy = ''; //output buffer
 
 		$buffy .= '<div class="' . $this->get_block_classes() . ' td-column-' . $tagdiv_column_number . '" ' . $this->get_block_html_atts() . '>';
@@ -16,7 +19,7 @@ class Tagdiv_Block_1 extends Tagdiv_Block {
 		$buffy .= $this->get_block_css();
 
 		//get the js for this block
-		$buffy .= $this->get_block_js();
+		//$buffy .= $this->get_block_js();
 
 		// block title wrap
 		$buffy .= '<div class="td-block-title-wrap">';
@@ -25,7 +28,7 @@ class Tagdiv_Block_1 extends Tagdiv_Block {
 		$buffy .= '</div>';
 
 		$buffy .= '<div id=' . $this->block_uid . ' class="tagdiv_block_inner">';
-		$buffy .= $this->inner( $this->tagdiv_query->posts );  //inner content of the block
+		$buffy .= $this->inner( $this->tagdiv_query->posts, $this->atts['tagdiv_column_number'] );  //inner content of the block
 		$buffy .= '</div>';
 
 		//get the ajax pagination for this block

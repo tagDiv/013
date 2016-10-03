@@ -41,9 +41,6 @@ if ( $td_paged > $td_page ) {
                     ));
                     ?>
                 </div>
-                <!--<div class="td-pb-span4 td-main-sidebar" role="complementary">
-                    <?php /*//get_sidebar(); */?>
-                </div>-->
             </div> <!-- /.td-pb-row -->
 
             <div class="td-pb-row">
@@ -111,9 +108,9 @@ if ( $td_paged > $td_page ) {
 
                                 <?php
                                 the_posts_pagination( array(
-                                    'prev_text'          => '',
-                                    'next_text'          => '',
-                                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+                                    'prev_text'          => 'Previous posts page',
+                                    'next_text'          => 'Next posts page',
+                                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
                                 ) );
                                 ?>
 
