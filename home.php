@@ -25,10 +25,6 @@ if ( $td_paged > $td_page ) {
     <div class="td-main-content-wrap td-container-wrap">
         <div class="td-container">
 
-            <div class="td-crumb-container">
-                <?php //echo td_page_generator::get_home_breadcrumbs(); ?>
-            </div>
-
             <?php if (empty($paged) or $paged < 2) { //show this only on the first page ?>
 
             <div class="td-pb-row">

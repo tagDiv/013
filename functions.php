@@ -202,15 +202,9 @@ function tagdiv_post_header() {
 
 			<?php echo tagdiv_post_category(); ?>
 
-			<header class="td-post-title">
+			<header>
 
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-
-				<!--post subtitles-->
-				<?php /*if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { */ ?><!--
-					<p class="td-post-sub-title"><?php /*echo $td_mod_single->td_post_theme_settings['td_subtitle'];*/ ?></p>
-				--><?php /*} */ ?>
 
 				<div class="td-module-meta-info">
 
@@ -221,24 +215,16 @@ function tagdiv_post_header() {
 					</span>
 
 					<span class="td-post-date">
-					<time class="entry-date updated td-module-date"
+					<time class="entry-date updated"
 						  datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>"><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
 					</span>
 
-					<div class="td-module-comments">
+					<div class="td-post-comments">
 						<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
 					</div>
 
-					<!--post views-->
-					<!--<div class="td-post-views-wrap">
-						<?php /*echo $td_mod_single->get_views();*/ ?>
-						<span class="td-post-views-text">views</span>
-					</div>-->
-
-				</div>
-				<!-- .td-module-meta-info-->
+				</div><!-- .td-module-meta-info-->
 			</header>
-			<!-- .td-post-title -->
 		</div> <!-- .td-post-header -->
 
 	<?php } else { ?>

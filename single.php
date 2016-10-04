@@ -11,11 +11,6 @@ get_header(); ?>
 
 	<div class="td-main-content-wrap td-container-wrap">
 		<div class="td-container">
-
-			<div class="td-crumb-container">
-				<?php //echo td_page_generator::get_home_breadcrumbs(); ?>
-			</div>
-
 			<div class="td-pb-row">
 
 				<div class="td-pb-span8 td-main-content">
@@ -34,10 +29,7 @@ get_header(); ?>
 							endif;
 
 						endwhile; // End of the loop.
-
-
-
-				 ?>
+				 	?>
 
 				</div>
 

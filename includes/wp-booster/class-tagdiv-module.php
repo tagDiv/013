@@ -308,26 +308,11 @@ abstract class Tagdiv_Module {
 			$buffy .= Tagdiv_Util::excerpt( $this->title, $cut_at, 'show_shortcodes' );
 
 		} else {
-			$current_module_class = get_class( $this );
-
-			//see if we have a default setting for this module, and if so only apply it if we don't get other things form theme panel.
-			if ( Tagdiv_API_Module::_helper_check_excerpt_title( $current_module_class ) ) {
-				$db_title_excerpt = Tagdiv_Util::get_option( $current_module_class . '_title_excerpt' );
-				if ( $db_title_excerpt != '' ) {
-					//cut from the database settings
-					$buffy .= Tagdiv_Util::excerpt( $this->title, $db_title_excerpt, 'show_shortcodes' );
-				} else {
-					//cut at the default size
-					$module_api = Tagdiv_API_Module::get_by_id( $current_module_class );
-					$buffy .= Tagdiv_Util::excerpt( $this->title, $module_api['excerpt_title'], 'show_shortcodes' );
-				}
-			} else {
-				/**
-				 * no $cut_at provided and no setting in tagdiv_config -> return the full title
-				 * @see Tagdiv_Global::$modules_list
-				 */
-				$buffy .= $this->title;
-			}
+			/**
+			 * no $cut_at provided -> return the full title
+			 * @see Tagdiv_Global::$modules_list
+			 */
+			$buffy .= $this->title;
 
 		}
 		$buffy .= '</a>';
@@ -356,27 +341,12 @@ abstract class Tagdiv_Module {
 		if ( $cut_at != '' ) {
 			// simple, $cut_at and return
 			$buffy .= Tagdiv_Util::excerpt( $this->post->post_content, $cut_at );
-		} else {
-			$current_module_class = get_class( $this );
-
-			//see if we have a default setting for this module, and if so only apply it if we don't get other things form theme panel.
-			if ( Tagdiv_API_Module::_helper_check_excerpt_content( $current_module_class ) ) {
-				$db_content_excerpt = Tagdiv_Util::get_option( $current_module_class . '_content_excerpt' );
-				if ( $db_content_excerpt != '' ) {
-					//cut from the database settings
-					$buffy .= Tagdiv_Util::excerpt( $this->post->post_content, $db_content_excerpt );
-				} else {
-					//cut at the default size
-					$module_api = Tagdiv_API_Module::get_by_id( $current_module_class );
-					$buffy .= Tagdiv_Util::excerpt( $this->post->post_content, $module_api['excerpt_content'] );
-				}
-			} else {
+		}  else {
 				/**
-				 * no $cut_at provided and no setting in tagdiv_config -> return the full $this->post->post_content
+				 * no $cut_at provided -> return the full $this->post->post_content
 				 * @see Tagdiv_Global::$modules_list
 				 */
 				$buffy .= $this->post->post_content;
-			}
 		}
 
 		return $buffy;
@@ -389,13 +359,6 @@ abstract class Tagdiv_Module {
 		$selected_category_obj      = '';
 		$selected_category_obj_id   = '';
 		$selected_category_obj_name = '';
-
-		$current_post_type  = get_post_type( $this->post->ID );
-		$builtin_post_types = get_post_types( array( '_builtin' => true ) );
-
-		if ( array_key_exists( $current_post_type, $builtin_post_types ) ) {
-
-			// default post type
 
 			//read the post meta to get the custom primary category
 			$tagdiv_post_theme_settings = get_post_meta( $this->post->ID, 'td_post_theme_settings', true );
@@ -430,46 +393,7 @@ abstract class Tagdiv_Module {
 				$selected_category_obj_name = $selected_category_obj->name;
 			}
 
-		} else {
 
-			// custom post type
-
-			// Validate that the current queried term is a term
-			global $wp_query;
-			$current_queried_term = $wp_query->get_queried_object();
-
-			if ( $current_queried_term instanceof WP_Term ) {
-				$current_term = term_exists( $current_queried_term->name, $current_queried_term->taxonomy );
-
-				if ( $current_term !== 0 && $current_term !== null ) {
-					$selected_category_obj = $current_queried_term;
-				}
-			}
-
-
-			// Get and validate the custom taxonomy according to the validated queried term
-			if ( ! empty( $selected_category_obj ) ) {
-
-				$taxonomy_objects       = get_object_taxonomies( $this->post, 'objects' );
-				$custom_taxonomy_object = '';
-
-				foreach ( $taxonomy_objects as $taxonomy_object ) {
-
-					if ( $taxonomy_object->_builtin !== 1 && $taxonomy_object->name === $selected_category_obj->taxonomy ) {
-						$custom_taxonomy_object = $taxonomy_object;
-						break;
-					}
-				}
-
-				// Invalid taxonomy
-				if ( empty( $custom_taxonomy_object ) ) {
-					return $buffy;
-				}
-
-				$selected_category_obj_id   = $selected_category_obj->term_id;
-				$selected_category_obj_name = $selected_category_obj->name;
-			}
-		}
 
 		if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) { //@todo catch error here
 			$buffy .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="td-post-category">' . $selected_category_obj_name . '</a>';
@@ -479,22 +403,4 @@ abstract class Tagdiv_Module {
 		return $buffy;
 	}
 
-	/**
-	 * @deprecated
-	 */
-	function get_quotes_on_blocks() {
-
-		// do not show the quote on WordPress loops
-		if ( Tagdiv_Global::$is_wordpress_loop === true || Tagdiv_Util::vc_get_column_number() != 1 ) {
-			return '';
-		}
-
-
-		//get quotes data from database
-		$post_data_from_db = get_post_meta( $this->post->ID, 'td_post_theme_settings', true );
-
-		if ( ! empty( $post_data_from_db['td_quote_on_blocks'] ) ) {
-			return '<div class="tagdiv_quote_on_blocks">' . $post_data_from_db['td_quote_on_blocks'] . '</div>';
-		}
-	}
 }

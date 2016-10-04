@@ -13,23 +13,17 @@ get_header(); ?>
 		<div class="td-container">
 			<div class="td-pb-span12">
 				<div class="td-404-head">
-					<div class="td-404-title"> 404 </div>
-						<?php /*__td( '404', 'tdmag' ); */?>
-
-
-					<div class="td-404-sub-title"> Oops! </div>
-						<?php /*__td( 'Oops!', 'tdmag' ); */?>
-
-
-					<div class="td-404-sub-sub-title"> Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help </div>
-						<?php /*__td( 'Sorry, but the page you are looking for doesn’t exist. Please use search for help', 'tdmag' ); */?>
-
+					<div class="td-404-title"><?php echo __td( '404', 'tdmag' ); ?></div>
+					<div class="td-404-sub-title"><?php echo __td( 'Oops!', 'tdmag' ); ?></div>
+					<div class="td-404-sub-sub-title"><?php echo __td( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'tdmag' ); ?></div>
 
 					<div class="search-page-wrap">
 						<form method="get" class="td-search-form-widget" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 							<div role="search">
-								<input class="td-widget-search-input" type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" />
-								<input class="wpb_button wpb_btn-inverse btn" type="submit" id="searchsubmit" value="Search<?php /*__td( 'Search', 'tdmag' )*/?>" />
+								<label>
+									<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'tdmag' ); ?></span>
+									<input class="td-widget-search-input" type="search" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'tdmag' ); ?>" value="<?php echo get_search_query(); ?>" name="s" id="s" />
+								<input class="wpb_button wpb_btn-inverse btn" type="submit" id="searchsubmit" value="Search<?php __td( 'Search', 'tdmag' )?>" />
 							</div>
 						</form>
 					</div>

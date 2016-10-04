@@ -53,8 +53,6 @@
 								'theme_location' => 'header-menu',
 								'menu_class'=> 'sf-menu',
 								'fallback_cb' => 'td_wp_page_menu',
-								'link_before'    => '<span class="screen-reader-text">',
-								'link_after'     => '</span>',
 							) );
 
 							//if no menu

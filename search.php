@@ -8,24 +8,19 @@
  */
 
 get_header();
-
 ?>
 
-	<div class="td-search-header td-container-wrap">
-		<div class="td-container">
-			<div class="td-pb-span12">
-				<div class="td-crumb-container">
-					<?php //echo td_page_generator::get_search_breadcrumbs(); ?>
-				</div>
+	<div class="td-main-content-wrap td-container-wrap">
 
-				<?php get_template_part( 'template-parts/page-search-box'); ?>
+		<div class="td-search-header td-container-wrap">
+			<div class="td-container">
+				<div class="td-pb-span12">
+					<?php get_template_part( 'template-parts/page-search-box'); ?>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="td-main-content-wrap td-container-wrap">
 		<div class="td-container">
-
 			<div class="td-pb-row">
 
 				<div class="td-pb-span8 td-main-content" role="main">

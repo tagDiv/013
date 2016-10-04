@@ -71,13 +71,11 @@
 									'theme_location' => 'footer-menu',
 									'menu_class'=> 'td-subfooter-menu',
 									'fallback_cb' => 'td_wp_footer_menu',
-									'link_before'    => '<span class="screen-reader-text">',
-									'link_after'     => '</span>',
 								) );
 
 								//if no menu
 								function td_wp_footer_menu() {
-									//do nothing?
+									//do nothing
 								}
 								?>
 							</div>
@@ -90,16 +88,6 @@
 				</div>
 
 		</div>
-
-
-
-			<!--<div class="site-info">
-				<a href="<?php /*echo esc_url( __( 'https://wordpress.org/', 'tdmag' ) ); */?>"><?php /*printf( esc_html__( 'Proudly powered by %s', 'tdmag' ), 'WordPress' ); */?></a>
-				<span class="sep"> | </span>
-				<?php /*printf( esc_html__( 'Theme: %1$s by %2$s.', 'tdmag' ), 'tdmag', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); */?>
-			</div>--><!-- .site-info -->
-
-
 
 	</footer><!-- #colophon -->
 </div><!-- #page -->

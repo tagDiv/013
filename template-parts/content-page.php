@@ -14,16 +14,16 @@
 		<?php the_title( '<h1 class="entry-title td-page-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content td-page-content">
 		<?php
 		the_content();
 
 		wp_link_pages( array(
-			'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',
+			'before'      => '<div class="page-nav page-nav-post">',
 			'after'       => '</div>',
-			'link_before' => '<span>',
-			'link_after'  => '</span>',
-			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>%',
+			'link_before' => '<div>',
+			'link_after'  => '</div>',
+			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
 			'separator'   => '<span class="screen-reader-text">, </span>',
 		) );
 		?>
