@@ -31,9 +31,7 @@
 				<div class="td-container">
 
 					<div class="td-header-sp-logo">
-						<a class="td-main-logo" href="<?php echo esc_url(home_url( '/' )); ?>">
-							<img src="<?php echo Tagdiv_Global::$get_template_directory_uri . '/images/logo_header.png'?>"/>
-						</a>
+						<?php tagdiv_custom_logo(); ?>
 					</div>
 
 				</div>

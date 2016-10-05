@@ -72,6 +72,18 @@ do_action( 'tagdiv_wp-booster_loaded' ); //used by our plugins
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', array( 'video' ) );
 add_theme_support( 'automatic-feed-links' );
+
+function theme_prefix_setup() {
+
+	add_theme_support( 'custom-logo', array(
+		'height'      => 90,
+		'width'       => 272,
+		'flex-width' => true,
+	) );
+
+}
+add_action( 'after_setup_theme', 'theme_prefix_setup' );
+
 add_theme_support( 'html5', array(
 	'comment-list',
 	'comment-form',

@@ -41,17 +41,27 @@
 						<!--logo-->
 						<div class="td-pb-span12">
 							<aside class="footer-logo-wrap">
-								<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php echo Tagdiv_Global::$get_template_directory_uri . '/images/logo_footer.png'?>" alt="footer-logo-alt" title="td-footer-logo-title"/></a>
+
+								<?php if ( get_theme_mod( 'tagdiv_footer_logo' ) ) { ?>
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+										<img src="<?php echo get_theme_mod( 'tagdiv_footer_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+									</a>
+								<?php } ?>
+
 							</aside>
 						</div>
 
 						<!--description & email-->
 						<div class="td-pb-span12">
 							<aside class="footer-text-wrap">
-								tdmag is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.
+
+								<?php echo get_option( 'tagdiv_footer_text' ); ?>
 
 								<div class="footer-email-wrap">
-									Contact us: <a href="mailto:contact@yoursite.com">contact@yoursite.com</a>
+
+									<?php echo __td('Contact us:', 'tdmag'); ?>
+									<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
+
 								</div>
 							</aside>
 						</div>
@@ -81,7 +91,19 @@
 							</div>
 
 							<div class="td-pb-span12 td-sub-footer-copy">
-								&copy; 2016 ELM - All rights reserved. Free WordPress Theme created with <i class="td-icon-heart"></i> by <b>tagDiv</b>.
+
+								<?php
+								$tagdiv_footer_copyright = stripslashes( get_option( 'tagdiv_subfooter_copyright' ) );
+								$tagdiv_footer_copy_symbol = get_theme_mod( 'tagdiv_subfooter_copyright_symbol' );
+
+								//show copyright symbol
+								if ( $tagdiv_footer_copy_symbol ) {
+									echo '&copy; ';
+								}
+
+								echo $tagdiv_footer_copyright;
+								?>
+
 							</div>
 						</div>
 					</div>
