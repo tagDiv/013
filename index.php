@@ -29,7 +29,6 @@ get_header(); ?>
 							</header>
 						<?php }
 
-						$tagdiv_column_number = 2;
 						$tagdiv_current_column = 1;
 						$row_is_open = false;
 
@@ -45,12 +44,12 @@ get_header(); ?>
 								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 							</div>
 
-							<?php if ( $tagdiv_column_number == $tagdiv_current_column and $row_is_open === true ) {
+							<?php if ( 2 == $tagdiv_current_column and $row_is_open === true ) {
 								$row_is_open = false;
 								echo '</div>'; // close the grid row
 							}
 
-							if ( $tagdiv_column_number == $tagdiv_current_column ) {
+							if ( 2 == $tagdiv_current_column ) {
 								$tagdiv_current_column = 1;
 							} else {
 								$tagdiv_current_column++;

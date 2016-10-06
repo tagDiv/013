@@ -13,10 +13,12 @@ require_once( 'includes/wp-booster/wp-booster-functions.php' );
 
 require_once( 'includes/tagdiv_css_generator.php' );
 
+
 /**
  * Custom template tags for this theme.
  */
 require_once( 'includes/template-tags.php' );
+
 
 /**
  * Customizer additions.
@@ -24,9 +26,18 @@ require_once( 'includes/template-tags.php' );
 require_once( 'includes/customizer.php' );
 
 
+/**
+ * Localization
+ */
+function td_load_text_domains() {
+	load_theme_textdomain( 'tdmag');
+}
+add_action('after_setup_theme', 'td_load_text_domains');
+
 function __td( $tagdiv_string, $tagdiv_domain = '' ) {
 	return $tagdiv_string;
 }
+
 
 /**
  * Enqueues scripts and styles.
@@ -56,6 +67,7 @@ function tagdiv_scripts() {
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'tagdiv_scripts' );
+
 
 /**
  * Filter the except length to 20 characters.

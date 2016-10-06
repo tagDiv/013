@@ -15,7 +15,15 @@ get_header();
 		<div class="td-search-header td-container-wrap">
 			<div class="td-container">
 				<div class="td-pb-span12">
-					<?php get_template_part( 'template-parts/page-search-box'); ?>
+
+					<h1 class="entry-title td-page-title">
+						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php  echo __td('search results', 'tdmag');?></span>
+					</h1>
+
+					<div class="search-page-wrap">
+					<?php get_search_form(); ?>
+					</div>
+
 				</div>
 			</div>
 		</div>

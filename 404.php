@@ -18,14 +18,7 @@ get_header(); ?>
 					<div class="td-404-sub-sub-title"><?php echo __td( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'tdmag' ); ?></div>
 
 					<div class="search-page-wrap">
-						<form method="get" class="td-search-form-widget" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-							<div role="search">
-								<label>
-									<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'tdmag' ); ?></span>
-									<input class="td-widget-search-input" type="search" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'tdmag' ); ?>" value="<?php echo get_search_query(); ?>" name="s" id="s" />
-								<input class="wpb_button wpb_btn-inverse btn" type="submit" id="searchsubmit" value="Search<?php __td( 'Search', 'tdmag' )?>" />
-							</div>
-						</form>
+						<?php get_search_form(); ?>
 					</div>
 				</div>
 
@@ -38,23 +31,44 @@ get_header(); ?>
 
 				query_posts($args);
 
-				$tagdiv_template_layout = new Tagdiv_Template_Layout( 'no_sidebar' );
 				if ( have_posts() ) {
 
-					while ( have_posts() ) : the_post();
+					$tagdiv_current_column = 1;
+					$row_is_open = false;
 
-						echo $tagdiv_template_layout->layout_open_element();
+					while ( have_posts() ) : the_post(); //Start the Loop
 
-						global $post;
-						$tagdiv_modul_1 = new Tagdiv_Module_1($post);
-						echo $tagdiv_modul_1->render();
+						if ( false === $row_is_open ) {
+							$row_is_open = true;
+							echo '<div class="td-pb-row">'; // open a grid row
+						} ?>
 
-						echo $tagdiv_template_layout->layout_close_element();
-						$tagdiv_template_layout->layout_next();
+						<div class="td-pb-span4">
+							<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+						</div>
 
-					endwhile;
+						<?php if ( 3 == $tagdiv_current_column and true === $row_is_open ) {
+							$row_is_open = false;
+							echo '</div>'; // close the grid row
+						}
 
-					echo $tagdiv_template_layout->close_all_tags();
+						if ( 3 == $tagdiv_current_column ) {
+							$tagdiv_current_column = 1;
+						} else {
+							$tagdiv_current_column++;
+						}
+
+					endwhile; //End of the Loop
+
+						if ( true === $row_is_open ) {
+							$row_is_open = false;
+							echo '</div>'; // close the grid row
+						}
+
+				} else {
+
+					get_template_part( 'template-parts/content', 'none' );
+
 				}
 
 				wp_reset_query();
@@ -62,5 +76,5 @@ get_header(); ?>
 			</div>
 		</div> <!-- /.td-container -->
 	</div> <!-- /.td-main-content-wrap -->
-<?php
-get_footer();
+
+<?php get_footer(); ?>
