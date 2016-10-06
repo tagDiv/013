@@ -283,13 +283,6 @@ class Tagdiv_Global {
 
 
 	/**
-	 * the list of fonts used by the theme by default
-	 * @var array
-	 */
-	public static $default_google_fonts_list = array();
-
-
-	/**
 	 * @var array string here we keep the typography settings from the THEME FONTS panel.
 	 * this is also used by the css compiler
 	 */

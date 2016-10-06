@@ -38,7 +38,7 @@ do_action( 'tagdiv_global_after' );
 
 
 require_once( 'class-tagdiv-global-blocks.php' );   // no autoload -
-require_once('class-tagdiv-menu.php');            // theme menu support
+require_once( 'class-tagdiv-menu.php' );            // theme menu support
 
 
 require_once( 'class-tagdiv-module.php' );          // module builder

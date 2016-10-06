@@ -2,9 +2,17 @@
 /**
  * The template for displaying archive pages.
  *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ *
+ * If you'd like to further customize these archive views, you may create a
+ * new template file for each one. For example, tag.php (Tag archives),
+ * category.php (Category archives), author.php (Author archives), etc.
+ *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
 get_header(); ?>
@@ -14,50 +22,56 @@ get_header(); ?>
 			<div class="td-pb-row">
 				<div class="td-pb-span8 td-main-content">
 
-					<?php
-					the_archive_title( '<h1 class="entry-title td-page-title">', '</h1>' );
+					<?php if ( have_posts() ) { ?>
 
-					if ( have_posts() ) {
+						<header class="tagdiv-page-header">
+							<?php
+							the_archive_title( '<h1 class="entry-title td-page-title">', '</h1>' );
+							the_archive_description( '<div class="tagdiv-category-description">', '</div>' );
+							?>
+						</header><!-- .page-header -->
 
-						$tagdiv_column_number = 2;
+						<?php
+
 						$tagdiv_current_column = 1;
 						$row_is_open = false;
-
+						// Start the Loop.
 						while ( have_posts() ) : the_post();
 
-							if ( $row_is_open === false ) {
+							if ( false === $row_is_open ) {
 								$row_is_open = true;
-								echo '<div class="td-pb-row">'; // open row
+								echo '<div class="td-pb-row">'; // open a grid row
 							} ?>
 
 							<div class="td-pb-span6">
 								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 							</div>
 
-							<?php if ( $tagdiv_column_number == $tagdiv_current_column and $row_is_open === true ) {
+							<?php if ( 2 == $tagdiv_current_column and true === $row_is_open ) {
 								$row_is_open = false;
-								echo '</div>'; // close row
+								echo '</div>'; // close the grid row
 							}
 
-							if ( $tagdiv_column_number == $tagdiv_current_column ) {
+							if ( 2 == $tagdiv_current_column ) {
 								$tagdiv_current_column = 1;
 							} else {
 								$tagdiv_current_column++;
 							}
-
+						//End of the Loop
 						endwhile;
 
-						if ( $row_is_open === true ) {
+						if ( true === $row_is_open ) {
 							$row_is_open = false;
-							echo '</div>'; // close row
+							echo '</div>'; // close the grid row
 						} ?>
 
 						<div class="page-nav page-nav-post">
 
 							<?php
+							// Previous/next page navigation.
 							the_posts_pagination( array(
-								'prev_text'          => 'Previous page',
-								'next_text'          => 'Next page',
+								'prev_text'          =>  __td( 'Previous page', 'tdmag' ),
+								'next_text'          => __td( 'Next page', 'tdmag' ),
 								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
 							) );
 							?>
@@ -65,6 +79,7 @@ get_header(); ?>
 						</div>
 
 					<?php
+					// If no content, include the "No posts found" template.
 					} else {
 						get_template_part( 'template-parts/content', 'none' );
 					}
@@ -73,14 +88,12 @@ get_header(); ?>
 				</div>
 
 				<div class="td-pb-span4 td-main-sidebar">
-
 					<?php get_sidebar(); ?>
-
 				</div>
 
 			</div> <!-- /.td-pb-row -->
 		</div> <!-- /.td-container -->
 	</div> <!-- /.td-main-content-wrap -->
-<?php
-get_sidebar();
-get_footer();
+
+<?php get_footer(); ?>
+

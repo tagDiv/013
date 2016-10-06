@@ -5,7 +5,8 @@ require_once 'deploy-mode.php';
 
 // load the config
 require_once( 'includes/class-tagdiv-config.php' );
-add_action( 'tagdiv_global_after', array( 'Tagdiv_Config', 'on_tagdiv_global_after_config' ), 9 ); //we run on 9 priority to allow plugins to updage_key our apis while using the default priority of 10
+add_action( 'tagdiv_global_after', array( 'Tagdiv_Config', 'on_tagdiv_global_after_config' ), 9 );
+//we run on 9 priority to allow plugins to updage_key our apis while using the default priority of 10
 
 
 require_once( 'includes/wp-booster/wp-booster-transition.php' );
@@ -42,9 +43,12 @@ function __td( $tagdiv_string, $tagdiv_domain = '' ) {
 /**
  * Enqueues scripts and styles.
  *
- * @since Twenty Sixteen 1.0
+ * @since TAGDIV_THEME_NAME 1.0
  */
 function tagdiv_scripts() {
+	// Add custom fonts, used in the main stylesheet.
+	wp_enqueue_style( TAGDIV_THEME_NAME . '-fonts', tagdiv_fonts(), array(), null );
+
 	// Theme stylesheet.
 	wp_enqueue_style( TAGDIV_THEME_NAME . '-style', get_stylesheet_uri() );
 
@@ -68,6 +72,46 @@ function tagdiv_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'tagdiv_scripts' );
 
+if ( ! function_exists( 'tagdiv_fonts' ) ) {
+	/**
+	 * Register Google fonts for Twenty Sixteen.
+	 *
+	 * Create your own tagdiv_fonts() function to override in a child theme.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 *
+	 * @return string Google fonts URL for the theme.
+	 */
+	function tagdiv_fonts() {
+		$fonts_url = '';
+		$fonts = array();
+		$subsets = 'latin,latin-ext';
+
+		/* translators: If there are characters in your language that are not supported by Work Sans font, translate this to 'off'. Do not translate into your own language. */
+		if ('off' !== _x('on', 'Work Sans font: on or off', 'tdmag')) {
+			$fonts[] = 'Work Sans:400,500,600,700';
+		}
+
+		/* translators: If there are characters in your language that are not supported by Source Sans Pro font, translate this to 'off'. Do not translate into your own language. */
+		if ('off' !== _x('on', 'Source Sans Pro font: on or off', 'tdmag')) {
+			$fonts[] = 'Source Sans+Pro:400,400italic,600,600italic,700';
+		}
+
+		/* translators: If there are characters in your language that are not supported by Droid Serif font, translate this to 'off'. Do not translate into your own language. */
+		if ('off' !== _x('on', 'Droid Serif font: on or off', 'tdmag')) {
+			$fonts[] = 'Droid Serif:400,700';
+		}
+
+		if ($fonts) {
+			$fonts_url = add_query_arg(array(
+				'family' => urlencode(implode('|', $fonts)),
+				'subset' => urlencode($subsets),
+			), 'https://fonts.googleapis.com/css');
+		}
+
+		return $fonts_url;
+	}
+}
 
 /**
  * Filter the except length to 20 characters.
