@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer.
  *
@@ -6,33 +7,32 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
 ?>
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-
+	<!-- footer -->
+	<footer class="site-footer" role="contentinfo">
 
 		<div class="td-footer-outer-wrapper td-container-wrap">
-
-			<!-- Footer -->
-
 			<div class="td-footer-wrapper">
 				<div class="td-container">
 					<div class="td-pb-row">
 						<div class="td-pb-span4">
-							<?php dynamic_sidebar('Footer 1'); ?>
+							<?php dynamic_sidebar( 'Footer 1' ); ?>
 						</div>
 
 						<div class="td-pb-span4">
-							<?php dynamic_sidebar('Footer 2'); ?>
+							<?php dynamic_sidebar( 'Footer 2' ); ?>
 						</div>
 
 						<div class="td-pb-span4">
-							<?php dynamic_sidebar('Footer 3'); ?>
+							<?php dynamic_sidebar( 'Footer 3' ); ?>
 						</div>
 					</div>
 
@@ -54,12 +54,11 @@
 						<!--description & email-->
 						<div class="td-pb-span12">
 							<aside class="footer-text-wrap">
-
 								<?php echo get_option( 'tagdiv_footer_text' ); ?>
 
 								<div class="footer-email-wrap">
 
-									<?php echo __td('Contact us:', 'tdmag'); ?>
+									<?php echo __td( 'Contact us:', 'tdmag' ); ?>
 									<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
 
 								</div>
@@ -70,8 +69,7 @@
 				</div>
 			</div>
 
-			<!-- Sub Footer -->
-
+				<!-- sub footer -->
 				<div class="td-sub-footer-container">
 					<div class="td-container">
 						<div class="td-pb-row">
@@ -79,8 +77,8 @@
 								<?php
 								wp_nav_menu( array(
 									'theme_location' => 'footer-menu',
-									'menu_class'=> 'td-subfooter-menu',
-									'fallback_cb' => 'td_wp_footer_menu',
+									'menu_class'	 => 'td-subfooter-menu',
+									'fallback_cb' 	 => 'td_wp_footer_menu',
 								) );
 
 								//if no menu
@@ -111,7 +109,7 @@
 
 		</div>
 
-	</footer><!-- #colophon -->
+	</footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

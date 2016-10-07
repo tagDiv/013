@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-	<header id="masthead" class="site-header" role="banner">
+	<header class="site-header" role="banner">
 		<div class="td-header-wrap td-header-style">
 			<div class="td-header-logo-wrap td-container-wrap">
 
@@ -49,13 +49,12 @@
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'header-menu',
-								'menu_class'=> 'sf-menu',
-								'fallback_cb' => 'td_wp_page_menu',
+								'menu_class'	 => 'sf-menu',
+								'fallback_cb' 	 => 'td_wp_page_menu',
 							) );
 
 							//if no menu
 							function td_wp_page_menu() {
-								//this is the default menu
 								echo '<ul class="sf-menu">';
 								echo '<li class="menu-item-first"><a href="' . esc_url(home_url( '/' )) . 'wp-admin/nav-menus.php?action=locations">Click here - to select or create a menu</a></li>';
 								echo '</ul>';
@@ -73,7 +72,10 @@
 								<div class="td-drop-down-search" aria-labelledby="td-header-search-button">
 									<form method="get" class="td-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
 										<div role="search" class="td-head-form-search-wrap">
-											<input id="td-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" /><input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="Search" />
+											<label>
+												<span class="screen-reader-text"><?php echo __td( 'Search for:', 'tdmag' ) ?></span>
+												<input id="td-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" /><input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="Search" />
+											</label>
 										</div>
 									</form>
 									<div id="td-aj-search"></div>
@@ -86,6 +88,6 @@
 			</div>
 		</div>
 
-	</header><!-- #masthead -->
+	</header> <!--site-header-->
 
 	<div id="content" class="site-content" tabindex="-1">
