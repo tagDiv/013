@@ -26,7 +26,7 @@ get_header(); ?>
 
 						<header class="tagdiv-page-header">
 							<?php
-							the_archive_title( '<h1 class="entry-title td-page-title">', '</h1>' );
+							the_archive_title( '<h1 class="entry-title tagdiv-page-title">', '</h1>' );
 							the_archive_description( '<div class="tagdiv-category-description">', '</div>' );
 							?>
 						</header><!-- .page-header -->
@@ -87,7 +87,7 @@ get_header(); ?>
 
 				</div>
 
-				<div class="td-pb-span4 td-main-sidebar">
+				<div class="td-pb-span4 tagdiv-sidebar">
 					<?php get_sidebar(); ?>
 				</div>
 

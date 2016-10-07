@@ -58,7 +58,7 @@
 					'link_before' => '<div>',
 					'link_after' => '</div>',
 					'separator'   => '<span class="screen-reader-text">, </span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
+					'pagelink'    => '<span class="screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>%',
 				) );
 				?>
 
@@ -72,11 +72,7 @@
 			</footer>
 
 		<?php } else { ?>
-
-			<div class="entry-summary td-excerpt">
-				<?php the_excerpt(); ?>
-			</div><!-- .entry-summary -->
-
+				<?php tagdiv_excerpt(); ?>
 		<?php } ?>
 
 	</div><!-- .entry-content -->

@@ -16,7 +16,7 @@ get_header();
 			<div class="td-container">
 				<div class="td-pb-span12">
 
-					<h1 class="entry-title td-page-title">
+					<h1 class="entry-title tagdiv-page-title">
 						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php  echo __td('search results', 'tdmag');?></span>
 					</h1>
 
@@ -73,7 +73,7 @@ get_header();
 
 				</div>
 
-				<div class="td-pb-span4 td-main-sidebar" role="complementary">
+				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">
 					<?php get_sidebar(); ?>
 				</div>
 

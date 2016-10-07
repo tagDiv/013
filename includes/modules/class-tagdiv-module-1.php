@@ -27,7 +27,7 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 				<?php echo $this->get_comments(); ?>
 			</div>
 
-			<div class="td-excerpt">
+			<div class="tagdiv-excerpt">
 				<?php echo $this->get_excerpt(25);?>
 			</div>
 

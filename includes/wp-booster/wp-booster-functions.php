@@ -244,8 +244,8 @@ function tagdiv_init_booster() {
 	* register the default sidebars + dynamic ones
 	*/
 	register_sidebar( array(
-		'name'          => TAGDIV_THEME_NAME . ' default',
-		'id'            => 'td-default', //the id is used by the importer
+		'name'          => 'tagdiv-default',
+		'id'            => 'tagdiv-default', //the id is used by the importer
 		'before_widget' => '<aside class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<div class="block-title"><span>',

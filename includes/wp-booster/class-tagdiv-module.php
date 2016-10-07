@@ -344,8 +344,8 @@ abstract class Tagdiv_Module {
 		}  else {
 				/**
 				 * no $cut_at provided -> return the full $this->post->post_content
-				 * @see Tagdiv_Global::$modules_list
-				 */
+			* @see Tagdiv_Global::$modules_list
+			*/
 				$buffy .= $this->post->post_content;
 		}
 

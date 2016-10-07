@@ -73,7 +73,7 @@ get_header(); ?>
 
 				</div>
 
-				<div class="td-pb-span4 td-main-sidebar">
+				<div class="td-pb-span4 tagdiv-sidebar">
 
 					<?php get_sidebar(); ?>
 

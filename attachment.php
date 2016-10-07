@@ -1,6 +1,10 @@
 <?php
-/*  ----------------------------------------------------------------------------
-    the attachment template
+/**
+ * The template for displaying image attachments
+ *
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
 get_header();
@@ -13,64 +17,63 @@ get_header();
         <div class="td-pb-row">
                     <div class="td-pb-span8 td-main-content">
 
-                            <?php if ( is_single() ) { ?>
+                        <?php while ( have_posts() ) : the_post(); // Start the loop. ?>
 
-                                <h1 class="entry-title td-page-title">
-                                <span><?php the_title(); ?></span>
-                                </h1>
+                            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                            <?php  } else { ?>
+                                <header class="tagdiv-page-header">
+                                    <?php the_title( '<h1 class="entry-title tagdiv-page-title">', '</h1>' ); ?>
+                                </header><!-- .entry-header -->
 
-                                <h1 class="entry-title td-page-title">
-                                <a href="<?php ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                                </h1>
+                                <div class="entry-content">
 
-                            <?php  }
-
-                            $td_att_url = '';
-                            $td_att_alt = '';
-
-                            if (have_posts()) {
-                                while ( have_posts() ) : the_post();
-
-                                    if ( wp_attachment_is_image( $post->id ) ) {
-                                        $td_att_image = wp_get_attachment_image_src( $post->id, 'full');
-
-                                        if (!empty($td_att_image[0])) {
-                                            $td_att_url = $td_att_image[0];
-                                        }
-
-                                        if (empty($td_att_image[0])) {
-                                            $td_att_image[0] = ''; //init the variable to not have problems
-                                        }
-
-                                        $td_image_data = Tagdiv_Util::get_image_attachment_data($post->post_parent);
-                                        if (!empty($td_image_data->alt)) {
-                                            $td_att_alt = $td_image_data->alt;
-                                        }
-
-                                        ?>
-                                        <a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php the_title(); ?>" rel="attachment"><img class="td-attachment-page-image" src="<?php echo $td_att_image[0];?>" alt="<?php echo $td_att_alt ?>" /></a>
-
-                                        <div class="td-attachment-page-content">
-                                            <?php the_content(); ?>
-                                        </div>
+                                    <div class="entry-attachment">
                                         <?php
-                                    }
+                                        /**
+                                         * Filter the default twentysixteen image attachment size.
+                                         *
+                                         * @since TAGDIV_THEME_NAME 1.0
+                                         *
+                                         * @param string $image_size Image size. Default 'large'.
+                                         */
+                                        $image_size = apply_filters( 'tagdiv_attachment_size', 'large' );
 
-                                endwhile; //end loop
+                                        echo wp_get_attachment_image( get_the_ID(), $image_size );
+                                        ?>
 
-                            } else {
-                                get_template_part( 'template-parts/content', 'none' );
-                            }
+                                        <?php tagdiv_excerpt(); ?>
 
-                            ?>
+                                    </div><!-- .entry-attachment -->
 
-                            <div class="td-attachment-prev"><?php previous_image_link(); ?></div>
-                            <div class="td-attachment-next"><?php next_image_link(); ?></div>
+                                    <div class="tagdiv-attachment-page-content">
+                                        <?php the_content(); ?>
+                                    </div>
+
+                                </div><!-- .entry-content -->
+
+                                <footer class="entry-footer">
+                                        <?php
+                                        wp_link_pages( array(
+                                            'before' => '<div class="page-nav page-nav-post">',
+                                            'after' => '</div>',
+                                            'link_before' => '<div>',
+                                            'link_after' => '</div>',
+                                            'pagelink'    => '<span class="screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>%',
+                                            'separator'   => '<span class="screen-reader-text">, </span>',
+                                        ) );
+                                        ?>
+
+
+                                        <div class="tagdiv-attachment-prev"><?php previous_image_link(); ?></div>
+                                        <div class="tagdiv-attachment-next"><?php next_image_link(); ?></div>
+
+                                </footer><!-- .entry-footer -->
+                            </article><!-- #post-## -->
+
+                            <?php endwhile; // End the loop. ?>
 
                     </div>
-                    <div class="td-pb-span4 td-main-sidebar">
+                    <div class="td-pb-span4 tagdiv-sidebar">
                             <?php get_sidebar(); ?>
                     </div>
 
@@ -78,6 +81,4 @@ get_header();
     </div> <!-- /.td-container -->
 </div> <!-- /.td-main-content-wrap -->
 
-<?php
-get_footer();
-?>
+<?php get_footer();

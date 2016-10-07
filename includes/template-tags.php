@@ -354,3 +354,62 @@ if ( ! function_exists( 'tagdiv_custom_logo' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'tagdiv_excerpt' ) ) {
+	/**
+	 * Displays the optional excerpt.
+	 *
+	 * Wraps the excerpt in a div element.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 *
+	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
+	 */
+	function tagdiv_excerpt( $class = 'entry-summary tagdiv-excerpt' ) {
+		$class = esc_attr( $class );
+		?>
+			<div class="<?php echo $class; ?>">
+				<?php the_excerpt(); ?>
+			</div><!-- .<?php echo $class; ?> -->
+		<?php
+	}
+}
+
+if ( ! function_exists( 'tagdiv_trim_excerpt' ) ) {
+
+	/**
+	 * Remove [...] from the excerpt.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 *
+	 */
+
+	function tagdiv_trim_excerpt($text) {
+		return rtrim($text,'[&amp;hellip]');
+	}
+	add_filter('get_the_excerpt', 'tagdiv_trim_excerpt');
+}
+
+if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
+	/**
+	 * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+	 * a 'Continue reading' link.
+	 *
+	 * @since TAGDIV_THEME_NAME 1.0
+	 *
+	 * @return string excerpt prepended 'Continue reading' link prepended with an ellipsis.
+	 */
+	function tagdiv_excerpt_more()
+	{
+		$excerpt = get_the_excerpt();
+		$link = sprintf('<a href="%1$s" class="more-link">%2$s</a>',
+			esc_url(get_permalink(get_the_ID())),
+			/* translators: %s: Name of current post */
+			sprintf(__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'tdmag'), get_the_title(get_the_ID()))
+		);
+		return $excerpt . ' &hellip; ' . $link;
+	}
+
+	//add_filter('the_excerpt', 'tagdiv_excerpt_more');
+}
+
