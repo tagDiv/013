@@ -2756,16 +2756,17 @@ body .dropcap3 {
 /*  ----------------------------------------------------------------------------
     excerpt
 */
-.td-excerpt {
+.tagdiv-excerpt {
   padding-top: 19px;
   font-size: 15px;
   font-style: italic;
   line-height: 19px;
   color: #808080;
+  word-wrap: break-word;
   /* responsive portrait tablet + mobile */
 }
 @media (max-width: 1018px) {
-  .td-excerpt {
+  .tagdiv-excerpt {
     padding-top: 14px;
   }
 }
@@ -3203,12 +3204,6 @@ body .dropcap3 {
   color: #000;
 }
 /*  ----------------------------------------------------------------------------
-    Empty space
-*/
-.vc_empty_space {
-  margin-bottom: 0;
-}
-/*  ----------------------------------------------------------------------------
     Block list menu
 */
 .td-list-menu-inline {
@@ -3268,10 +3263,10 @@ body .dropcap3 {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity='4')";
   filter: alpha(opacity=4);
 }
-.single-post .page-nav {
+.single .page-nav {
   margin-bottom: 30px;
 }
-.single-post .page-nav > div {
+.single .page-nav > div {
   display: inline-block;
   background-color: #42bdcd;
   margin-right: 2px;
@@ -3411,6 +3406,9 @@ body .dropcap3 {
   -moz-box-shadow: 0 2px 0 0 rgba(166, 166, 166, 0.75);
   box-shadow: 0 2px 0 0 rgba(166, 166, 166, 0.75);
 }
+.td-post-content p {
+  word-wrap: break-word;
+}
 .td-post-content p:empty {
   display: none;
 }
@@ -3542,7 +3540,7 @@ body .dropcap3 {
 /*  ----------------------------------------------------------------------------
     Page title
 */
-.td-page-title {
+.tagdiv-page-title {
   display: inline-block;
   margin: 1px 0 26px 0;
   padding: 0;
@@ -3552,11 +3550,11 @@ body .dropcap3 {
   /* responsive portrait phone */
 }
 @media (max-width: 767px) {
-  .td-page-title {
+  .tagdiv-page-title {
     margin-bottom: 18px;
   }
 }
-.td-page-title:after {
+.tagdiv-page-title:after {
   display: none;
 }
 /*  ----------------------------------------------------------------------------
@@ -3671,28 +3669,28 @@ body .dropcap3 {
 /*  ----------------------------------------------------------------------------
     Attachment page
 */
-.td-attachment-page-content p {
+.tagdiv-attachment-page-content p {
   color: #444;
-  font-size: 11px;
+  font-size: 13px;
   font-style: italic;
-  line-height: 17px;
+  line-height: 19px;
 }
-.td-attachment-page-image {
+.attachment-large {
   display: block;
 }
-.td-attachment-prev {
+.tagdiv-attachment-prev {
   display: inline-block;
   margin: 10px 0 21px;
 }
-.td-attachment-prev img {
+.tagdiv-attachment-prev img {
   width: 100px;
   height: 100px;
 }
-.td-attachment-next {
+.tagdiv-attachment-next {
   float: right;
   margin: 10px 0 21px;
 }
-.td-attachment-next img {
+.tagdiv-attachment-next img {
   width: 100px;
   height: 100px;
 }
@@ -3932,7 +3930,7 @@ body .dropcap3 {
   color: #666;
 }
 /*  ----------------------------------------------------------------------------
-    General
+    Comments General
 */
 .comments {
   position: relative;
