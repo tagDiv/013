@@ -4,9 +4,9 @@
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
 ?><!DOCTYPE html>
@@ -23,10 +23,10 @@
 <div id="page" class="site">
 
 	<header class="site-header" role="banner">
-		<div class="td-header-wrap td-header-style">
+		<div class="tagdiv-header-wrap tagdiv-header-style">
 			<div class="td-header-logo-wrap td-container-wrap">
 
-				<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tdmag' ); ?></a>
+				<a class="skip-link screen-reader-text" href="#site-content"><?php echo __td( 'Skip to content', 'tdmag' ); ?></a>
 
 				<div class="td-container">
 
@@ -69,16 +69,16 @@
 							</div>
 
 							<div class="td-search-box-wrap">
-								<div class="td-drop-down-search" aria-labelledby="td-header-search-button">
-									<form method="get" class="td-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
-										<div role="search" class="td-head-form-search-wrap">
+								<div class="tagdiv-drop-down-search" aria-labelledby="td-header-search-button">
+									<form method="get" class="tagdiv-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
+										<div role="search" class="tagdiv-head-search">
 											<label>
 												<span class="screen-reader-text"><?php echo __td( 'Search for:', 'tdmag' ) ?></span>
-												<input id="td-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" /><input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="Search" />
+												<input id="td-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
+												<input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="<?php echo __td( 'Search', 'tdmag' ) ?>" />
 											</label>
 										</div>
 									</form>
-									<div id="td-aj-search"></div>
 								</div>
 							</div>
 						</div>
@@ -90,4 +90,4 @@
 
 	</header> <!--site-header-->
 
-	<div id="content" class="site-content" tabindex="-1">
+	<div id="site-content" class="site-content" tabindex="-1">

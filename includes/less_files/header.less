@@ -1,0 +1,38 @@
+// general
+.td-header-logo-wrap {
+  position: relative;
+  padding: 30px 0;
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    padding: 16px 0;
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    padding: 0;
+  }
+}
+
+.td-header-menu-wrap-full {
+  z-index: 9998;
+  position: relative;
+}
+
+/*  ----------------------------------------------------------------------------
+    Logo in header
+*/
+.td-header-sp-logo {
+  position: relative;
+
+  img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+

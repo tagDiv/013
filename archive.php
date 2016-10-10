@@ -20,7 +20,7 @@ get_header(); ?>
 	<div class="td-main-content-wrap td-container-wrap">
 		<div class="td-container">
 			<div class="td-pb-row">
-				<div class="td-pb-span8 td-main-content">
+				<div class="td-pb-span8 td-main-content" role="main">
 
 					<?php if ( have_posts() ) { ?>
 
@@ -35,6 +35,7 @@ get_header(); ?>
 
 						$tagdiv_current_column = 1;
 						$row_is_open = false;
+
 						// Start the Loop.
 						while ( have_posts() ) : the_post();
 
@@ -57,8 +58,8 @@ get_header(); ?>
 							} else {
 								$tagdiv_current_column++;
 							}
-						//End of the Loop
-						endwhile;
+
+						endwhile; //End of the Loop
 
 						if ( true === $row_is_open ) {
 							$row_is_open = false;
@@ -90,7 +91,6 @@ get_header(); ?>
 				<div class="td-pb-span4 tagdiv-sidebar">
 					<?php get_sidebar(); ?>
 				</div>
-
 			</div> <!-- /.td-pb-row -->
 		</div> <!-- /.td-container -->
 	</div> <!-- /.td-main-content-wrap -->

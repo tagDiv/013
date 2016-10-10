@@ -3,7 +3,7 @@
 /**
  * The template for displaying the footer.
  *
- * Contains the closing of the #content div and all content after.
+ * Contains the closing of the #site-content div and all content after.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -14,9 +14,8 @@
 
 ?>
 
-	</div><!-- #content -->
+	</div><!-- #site-content -->
 
-	<!-- footer -->
 	<footer class="site-footer" role="contentinfo">
 
 		<div class="td-footer-outer-wrapper td-container-wrap">
@@ -109,7 +108,7 @@
 
 		</div>
 
-	</footer>
+	</footer> <!-- site-footer -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

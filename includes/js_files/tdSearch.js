@@ -54,13 +54,13 @@ jQuery().ready(function() {
 
 
         show_search_box: function() {
-            jQuery( '.td-drop-down-search' ).addClass( 'td-drop-down-search-open' );
+            jQuery( '.tagdiv-drop-down-search' ).addClass( 'tagdiv-drop-down-search-open' );
             tdSearch._is_search_open = true;
         },
 
 
         hide_search_box: function hide_search_box() {
-            jQuery(".td-drop-down-search").removeClass('td-drop-down-search-open');
+            jQuery(".tagdiv-drop-down-search").removeClass('tagdiv-drop-down-search-open');
             tdSearch._is_search_open = false;
         }
 

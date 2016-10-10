@@ -5,8 +5,8 @@
  * Used for both single and index/archive/search.
  *
  * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 ?>
 

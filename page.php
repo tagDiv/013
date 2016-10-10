@@ -9,26 +9,32 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
 get_header(); ?>
 
-	<div class="td-main-content-wrap td-main-page-wrap td-container-wrap">
+	<div class="td-main-content-wrap td-container-wrap">
 		<div class="td-container">
 			<div class="td-pb-row">
 				<div class="td-pb-span8 td-main-content">
 
 					<?php if ( have_posts() ) {
 
-						while (have_posts()) : the_post();
-							get_template_part('template-parts/content', 'page' );
-						endwhile;
+						while ( have_posts() ) : the_post(); // Start the loop.
 
-						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) {
-							comments_template();
-						}
+							// Include the page content template.
+							get_template_part( 'template-parts/content', 'page' );
+
+							// If comments are open or we have at least one comment, load up the comment template.
+							if ( comments_open() || get_comments_number() ) {
+								comments_template();
+							}
+
+						endwhile; // End of the loop.
+
 					} else {
 						get_template_part( 'template-parts/content', 'none' );
 					} ?>
@@ -36,9 +42,7 @@ get_header(); ?>
 				</div>
 
 				<div class="td-pb-span4 tagdiv-sidebar">
-
 					<?php get_sidebar(); ?>
-
 				</div>
 
 			</div> <!-- /.td-pb-row -->

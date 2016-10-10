@@ -4,20 +4,20 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
-get_header();
-?>
+get_header(); ?>
 
 	<div class="td-main-content-wrap td-container-wrap">
-
-		<div class="td-search-header td-container-wrap">
+		<div class="td-search-header">
 			<div class="td-container">
 				<div class="td-pb-span12">
 
 					<h1 class="entry-title tagdiv-page-title">
-						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php  echo __td('search results', 'tdmag');?></span>
+						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php  echo __td( 'search results', 'tdmag' );?></span>
 					</h1>
 
 					<div class="search-page-wrap">
@@ -26,46 +26,61 @@ get_header();
 
 				</div>
 			</div>
-		</div>
+		</div> <!-- .td-search-header -->
 
 		<div class="td-container">
 			<div class="td-pb-row">
-
 				<div class="td-pb-span8 td-main-content" role="main">
 
-						<?php
-						$tagdiv_template_layout = new Tagdiv_Template_Layout('default');
-						if ( have_posts() ) {
+						<?php if ( have_posts() ) { ?>
 
-							while (have_posts()) : the_post();
+							<?php
 
-								echo $tagdiv_template_layout -> layout_open_element();
+							$tagdiv_current_column = 1;
+							$row_is_open = false;
 
-								global $post;
-								$tagdiv_modul_1 = new Tagdiv_Module_1($post);
-								echo $tagdiv_modul_1->render();
+							while (have_posts()) : the_post(); // Start the loop.
 
-								echo $tagdiv_template_layout -> layout_close_element();
-								$tagdiv_template_layout -> layout_next();
+								if ( false === $row_is_open ) {
+									$row_is_open = true;
+									echo '<div class="td-pb-row">'; // open a grid row
+								} ?>
 
-							endwhile;
+								<div class="td-pb-span6">
+									<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+								</div>
 
-							echo $tagdiv_template_layout -> close_all_tags(); ?>
+								<?php if ( 2 == $tagdiv_current_column and true === $row_is_open ) {
+									$row_is_open = false;
+									echo '</div>'; // close the grid row
+								}
+
+								if ( 2 == $tagdiv_current_column ) {
+									$tagdiv_current_column = 1;
+								} else {
+									$tagdiv_current_column++;
+								}
+
+							endwhile; //End of the Loop
+
+							if ( true === $row_is_open ) {
+								$row_is_open = false;
+								echo '</div>'; // close the grid row
+							} ?>
 
 							<div class="page-nav page-nav-post">
 
 								<?php
+								// Previous/next page navigation.
 								the_posts_pagination( array(
-									'prev_text'          => '',
-									'next_text'          => '',
-									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
 								) );
 								?>
 
 							</div>
 
-							<?php
-
+						<?php
+						// If no content, include the "No posts found" template.
 						} else {
 							get_template_part( 'template-parts/content', 'none' );
 						}
@@ -76,12 +91,8 @@ get_header();
 				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">
 					<?php get_sidebar(); ?>
 				</div>
-
-				</div> <!-- /.td-pb-row -->
-
+			</div> <!-- /.td-pb-row -->
 		</div> <!-- /.td-container -->
 	</div> <!-- /.td-main-content-wrap -->
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

@@ -9,25 +9,27 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 
 get_header(); ?>
 
 	<div class="td-main-content-wrap td-container-wrap">
 		<div class="td-container">
-
 			<div class="td-pb-row">
 				<div class="td-pb-span8 td-main-content">
 
-					<?php
-					if ( have_posts() ) {
+					<?php if ( have_posts() ) { ?>
 
-						if ( is_home() && ! is_front_page() ) { ?>
+						<?php if ( is_home() && ! is_front_page() ) { ?>
 							<header>
 								<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 							</header>
-						<?php }
+						<?php } ?>
+
+						<?php
 
 						$tagdiv_current_column = 1;
 						$row_is_open = false;
@@ -35,7 +37,7 @@ get_header(); ?>
 						//Start the Loop
 						while (have_posts()) : the_post();
 
-							if ( $row_is_open === false ) {
+							if ( false === $row_is_open ) {
 								$row_is_open = true;
 								echo '<div class="td-pb-row">'; // open a grid row
 							} ?>
@@ -44,7 +46,7 @@ get_header(); ?>
 								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 							</div>
 
-							<?php if ( 2 == $tagdiv_current_column and $row_is_open === true ) {
+							<?php if ( 2 == $tagdiv_current_column and true === $row_is_open ) {
 								$row_is_open = false;
 								echo '</div>'; // close the grid row
 							}
@@ -57,16 +59,24 @@ get_header(); ?>
 
 						endwhile; //End of the Loop
 
-						if ( $row_is_open === true ) {
+						if ( true === $row_is_open ) {
 							$row_is_open = false;
 							echo '</div>'; // close the grid row
-						}
+						} ?>
 
-						the_posts_navigation( array(
-							'prev_text'          => '',
-							'next_text'          => '',
-							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
-						) );
+						<div class="page-nav page-nav-post">
+
+							<?php
+							// Previous/next page navigation.
+							the_posts_pagination( array(
+								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
+							) );
+							?>
+
+						</div>
+
+					<?php
+					// If no content, include the "No posts found" template.
 					} else {
 						get_template_part( 'template-parts/content', 'none' );
 					} ?>
@@ -74,11 +84,8 @@ get_header(); ?>
 				</div>
 
 				<div class="td-pb-span4 tagdiv-sidebar">
-
 					<?php get_sidebar(); ?>
-
 				</div>
-
 			</div> <!-- /.td-pb-row -->
 		</div> <!-- /.td-container -->
 	</div> <!-- /.td-main-content-wrap -->
