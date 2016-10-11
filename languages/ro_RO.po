@@ -1,0 +1,306 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tt\n"
+"POT-Creation-Date: 2016-10-11 14:23+0200\n"
+"PO-Revision-Date: 2016-10-11 14:37+0200\n"
+"Last-Translator: \n"
+"Language-Team: ttt <ttt@tt.com>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.11\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c\n"
+"X-Poedit-SearchPath-0: D:\\xampp\\htdocs\\wp013\\wp-content\\themes\\013\n"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/404.php:16
+msgid "404"
+msgstr "4004"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/404.php:17
+msgid "Oops!"
+msgstr "Hopa!"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/404.php:18
+msgid ""
+"Sorry, but the page you are looking for doesn&rsquo;t exist. Please use "
+"search for help"
+msgstr ""
+"Sorrry, burt the parge yoru are lookring for doresn’t exirst. Plearse urse "
+"searrch for helrp"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/archive.php:74
+msgid "Previous page"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/archive.php:75
+msgid "Next page"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/archive.php:76
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/attachment.php:61
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/index.php:72
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/page-home.php:110
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/search.php:76
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content-page.php:26
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content.php:62
+msgid "Page"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:32
+msgid "COMMENTS"
+msgstr "Commentariors"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:34
+msgid "1 COMMENT"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:56
+msgid "Comments are closed."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:64
+msgid "Name: *"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:65
+msgid "Email: *"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:66
+msgid "Website:"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:70
+msgid "Comment:"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:73
+msgid "LEAVE A REPLY"
+msgstr "lasa un gand"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:74
+msgid "Post Comment"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:75
+msgid "Cancel reply"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:78
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:140
+msgid "Log in to leave a comment"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:130
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/comments.php:139
+msgid "Reply"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/footer.php:60
+msgid "Contact us:"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/functions.php:65
+msgid "expand child menu"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/functions.php:66
+msgid "collapse child menu"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/functions.php:87
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/functions.php:89
+msgctxt "Work Sans font: on or off"
+msgid "on"
+msgstr "on"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/functions.php:95
+msgctxt "Source Sans Pro font: on or off"
+msgid "on"
+msgstr "off"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/functions.php:100
+msgctxt "Droid Serif font: on or off"
+msgid "on"
+msgstr "off"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/header.php:29
+msgid "Skip to content"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/header.php:76
+msgid "Search for:"
+msgstr "Cauta dupa:"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/header.php:78
+msgid "Search"
+msgstr "Cauta"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:25
+msgid "Footer Logo"
+msgstr "logo pt footer.."
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:26
+msgid ""
+"Upload the logo which will be used on the footer. If you do not set a footer "
+"logo, the theme will load the header logo."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:35
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:40
+msgid "Select logo"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:36
+msgid "Change logo"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:37
+msgid "Remove"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:38
+msgid "Default"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:39
+msgid "No logo selected"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:41
+msgid "Choose logo"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:50
+msgid ""
+"tdmag is your news, entertainment, music fashion website. We provide you "
+"with the latest breaking news and videos straight from the entertainment "
+"industry."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:56
+msgid "Footer Text"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:57
+msgid "Write here your footer text"
+msgstr "scrie aici futter text"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:69
+msgid "contact@yoursite.com"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:75
+msgid "Footer Contact Email"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:76
+msgid "Add here your footer contact email adress"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:87
+msgid "2016 TdMag Theme - All rights reserved"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:93
+msgid "Sub-Footer Copyright Text"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:94
+msgid "Set the subfooter copyright text"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:111
+msgid "Copyright Symbol"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/customizer.php:112
+msgid "Show or hide the footer copyright symbol"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/template-tags.php:170
+msgid "By"
+msgstr "de catre"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/template-tags.php:274
+msgid "Previous article"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/template-tags.php:285
+msgid "Next article"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/template-tags.php:407
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/wp-booster/class-tagdiv-block.php:74
+msgid "All"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/wp-booster/class-tagdiv-block.php:276
+msgid "Featured"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/wp-booster/class-tagdiv-block.php:280
+msgid "All time popular"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/wp-booster/class-tagdiv-block.php:370
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/includes/wp-booster/class-tagdiv-block.php:386
+msgid "Load more"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/page-home.php:75
+msgid "LATEST ARTICLES"
+msgstr "ultimele articole"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/page-home.php:111
+msgid "Latest articles navigation"
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/search.php:20
+msgid "search results"
+msgstr "rezultatele cautarii"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content-none.php:16
+msgid "Nothing Found"
+msgstr "Am gasit fix pula! :)"
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content-none.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content-none.php:27
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content-none.php:32
+msgid ""
+"Sorry, but the chosen category dose not contain any posts to display. "
+"Perhaps searching can help."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content-none.php:37
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: D:\xampp\htdocs\wp013\wp-content\themes\013/template-parts/content.php:46
+#, php-format
+msgid "Continue reading <span class=\"screen-reader-text\">\"%s\"</span>"
+msgstr ""
