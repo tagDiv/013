@@ -58,7 +58,7 @@ get_header();
                                             'after' => '</div>',
                                             'link_before' => '<div>',
                                             'link_after' => '</div>',
-                                            'pagelink'    => '<span class="screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>%',
+                                            'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
                                             'separator'   => '<span class="screen-reader-text">, </span>',
                                         ) );
                                         ?>

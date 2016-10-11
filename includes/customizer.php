@@ -22,8 +22,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	$custom_logo_args = get_theme_support( 'custom-logo' );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'tagdiv_footer_logo', array(
-		'label'    	  	=> __td( 'Footer Logo', 'tdmag' ),
-		'description' 	=> __td( 'Upload the logo which will be used on the footer. If you do not set a footer logo, the theme will load the header logo.', 'tdmag' ),
+		'label'    	  	=> __( 'Footer Logo', 'tdmag' ),
+		'description' 	=> __( 'Upload the logo you want to use in the footer. If you do not set a footer logo, the theme will load the header logo instead.', 'tdmag' ),
 		'section'  	  	=> 'title_tagline',
 		'priority'    	=> 10,
 		'settings' 	  	=> 'tagdiv_footer_logo',
@@ -31,6 +31,15 @@ function tagdiv_customize_register( $wp_customize ) {
 		'width'         => $custom_logo_args[0]['width'],
 		'flex_height'   => $custom_logo_args[0]['flex-height'],
 		'flex_width'    => $custom_logo_args[0]['flex-width'],
+		'button_labels' => array(
+			'select'       => __( 'Select logo', 'tdmag' ),
+			'change'       => __( 'Change logo', 'tdmag' ),
+			'remove'       => __( 'Remove', 'tdmag' ),
+			'default'      => __( 'Default', 'tdmag' ),
+			'placeholder'  => __( 'No logo selected', 'tdmag' ),
+			'frame_title'  => __( 'Select logo', 'tdmag' ),
+			'frame_button' => __( 'Choose logo', 'tdmag' ),
+		),
 	) ) );
 
 	/*
@@ -38,14 +47,14 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_text', array(
-		'default' 	 	=> __td( 'tdmag is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.', 'tdmag' ),
+		'default' 	 	=> __( 'TAGDIV_THEME_NAME is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.', 'tdmag' ),
 		'type'       	=> 'option',
 		'capability' 	=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_footer_text', array(
-		'label'       	=> __td( 'Footer Text', 'tdmag' ),
-		'description' 	=> __td( 'Write here your footer text', 'tdmag' ),
+		'label'       	=> __( 'Footer Text', 'tdmag' ),
+		'description' 	=> __( 'Write here your footer text', 'tdmag' ),
 		'section'     	=> 'title_tagline',
 		'priority'    	=> 10,
 		'type' 		  	=> 'textarea',
@@ -57,14 +66,14 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_email', array(
-		'default' 		=> __td( 'contact@yoursite.com', 'tdmag' ),
+		'default' 		=> __( 'contact@yoursite.com', 'tdmag' ),
 		'type'       	=> 'option',
 		'capability' 	=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_footer_email', array(
-		'label'      	=> __td( 'Footer Contact Email', 'tdmag' ),
-		'description' 	=> __td( 'Add here your footer contact email adress', 'tdmag' ),
+		'label'      	=> __( 'Footer Contact Email', 'tdmag' ),
+		'description' 	=> __( 'Add here your footer contact email address', 'tdmag' ),
 		'section'    	=> 'title_tagline',
 		'priority'      => 11,
 		'settings' 		=> 'tagdiv_footer_email',
@@ -75,14 +84,14 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_subfooter_copyright', array(
-		'default' 		=> __td( '2016 TdMag Theme - All rights reserved', 'tdmag' ),
+		'default' 		=> __( '2016 TAGDIV_THEME_NAME Theme - All rights reserved', 'tdmag' ),
 		'type'       	=> 'option',
 		'capability' 	=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_subfooter_copyright', array(
-		'label'      	=> __td( 'Sub-Footer Copyright Text', 'tdmag' ),
-		'description' 	=> __td( 'Set the subfooter copyright text', 'tdmag' ),
+		'label'      	=> __( 'Sub-Footer Copyright Text', 'tdmag' ),
+		'description' 	=> __( 'Set the Sub-Footer copyright text', 'tdmag' ),
 		'section'    	=> 'title_tagline',
 		'priority'      => 12,
 		'type' 		  	=> 'textarea',
@@ -99,8 +108,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'tagdiv_subfooter_copyright_symbol', array(
-		'label'      	=> __td( 'Copyright Symbol', 'tdmag' ),
-		'description' 	=> __td( 'Show or hide the footer copyright symbol', 'tdmag' ),
+		'label'      	=> __( 'Copyright Symbol', 'tdmag' ),
+		'description' 	=> __( 'Show or hide the footer copyright symbol', 'tdmag' ),
 		'section'    	=> 'title_tagline',
 		'priority'      => 13,
 		'type' 		  	=> 'checkbox',

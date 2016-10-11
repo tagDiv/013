@@ -43,22 +43,23 @@
 
 				<?php /* translators: %s: Name of current post */
 				the_content( sprintf(
-					__td( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'tdmag' ),
+					__( 'Continue reading <span class="screen-reader-text">"%s"</span>', 'tdmag' ),
 					get_the_title()
 				) );
 				?>
+
 			</div>
 
 			<footer>
 
 				<?php
 				wp_link_pages( array(
-					'before' => '<div class="page-nav page-nav-post">',
-					'after' => '</div>',
+					'before' 	  => '<div class="page-nav page-nav-post">',
+					'after' 	  => '</div>',
 					'link_before' => '<div>',
-					'link_after' => '</div>',
+					'link_after'  => '</div>',
 					'separator'   => '<span class="screen-reader-text">, </span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>%',
+					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
 				) );
 				?>
 

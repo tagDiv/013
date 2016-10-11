@@ -31,13 +31,9 @@ require_once( 'includes/customizer.php' );
  * Localization
  */
 function td_load_text_domains() {
-	load_theme_textdomain( 'tdmag');
+	load_theme_textdomain( 'tdmag', get_template_directory() . '/languages' );
 }
 add_action('after_setup_theme', 'td_load_text_domains');
-
-function __td( $tagdiv_string, $tagdiv_domain = '' ) {
-	return $tagdiv_string;
-}
 
 
 /**
@@ -88,22 +84,22 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 		$subsets = 'latin,latin-ext';
 
 		/* translators: If there are characters in your language that are not supported by Work Sans font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x('on', 'Work Sans font: on or off', 'tdmag')) {
+		if ('off' !== _x( 'on', 'Work Sans font: on or off', 'tdmag') ) {
 			$fonts[] = 'Work Sans:400,500,600,700';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Source Sans Pro font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x('on', 'Source Sans Pro font: on or off', 'tdmag')) {
+		if ('off' !== _x( 'on', 'Source Sans Pro font: on or off', 'tdmag') ) {
 			$fonts[] = 'Source Sans+Pro:400,400italic,600,600italic,700';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Droid Serif font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x('on', 'Droid Serif font: on or off', 'tdmag')) {
+		if ('off' !== _x( 'on', 'Droid Serif font: on or off', 'tdmag') ) {
 			$fonts[] = 'Droid Serif:400,700';
 		}
 
 		if ($fonts) {
-			$fonts_url = add_query_arg(array(
+			$fonts_url = add_query_arg( array(
 				'family' => urlencode(implode('|', $fonts)),
 				'subset' => urlencode($subsets),
 			), 'https://fonts.googleapis.com/css');

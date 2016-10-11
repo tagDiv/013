@@ -167,7 +167,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 					<div class="td-module-meta-info">
 
 					<span class="td-post-author-name">
-						<span class="td-author-by">By</span>
+						<span class="td-author-by"><?php _e( 'By', 'tdmag' ) ?></span>
 						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
 					<span>-</span>
 					</span>
@@ -271,7 +271,7 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 				$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
 				if ( ! empty( $prev_post ) ) {
 					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
-					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td( 'Previous article', 'tdmag' ) . '</span>';
+					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __( 'Previous article', 'tdmag' ) . '</span>';
 					$next_prev_posts .= '<a href="' . esc_url( get_permalink( $prev_post->ID ) ) . '">' . get_the_title( $prev_post->ID ) . '</a>';
 					$next_prev_posts .= '</div>';
 					$next_prev_posts .= '</div>';
@@ -282,7 +282,7 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 				$next_prev_posts .= '<div class="td-next-prev-separator"></div>';
 				if ( ! empty( $next_post ) ) {
 					$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
-					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' .__td('Next article', 'tdmag') . '</span>';
+					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __('Next article', 'tdmag') . '</span>';
 					$next_prev_posts .= '<a href="' . esc_url( get_permalink( $next_post->ID ) ) . '">' . get_the_title( $next_post->ID ) . '</a>';
 					$next_prev_posts .= '</div>';
 					$next_prev_posts .= '</div>';
@@ -387,7 +387,7 @@ if ( ! function_exists( 'tagdiv_trim_excerpt' ) ) {
 	function tagdiv_trim_excerpt($text) {
 		return rtrim($text,'[&amp;hellip]');
 	}
-	add_filter('get_the_excerpt', 'tagdiv_trim_excerpt');
+	//add_filter('get_the_excerpt', 'tagdiv_trim_excerpt');
 }
 
 if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
@@ -399,13 +399,12 @@ if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
 	 *
 	 * @return string excerpt prepended 'Continue reading' link prepended with an ellipsis.
 	 */
-	function tagdiv_excerpt_more()
-	{
+	function tagdiv_excerpt_more() {
 		$excerpt = get_the_excerpt();
-		$link = sprintf('<a href="%1$s" class="more-link">%2$s</a>',
-			esc_url(get_permalink(get_the_ID())),
+		$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
+			esc_url( get_permalink(get_the_ID() ) ),
 			/* translators: %s: Name of current post */
-			sprintf(__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'tdmag'), get_the_title(get_the_ID()))
+			sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'tdmag' ), get_the_title( get_the_ID() ) )
 		);
 		return $excerpt . ' &hellip; ' . $link;
 	}

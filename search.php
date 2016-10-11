@@ -17,7 +17,7 @@ get_header(); ?>
 				<div class="td-pb-span12">
 
 					<h1 class="entry-title tagdiv-page-title">
-						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php  echo __td( 'search results', 'tdmag' );?></span>
+						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'tdmag' );?></span>
 					</h1>
 
 					<div class="search-page-wrap">
@@ -73,7 +73,7 @@ get_header(); ?>
 								<?php
 								// Previous/next page navigation.
 								the_posts_pagination( array(
-									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
+									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
 								) );
 								?>
 

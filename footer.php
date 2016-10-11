@@ -57,7 +57,7 @@
 
 								<div class="footer-email-wrap">
 
-									<?php echo __td( 'Contact us:', 'tdmag' ); ?>
+									<?php _e( 'Contact us:', 'tdmag' ); ?>
 									<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
 
 								</div>

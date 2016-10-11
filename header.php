@@ -26,7 +26,7 @@
 		<div class="tagdiv-header-wrap tagdiv-header-style">
 			<div class="td-header-logo-wrap td-container-wrap">
 
-				<a class="skip-link screen-reader-text" href="#site-content"><?php echo __td( 'Skip to content', 'tdmag' ); ?></a>
+				<a class="skip-link screen-reader-text" href="#site-content"><?php _e( 'Skip to content', 'tdmag' ); ?></a>
 
 				<div class="td-container">
 
@@ -73,9 +73,9 @@
 									<form method="get" class="tagdiv-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
 										<div role="search" class="tagdiv-head-search">
 											<label>
-												<span class="screen-reader-text"><?php echo __td( 'Search for:', 'tdmag' ) ?></span>
+												<span class="screen-reader-text"><?php _e( 'Search for:', 'tdmag' ) ?></span>
 												<input id="td-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
-												<input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="<?php echo __td( 'Search', 'tdmag' ) ?>" />
+												<input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="<?php _e( 'Search', 'tdmag' ) ?>" />
 											</label>
 										</div>
 									</form>

@@ -71,9 +71,9 @@ get_header(); ?>
 							<?php
 							// Previous/next page navigation.
 							the_posts_pagination( array(
-								'prev_text'          =>  __td( 'Previous page', 'tdmag' ),
-								'next_text'          => __td( 'Next page', 'tdmag' ),
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
+								'prev_text'          => __( 'Previous page', 'tdmag' ),
+								'next_text'          => __( 'Next page', 'tdmag' ),
+								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
 							) );
 							?>
 

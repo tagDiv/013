@@ -4,7 +4,9 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package tdmag
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
 */
 
 get_header(); ?>
@@ -13,9 +15,9 @@ get_header(); ?>
 		<div class="td-container">
 			<div class="td-pb-span12">
 				<div class="td-404-head">
-					<div class="td-404-title"><?php echo __td( '404', 'tdmag' ); ?></div>
-					<div class="td-404-sub-title"><?php echo __td( 'Oops!', 'tdmag' ); ?></div>
-					<div class="td-404-sub-sub-title"><?php echo __td( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'tdmag' ); ?></div>
+					<div class="td-404-title"><?php _e( '404', 'tdmag' ); ?></div>
+					<div class="td-404-sub-title"><?php _e( 'Oops!', 'tdmag' ); ?></div>
+					<div class="td-404-sub-sub-title"><?php _e( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'tdmag' ); ?></div>
 
 					<div class="search-page-wrap">
 						<?php get_search_form(); ?>

@@ -69,7 +69,7 @@ get_header(); ?>
 							<?php
 							// Previous/next page navigation.
 							the_posts_pagination( array(
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __td( 'Page', 'tdmag' ) . ' </span>',
+								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
 							) );
 							?>
 
