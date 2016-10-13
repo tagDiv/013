@@ -1,5 +1,5 @@
 /*  ----------------------------------------------------------------------------
-    Archive template
+    Archive template header
 */
 .tagdiv-page-header {
   clear: both;
@@ -12,32 +12,15 @@
     line-height: 24px;
     text-transform: uppercase;
 
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      padding-bottom: 17px;
+      font-size: 22px;
+    }
+
     &:after {
       display: block;
       width: 80px;
       left: 0;
-    }
-  }
-
-  .entry-category {
-    list-style: none;
-    display: inline-block;
-    margin: 0 5px 0 0;
-    line-height: 0;
-
-    a {
-      display: inline-block;
-      font-family: @font2;
-      padding: 3px 6px;
-      background-color: rgba(0, 0, 0, 0.8);
-      font-size: 10px;
-      font-weight: 500;
-      line-height: 1;
-      color: #fff;
-
-      &:hover {
-        background-color: @td_theme_color;
-      }
     }
   }
 }

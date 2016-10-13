@@ -388,7 +388,7 @@ class Tagdiv_Block {
 					$buffy .= '</a>';
 					$buffy .= '</div>';
 				}
-				break;
+			break;
 
 		}
 

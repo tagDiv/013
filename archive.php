@@ -31,40 +31,43 @@ get_header(); ?>
 							?>
 						</header><!-- .page-header -->
 
-						<?php
+						<div class="td-modules-container">
+							<?php
 
-						$tagdiv_current_column = 1;
-						$row_is_open = false;
+							$tagdiv_current_column = 1;
+							$row_is_open = false;
 
-						// Start the Loop.
-						while ( have_posts() ) : the_post();
+							// Start the Loop.
+							while ( have_posts() ) : the_post();
 
-							if ( false === $row_is_open ) {
-								$row_is_open = true;
-								echo '<div class="td-pb-row">'; // open a grid row
-							} ?>
+								if ( false === $row_is_open ) {
+									$row_is_open = true;
+									echo '<div class="td-pb-row">'; // open a grid row
+								} ?>
 
-							<div class="td-pb-span6">
-								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-							</div>
+								<div class="td-pb-span6">
+									<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+								</div>
 
-							<?php if ( 2 == $tagdiv_current_column and true === $row_is_open ) {
+								<?php if ( 2 == $tagdiv_current_column and true === $row_is_open ) {
+									$row_is_open = false;
+									echo '</div>'; // close the grid row
+								}
+
+								if ( 2 == $tagdiv_current_column ) {
+									$tagdiv_current_column = 1;
+								} else {
+									$tagdiv_current_column++;
+								}
+
+							endwhile; //End of the Loop
+
+							if ( true === $row_is_open ) {
 								$row_is_open = false;
 								echo '</div>'; // close the grid row
-							}
+							} ?>
 
-							if ( 2 == $tagdiv_current_column ) {
-								$tagdiv_current_column = 1;
-							} else {
-								$tagdiv_current_column++;
-							}
-
-						endwhile; //End of the Loop
-
-						if ( true === $row_is_open ) {
-							$row_is_open = false;
-							echo '</div>'; // close the grid row
-						} ?>
+						</div>
 
 						<div class="page-nav page-nav-post">
 

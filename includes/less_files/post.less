@@ -1,4 +1,8 @@
-// general
+/*  ----------------------------------------------------------------------------
+    Single Post Page
+*/
+
+/* post page general */
 .td-post-tags,
 .author-box-wrap {
   position: relative;
@@ -15,158 +19,55 @@
   }
 }
 
-// in post navigation
-.single .page-nav {
-  margin-bottom: 30px;
-
-  & > div {
-    display: inline-block;
-    background-color: @td_theme_color;
-    margin-right: 2px;
-    min-width: 35px;
-    text-align: center;
-    color: #fff;
-    line-height: 35px;
-    float: left;
-    padding: 0 14px;
-    border-radius: 35px;
-  }
-}
-
-
-/*  ----------------------------------------------------------------------------
-    Category
-*/
-.td-category {
-  list-style: none;
-  font-family: @font2;
-  font-size: 10px;
-  margin: 0 0 12px 0;
-  line-height: 1;
-
-  li {
-    display: inline-block;
-    margin: 0 5px 5px 0;
-    line-height: 1;
-  }
-
-  a {
-    display: inline-block;
-    background-color: #000;
-    padding: 3px 8px;
-    color: #fff;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: @td_theme_color;
-    }
-  }
-}
-
-
-/*  ----------------------------------------------------------------------------
-    Post title
-*/
+/* post header */
 .td-post-header {
-    margin-bottom: 17px;
+  margin-bottom: 17px;
 
-    .entry-title {
-      margin-bottom: 8px;
-      padding-bottom: 8px;
-      word-wrap: break-word;
-      font-size: 31px;
-      font-weight: 400;
-      line-height: 37px;
-      color: #000;
-    }
-
-    .td-post-comments a:before {
-      display: none;
-    }
-
+  /* title */
+  .entry-title {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    word-wrap: break-word;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 37px;
+    color: #000;
   }
 
-
-/*  ----------------------------------------------------------------------------
-    Post Tags
-*/
-.td-post-tags {
-  position: relative;
-  font-size: 11px;
-
-  &:before {
-    top: auto;
-    bottom: 0;
-  }
-
-  > div:last-child,
-  > ul {
-    padding-bottom: 29px;
-  }
-}
-
-.td-post-small-box {
-  display: inline-block;
-  margin-right: 29px;
-
-  span {
-    text-transform: uppercase;
-    font-weight: 500;
-    float: left;
-    margin-right: 7px;
-
-    &:after {
-      content: ':';
-    }
-  }
-
-  a {
-    color: #666;
-
-    &:hover {
-      color: @td_theme_color;
-    }
-  }
-}
-
-.td-tags {
-  margin: 0;
-  font-family: @font2;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  li {
+  /* post's category */
+  .td-category {
     list-style: none;
-    display: inline-block;
-    margin: 0 5px 0 0;
+    font-family: @font2;
+    font-size: 10px;
+    margin: 0 0 12px 0;
+    line-height: 1;
 
-    &:first-of-type span:after {
-      display: none;
+    li {
+      display: inline-block;
+      margin: 0 5px 5px 0;
+      line-height: 1;
+    }
+
+    a {
+      display: inline-block;
+      background-color: #000;
+      padding: 3px 8px;
+      color: #fff;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: @td_theme_color;
+      }
     }
   }
 
-  a,
-  span {
-    display: block;
-    padding: 0 10px;
-    font-size: 10px;
-    line-height: 20px;
-    border: 1px solid #ebebeb;
-    .border-radius(10px);
-  }
-
-  span {
-    float: none;
-    margin-right: 0;
-    color: @td_theme_color;
-    border-color: @td_theme_color;
+  /* comments */
+  .td-post-comments a:before {
+    display: none;
   }
 }
 
-
-/*  ----------------------------------------------------------------------------
-    Post content
-*/
+/* post content */
 .td-post-content {
   padding-bottom: 24px;
 
@@ -185,19 +86,95 @@
     word-wrap: break-word;
   }
 
-  //remove empty <p></p>
+  //hide empty paragraphs
   p:empty {
     display: none;
   }
 }
 
+/* in page navigation */
+.single .page-nav {
+  margin-bottom: 30px;
 
-/*  ----------------------------------------------------------------------------
-    Next / Prev article
-*/
+  & > div {
+    display: inline-block;
+    background-color: @td_theme_color;
+    margin-right: 2px;
+    min-width: 35px;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    float: left;
+    padding: 0 14px;
+    border-radius: 35px;
+  }
+}
+
+/* post tags */
+.td-post-tags {
+
+  .td-tags {
+    display: inline-block;
+    margin: 0;
+    font-family: @font2;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      margin: 0 5px 0 0;
+    }
+
+    a,
+    span {
+      display: block;
+      padding: 0 10px;
+      font-size: 10px;
+      line-height: 20px;
+      border: 1px solid #ebebeb;
+      .border-radius(10px);
+    }
+
+    span {
+      float: none;
+      margin-right: 0;
+      color: @td_theme_color;
+      border-color: @td_theme_color;
+    }
+
+    a {
+      color: #666;
+
+      &:hover {
+        color: @td_theme_color;
+      }
+    }
+  }
+
+  &:before {
+    top: auto;
+    bottom: 0;
+  }
+
+  > ul {
+    padding-bottom: 29px;
+  }
+}
+
+/* next / prev article */
 .td-post-next-prev {
   position: relative;
   padding: 22px 0 24px 0;
+
+  .td-post-prev-post,
+  .td-post-next-post {
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      float: left;
+      width: 50%;
+    }
+  }
 }
 
 .td-post-next-prev-content {
@@ -230,22 +207,7 @@
   text-align: right;
 }
 
-.td-next-prev-separator {  //this is from wp_010 - it is not used here but the core is still generating it
-  display: none;
-}
-
-.td-post-prev-post,
-.td-post-next-post {
-  /* responsive portrait phone */
-  @media (max-width: @responsive_p_phone_max) {
-    width: 50%;
-  }
-}
-
-
-/*  ----------------------------------------------------------------------------
-    Author box
-*/
+/* author box */
 .author-box-wrap {
   padding: 22px 0 30px 0;
 
@@ -260,35 +222,6 @@
     margin-left: 80px;
     font-size: 13px;
     margin-top: 3px;
-  }
-
-  .td-social-icon-wrap {
-    display: inline-block;
-
-    .td-icon-font {
-      color: #222;
-    }
-  }
-
-  .td-author-social {
-    margin: 5px 0 -12px -5px;
-
-    a {
-      color: #444;
-      margin-top: 11px;
-
-      &:hover {
-        color: @td_theme_color;
-      }
-    }
-
-    .td-icon-font {
-      font-size: 13px;
-      width: auto;
-      min-width: 18px;
-      height: auto;
-      margin: 10px 5px;
-    }
   }
 }
 

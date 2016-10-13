@@ -10,10 +10,11 @@ class Tagdiv_Block_1 extends Tagdiv_Block {
 
 /*		echo '<pre>';
 		var_dump($this->atts);
-		echo '</pre>';*/
+		echo '</pre>';
+*/
 		$buffy = ''; //output buffer
 
-		$buffy .= '<div class="' . $this->get_block_classes() . ' td-column-' . $tagdiv_column_number . '" ' . $this->get_block_html_atts() . '>';
+		$buffy .= '<div class="tagdiv-block-wrap tagdiv-block-1 td-column-' . $tagdiv_column_number . '" ' . $this->get_block_html_atts() . '>';
 
 		//get the block css
 		$buffy .= $this->get_block_css();

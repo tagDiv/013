@@ -1,9 +1,6 @@
-/*
-----------------------------------------------------------------------------
-  Site wide > typography style
-----------------------------------------------------------------------------
+/*  ----------------------------------------------------------------------------
+    Site wide > Typography style
 */
-
 
 body,
 p {
@@ -11,7 +8,6 @@ p {
   font-size: 16px;
   line-height: 24px;
 }
-
 
 p {
   margin-top: 0;
@@ -43,7 +39,6 @@ ins {
   text-decoration: none;
 }
 
-
 code {
   position: relative;
   top:-1px;
@@ -51,7 +46,6 @@ code {
   background-color: #F1F1F1;
   padding: 2px 6px;
 }
-
 
 pre {
   background-color: #f1f1f1;
@@ -61,10 +55,9 @@ pre {
   margin-top: 24px;
 }
 
-
 cite {
   font-family: @font2;
-  font-size: 13px; /* ovveride bootstrap */
+  font-size: 13px;
   font-style: italic;
   font-weight: normal;
   text-transform: none;
@@ -78,11 +71,9 @@ cite {
   }
 }
 
-
 q {
   font-style: italic;
 }
-
 
 ul, ol {
   padding: 0;
@@ -92,7 +83,6 @@ ul, ol {
     margin-left: 21px;
   }
 }
-
 
 .dl-horizontal {
   a {
@@ -111,7 +101,6 @@ ul, ol {
   }
 }
 
-
 address {
   font-size: inherit !important;
   line-height: inherit !important;
@@ -122,16 +111,12 @@ big {
   text-transform: uppercase;
 }
 
-
 embed {
   width: 100%;
 }
 
 
-/*  ----------------------------------------------------------------------------
-     table
-*/
-
+/* table */
 table {
   width: 100%;
 
@@ -153,10 +138,7 @@ table {
   }
 }
 
-
-/*  ----------------------------------------------------------------------------
-    h
-*/
+/* h */
 h1, h2, h3, h4, h5, h6 {
   color: #000;
   font-weight: 600;
@@ -212,27 +194,8 @@ h6 {
   font-weight: bold;
 }
 
-
-
-// videopress from Jetpack
-// @todo verificat daca mai trebuie astea 3 ????
-.videopress-placeholder {
-  width: 100% !important;
-}
-.videopress-poster {
-  height: auto !important;
-  width: 100% !important;
-}
-.video-player {
-  width: 100% !important;
-}
-
-
-
-/*
-----------------------------------------------------------------------------
-  Site wide > Forms
-----------------------------------------------------------------------------
+/*  ----------------------------------------------------------------------------
+    Site wide > Forms
 */
 textarea {
   font-size: 12px;
@@ -324,24 +287,12 @@ input[type=password] {
   }
 }
 
-
-
-/*
-----------------------------------------------------------------------------
-  Site wide > WordPress Text, Images & Captions
-----------------------------------------------------------------------------
-*/
-
-
-
 /*  ----------------------------------------------------------------------------
-    text and Images align
+    Site wide > WordPress Text, Images & Captions
 */
 
+/* text and Images align */
 .td-post-content,
-.wpb_text_column, // text widget from VC
-.td_block_text_with_title, // our text widget with title
-.woocommerce #tab-description,
 .mce-content-body
 {
   img {
@@ -361,11 +312,9 @@ input[type=password] {
   }
 }
 
-
 img.wp-smiley {
   width: auto;
 }
-
 
 .wp-caption-text,
 .wp-caption-dd  //editor-style
@@ -380,24 +329,18 @@ img.wp-smiley {
   color:#444;
 }
 
-
 .wp-caption {
   text-align: center;
   max-width: 100% !important;
-
 }
-
 
 .wp-caption img {
   max-width: 100% !important;
 }
 
-
-
 .alignnone {
   margin-top: 0;
 }
-
 
 .aligncenter {
   text-align: center;
@@ -407,9 +350,7 @@ img.wp-smiley {
   margin-right: auto;
   margin-top: 6px;
   margin-bottom: 6px;
-
 }
-
 
 figure.alignright,
 figure.alignleft,
@@ -417,14 +358,10 @@ figure.aligncenter {
   margin-bottom: 0;
 }
 
-
-// ?
 .alignnone img,
 .aligncenter img {
   width: 100%;
 }
-
-
 
 /*  ----------------------------------------------------------------------------
     align left
@@ -441,7 +378,6 @@ figure.aligncenter {
   margin-right: 24px;
   margin-bottom: 6px !important; /* hack for tinyMCE / post content diffs*/
   margin-left: 0;
-
 
   /* responsive portrait tablet */
   @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
@@ -492,16 +428,71 @@ figure.aligncenter {
 }
 
 /*  ----------------------------------------------------------------------------
-    Screen reader text
+    Screen reader text - Text meant only for screen readers
 */
 .screen-reader-text {
+  position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
-  overflow: hidden;
-  position: absolute !important;
   width: 1px;
+  overflow: hidden;
 }
 
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
+}
+
+/* skip links */
+.site .skip-link {
+  background-color: #f1f1f1;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #21759b;
+  display: block;
+  font-family: @font2;
+  font-size: 14px;
+  font-weight: 700;
+  left: -9999em;
+  outline: none;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  text-transform: none;
+  top: -9999em;
+}
+
+.logged-in .site .skip-link {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.site .skip-link:focus {
+  clip: auto;
+  height: auto;
+  left: 6px;
+  top: 7px;
+  width: auto;
+  z-index: 100000;
+}
+
+/* Do not show the outline on the skip link target. */
+#site-content[tabindex="-1"]:focus {
+  outline: 0;
+}
 
 /*  ----------------------------------------------------------------------------
     align right
@@ -568,20 +559,15 @@ figure.aligncenter {
 }
 
 
-/*
-----------------------------------------------------------------------------
-  Css for:
-  Page content
-  Post content
-  TinyMCE content
-----------------------------------------------------------------------------
+/*  ----------------------------------------------------------------------------
+    Css for:
+      Page content
+      Post content
+      TinyMCE content
 */
 
 .td-page-content,
 .td-post-content,
-.wpb_text_column, // text widget from VC
-.td_block_text_with_title, // our text widget with title
-.woocommerce #tab-description,
 .mce-content-body {
   font-size: 16px;
   line-height: 24px;
@@ -604,53 +590,13 @@ figure.aligncenter {
   p {
     margin-bottom: 24px;
   }
-
-  .td-arrow-list {
-    list-style: none;
-    margin-left: 16px;
-
-    li:before {
-      font-family: @font3;
-      content: '\e803';
-      float: left;
-      margin-left: -16px;
-      line-height: 26px;
-      font-size: 14px;
-    }
-  }
 }
 
-//remove underline from Titles and Categories
-.entry-title a,
-.td-post-category,
-.widget a,
-.tagdiv-block-wrap a {
-  &:hover {
-    text-decoration: none !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-/*  ----------------------------------------------------------------------------
-    quote
-*/
+/* quote */
 .td-page-content,
 .td-post-content,
-.wpb_text_column, // text widget from VC
-.td_block_text_with_title, // our text widget with title
-.bbpress, // bbPress forum
-.woocommerce #tab-description,
 .mce-content-body,
-.comment-content,
-.vc_raw_html {
+.comment-content {
   blockquote {
     padding: 0;
     position: relative;
@@ -686,200 +632,6 @@ figure.aligncenter {
       }
     }
   }
-
-  // reset twitter quote issue
-  .twitter-tweet p {
-    font-family: initial;
-    font-size: initial;
-    line-height: initial;
-    font-style: initial;
-    text-align: initial;
-    text-transform: initial;
-    color: initial;
-    font-weight: initial;
-  }
-
-  // default blockquote left + right
-  .td_quote_right {
-    float:right;
-    width: 50%;
-    margin: 21px 0 21px 21px;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      float: none;
-      width: auto;
-      margin-right: 5%;
-      margin-left: 5%;
-    }
-  }
-
-  .td_quote_left {
-    float:left;
-    width: 50%;
-    margin: 18px 18px 18px 0;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      float: none;
-      width: auto;
-      margin-right: 5%;
-      margin-left: 5%;
-    }
-
-    p {
-      text-align: left;
-
-      /* responsive portrait phone */
-      @media (max-width: @responsive_p_phone_max) {
-        text-align: center;
-      }
-    }
-  }
-
-  // box quote
-  .td_quote_box {
-    margin: 0;
-    background-color: #FCFCFC;
-    border-left: 2px solid @td_theme_color;
-    padding: 15px 23px 0 23px;
-    position: relative;
-    top: 6px;
-    clear: both;
-
-    p {
-      font-family: @font1;
-      color: #777777;
-      font-size: 14px;
-      line-height: 20px;
-      padding-bottom: 16px;
-      margin: 0;
-      text-transform: none;
-    }
-  }
-
-  .td_box_left {
-    width: 40%;
-    float: left;
-    margin: 0 34px 20px 0;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      float: none;
-      margin: 0 0 36px 0;
-      width: auto;
-    }
-
-    p {
-      text-align: left;
-    }
-  }
-
-  .td_box_right {
-    width: 30%;
-    float: right;
-    margin: 0 0 20px 34px;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      float: none;
-      margin: 0 0 36px 0;
-      width: auto;
-    }
-
-    p {
-      text-align: left;
-    }
-  }
-
-  .td_box_center {
-    margin: 0 0 29px 0;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      margin-bottom: 36px;
-    }
-  }
-
-  // pull quote
-  .td_pull_quote {
-    padding: 18px 25px;
-    margin: 0;
-    clear: both;
-
-    p {
-      font-family: @font1;
-      font-size: 14px;
-      line-height: 20px;
-      font-weight: 600;
-      text-transform: none;
-      text-align: center;
-      margin-bottom: 0;
-
-      &:first-child:before {
-        position:absolute;
-        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALBAMAAABSacpvAAAALVBMVEUAAAC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLRK0HxpAAAADnRSTlMAd+67mWZR3SKqMxGIzB8/1rAAAABlSURBVAjXFcexDQEBAAXQd+KCRm4CDZURFGICMYFadTHBxQQmEDHCzWAI9XGJ8s/ANS95FBvccKwYr5kuUQ/5omm5dpQ9Fu+H2efEPX07Sg62f+bJ2T6pJkmnTi5FslM2L56r9geMACBhjTsodgAAAABJRU5ErkJggg==') no-repeat;
-        left: 0;
-        display:block;
-        content:'';
-        width: 15px;
-        height: 15px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-      }
-
-      &:after {
-        position:absolute;
-        bottom: 10px;
-        right: 0;
-        display:block;
-        content:'';
-        width: 15px;
-        height: 15px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALBAMAAABSacpvAAAALVBMVEUAAAC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLRK0HxpAAAADnRSTlMA3ZnuqndmIhG7VYhEMzOiL2oAAABkSURBVAjXY+D1E2PgULZuYGB89+4A07t3AQzn3r1T4Hv3ToCh7t27CUDRBwxAYQe2d+8MGBiuAuWr5BwYGBjeFTAwzEtgYOB6xMDA8RAowGnOwMD6CsjIA4oWKwBFXYGcLQ0MAFHHH+tW1OhlAAAAAElFTkSuQmCC') no-repeat;
-      }
-    }
-  }
-
-  .td_pull_left {
-    width: 40%;
-    float: left;
-    margin-right: 34px;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      float: none;
-      margin: 0 0 30px 0;
-      width: auto;
-    }
-  }
-
-  .td_pull_right {
-    width: 40%;
-    float: right;
-    margin-left: 34px;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      float: none;
-      margin: 0 0 30px 0;
-      width: auto;
-    }
-  }
-
-  .td_pull_center {
-    margin: 17px 0;
-    padding: 15px 50px;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      padding: 15px 20px;
-    }
-  }
 }
 
 blockquote {
@@ -894,21 +646,7 @@ blockquote {
   }
 }
 
-blockquote.pull-right {
-  padding-left: 20px;
-  border-right: none;
-}
-
-blockquote.pull-right:after {
-  border-right: 2px solid #FB5502;
-  width:40px;
-  right: -40px;
-}
-
-
-/*  ----------------------------------------------------------------------------
-    dropcaps
-*/
+/* dropcaps */
 body {
   .dropcap {
     float:left;
@@ -953,225 +691,3 @@ body {
     padding: 0 13px 0 0;
   }
 }
-
-
-
-/*  ----------------------------------------------------------------------------
-    text columns
-*/
-
-.td_column_count_mixin(@column_count) {
-  -webkit-column-count: @column_count;
-  -moz-column-count: @column_count;
-  column-count: @column_count;
-}
-
-.td_column_gap_mixin(@column_gap_px) {
-  -webkit-column-gap: @column_gap_px;
-  -moz-column-gap: @column_gap_px;
-  column-gap: @column_gap_px;
-}
-
-.td_column_rules_mixin(@column_rule_style) {
-  -webkit-column-rule-style: @column_rule_style;
-  -moz-column-rule-style: @column_rule_style;
-  column-rule-style: @column_rule_style;
-}
-
-.td_column_rules_width_mixin(@column_rule_width) {
-  -webkit-column-rule-width: @column_rule_width;
-  -moz-column-rule-width: @column_rule_width;
-  column-rule-width: @column_rule_width;
-}
-
-.td_column_rules_color(@column_rule_color) {
-  -webkit-column-rule-color: @column_rule_color;
-  -moz-column-rule-color: @column_rule_color;
-  column-rule-color: @column_rule_color;
-}
-
-.td_text_columns_two_cols {
-  .td_column_count_mixin(2);
-  .td_column_gap_mixin(40px);
-  .td_column_rules_mixin(solid);
-  .td_column_rules_width_mixin(1px);
-  .td_column_rules_color(#e9e9e9);
-  margin-bottom: 26px;
-}
-
-
-
-/*  ----------------------------------------------------------------------------
-    text highlighting
-*/
-.td_text_highlight_0 {
-  background-color: rgba(0, 0, 0, 0.77);
-  padding: 2px 0 3px 0;
-  margin:0 8px 0 8px;
-  box-shadow: 8px 0 0 rgba(0, 0, 0, 0.77), -8px 0 0 rgba(0, 0, 0, 0.77);
-  color:rgb(42, 42, 42);
-  .transition(color 400ms);
-  &:hover {
-    color:#F9F9F9;
-    cursor: default;
-  }
-}
-
-
-.td_text_highlight_marker {
-  padding: 2px 0 3px 0;
-  margin:0 8px 0 8px;
-
-  color:white;
-  .transition(color 400ms);
-  &:hover {
-    color:#F9F9F9;
-  }
-}
-
-.td_text_highlight_marker_red {
-  background-color: rgba(255, 28, 26, 0.62);
-  box-shadow: 8px 0 0 rgba(255, 28, 26, 0.62), -8px 0 0 rgba(255, 28, 26, 0.62);
-}
-
-.td_text_highlight_marker_blue {
-  background-color: rgba(57, 213, 255, 0.75);
-  box-shadow: 8px 0 0 rgba(57, 213, 255, 0.75), -8px 0 0 rgba(57, 213, 255, 0.75);
-}
-
-.td_text_highlight_marker_green {
-  background-color: rgba(77, 216, 69, 0.65);
-  box-shadow: 8px 0 0 rgba(77, 216, 69, 0.65), -8px 0 0 rgba(77, 216, 69, 0.65);
-}
-
-.td_text_highlight_marker_yellow {
-  background-color: rgba(255, 203, 0, 0.75);
-  box-shadow: 8px 0 0 rgba(255, 203, 0, 0.75), -8px 0 0 rgba(255, 203, 0, 0.75);
-}
-
-.td_text_highlight_marker_pink {
-  background-color: rgba(255, 101, 243, 0.75);
-  box-shadow: 8px 0 0 rgba(255, 101, 243, 0.75), -8px 0 0 rgba(255, 101, 243, 0.75);
-}
-
-
-
-/*  ----------------------------------------------------------------------------
-    custom post padding
-*/
-
-//  text ⇠
-.td-paragraph-padding-0 {
-  display: block;
-  padding-left: 0;
-  padding-right: 6%;
-}
-
-// ⇢ text ⇠
-.td-paragraph-padding-1 {
-  display: block;
-  padding-left: 6%;
-  padding-right: 6%;
-}
-
-// ⇢⇢ text ⇠⇠
-.td-paragraph-padding-2 {
-  display: block;
-  padding-left: 12%;
-  padding-right: 12%;
-}
-
-// ⇢ text ⇠⇠
-.td-paragraph-padding-3 {
-  display: block;
-  padding-left: 6%;
-  padding-right: 12%;
-}
-
-
-// ⇢ text
-.td-paragraph-padding-4 {
-  display: block;
-  padding-left: 6%;
-  padding-right: 0;
-}
-
-// ⇢⇢⇢ text ⇠⇠⇠
-.td-paragraph-padding-5 {
-  display: block;
-  padding-left: 18%;
-  padding-right: 18%;
-}
-
-// ⇢⇢ text ⇠
-.td-paragraph-padding-6 {
-  display: block;
-  padding-left: 12%;
-  padding-right: 6%;
-}
-
-
-
-//smaller spaces on two columns
-.td-pb-span8,
-.mceContentBody-max-width-small  //editor-style - small version
-{
-
-  //  text ⇠
-  .td-paragraph-padding-0 {
-    padding-right: 4%;
-  }
-
-  // ⇢ text ⇠
-  .td-paragraph-padding-1 {
-    padding-left: 4%;
-    padding-right: 4%;
-  }
-
-  // ⇢⇢ text ⇠⇠
-  .td-paragraph-padding-2 {
-    padding-left: 8%;
-    padding-right: 8%;
-  }
-
-  // ⇢ text ⇠⇠
-  .td-paragraph-padding-3 {
-    padding-left: 4%;
-    padding-right: 8%;
-  }
-
-  // ⇢ text
-  .td-paragraph-padding-4 {
-    padding-left: 4%;
-  }
-
-  // ⇢⇢⇢ text ⇠⇠⇠
-  .td-paragraph-padding-5 {
-    padding-left: 12%;
-    padding-right: 12%;
-  }
-
-  // ⇢⇢ text ⇠
-  .td-paragraph-padding-6 {
-    padding-left: 8%;
-    padding-right: 4%;
-  }
-
-}
-
-
-
-/* responsive phone */
-@media (max-width: 500px) {
-  .td-paragraph-padding-0,
-  .td-paragraph-padding-1,
-  .td-paragraph-padding-2,
-  .td-paragraph-padding-3,
-  .td-paragraph-padding-4,
-  .td-paragraph-padding-5,
-  .td-paragraph-padding-6 {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-}
-

@@ -166,19 +166,19 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 
 					<div class="td-module-meta-info">
 
-					<span class="td-post-author-name">
-						<span class="td-author-by"><?php _e( 'By', 'tdmag' ) ?></span>
-						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
-					<span>-</span>
-					</span>
+						<div class="td-post-author-name">
+							<span class="td-author-by"><?php _e( 'By', 'tdmag' ) ?></span>
+							<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+						</div>
 
-					<span class="td-post-date">
-					<time class="entry-date updated"
-						  datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>"><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
-					</span>
+						<div class="td-post-date">
+							<time class="entry-date updated" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>">
+								<?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?>
+							</time>
+						</div>
 
 						<div class="td-post-comments">
-							<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
+							<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><i class="td-icon-comments"></i><?php echo get_comments_number( get_the_ID() ); ?></a>
 						</div>
 
 					</div><!-- .td-module-meta-info-->
@@ -192,15 +192,16 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 
 				<div class="td-module-meta-info">
 
-				<span class="td-post-author-name">
-					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
-				<span>-</span>
-				</span>
+					<div class="td-post-author-name">
+						<span class="td-author-by"><?php _e( 'By', 'tdmag' ) ?></span>
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+					</div>
 
-				<span class="td-post-date">
-				<time class="entry-date updated td-module-date"
-					  datetime="<?php echo date(DATE_W3C, get_the_time('U', get_the_ID())); ?>"><?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?></time>
-				</span>
+					<div class="td-post-date">
+						<time class="entry-date updated td-module-date" datetime="<?php echo date( DATE_W3C, get_the_time( 'U', get_the_ID() ) ); ?>">
+							<?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?>
+						</time>
+					</div>
 
 					<div class="td-module-comments">
 						<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
@@ -236,7 +237,7 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) {
 			}
 
 			if ( ! empty( $tags_array )) {
-				$post_tags .= '<ul class="td-tags td-post-small-box clearfix">';
+				$post_tags .= '<ul class="td-tags clearfix">';
 				$post_tags .= '<li><span>TAGS</span></li>';
 				foreach ( $tags_array as $tag_name => $tag_params ) {
 					$post_tags .= '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
@@ -279,7 +280,6 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
 					$next_prev_posts .= '</div>';
 				}
-				$next_prev_posts .= '<div class="td-next-prev-separator"></div>';
 				if ( ! empty( $next_post ) ) {
 					$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
 					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __('Next article', 'tdmag') . '</span>';
@@ -310,22 +310,26 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 		if ( is_singular() ) {
 
 			$author_box .= '<div class="author-box-wrap">';
-			$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">';
-			$author_box .= get_avatar(get_the_author_meta('email', $post->post_author), '96');
+			$author_box .= '<a href="' . get_author_posts_url( $post->post_author ) . '">';
+			$author_box .= get_avatar( get_the_author_meta( 'email', $post->post_author ), '96' );
 			$author_box .= '</a>';
 
 
 			$author_box .= '<div class="desc">';
-			$author_box .= '<div class="td-author-name vcard author"><span class="fn">';
-			$author_box .= '<a href="' . get_author_posts_url($post->post_author) . '">' . get_the_author_meta('display_name', $post->post_author) . '</a>';
-			$author_box .= '</span></div>';
+			$author_box .= '<div class="td-author-name vcard author">';
+			$author_box .= '<span class="fn">';
+			$author_box .= '<a href="' . get_author_posts_url( $post->post_author ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a>';
+			$author_box .= '</span>';
+			$author_box .= '</div>';
 
-			if (get_the_author_meta('user_url', $post->post_author) != '') {
-				$author_box .= '<div class="td-author-url"><a href="' . get_the_author_meta('user_url', $post->post_author) . '">' . get_the_author_meta('user_url', $post->post_author) . '</a></div>';
+			if ( '' !== get_the_author_meta( 'user_url', $post->post_author ) ) {
+				$author_box .= '<div class="td-author-url">';
+				$author_box .= '<a href="' . get_the_author_meta( 'user_url', $post->post_author ) . '">' . get_the_author_meta( 'user_url', $post->post_author ) . '</a>';
+				$author_box .= '</div>';
 			}
 
 			$author_box .= '<div class="td-author-description">';
-			$author_box .= get_the_author_meta('description', $post->post_author);
+			$author_box .= get_the_author_meta( 'description', $post->post_author );
 			$author_box .= '</div>';
 
 			$author_box .= '<div class="clearfix"></div>';

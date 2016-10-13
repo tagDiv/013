@@ -28,7 +28,7 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 			</div>
 
 			<div class="tagdiv-excerpt">
-				<?php echo $this->get_excerpt(25);?>
+				<p> <?php echo $this->get_excerpt(25);?> </p>
 			</div>
 
 		</div>

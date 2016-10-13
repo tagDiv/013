@@ -1,15 +1,15 @@
 /*  ----------------------------------------------------------------------------
-    Block Wrap
+    Blocks
 */
+
+/* General block styles */
 .tagdiv-block-wrap {
   margin-bottom: 40px;
   position: relative;
   clear: both;
 }
 
-/*  ----------------------------------------------------------------------------
-    Block Titles + Line
-*/
+/* Block Titles */
 .td-block-title-wrap {
   position: relative;
   .clearfix();
@@ -26,7 +26,7 @@
   line-height: 1;
   margin: 0 0 20px 0;
 
-  a, span, label { /* label is for jetpack */
+  a, span {
     display: inline-block;
     margin: 8px 0;
   }
@@ -43,111 +43,8 @@
   }
 }
 
-
-/*  ----------------------------------------------------------------------------
-    Ajax Next Prev
-*/
-.td-next-prev-wrap {
-  position: relative;
-  text-align: center;
-  clear: both;
-  line-height: 1;
-  margin-top: 20px;
-
-  a {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 9px;
-    line-height: 20px;
-    text-align: center;
-    color: #000;
-
-    &:hover {
-      color: @td_theme_color;
-    }
-  }
-
-  .ajax-page-disabled {
-    opacity: 0.5;
-  }
-
-  .td-ajax-prev-page {
-    padding-right: 19px;
-  }
-
-  .td-ajax-next-page {
-    position: relative;
-    padding-left: 21px;
-
-    &:before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1px;
-      height: 100%;
-      background-color: #000;
-      .opacity(0.08)
-    }
-  }
-}
-
-
-/*  ----------------------------------------------------------------------------
-    Load more button
-*/
-.td-load-more-wrap {
-  margin-top: 20px;
-  text-align: center;
-  clear: both;
-}
-
-.td_ajax_load_more {
-  display: inline-block;
-  padding: 20px 38px 5px;
-  font-family: @font2;
-  font-size: 13px;
-  font-weight: 600;
-  color: #000;
-  text-transform: uppercase;
-  line-height: 1;
-  text-align: center;
-  vertical-align: middle;
-  .box-shadow(inset 1px 1px 0 0 rgba(0,0,0,0.06));
-
-  i {
-    margin-top: 3px;
-    position: relative;
-    display: block;
-    font-size: 0;
-
-    &:after {
-      content: '\e900';
-      font-family: @font3;
-      font-size: 9px;
-      color: #bebebe;
-    }
-  }
-
-  &:hover {
-    color: @td_theme_color;
-    text-decoration: none !important;
-    .box-shadow(inset 1px 1px 0 0 rgba(0,0,0,0.09));
-  }
-
-  &.ajax-page-disabled {
-    visibility: hidden !important;
-  }
-}
-
-.td_block_inner_overflow {
-  overflow: hidden;
-}
-
-/*  ----------------------------------------------------------------------------
-    Block 1
-*/
-.td_block_1 {
+/* Block 1 */
+.tagdiv-block-1 {
   // remove the bottom padding for latest modules
   .td-pb-row:last-child .tagdiv_module_wrap {
     /* without mobile */
@@ -163,53 +60,9 @@
       margin-bottom: -3px;
     }
   }
-  &.td-column-1 .tagdiv_module_wrap:last-child {
-    padding-bottom: 0;
-    margin-bottom: -3px;
-  }
-
-  // load more - next/back alignment
-  .td-next-prev-wrap,
-  .td-load-more-wrap {
-    margin-top: 30px;
-  }
 }
 
-
-/*  ----------------------------------------------------------------------------
-    Block 2
-*/
-.td_block_2 {
-  // remove the bottom padding for latest modules
-  .td-block-row:last-child .td_module_wrap {
-    /* without mobile */
-    @media (min-width: @responsive_p_tablet_min) {
-      padding-bottom: 0;
-      margin-bottom: -4px;
-    }
-  }
-  .td-block-row:last-child > div:last-child .td_module_wrap {
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      padding-bottom: 0;
-      margin-bottom: -4px;
-    }
-  }
-  &.td-column-1 .td_module_wrap:last-child {
-    padding-bottom: 0;
-    margin-bottom: -4px;
-  }
-
-  // load more - next/back alignment
-  .td-next-prev-wrap,
-  .td-load-more-wrap {
-    margin-top: 30px;
-  }
-}
-
-/*  ----------------------------------------------------------------------------
-    Image box
-*/
+/* Block Image box */
 .tagdiv-block-image-box {
   .td-custom {
     position: relative;
@@ -435,58 +288,6 @@
         background-color: #fff;
         color: #000;
       }
-    }
-  }
-}
-
-
-/*  ----------------------------------------------------------------------------
-    Block list menu
-*/
-// Inline style
-.td-list-menu-inline {
-  padding: 0 60px;
-  margin-bottom: 0 !important;
-  margin-top: 10px;
-
-  /* responsive portrait tablet */
-  @media (max-width: @responsive_p_tablet_max) {
-    padding: 0;
-  }
-
-  ul {
-    text-align: center;
-
-    li {
-      display: inline-block;
-      margin-bottom: 8px;
-      margin-left: 0;
-      margin-right: 7px;
-
-      a {
-        border: 1px solid #eaeaea;
-        padding: 0 12px;
-        font-family: @font2;
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 31px;
-        color: #000;
-        display: block;
-
-        &:hover {
-          background-color: #111;
-          color: #fff;
-          border-color: #111;
-        }
-      }
-    }
-  }
-
-  .current-menu-item {
-    a {
-      border-color: @td_theme_color;
-      background-color: @td_theme_color;
-      color: #fff !important;
     }
   }
 }

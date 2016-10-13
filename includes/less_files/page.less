@@ -1,6 +1,13 @@
 /*  ----------------------------------------------------------------------------
-    Page title
+    Page
 */
+
+/* page general */
+.td-main-content-wrap {
+  padding-top: 43px;
+}
+
+/* page title */
 .tagdiv-page-title {
   display: inline-block;
   margin: 1px 0 26px 0;
@@ -19,10 +26,7 @@
   }
 }
 
-
-/*  ----------------------------------------------------------------------------
-    Pagination
-*/
+/* pagination */
 .page-nav {
   font-family: @font2;
   font-size: 13px;
@@ -99,7 +103,7 @@
   }
 }
 
-// in page navigation
+/* in page navigation */
 .page .page-nav {
   margin-bottom: 30px;
 
@@ -117,10 +121,11 @@
   }
 }
 
-
 /*  ----------------------------------------------------------------------------
     Attachment page
 */
+
+/* content */
 .tagdiv-attachment-page-content {
   p {
     color: #444;
@@ -129,10 +134,13 @@
     line-height: 19px;
   }
 }
+
+/* image */
 .attachment-large {
   display: block;
 }
 
+/* previous image */
 .tagdiv-attachment-prev {
   display: inline-block;
   margin: 10px 0 21px;
@@ -143,6 +151,7 @@
   }
 }
 
+/* next image */
 .tagdiv-attachment-next {
   float: right;
   margin: 10px 0 21px;
@@ -157,145 +166,8 @@
 /*  ----------------------------------------------------------------------------
     Search page
 */
-.search-page-wrap {
-  margin-top: -1px;
-  float: right;
-}
 
-
-/*  ----------------------------------------------------------------------------
-    Author page
-*/
-.td-author-header {
-  padding-bottom: 43px;
-
-  /* responsive portrait tablet */
-  @media (max-width: @responsive_p_tablet_max) {
-    padding-bottom: 23px;
-  }
-
-  // Author box
-  .author-box-wrap {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-
-    &:before {
-     display: none;
-    }
-  }
-
-  .entry-title,
-  .avatar {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .entry-title {
-    margin-bottom: 0;
-    padding-bottom: 17px;
-    font-size: 25px;
-    line-height: 24px;
-    text-transform: uppercase;
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      padding-bottom: 0;
-      margin-top: 10px;
-      width: 100%;
-    }
-
-    &:after {
-      display: block;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 80px;
-      /* responsive portrait phone */
-      @media (max-width: @responsive_p_phone_max) {
-        display: none;
-      }
-    }
-  }
-
-  .avatar {
-    float: none;
-    margin: -8px 0 0 22px;
-    .border-radius(50%);
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      margin: 15px 0 0;
-      width: 120px;
-    }
-  }
-
-  .desc {
-    margin-left: 0;
-    padding-top: 14px;
-  }
-
-  .td-author-counters,
-  .td-author-url,
-  .td-author-social {
-    display: inline-block;
-
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      display: block;
-    }
-  }
-
-  .td-author-url,
-  .td-author-social {
-    margin: 0 0 0 41px;
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      margin: 0;
-    }
-  }
-
-  // Counters
-  .td-author-counters {
-    font-size: 11px;
-    font-style: italic;
-    /* responsive portrait phone */
-    @media (max-width: @responsive_p_phone_max) {
-      margin-bottom: 5px;
-    }
-  }
-
-  .td-author-comments-count {
-    margin-left: 15px;
-  }
-
-  .count {
-    margin-right: 8px;
-    padding: 3px 8px 2px 7px;
-    border: 1px solid #ccc;
-    .border-radius(10px);
-  }
-
-  // Description
-  .td-author-description {
-    width: 80%;
-    margin: 0 auto 2px auto;
-    padding-top: 33px;
-    font-family: @font2;
-    font-size: 15px;
-    line-height: 23px;
-
-    /* responsive portrait tablet */
-    @media (max-width: @responsive_p_tablet_max) {
-      width: 95%;
-      padding-top: 13px;
-    }
-  }
-}
-
-
-/*  ----------------------------------------------------------------------------
-    Search page
-*/
+/* the search header */
 .td-search-header {
   .clearfix();
 
@@ -305,17 +177,23 @@
 
   input[type=search].search-field {
     width: 300px;
-    
+
     @media (max-width: @responsive_p_phone_max) {
       width: 100%;
     }
   }
 }
 
+/* search template - search form wrapper */
+.search-page-wrap {
+  margin-top: -1px;
+  float: right;
+}
 
 /*  ----------------------------------------------------------------------------
     404 page
 */
+
 .td-404-head {
   padding: 17px 0;
   text-align: center;

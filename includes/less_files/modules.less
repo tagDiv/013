@@ -1,6 +1,8 @@
 /*  ----------------------------------------------------------------------------
     Modules
 */
+
+/* General module styles */
 .td-modules-container {
   .clearfix();
 }
@@ -19,6 +21,7 @@
   }
 }
 
+/* Module Titles */
 .entry-title {
   font-family: @font2;
   position: relative;
@@ -42,14 +45,9 @@
   }
 }
 
-.td-item-details {
-  display: table;
-}
-
-/*  ----------------------------------------------------------------------------
-    thumbnail
-*/
+/* Module Thumbnail */
 .td-module-image {
+  position: relative;
   margin-bottom: 13px;
 }
 
@@ -66,29 +64,8 @@
     opacity: 0.85;
   }
 }
-.td-module-image {
-  position: relative;
-}
 
-.td-video-play-ico > img {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.td-module-image-float {
-  position: relative;
-  display: inline-block;
-  float: left;
-}
-
-/*  ----------------------------------------------------------------------------
-    admin edit
-*/
+/* Module admin edit */
 .td-admin-edit {
   position: absolute;
   display: none;
@@ -112,9 +89,7 @@
   display: block;
 }
 
-/*  ----------------------------------------------------------------------------
-    category on modules
-*/
+/* Module post category */
 .td-post-category-wrap {
   position: absolute;
   bottom: -3px;
@@ -138,19 +113,7 @@
   }
 }
 
-// small category - add this on td-item-details
-.td-category-small {
-  .td-post-category {
-    margin-right: 4px;
-    padding: 3px 6px;
-    position: relative;
-    top: -1px;
-  }
-}
-
-/*  ----------------------------------------------------------------------------
-    metainfo
-*/
+/* Module post metainfo */
 .td-module-meta-info {
   font-family: @font2;
   font-size: 12px;
@@ -170,27 +133,13 @@
   }
 }
 
-.td-no-comment {
-  .td-post-date {
-    margin-right: 0;
-    padding-right: 0;
-
-    &:after {
-      display: none;
-    }
-  }
-}
-
-.entry-review-stars,
 .td-post-author-name,
 .td-post-date,
 .td-module-comments,
-.td-post-comments,
-.td-post-views{
+.td-post-comments {
   display: inline-block;
 }
 
-.entry-review-stars,
 .td-post-author-name,
 .td-post-date {
   position: relative;
@@ -209,10 +158,6 @@
   }
 }
 
-.entry-review-stars {
-  vertical-align: bottom;
-}
-
 .td-post-author-name {
   font-weight: 500;
 
@@ -221,11 +166,8 @@
     .opacity(0.5);
   }
 
-  .td-author-line {
-    display: none;
-  }
-
-  span {
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
     display: none;
   }
 }
@@ -234,7 +176,6 @@
   .opacity(0.5);
 }
 
-.entry-review-stars,
 .td-module-comments,
 .td-post-comments {
   a {
@@ -265,30 +206,17 @@
   }
 }
 
-.td-post-views {
-  color: #666;
-
-  i {
-    display: none;
-  }
-
-  span {
-    padding: 2px 8px;
-    border: 1px solid #ccc;
-    .border-radius(10px);
-  }
-}
-
-/*  ----------------------------------------------------------------------------
-    excerpt
-*/
+/* Module post excerpt */
 .tagdiv-excerpt {
-  padding-top: 19px;
-  font-size: 15px;
-  font-style: italic;
-  line-height: 19px;
-  color: #808080;
-  word-wrap: break-word;
+  p {
+    padding-top: 19px;
+    font-style: italic;
+    line-height: 19px;
+    color: #808080;
+    word-wrap: break-word;
+    font-size: 15px;
+    margin: 0;
+  }
 
   /* responsive portrait tablet + mobile */
   @media (max-width: @responsive_p_tablet_max) {

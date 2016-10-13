@@ -31,6 +31,7 @@ jQuery().ready(function() {
             jQuery(document).click(function(e) {
                 if (
                     'td-icon-search' !== e.target.className &&
+                    'td-search-box-wrap' !== e.target.className &&
                     'td-header-search' !== e.target.id &&
                     'td-header-search-top' !== e.target.id &&
                     true === tdSearch._is_search_open
