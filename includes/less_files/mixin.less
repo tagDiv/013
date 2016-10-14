@@ -75,12 +75,6 @@
   box-sizing: @boxmodel;
 }
 
-.scale (@factor) {
-  -webkit-transform: scale(@factor);
-  -moz-transform: scale(@factor);
-  -ms-transform: scale(@factor);
-  -o-transform: scale(@factor);
-}
 
 
 .toRGBA(@color, @alpha) {
@@ -94,7 +88,7 @@ usage:
   .mx-row(td-block-span);
 }
 
-@all_span_selector - is the begining of the span selector
+@all_span_selector - is the beginning of the span selector
  */
 .mx-row-and-span(@all_span_selector) {
   .mx-row();
@@ -148,20 +142,4 @@ usage:
   -moz-transform: @string;
   -ms-transform: @string;
   -o-transform: @string;
-}
-
-.transform_important(@string){
-  transform: @string !important;
-  -webkit-transform: @string !important;
-  -moz-transform: @string !important;
-  -ms-transform: @string !important;
-  -o-transform: @string !important;
-}
-
-.transform_important(@string){
-  transform: @string !important;
-  -webkit-transform: @string !important;
-  -moz-transform: @string !important;
-  -ms-transform: @string !important;
-  -o-transform: @string !important;
 }

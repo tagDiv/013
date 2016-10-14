@@ -20,6 +20,10 @@
   .widget {
     margin-top: 44px;
     text-align: left;
+
+    select {
+      border-bottom: 1px solid rgba(235, 235, 235, 0.3);
+    }
   }
 
   .block-title a,
@@ -32,6 +36,43 @@
 
   .widget_categories li span:before {
     border-color: #fff;
+  }
+
+  .widget_recent_entries {
+    .post-date {
+      color: #444444;
+    }
+  }
+
+  .widget_recent_comments,
+  .widget_recent_entries,
+  .widget_rss
+  {
+    li {
+      border-bottom: 1px solid rgba(235, 235, 235, 0.3);
+    }
+  }
+
+  .widget_calendar {
+    table {
+      th,
+      td {
+        border: 1px solid rgba(235, 235, 235, 0.3);
+      }
+
+      tfoot {
+        td {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .widget_text {
+    p {
+      color: #ccc;
+      font-size: 12px;
+    }
   }
 
   .rssSummary {

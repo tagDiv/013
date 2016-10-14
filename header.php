@@ -20,9 +20,67 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php /* scroll to top */?>
+<div class="td-scroll-up"><i class="td-icon-menu-up"></i></div>
+
 <div id="page" class="site">
 
 	<header class="site-header" role="banner">
+
+		<!--mobile navigation-->
+		<div class="td-menu-background"></div>
+		<div id="td-mobile-nav">
+			<div class="td-mobile-container">
+
+				<!-- close button -->
+				<div class="td-mobile-close">
+					<a href="#"><i class="td-icon-close-mobile"></i></a>
+				</div>
+
+				<!-- menu section -->
+				<div class="td-mobile-content">
+					<?php
+					wp_nav_menu(array(
+						'theme_location' => 'header-menu',
+						'menu_class'=> 'td-mobile-main-menu',
+						'fallback_cb' => 'td_wp_no_mobile_menu',
+						'link_after' => '<i class="td-icon-menu-right td-element-after"></i>',
+						//'walker'  => new td_walker_mobile_menu()
+					));
+
+					/* if no menu */
+					function td_wp_no_mobile_menu() {
+						//this is the default menu
+						echo '<ul class="">';
+						echo '<li class="menu-item-first"><a href="' . esc_url( home_url( '/' ) ) . 'wp-admin/nav-menus.php">Click here - to use the wp menu builder</a></li>';
+						echo '</ul>';
+					}
+
+					?>
+				</div>
+			</div>
+		</div>
+
+		<!--mobile search-->
+		<div class="td-search-background"></div>
+		<div class="td-search-wrap-mob">
+			<div class="td-drop-down-search" aria-labelledby="td-header-search-button">
+				<form method="get" class="td-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<!-- close button -->
+					<div class="td-search-close">
+						<a href="#"><i class="td-icon-close-mobile"></i></a>
+					</div>
+					<div role="search" class="td-search-input">
+						<span><?php _e( 'Search', 'tdmag' )?></span>
+						<input id="td-header-search-mob" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
+					</div>
+				</form>
+				<div id="td-aj-search-mob"></div>
+			</div>
+		</div>
+
+		<!--header-->
 		<div class="tagdiv-header-wrap tagdiv-header-style">
 			<div class="td-header-logo-wrap td-container-wrap">
 
@@ -44,7 +102,7 @@
 						<div id="td-header-menu" role="navigation">
 
 							<!--mobile menu-->
-							<!--<div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>-->
+							<div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>
 
 							<?php
 							wp_nav_menu( array(
@@ -65,7 +123,7 @@
 						<div class="td-header-menu-search">
 							<div class="td-search-btns-wrap">
 								<a id="td-header-search-button" href="#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>
-								<!--<a id="td-header-search-button-mob" href="#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>-->
+								<a id="td-header-search-button-mob" href="#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>
 							</div>
 
 							<div class="td-search-box-wrap">

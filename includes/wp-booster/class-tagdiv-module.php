@@ -125,9 +125,6 @@ abstract class Tagdiv_Module {
 			if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) != 'hide' ) {
 				$buffy .= '<span class="td-post-author-name">';
 				$buffy .= '<a href="' . get_author_posts_url( $this->post->post_author ) . '">' . get_the_author_meta( 'display_name', $this->post->post_author ) . '</a>';
-				if ( Tagdiv_Util::get_option( 'tds_m_show_author_name' ) != 'hide' && Tagdiv_Util::get_option( 'tds_m_show_date' ) != 'hide' ) {
-					$buffy .= ' <span>-</span> ';
-				}
 				$buffy .= '</span>';
 			}
 

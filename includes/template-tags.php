@@ -84,17 +84,13 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) {
 
 			if ( ! empty( $categories ) ) {
 				foreach ( $categories as $category ) {
-					if ($category->name != TAGDIV_FEATURED_CAT) { //ignore the featured category name
-
-						$categories_array[$category->name] = array(
-							'link' => get_category_link( $category->cat_ID )
-						);
-					}
+					$categories_array[$category->name] = array(
+						'link' => get_category_link( $category->cat_ID )
+					);
 				}
 			}
 
 			$post_categories .= '<ul class="td-category">';
-
 
 			foreach ( $categories_array as $category_name => $category_params ) {
 				$post_categories .= '<li class="entry-category"><a href="' . $category_params['link'] . '">' . $category_name . '</a></li>';
@@ -121,28 +117,24 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) {
 				}
 			}
 
-			if ( empty( $selected_category_obj ) && ! empty( $categories[0] )) {
-				if ( $categories[0]->name === TAGDIV_FEATURED_CAT && ! empty( $categories[1] ) ) {
-					$selected_category_obj = $categories[1];
-				} else {
+			if ( empty( $selected_category_obj ) && ! empty( $categories[0] ) ) {
+				if ( ! empty( $categories[0] ) ) {
 					$selected_category_obj = $categories[0];
 				}
 			}
-
 
 			if ( ! empty( $selected_category_obj ) ) {
 				$selected_category_obj_id = $selected_category_obj->cat_ID;
 				$selected_category_obj_name = $selected_category_obj->name;
 			}
 
-			if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) { //@todo catch error here
+			if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) {
 				$post_categories .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="td-post-category">' . $selected_category_obj_name . '</a>';
 			}
 
 			return $post_categories;
 
 		} // End is_singular()
-
 	}
 }
 
@@ -161,7 +153,6 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 				<?php echo tagdiv_post_category(); ?>
 
 				<header>
-
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 					<div class="td-module-meta-info">
@@ -223,7 +214,7 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) {
 	function tagdiv_post_tags() {
 
 		$tags_array = array();
-		$post_tags = '';
+		$post_tags 	= '';
 
 		if ( is_singular() ) {
 
@@ -236,9 +227,9 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) {
 				}
 			}
 
-			if ( ! empty( $tags_array )) {
+			if ( ! empty( $tags_array ) ) {
 				$post_tags .= '<ul class="td-tags clearfix">';
-				$post_tags .= '<li><span>TAGS</span></li>';
+				$post_tags .= '<li><span>' . __( 'TAGS', 'tdmag' ) . '</span></li>';
 				foreach ( $tags_array as $tag_name => $tag_params ) {
 					$post_tags .= '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
 				}
@@ -261,9 +252,8 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 	function tagdiv_next_prev_posts() {
 
 		$next_prev_posts = '';
-
-		$next_post = get_next_post();
-		$prev_post = get_previous_post();
+		$next_post 		 = get_next_post();
+		$prev_post 		 = get_previous_post();
 
 		if ( is_singular() ) {
 
@@ -310,10 +300,10 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 		if ( is_singular() ) {
 
 			$author_box .= '<div class="author-box-wrap">';
+
 			$author_box .= '<a href="' . get_author_posts_url( $post->post_author ) . '">';
 			$author_box .= get_avatar( get_the_author_meta( 'email', $post->post_author ), '96' );
 			$author_box .= '</a>';
-
 
 			$author_box .= '<div class="desc">';
 			$author_box .= '<div class="td-author-name vcard author">';
@@ -340,6 +330,7 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 			return $author_box;
 
 		} // End is_singular()
+
 		return '';
 	}
 }
@@ -406,7 +397,7 @@ if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
 	function tagdiv_excerpt_more() {
 		$excerpt = get_the_excerpt();
 		$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
-			esc_url( get_permalink(get_the_ID() ) ),
+			esc_url( get_permalink( get_the_ID() ) ),
 			/* translators: %s: Name of current post */
 			sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'tdmag' ), get_the_title( get_the_ID() ) )
 		);
