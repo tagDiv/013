@@ -51,6 +51,17 @@ jQuery().ready(function() {
                     tdSearch.show_search_box();
                 }
             });
+
+            // show and hide the drop down on the search icon for mobile
+            jQuery( '#td-header-search-button-mob' ).click(function(event){
+                jQuery( 'body' ).addClass( 'td-search-opened' );
+            });
+
+
+            //close the search
+            jQuery( '.td-search-close a' ).click(function(){
+                jQuery( 'body' ).removeClass( 'td-search-opened' );
+            });
         },
 
 

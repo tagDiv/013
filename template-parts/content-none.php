@@ -25,7 +25,6 @@
 		<?php } elseif ( is_search() ) { ?>
 
 			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'tdmag' ); ?></p>
-			<?php get_search_form(); ?>
 
 		<?php } elseif ( is_category() ) { ?>
 

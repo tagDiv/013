@@ -1,8 +1,9 @@
-/*
-  Mobile menu
+/*  ----------------------------------------------------------------------------
+    Mobile menu
 */
-// prepare the outer wrap to support menu animation on mobile
-#td-outer-wrap {
+
+/* prepare the page wrap to support menu animation on mobile */
+#page {
   overflow: hidden;
 
   /* responsive portrait phone */
@@ -13,7 +14,7 @@
   }
 }
 
-/* toggle button - burger button */
+/* toggle button ( burger button ) */
 #td-top-mobile-toggle {
   display: none;
 
@@ -43,13 +44,14 @@
 .admin-bar #td-mobile-nav {
   padding-top: 32px;
 }
+
 @media(max-width: 767px){
   .admin-bar #td-mobile-nav {
     padding-top: 46px;
   }
 }
 
-// menu background
+/* menu background */
 .td-menu-background {
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,7 +76,7 @@
   }
 }
 
-// container
+/* container */
 #td-mobile-nav {
   padding: 0;
   position: absolute;
@@ -88,65 +90,26 @@
   left: -1%;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 
-  // Error log
-  .td_display_err {
-    text-align: center;
-    color: #000;
-    border: none;
-    .box-shadow(0 0 8px rgba(0, 0, 0, 0.16));
-    margin: -9px -30px 24px;
-    font-size: 14px;
-    border-radius: 0;
-    padding: 12px;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.06);
-    display: none;
-  }
-
-  // remove red border from firefox
+  // remove red border on firefox
   input:invalid {
     box-shadow: none !important;
   }
 }
 
-
-// fix menu animation with speed booster
-.td-js-loaded {
-  .td-menu-background,
-  #td-mobile-nav {
-    visibility: visible;
-    .transition(transform 0.5s cubic-bezier(.79,.14,.15,.86));
-  }
+.td-menu-background,
+#td-mobile-nav {
+  visibility: visible;
+  .transition(transform 0.5s cubic-bezier(.79,.14,.15,.86));
 }
 
-
-// top bar
+/* top bar */
 #td-mobile-nav {
   // prevent when the menu higher then content
   height: 1px;
   overflow: hidden;
-
-  .td-menu-socials {
-    padding: 0 65px 0 20px;
-    overflow: hidden;
-    height: 60px;
-  }
-
-  .td-social-icon-wrap {
-    margin: 20px 5px 0 0;
-    display: inline-block;
-
-    i {
-      border: none;
-      background-color: transparent;
-      font-size: 14px;
-      width: 40px;
-      height: 40px;
-      line-height: 38px;
-      color: #000;
-    }
-  }
 }
+
+/* close */
 .td-mobile-close{
   position: absolute;
   right: 1px;
@@ -164,17 +127,17 @@
   }
 }
 
-// mobile container
+/* mobile container */
 .td-mobile-content {
   padding: 20px 20px 0;
 }
+
 .td-mobile-container {
   padding-bottom: 20px;
   position: relative;
 }
 
-
-// menu content
+/* menu content */
 .td-mobile-content {
 
   // font awesome in menu
@@ -319,8 +282,7 @@
   }
 }
 
-
-// menu opened class .td-menu-mob-open-menu
+/* menu opened class .td-menu-mob-open-menu */
 .td-menu-mob-open-menu {
   position: relative;
 
@@ -328,7 +290,7 @@
     position: fixed !important;
   }
 
-  #td-outer-wrap {
+  #page {
     position: fixed;
   }
 
@@ -351,307 +313,18 @@
   }
 }
 
-
-
-/*
-  Mobile menu - login
-*/
-/*
-    Animation
-*/
-// hide mobile menu content
+/* Animation */
+/* hide mobile menu content */
 .td-mobile-container {
   opacity: 1;
   .transition(all 0.5s ease 0.5s);
 }
-.td-hide-menu-content {
-  .td-mobile-container {
-    opacity: 0;
-    visibility: hidden;
-    .transition(all 0.5s ease 0s);
-  }
 
-  .td-mobile-content {
-    display: none; // prevent height of the container when login is open
-  }
-}
-
-#td-mobile-nav .td-login-animation {
-  opacity: 0;
-  .transition(all 0.5s ease 0.5s);
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-#td-mobile-nav .td-login-hide {
-  .transition(all 0.5s ease 0s);
-  visibility: hidden !important;
-}
-
-#td-mobile-nav .td-login-show {
-  visibility: visible !important;
-  opacity: 1;
-}
-
-
-/*
-    Logged section
-*/
-#td-mobile-nav .td-menu-login-section {
-  list-style: none;
-  position: relative;
-  margin-top: 20px;
-
-  .td-logged-wrap {
-    height: 60px;
-    line-height: 60px;
-
-    /* responsive portrait phone */
-    @media (max-width: 320px) {
-      height: 40px;
-      line-height: 40px;
-    }
-  }
-
-  a {
-    color: #000;
-  }
-}
-// avatar
-#td-mobile-nav .td-menu-avatar {
-  position: absolute;
-  top: 0;
-  left: 20px;
-  margin: 0;
-
-  .td-avatar-container {
-    width: 60px;
-    height: 60px;
-    border-radius: 40px;
-    .box-shadow(0 0 0 4px rgba(0,0,0,0.1));
-    overflow: hidden;
-    position: relative;
-
-    /* responsive portrait phone */
-    @media (max-width: 320px) {
-      .box-shadow(0 0 0 3px rgba(0,0,0,0.1));
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  .avatar {
-    position: absolute;
-    margin: 0 auto;
-    left: -9999px;
-    right: -9999px;
-    max-width: none;
-    width: 100%;
-    height: 100%;
-  }
-}
-// username
-#td-mobile-nav .td-menu-username {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 100px 0 95px;
-  overflow: hidden;
-  height: 60px;
-
-  /* responsive portrait phone */
-  @media (max-width: 320px) {
-    font-size: 18px;
-    height: 40px;
-    margin: 0 100px 0 75px;
-  }
-}
-// logout
-#td-mobile-nav .td-menu-logout {
-  position: absolute;
-  top: 0;
-  right: 20px;
-  margin: 0;
-
-  a {
-    padding: 10px 14px;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 1px solid #000;
-      opacity: 0.1;
-    }
-  }
-}
-
-
-/*
-    Guest section
-*/
-#td-mobile-nav .td-guest-wrap {
-  height: 40px;
-  text-align: center;
-
-  .td-menu-avatar {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    top: auto;
-    left: auto;
-    margin-right: 15px;
-
-    .td-avatar-container {
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  .td-menu-login {
-    display: inline-block;
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-    vertical-align: middle;
-
-    span {
-      background-color: #000;
-      width: 1px;
-      height: 20px;
-      display: inline-block;
-      margin: 0 13px;
-      line-height: 20px;
-      position: relative;
-      top: 3px;
-      opacity: 0.3;
-    }
-
-    a {
-      cursor: pointer;
-    }
-  }
-}
-
-
-/*
-    Register section
-*/
-#td-mobile-nav .td-register-section {
-  position: absolute;
-  top: 0;
-  color: #000;
-  //margin-top: 10px;
-  width: 100%;
-  z-index: -1;
-
-  a {
-    color: #000;
-  }
-
-  // back button
-  .td-icon-read-down {
-    font-size: 23px;
-    .transform(rotate(90deg));
-    line-height: 74px;
-    width: 74px;
-  }
-
-  // input
-  .td-login-input {
-    color: #000;
-    font-weight: normal;
-    font-size: 17px;
-    height: 40px;
-    line-height: 40px;
-    border: 0;
-    background: transparent;
-    outline: 0;
-    margin: 18px 0;
-    position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0;
-    box-shadow: none;
-
-    &:focus,
-    &:valid {
-      ~ label {
-        top: -6px;
-        font-size: 14px;
-        opacity: 0.4;
-      }
-    }
-  }
-
-  .td-login-form-wrap {
-    padding: 0 30px;
-  }
-
-  // login button
-  .td-login-button {
-    display: block;
-    text-align: center;
-    width: 100%;
-    text-transform: uppercase;
-    line-height: 50px;
-    color: #fff;
-    border: none;
-    margin: 17px 0 15px;
-    font-size: 17px;
-    border-radius: 0;
-    background-color: #000;
-    opacity: 0.8;
-    text-shadow: none;
-  }
-
-  // forgot pass button
-  .td-login-info-text {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-}
-
-// page top title
-#td-mobile-nav .td-login-title {
-  position: absolute;
-  top: 0;
-  padding: 0 50px;
-  text-align: center;
-  line-height: 74px;
-  text-transform: uppercase;
-  width: 100%;
-  font-size: 17px;
-  height: 74px;
-  overflow: hidden;
-  z-index: -1;
-}
-
-// description page
-#td-mobile-nav .td-login-panel-title {
-  text-align: center;
-  font-size: 16px;
-  padding: 30px 10px;
-
-  span {
-    display: inline-block;
-    font-size: 28px;
-    font-weight: bold;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-
-/*
+/*  ----------------------------------------------------------------------------
     Search
 */
-// search container
+
+/* search container */
 .td-search-wrap-mob {
   padding: 0;
   position: absolute;
@@ -715,61 +388,13 @@
     }
   }
 
-  // live search
-  .td_module_wrap {
-    padding-bottom: 0;
-    text-align: left;
 
-    .entry-title {
-      font-size: 15px;
-      line-height: 20px;
-
-      a {
-        color: #000;
-      }
-    }
-
-    &:hover {
-      .entry-title a {
-        color: #000;
-      }
-    }
-  }
-  .td-post-date {
-    opacity: 0.8;
-  }
   .td-search-form {
     margin-bottom: 30px;
   }
-  .td-aj-search-results {
-    margin: 0 5%;
-    text-align: left;
-  }
-  .td-module-thumb {
-    top: auto; // fix the live search display image
-    left: auto;
-  }
-  .result-msg {
-    margin: 0 5%;
-
-    a {
-      display: block;
-      text-align: center;
-      width: 100%;
-      text-transform: uppercase;
-      line-height: 50px;
-      color: #fff;
-      border: none;
-      margin: 10px 0 40px;
-      font-size: 17px;
-      border-radius: 0;
-      background-color: #000;
-      opacity: 0.8;
-    }
-  }
 }
 
-// search background
+/* search background */
 .td-search-background {
   background-repeat: no-repeat;
   background-size: cover;
@@ -795,7 +420,7 @@
   }
 }
 
-// close button
+/* close button */
 .td-search-close {
   text-align: right;
   z-index: 1000;
@@ -812,9 +437,8 @@
   }
 }
 
-
-// animation
-// search opened class .td-search-opened
+/* Animation */
+/* search opened class .td-search-opened */
 .td-search-opened {
   position: relative;
 
@@ -822,7 +446,7 @@
     position: fixed !important;
   }
 
-  #td-outer-wrap {
+  #page {
     position: fixed;
   }
 
@@ -847,31 +471,13 @@
   }
 }
 
-/*
-    Search opened menu with admin bar
-*/
+/* search opened menu with admin bar */
 .admin-bar .td-search-wrap-mob {
   padding-top: 32px;
 }
+
 @media(max-width: 767px){
   .admin-bar .td-search-wrap-mob {
     padding-top: 46px;
   }
-}
-
-// placeholders
-#td-mobile-nav {
-  label {
-    position: absolute;
-    top: 26px;
-    left: 10px;
-    font-size: 17px;
-    color: #000;
-    opacity: 0.6;
-    pointer-events: none;
-    .transition(all 0.2s ease);
-  }
-}
-.td-login-inputs {
-  position: relative;
 }
