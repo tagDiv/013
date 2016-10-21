@@ -19,7 +19,7 @@ get_header(); ?>
 	<div class="td-main-content-wrap td-container-wrap">
 		<div class="td-container">
 			<div class="td-pb-row">
-				<div class="td-pb-span8 td-main-content">
+				<div class="td-pb-span8 td-main-content" role="main">
 
 					<?php if ( have_posts() ) { ?>
 
@@ -83,7 +83,7 @@ get_header(); ?>
 
 				</div>
 
-				<div class="td-pb-span4 tagdiv-sidebar">
+				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">
 					<?php get_sidebar(); ?>
 				</div>
 			</div> <!-- /.td-pb-row -->
@@ -91,5 +91,4 @@ get_header(); ?>
 	</div> <!-- /.td-main-content-wrap -->
 
 <?php
-
 get_footer();

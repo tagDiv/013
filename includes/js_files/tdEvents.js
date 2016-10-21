@@ -1,11 +1,8 @@
-/* tdEvents.js - handles the events that require throttling
- * v 2.0 - wp_010
- *
- * moved in theme from wp_booster
+/**
+ * tdEvents.js - handles the events that require throttling
  */
 
 /* global jQuery:{} */
-/* global tdDetect:{} */
 
 var tdEvents = {};
 
@@ -54,12 +51,11 @@ var tdEvents = {};
 })();
 
 /*  ----------------------------------------------------------------------------
- Set the mobile menu min-height property
+    Set the mobile menu min-height property
 
- This is usually used to force vertical scroll bar appearance from the beginning.
- Without it, on some mobile devices (ex Android), at scroll bar appearance there are some
- visual issues.
-
+    This is used to force vertical scroll bar appearance from the beginning.
+    Without it, on some mobile devices (ex Android), at scroll bar appearance appear some
+    visual issues.
  */
 
 ( function () {
@@ -85,11 +81,6 @@ var tdEvents = {};
     if ( $tdMobileMenu.length ) {
         $tdMobileMenu.css( 'min-height' , cssHeight + 'px' );
     }
-
-    // Stop if we are not on mobile
-    //if ( ! tdDetect.isMobileDevice ) {
-    //    return;
-    //}
 
     var $tdMobileBg = jQuery( '.td-menu-background' ),
         $tdMobileBgSearch = jQuery( '.td-search-background' );

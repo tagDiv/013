@@ -91,7 +91,7 @@ get_header(); ?>
 
 				</div>
 
-				<div class="td-pb-span4 tagdiv-sidebar">
+				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">
 					<?php get_sidebar(); ?>
 				</div>
 			</div> <!-- /.td-pb-row -->

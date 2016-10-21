@@ -78,25 +78,22 @@
 </div>
 
 <div id="page" class="site">
-
+	<!--site header-->
 	<header class="site-header" role="banner">
-		<!--header-->
 		<div class="tagdiv-header-wrap tagdiv-header-style">
 			<div class="td-header-logo-wrap td-container-wrap">
 
 				<a class="skip-link screen-reader-text" href="#site-content"><?php _e( 'Skip to content', 'tdmag' ); ?></a>
 
 				<div class="td-container">
-
-					<div class="td-header-sp-logo">
+					<div class="tagdiv-header-logo">
 						<?php tagdiv_custom_logo(); ?>
-					</div>
-
+					</div> <!-- /.tagdiv-header-logo -->
 				</div>
 			</div>
 
 			<div class="td-header-menu-wrap-full td-container-wrap">
-				<div class="td-header-menu-wrap">
+				<div class="td-header-menu-wrap"> <!-- /.td-header-menu-wrap -->
 					<div class="td-container td-header-main-menu">
 
 						<div id="td-header-menu" role="navigation">
@@ -118,7 +115,7 @@
 								echo '</ul>';
 							}
 							?>
-						</div>
+						</div> <!--td-header-menu-->
 
 						<div class="td-header-menu-search">
 							<div class="td-search-btns-wrap">
@@ -138,14 +135,14 @@
 										</div>
 									</form>
 								</div>
-							</div>
-						</div>
+							</div> <!-- /.td-search-box-wrap -->
+						</div> <!-- /.td-header-menu-search -->
 
-					</div>
+					</div> <!-- /.td-header-main-menu -->
 				</div>
-			</div>
-		</div>
+			</div> <!-- /.td-header-menu-wrap-full -->
+		</div> <!-- /.tagdiv-header-wrap -->
 
-	</header> <!--site-header-->
-
+	</header> <!-- /.site-header-->
+	<!--site content-->
 	<div id="site-content" class="site-content" tabindex="-1">

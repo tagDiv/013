@@ -11,10 +11,9 @@
 ?>
 
 <section class="no-results not-found">
-
 	<header class="page-header">
 		<h1 class="page-title tagdiv-page-title"><?php _e( 'Nothing Found', 'tdmag' ); ?></h1>
-	</header><!-- .page-header -->
+	</header><!-- /.page-header -->
 
 	<div class="page-content">
 
@@ -38,5 +37,5 @@
 
 		<?php } ?>
 
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+	</div><!-- /.page-content -->
+</section><!-- /.no-results -->

@@ -26,7 +26,6 @@
 	}
 
 	if ( have_comments() ) {
-
 		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
 		if ( $num_comments > 1 ) {
 			$tagdiv_comments_no_text = $num_comments . ' ' . __( 'COMMENTS', 'tdmag' );
@@ -49,7 +48,6 @@
 			<?php previous_comments_link(); ?>
 			<?php next_comments_link(); ?>
 		</div>
-
 	<?php }
 
 	if ( ! comments_open() and ( get_comments_number() > 0 ) ) { ?>
@@ -80,10 +78,9 @@
 	comment_form($defaults);
 
 	?>
-</div> <!-- /.content -->
+</div> <!-- /.comments -->
 
 <?php
-
 	/**
 	* Custom callback for outputting comments
 	*
@@ -147,5 +144,4 @@
 <?php
 
 }
-
 ?>

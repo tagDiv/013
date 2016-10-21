@@ -11,7 +11,7 @@
 
 get_header();
 
-global $paged,$post/*, $loop_module_id, $loop_sidebar_position, $more*/; //$more is a hack to fix the read more loop
+global $paged,$post;
 
 $td_page = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1; //rewrite the global var
 $td_paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; //rewrite the global var
@@ -35,8 +35,15 @@ if ( $td_paged > $td_page ) {
                         <?php
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
                             'custom_title'         => 'Block I',
+                            //'sort'                 => 'oldest_posts',
                             'limit'                => 6,
-                            'tagdiv_column_number' => 3
+                            'tagdiv_column_number' => 3,
+                            //'post_ids'             => '1, 34, 56',
+                            //'tag_slug'             => 'tt',
+                            //'autors_id'            => '2',
+                            //'category_id'          => '4',
+                            //'category_ids'          => '1,4',
+
                         ) ) ;
                         ?>
                     </div>
@@ -44,8 +51,8 @@ if ( $td_paged > $td_page ) {
 
                 <div class="td-pb-row">
                     <div class="td-pb-span12">
-
                         <?php echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_Image_Box' )->render( array(
+                            'custom_title'      => '',
                             'display'           => '',
                             'style'             => 'style-2',
                             'image_item0'       => "http://192.168.0.120/wp_012/wp-content/uploads/2016/08/travel-2.jpg",
@@ -60,7 +67,6 @@ if ( $td_paged > $td_page ) {
                             'custom_url_item2'  => "#",
                             'height'            => "360"
                         ) ); ?>
-
                     </div>
                 </div> <!-- /.td-pb-row -->
 
@@ -91,7 +97,6 @@ if ( $td_paged > $td_page ) {
 
                                 echo $tagdiv_template_layout->layout_open_element();
 
-                                global $post;
                                 $tagdiv_modul_1 = new Tagdiv_Module_1( $post );
                                 echo $tagdiv_modul_1->render();
 
@@ -123,10 +128,10 @@ if ( $td_paged > $td_page ) {
                         ?>
 
                     </div>
-                    <div class="td-pb-span4 td-main-sidebar" role="complementary">
+
+                    <div class="td-pb-span4 tagdiv-sidebar" role="complementary">
                         <?php get_sidebar(); ?>
                     </div>
-
                 </div> <!-- /.td-pb-row -->
             </div> <!-- /.td-container -->
 

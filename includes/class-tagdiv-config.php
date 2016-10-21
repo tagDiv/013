@@ -4,8 +4,7 @@
  * Date: 9/13/2016
  */
 
-define( 'TAGDIV_THEME_NAME', '013' );
-define( 'TAGDIV_THEME_VERSION', '__td_deploy_version__' );
+define( 'TAGDIV_THEME_NAME', 'tdmag' );
 define( 'TAGDIV_FEATURED_CAT', 'Featured' );
 
 
@@ -25,8 +24,9 @@ class Tagdiv_Config {
 	static function on_tagdiv_global_after_config() {
 
 		/**
-		 * modules list
+		 * The theme module
 		 */
+
 		Tagdiv_API_Module::add( 'Tagdiv_Module_1',
 			array(
 				'file' => Tagdiv_Global::$get_template_directory . '/includes/modules/class-tagdiv-module-1.php',
@@ -46,8 +46,9 @@ class Tagdiv_Config {
 
 
 		/**
-		 * the blocks
+		 * The theme blocks
 		 */
+
 		Tagdiv_API_Block::add( 'Tagdiv_Block_1',
 			array(
 				'map_in_visual_composer' => true,
@@ -373,23 +374,9 @@ class Tagdiv_Config {
 		);
 
 
-
 		/**
-		 * block templates
+		 * The thumbs used by the theme
 		 */
-		Tagdiv_API_Block_Template::add( 'Tagdiv_Block_Template_1',
-			array (
-				'file' => Tagdiv_Global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
-			)
-		);
-
-//		Tagdiv_API_Block_Template::add('tagdiv_block_template_1',
-//			array (
-//				'file' => Tagdiv_Global::$get_template_directory . '/includes/block-templates/class-tagdiv-block-template.php',
-//			)
-//		);
-
-
 
 		Tagdiv_API_Thumb::add( 'td_300x220',
 			array(

@@ -26,15 +26,12 @@ get_header(); ?>
 
 				</div>
 			</div>
-		</div> <!-- .td-search-header -->
+		</div> <!-- /.td-search-header -->
 
 		<div class="td-container">
 			<div class="td-pb-row">
 				<div class="td-pb-span8 td-main-content" role="main">
-
-						<?php if ( have_posts() ) { ?>
-
-							<?php
+						<?php if ( have_posts() ) {
 
 							$tagdiv_current_column = 1;
 							$row_is_open = false;
@@ -69,14 +66,12 @@ get_header(); ?>
 							} ?>
 
 							<div class="page-nav page-nav-post">
-
 								<?php
 								// Previous/next page navigation.
 								the_posts_pagination( array(
 									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
 								) );
 								?>
-
 							</div>
 
 						<?php
@@ -85,7 +80,6 @@ get_header(); ?>
 							get_template_part( 'template-parts/content', 'none' );
 						}
 						?>
-
 				</div>
 
 				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">

@@ -10,9 +10,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header">
+	<header class="page-header">
 		<?php the_title( '<h1 class="entry-title tagdiv-page-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	</header><!-- /.entry-header -->
 
 	<div class="entry-content td-page-content">
 		<?php
@@ -27,6 +27,6 @@
 			'separator'   => '<span class="screen-reader-text">, </span>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- /.entry-content -->
 
 </article><!-- #post-## -->

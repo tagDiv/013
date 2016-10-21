@@ -16,7 +16,7 @@ class Tagdiv_Block_Layout {
 	var $span4_is_open = false;
 	var $span3_is_open = false;
 
-	var $span12_is_open = false; //
+	var $span12_is_open = false;
 
 
 	var $row_class = 'td-pb-row';
@@ -51,7 +51,7 @@ class Tagdiv_Block_Layout {
 	//span 3
 	function open3() {
 		if ( $this->span3_is_open ) {
-			//open row only onece
+			//open row only once
 			return '';
 		}
 		$this->span3_is_open = true;
@@ -69,7 +69,7 @@ class Tagdiv_Block_Layout {
 	//span 4
 	function open4() {
 		if ( $this->span4_is_open ) {
-			//open row only onece
+			//open row only once
 			return '';
 		}
 		$this->span4_is_open = true;
@@ -87,7 +87,7 @@ class Tagdiv_Block_Layout {
 	//span 6
 	function open6() {
 		if ( $this->span6_is_open ) {
-			//open row only onece
+			//open row only once
 			return '';
 		}
 		$this->span6_is_open = true;

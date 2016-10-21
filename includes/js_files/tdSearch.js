@@ -1,3 +1,6 @@
+/**
+ * tdSearch.js - handles the search events
+ */
 
 /* global jQuery:{} */
 

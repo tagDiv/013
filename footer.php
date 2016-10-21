@@ -15,11 +15,11 @@
 ?>
 
 	</div><!-- #site-content -->
-
+	<!--site footer-->
 	<footer class="site-footer" role="contentinfo">
-
-		<div class="td-footer-outer-wrapper td-container-wrap">
-			<div class="td-footer-wrapper">
+		<div class="tagdiv-footer-wrapper td-container-wrap">
+			<!-- footer -->
+			<div class="tagdiv-footer-container">
 				<div class="td-container">
 					<div class="td-pb-row">
 						<div class="td-pb-span4">
@@ -36,7 +36,6 @@
 					</div>
 
 					<div class="td-pb-row">
-
 						<!--logo-->
 						<div class="td-pb-span12">
 							<aside class="footer-logo-wrap">
@@ -63,52 +62,47 @@
 								</div>
 							</aside>
 						</div>
-
 					</div>
-				</div>
-			</div>
+				</div> <!-- /.td-container -->
+			</div> <!-- /.tagdiv-footer-container -->
 
-				<!-- sub footer -->
-				<div class="td-sub-footer-container">
-					<div class="td-container">
-						<div class="td-pb-row">
-							<div class="td-pb-span12 td-sub-footer-menu">
-								<?php
-								wp_nav_menu( array(
-									'theme_location' => 'footer-menu',
-									'menu_class'	 => 'td-subfooter-menu',
-									'fallback_cb' 	 => 'td_wp_footer_menu',
-								) );
+			<!-- sub footer -->
+			<div class="tagdiv-sub-footer-container">
+				<div class="td-container">
+					<div class="td-pb-row">
+						<div class="td-pb-span12 td-sub-footer-menu">
+							<?php
+							wp_nav_menu( array(
+								'theme_location' => 'footer-menu',
+								'menu_class'	 => 'td-subfooter-menu',
+								'fallback_cb' 	 => 'td_wp_footer_menu',
+							) );
 
-								//if no menu
-								function td_wp_footer_menu() {
-									//do nothing
-								}
-								?>
-							</div>
+							//if no menu
+							function td_wp_footer_menu() {
+								//do nothing
+							}
+							?>
+						</div>
 
-							<div class="td-pb-span12 td-sub-footer-copy">
+						<div class="td-pb-span12 td-sub-footer-copy">
+							<?php
+							$tagdiv_footer_copyright   = stripslashes( get_option( 'tagdiv_subfooter_copyright' ) );
+							$tagdiv_footer_copy_symbol = get_theme_mod( 'tagdiv_subfooter_copyright_symbol' );
 
-								<?php
-								$tagdiv_footer_copyright = stripslashes( get_option( 'tagdiv_subfooter_copyright' ) );
-								$tagdiv_footer_copy_symbol = get_theme_mod( 'tagdiv_subfooter_copyright_symbol' );
+							//show copyright symbol
+							if ( $tagdiv_footer_copy_symbol ) {
+								echo '&copy; ';
+							}
 
-								//show copyright symbol
-								if ( $tagdiv_footer_copy_symbol ) {
-									echo '&copy; ';
-								}
-
-								echo $tagdiv_footer_copyright;
-								?>
-
-							</div>
+							echo $tagdiv_footer_copyright;
+							?>
 						</div>
 					</div>
-				</div>
-
-		</div>
-
-	</footer> <!-- site-footer -->
+				</div> <!-- /.td-container -->
+			</div> <!-- /.tagdiv-sub-footer-container -->
+		</div> <!-- /.tagdiv-footer-wrapper -->
+	</footer> <!-- /.site-footer -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

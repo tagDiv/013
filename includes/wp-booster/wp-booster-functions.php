@@ -43,7 +43,6 @@ require_once( 'class-tagdiv-menu.php' );            // theme menu support
 
 require_once( 'class-tagdiv-module.php' );          // module builder
 require_once( 'class-tagdiv-block.php' );           // block builder
-require_once( 'class-tagdiv-block-widget.php' );    // no autoload - used to make widgets from our blocks
 
 
 require_once( 'class-tagdiv-block-layout.php' );
@@ -51,15 +50,6 @@ require_once( 'class-tagdiv-template-layout.php' );
 require_once( 'class-tagdiv-css-compiler.php' );
 require_once( 'class-tagdiv-css-buffer.php' );
 require_once( 'class-tagdiv-data-source.php' );
-
-
-/* ----------------------------------------------------------------------------
- * Ajax support
- */
-//tagdiv_api_autoload::add('tagdiv_ajax', tagdiv_global::$get_template_directory . '/includes/wp-booster/tagdiv_ajax.php');
-// ajax: block ajax hooks
-add_action( 'wp_ajax_nopriv_tagdiv_ajax_block', array( 'tagdiv_ajax', 'on_ajax_block' ) );
-add_action( 'wp_ajax_tagdiv_ajax_block', array( 'tagdiv_ajax', 'on_ajax_block' ) );
 
 
 // at this point it's not safe to update the Theme API because it's already used
@@ -111,21 +101,6 @@ function tagdiv_include_user_compiled_css() {
 }
 
 
-/* ----------------------------------------------------------------------------
- * farbtastic color picker CSS and JS for wp-admin / backend - loaded only in the widgets screen. Is used by our widget builder!
- */
-function tagdiv_on_admin_print_scripts_farbtastic() {
-	wp_enqueue_script( 'farbtastic' );
-}
-
-function tagdiv_on_admin_print_styles_farbtastic() {
-	wp_enqueue_style( 'farbtastic' );
-}
-
-add_action( 'admin_print_scripts-widgets.php', 'tagdiv_on_admin_print_scripts_farbtastic' );
-add_action( 'admin_print_styles-widgets.php', 'tagdiv_on_admin_print_styles_farbtastic' );
-
-
 /**  ----------------------------------------------------------------------------
  * archive widget - adds .current class in the archive widget and maybe it's used in other places too!
  */
@@ -162,7 +137,7 @@ function cat_count_span( $links ) {
 /*  ----------------------------------------------------------------------------
     remove gallery style css
  */
-add_filter( 'use_default_gallery_style', '__return_false' );
+add_filter( 'use_default_gallery_style', '__return_true' );
 
 
 /*  ----------------------------------------------------------------------------

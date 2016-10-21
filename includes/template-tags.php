@@ -382,7 +382,7 @@ if ( ! function_exists( 'tagdiv_trim_excerpt' ) ) {
 	function tagdiv_trim_excerpt($text) {
 		return rtrim($text,'[&amp;hellip]');
 	}
-	//add_filter('get_the_excerpt', 'tagdiv_trim_excerpt');
+	add_filter('get_the_excerpt', 'tagdiv_trim_excerpt');
 }
 
 if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
@@ -404,6 +404,6 @@ if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
 		return $excerpt . ' &hellip; ' . $link;
 	}
 
-	//add_filter('the_excerpt', 'tagdiv_excerpt_more');
+	add_filter('the_excerpt', 'tagdiv_excerpt_more');
 }
 

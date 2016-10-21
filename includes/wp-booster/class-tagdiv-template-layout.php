@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Used by templates to create the layout (rows + columns) in author.php, tag.php etc...
+ * Used by templates to create the layout (rows + columns) in page-home.php
  * the layout is then populated with modules
  */
 
@@ -12,10 +12,10 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
 
     var $td_post_count = 0;
 
-    var $is_output_disabled = false; //when the module is disabled (for module 1 and 7), it dosn't output anything because they don't need the grid to work
+    var $is_output_disabled = false; //when the module is disabled, it doesn't output anything ( the module doesn't need the grid to work )
 
-    function __construct($sidebar_position) {
-        switch($sidebar_position) {
+    function __construct( $sidebar_position ) {
+        switch( $sidebar_position ) {
             case 'sidebar_left':
                 // 2 cols
                 $this->set_columns(2);
@@ -30,7 +30,6 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
                 //default is one sidebar (right in general)  2 + 1(sidebar)
                 $this->set_columns(2);
                 break;
-
         }
     }
 
@@ -43,7 +42,7 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
      * Set the column width of the layout (1 2 3)
      * @param $columns
      */
-    function set_columns($columns) {
+    function set_columns( $columns ) {
         $this->td_column_number = $columns;
     }
 
@@ -53,7 +52,7 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
     function layout_next() {
         $this->td_post_count++;
 
-        if ($this->td_column_number == $this->td_current_column) {
+        if ( $this->td_column_number == $this->td_current_column ) {
             $this->td_current_column = 1;
         } else {
             $this->td_current_column++;
@@ -63,16 +62,16 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
 
     /**
      * 1. Opens a new row if it's not already opened
-     * 2. opens the column (span 4 or 6) @todo no full width !!!
+     * 2. opens the column (span 4 or 6)
      * @return string the html generated
      */
     function layout_open_element() {
-        if ($this->is_output_disabled) {
+        if ( $this->is_output_disabled ) {
             return '';
         }
 
         $buffy = '';
-        switch ($this->td_column_number) {
+        switch ( $this->td_column_number ) {
             case 2:
                 $buffy .= $this->open_row();
                 $buffy .= $this->open6();
@@ -91,19 +90,19 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
      * @return string
      */
     function layout_close_element() {
-        if ($this->is_output_disabled) {
+        if ( $this->is_output_disabled ) {
             return '';
         }
 
 
         $buffy = '';
-        switch ($this->td_column_number) {
+        switch ( $this->td_column_number ) {
             case 2:
                 //close span
                 $buffy .= $this->close6();
 
                 //close row
-                if ($this->td_current_column == 2) {
+                if ( $this->td_current_column == 2 ) {
                     $buffy .= $this->close_row();
                 }
                 break;
@@ -113,7 +112,7 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
                 $buffy .= $this->close4();
 
                 //close row
-                if ($this->td_current_column == 3) {
+                if ( $this->td_current_column == 3 ) {
                     $buffy .= $this->close_row();
                 }
                 break;
@@ -124,7 +123,7 @@ class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
 
 
     function close_all_tags() {
-        if ($this->is_output_disabled) {
+        if ( $this->is_output_disabled ) {
             return '';
         }
         //return the parents close all

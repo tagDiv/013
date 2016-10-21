@@ -2,38 +2,21 @@
 
 class Tagdiv_Block_1 extends Tagdiv_Block {
 	function render( $atts, $content = null ) {
-		parent::render( $atts ); // sets the live atts, $this->atts, $this->block_uid, $this->tagdiv_query (it runs the query)
+		parent::render( $atts ); // sets the live atts, $this->atts, $this->tagdiv_query (it runs the query)
 
-		if ( empty( $tagdiv_column_number ) ) {
-			$tagdiv_column_number = Tagdiv_Util::vc_get_column_number(); // get the column width of the block from the page builder API
-		}
-
-/*		echo '<pre>';
-		var_dump($this->atts);
-		echo '</pre>';
-*/
 		$buffy = ''; //output buffer
 
-		$buffy .= '<div class="tagdiv-block-wrap tagdiv-block-1 td-column-' . $tagdiv_column_number . '" ' . $this->get_block_html_atts() . '>';
-
-		//get the block css
-		$buffy .= $this->get_block_css();
-
-		//get the js for this block
-		//$buffy .= $this->get_block_js();
+		$buffy .= '<div class="tagdiv-block-wrap tagdiv-block-1">';
 
 		// block title wrap
 		$buffy .= '<div class="td-block-title-wrap">';
 		$buffy .= $this->get_block_title(); //get the block title
-		$buffy .= $this->get_pull_down_filter(); //get the sub category filter for this block
 		$buffy .= '</div>';
 
-		$buffy .= '<div id=' . $this->block_uid . ' class="tagdiv_block_inner">';
+		$buffy .= '<div id="block_id" class="tagdiv_block_inner">';
 		$buffy .= $this->inner( $this->tagdiv_query->posts, $this->atts['tagdiv_column_number'] );  //inner content of the block
 		$buffy .= '</div>';
 
-		//get the ajax pagination for this block
-		$buffy .= $this->get_block_pagination();
 		$buffy .= '</div> <!-- ./block -->';
 
 		return $buffy;
@@ -42,13 +25,9 @@ class Tagdiv_Block_1 extends Tagdiv_Block {
 	function inner( $posts, $tagdiv_column_number = '' ) {
 		$buffy = '';
 
-		$tagdiv_block_layout = new Tagdiv_Block_Layout();
-		if ( empty( $tagdiv_column_number ) ) {
-			$tagdiv_column_number = Tagdiv_Util::vc_get_column_number(); // get the column width of the block from the page builder API
-		}
-
+		$tagdiv_block_layout   = new Tagdiv_Block_Layout();
 		$tagdiv_post_count     = 0; // the number of posts rendered
-		$tagdiv_current_column = 1; //the current column
+		$tagdiv_current_column = 1; // the current column
 
 		if ( ! empty( $posts ) ) {
 			foreach ( $posts as $post ) {
