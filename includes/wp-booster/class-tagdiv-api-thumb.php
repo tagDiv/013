@@ -1,32 +1,37 @@
 <?php
 
 /**
- * Created by ra on 2/13/2015.
+ * The theme's thumbs API
+ * Class Tagdiv_API_Thumb static thumbs api
+ *
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
  */
 class Tagdiv_API_Thumb extends Tagdiv_API_Base {
 
 	/**
-	 * This method to register a new thumb
+	 * This method is to register a new thumb
 	 *
-	 * @param $id           string The single template id. It must be unique
-	 * @param $params_array array The single_template_parameter array
+	 * @param $thumb_id           string - The thumb id. It must be unique
+	 * @param $params_array 	  array - The thumb parameter array
 	 *
 	 *      $params_array = array (
-	 *          'name' => 'tagdiv_0x420',                       - [string] the thumb name
+	 *          'name' => 'tagdiv_300x220',                 - [string] the thumb name
 	 *          'width' => ,                                - [int] the thumb width
 	 *          'height' => ,                               - [int] the thumb height
 	 *          'crop' => array('center', 'top'),           - [array of string] what crop to use (center, top, etc)
-	 *          'post_format_icon_size' => '',              - [string] what play icon to load (small or normal)
 	 *          'used_on' => array('')                      - [array of string] description where the thumb is used
 	 *      )
 	 *
-	 * @throws ErrorException new exception, fatal error if the $id already exists
+	 * @throws ErrorException new exception, fatal error if the $thumb_id already exists
 	 */
-	static function add( $thumb_id, $params_array = '' ) {
+
+	static function add( $thumb_id, $params_array = array() ) {
 		parent::add_component( __CLASS__, $thumb_id, $params_array );
 	}
 
-	static function update( $thumb_id, $params_array = '' ) {
+	static function update( $thumb_id, $params_array = array() ) {
 
 		$thumbs = self::get_all();
 

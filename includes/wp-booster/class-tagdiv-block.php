@@ -6,7 +6,7 @@
 class Tagdiv_Block {
 	var $tagdiv_query; //the query used to rendering the current block
 
-	public $atts = array(); //the atts used for rendering the current block
+	public $atts = array(); //the block attributes used for rendering the current block
 
 	/**
 	 * the base render function. This is called by all the child classes of this class
@@ -17,7 +17,7 @@ class Tagdiv_Block {
 	 */
 	function render( $atts ) {
 
-		// All the atts must be defined here !!!
+		// All block attributes must be defined here !!!
 		// It's easier to maintain and we always have a list of them all
 		$this->atts = shortcode_atts( //add defaults (if an att is not in this list, it will be removed! )
 			array(
@@ -41,7 +41,7 @@ class Tagdiv_Block {
 				// custom title for the block
 				'custom_url'           => '',
 				// cusotm ulr for the block title
-				'tagdiv_column_number' => 2,
+				'tagdiv_column_number' => '',
 				//column number
 				'offset'               => '',
 				// block posts offset

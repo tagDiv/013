@@ -1,16 +1,11 @@
 <?php
 
 
-require_once 'deploy-mode.php';
-
 // load the config
 require_once( 'includes/class-tagdiv-config.php' );
 add_action( 'tagdiv_global_after', array( 'Tagdiv_Config', 'on_tagdiv_global_after_config' ), 9 );
 
-require_once( 'includes/wp-booster/wp-booster-transition.php' );
 require_once( 'includes/wp-booster/wp-booster-functions.php' );
-
-require_once( 'includes/tagdiv_css_generator.php' );
 
 /**
  * Custom template tags for this theme.
@@ -114,8 +109,8 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
  */
-function wpdocs_custom_excerpt_length( $length ) {
+function wp_custom_excerpt_length( $length ) {
 	return 20;
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'wp_custom_excerpt_length', 999 );
 

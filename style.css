@@ -2829,7 +2829,7 @@ blockquote small {
 .td-post-content p:empty {
   display: none;
 }
-.td-post-content #gallery-1 img {
+.td-post-content [id*="gallery-"] img {
   border-color: #fff !important;
 }
 /* in page navigation */
@@ -3785,7 +3785,6 @@ input.search-submit:hover {
   background-color: #42bdcd;
   font-weight: bold;
   color: #fff;
-  border-color: #42bdcd;
 }
 .widget_calendar #today a {
   color: #fff;

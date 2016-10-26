@@ -46,6 +46,21 @@ if ( $td_paged > $td_page ) {
 
                         ) ) ;
                         ?>
+
+                        <?php
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
+                            'custom_title'         => 'Block II',
+                            //'sort'                 => 'oldest_posts',
+                            'limit'                => 3,
+                            'tagdiv_column_number' => 3,
+                            'post_ids'             => '1, 34, 56',
+                            //'tag_slug'             => 'tt',
+                            //'autors_id'            => '2',
+                            //'category_id'          => '4',
+                            //'category_ids'          => '1,4',
+
+                        ) ) ;
+                        ?>
                     </div>
                 </div> <!-- /.td-pb-row -->
 

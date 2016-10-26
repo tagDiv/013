@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * The theme's base API
+ * Class Tagdiv_API_Base
+ *
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
+ */
 class Tagdiv_API_Base {
 
-
-	// flag marked by get_by_id and get_key function. It's used just for debugging
-	const USED_ON_PAGE = 'used_on_page';
+	const USED_ON_PAGE = 'used_on_page'; // flag marked by get_by_id and get_key function. It's used just for debugging
 
 	const CLASS_AUTOLOADED = 'class_autoloaded'; // flag for marking autoloaded classes
 
@@ -21,9 +27,9 @@ class Tagdiv_API_Base {
 	 * method must be used instead, which ensures the settings are not previously loaded using self::get_by_id or self::get_key
 	 * method.
 	 *
-	 * @param $class_name   string The array key in the self::$component_list
-	 * @param $id           string string The array key in the self::$component_list[$class_name]
-	 * @param $params_array array The value set for the self::$component_list[$class_name][$id]
+	 * @param $class_name   string - The array key in the self::$component_list
+	 * @param $id           string - The array key in the self::$component_list[$class_name]
+	 * @param $params_array array  - The value set for the self::$component_list[$class_name][$id]
 	 *
 	 * @throws ErrorException The exception thrown if the self::$component_list[$class_name][$id] is already set
 	 */
@@ -170,29 +176,16 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * @internal Use only for display-ing the file path of a component by id. It's used all over the panel to show a nice
-	 * path for a component
-	 *
-	 * @param $id
-	 *
-	 * @return mixed
-	 */
-	static function _display_file_path( $id ) {
-		return 'file path: ' . str_replace( Tagdiv_Global::$get_template_directory, '', self::get_key( $id, 'file' ) );
-	}
-
-
-	/**
 	 * This method update the value for ($class_name, $id) in the main array settings (self::$component_list)
 	 * Updating and deleting a key value in the main settings array ensures that the value of the key is not already loaded by the theme.
 	 * Loaded by the theme means that is's used to set or to build some components.
-	 * So, the $id and the $key parameter must no be used previously by self::get_by_id or by self::get_key
+	 * So, the $id and the $key parameter must not be used previously by self::get_by_id or by self::get_key
 	 * method, otherwise it means that the settings are already loaded to build a component, and an error exception is thrown
 	 * informing the end user about it.
 	 *
 	 * @param $class_name   string The array key in the self::$component_list
 	 * @param $id           string The array key in the self::$component_list[$class_name]
-	 * @param $params_array array The array value set for the self::$component_list[$class_name][$id]
+	 * @param $params_array array  The array value set for the self::$component_list[$class_name][$id]
 	 *
 	 * @throws ErrorException The error exception thrown by check_used_on_page method call
 	 */
@@ -211,7 +204,6 @@ class Tagdiv_API_Base {
 	 * method, otherwise it means that the settings are already loaded to build a component, and an error exception is thrown
 	 * informing the end user about it.
 	 *
-	 * @param $class_name string The array key in self::$component_list
 	 * @param $id         string The array key in the self::$component_list[$class_name]
 	 * @param $key        string The array key in the self::$component_list[$class_name][$id]
 	 * @param $value      mixed The value set for the specified $key
@@ -232,7 +224,6 @@ class Tagdiv_API_Base {
 	 * method, otherwise it means that the settings are already loaded to build a component, and an error exception is thrown
 	 * informing the end user about it.
 	 *
-	 * @param $class_name string The array key in self::$component_list
 	 * @param $id         string The array key in the self::$component_list[$class_name]
 	 *
 	 * @throws ErrorException The error exception thrown by check_used_on_page method call
@@ -290,7 +281,7 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * sets the component's tagdiv_api_base::CLASS_AUTOLOADED key to true at runtime.
+	 * sets the component's Tagdiv_API_Base::CLASS_AUTOLOADED key to true at runtime.
 	 *
 	 * @param $component_id
 	 */
@@ -304,27 +295,12 @@ class Tagdiv_API_Base {
 	 * It's used by the get_by_id and get_key methods to mark settings as being loaded on page.
 	 * The main purpose of using this flag is for debugging the loaded components.
 	 *
-	 * @param $class_name string The array key in self::$component_list
 	 * @param $id         string The array key in the self::$component_list[$class_name]
 	 *
 	 * @throws ErrorException The error thrown when the ($class_name, id) key is not already set
 	 */
 	private static function mark_used_on_page( $id ) {
 		if ( ! isset( self::$components_list[ $id ] ) ) {
-
-
-			/**
-			 * @deprecated @todo should be removed in v2  compatiblity for social counter old old
-			 */
-
-			if ( ( $id == 'tagdiv_social_counter' || $id == 'tagdiv_block_social_counter' ) ) {
-				if ( is_user_logged_in() ) {
-					Tagdiv_Util::error( '', "Please update your [tagDiv social counter] Plugin!" );
-				}
-
-				return;
-			}
-
 			/**
 			 * show a soft error if
 			 * - the user is logged in
@@ -344,7 +320,6 @@ class Tagdiv_API_Base {
 	 * - the check is done only for the theme registered paths (those having TEMPLATEPATH), letting the plugins to register themselves paths
 	 *
 	 * @param string $id        - the id of the component
-	 * @param string $component - the component value
 	 */
 	private static function locate_the_file( $id = '' ) {
 		if ( ! is_child_theme() ) {

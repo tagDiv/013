@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class Tagdiv_Autoload_Classes
+ *
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
+ */
 class Tagdiv_Autoload_Classes {
 
 
@@ -21,8 +28,6 @@ class Tagdiv_Autoload_Classes {
 		// foreach regex path, the class name is verified for a start matching
 		if ( ( strpos( $class_name, $path_regex ) !== false ) && ( strpos( $class_name, $path_regex ) === 0 ) ) {
 
-			//$class_name = str_replace('Tagdiv', 'td', strtolower($class_name));
-
 			$class_settings = Tagdiv_API_Autoload::get_by_id( $class_name );
 
 			if ( ! empty( $class_settings ) ) {
@@ -33,8 +38,8 @@ class Tagdiv_Autoload_Classes {
 						// set the autoloaded key for that component
 						Tagdiv_API_Autoload::_debug_set_class_is_autoloaded( $class_name );
 
-						// require_once($class_file_path); - we need to use load_template to make our single_templates work like wordpress
-						// with load_template we prepare the globals ($post etc for the files)
+						// require_once( $class_file_path ); - we need to use load_template to make our single_templates work like wordpress
+						// with load_template we prepare the globals ( $post etc for the files )
 						// we should not use the global $post or any other globals in our classes without explicit declaration
 						load_template( $class_file_path, true );
 					}

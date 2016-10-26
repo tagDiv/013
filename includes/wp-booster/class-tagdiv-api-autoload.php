@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * The theme's autoload API
+ * Class Tagdiv_API_Autoload - here we keep files for auto loading @see Tagdiv_Autoload_Classes
+ *
+ * @package WordPress
+ * @subpackage tdmag
+ * @since TAGDIV_THEME_NAME 1.0
+ */
 class Tagdiv_API_Autoload extends Tagdiv_API_Base {
 	static function add( $class_id, $file ) {
 		$params_array['file'] = $file;

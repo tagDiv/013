@@ -11,7 +11,6 @@ class td_menu {
     function __construct() {
         add_action( 'init', array( $this, 'hook_init' ) );
         add_filter( 'wp_nav_menu_objects', array( $this, 'hook_wp_nav_menu_objects' ),  10, 2);
-
     }
 
     function hook_wp_nav_menu_objects( $items, $args = '' ) {
@@ -27,7 +26,7 @@ class td_menu {
         foreach ( $items as &$item ) {
 
             $_items_ref[ $item->ID ] = $item;
-            $items_buffy[]         = $item;
+            $items_buffy[]           = $item;
 
             /**
              * - Because 'current_item_parent' ( true/false ) item property is not set by wp,
@@ -141,7 +140,7 @@ class td_walker_mobile_menu extends Walker_Nav_Menu {
         /** This filter is documented in wp-includes/post-template.php */
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID );
 
-        // TAGDIV: The $link_after of args is added for parent items
+        // Tagdiv: the $link_after of args is added for parent items
         if (isset($item->td_is_parent) && true === $item->td_is_parent) {
             $item_output .= $args->link_after;
         }

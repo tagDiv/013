@@ -11,7 +11,7 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 		ob_start();
 		?>
 
-		<div class="<?php echo $this->get_module_classes(); ?>" >
+		<div class="<?php echo $this->get_module_classes( array('tagdiv-module-1') ); ?>" >
 			<div class="td-module-image">
 				<?php echo $this->get_image( 'td_300x220' ); ?>
 				<div class="td-post-category-wrap">
