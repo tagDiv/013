@@ -33,7 +33,7 @@ class Tagdiv_Config {
 
 		Tagdiv_API_Block::add( 'Tagdiv_Block_1',
 			array(
-				"file" 	   => get_template_directory() . '/includes/shortcodes/class-tagdiv-block-1.php',
+				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-1.php',
 				"name" 	   => 'Block 1',
 				"class"    => 'tagdiv_block_1',
 				"category" => 'Blocks',
@@ -42,7 +42,7 @@ class Tagdiv_Config {
 
 		Tagdiv_API_Block::add( 'Tagdiv_Block_Image_Box',
 			array(
-				"file"     => get_template_directory() . '/includes/shortcodes/class-tagdiv-block-image-box.php',
+				"file"     => get_template_directory() . '/includes/blocks/class-tagdiv-block-image-box.php',
 				"name" 	   => 'Image box',
 				"class"    => "tagdiv-block-image-box",
 				"category" => 'Blocks',

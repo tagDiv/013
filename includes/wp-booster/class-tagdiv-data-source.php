@@ -146,6 +146,10 @@ class Tagdiv_Data_Source {
 
 		$wp_query_args['posts_per_page'] = $limit;
 
+		if ( ! empty( $offset ) ) {
+			$wp_query_args['offset'] = $offset ;
+		}
+
 		return $wp_query_args;
 	}
 

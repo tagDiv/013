@@ -21,7 +21,7 @@ var tdEvents = {};
 
         scroll_window_scrollTop: 0, //used to store the scrollTop
 
-        window_pageYOffset: window.pageYOffset, // @todo see if it can replace scroll_window_scrollTop [used by others]
+        window_pageYOffset: window.pageYOffset,
         window_innerHeight: window.innerHeight, // used to store the window height
         window_innerWidth: window.innerWidth, // used to store the window width
 

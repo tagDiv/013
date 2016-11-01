@@ -1,12 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: lucian
- * Date: 10/10/2016
- * Time: 12:47 PM
- */
-
 /* Template Name: TAGDIV_THEME_NAME Homepage */
 
 get_header();
@@ -34,31 +26,18 @@ if ( $td_paged > $td_page ) {
                     <div class="td-pb-span12 td-main-content" role="main">
                         <?php
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
-                            'custom_title'         => 'Block I',
-                            //'sort'                 => 'oldest_posts',
-                            'limit'                => 6,
-                            'tagdiv_column_number' => 3,
-                            //'post_ids'             => '1, 34, 56',
-                            //'tag_slug'             => 'tt',
-                            //'autors_id'            => '2',
-                            //'category_id'          => '4',
-                            //'category_ids'          => '1,4',
-
-                        ) ) ;
-                        ?>
-
-                        <?php
-                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
-                            'custom_title'         => 'Block II',
-                            //'sort'                 => 'oldest_posts',
                             'limit'                => 3,
+                            'sort'                 => '',
+                            'post_ids'             => '',
+                            'tag_slug'             => '',
+                            'autors_id'            => '',
+                            'installed_post_types' => '',
+                            'category_id'          => '',
+                            'category_ids'         => '',
+                            'custom_title'         => get_option( 'tagdiv_block_settings_block_1_title' ),
+                            'custom_url'           => '',
                             'tagdiv_column_number' => 3,
-                            'post_ids'             => '1, 34, 56',
-                            //'tag_slug'             => 'tt',
-                            //'autors_id'            => '2',
-                            //'category_id'          => '4',
-                            //'category_ids'          => '1,4',
-
+                            'offset'               => 2
                         ) ) ;
                         ?>
                     </div>
@@ -67,20 +46,30 @@ if ( $td_paged > $td_page ) {
                 <div class="td-pb-row">
                     <div class="td-pb-span12">
                         <?php echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_Image_Box' )->render( array(
-                            'custom_title'      => '',
-                            'display'           => '',
+                            'custom_title'      => get_option( 'tagdiv_block_settings_image_block_title' ),
                             'style'             => 'style-2',
-                            'image_item0'       => "http://192.168.0.120/wp_012/wp-content/uploads/2016/08/travel-2.jpg",
-                            'image_item1'       => "http://192.168.0.120/wp_012/wp-content/uploads/2016/08/travel-1.jpg",
-                            'image_item2'       => "http://192.168.0.120/wp_012/wp-content/uploads/2016/08/travel-3.jpg",
+
+                            'image_item0'       => get_theme_mod( 'tagdiv_block_settings_image_item0' ),
+                            'image_item1'       => get_theme_mod( 'tagdiv_block_settings_image_item1' ),
+                            'image_item2'       => get_theme_mod( 'tagdiv_block_settings_image_item2' ),
+
+                            'image_title_item0' => get_option( 'tagdiv_block_settings_image_item0_title' ),
+                            'image_title_item1' => get_option( 'tagdiv_block_settings_image_item1_title' ),
+                            'image_title_item2' => get_option( 'tagdiv_block_settings_image_item2_title' ),
+
+                            'custom_url_item0'  => get_option( 'tagdiv_block_settings_image_item0_url' ),
+                            'custom_url_item1'  => get_option( 'tagdiv_block_settings_image_item1_url' ),
+                            'custom_url_item2'  => get_option( 'tagdiv_block_settings_image_item2_url' ),
+
+                            'open_in_new_window_item0' => get_option( 'tagdiv_block_settings_image_item0_url_open' ),
+                            'open_in_new_window_item1' => get_option( 'tagdiv_block_settings_image_item1_url_open' ),
+                            'open_in_new_window_item2' => get_option( 'tagdiv_block_settings_image_item2_url_open' ),
+
+                            'height'            => "360",
                             'gap'               => "5",
-                            'image_title_item0' => "Inland Wonders",
-                            'image_title_item1' => "City Breaks",
-                            'image_title_item2' => "Sea Adventures",
-                            'custom_url_item0'  => "#",
-                            'custom_url_item1'  => "#",
-                            'custom_url_item2'  => "#",
-                            'height'            => "360"
+                            'display' 			=> '',
+                            'alignment' 		=> '',
+
                         ) ); ?>
                     </div>
                 </div> <!-- /.td-pb-row -->

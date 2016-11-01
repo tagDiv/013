@@ -784,6 +784,9 @@ img {
     padding-left: 0;
   }
 }
+.tagdiv-header-style .td-header-main-menu .dropdown-toggle {
+  display: none;
+}
 .tagdiv-header-style .td-header-menu-search {
   margin-left: 10px;
   /* desktop only */

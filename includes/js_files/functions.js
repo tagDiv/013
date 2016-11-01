@@ -1,3 +1,11 @@
+/* global screenReaderText */
+/**
+ * Theme functions file.
+ *
+ * Contains handlers for navigation
+ */
+
+
 /*
  * Supersubs v0.3b - jQuery plugin
  * Copyright (c) 2013 Joel Birch
@@ -140,4 +148,10 @@
     });
 
 } )();
+
+/*  ----------------------------------------------------------------------------
+    Menu handler for screen readers
+ */
+
+
 

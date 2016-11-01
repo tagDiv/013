@@ -3,7 +3,6 @@
  * Class td_menu
  */
 
-// the menu
 
 class td_menu {
 

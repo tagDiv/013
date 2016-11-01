@@ -137,8 +137,12 @@ abstract class Tagdiv_Module {
 					$tagdiv_temp_image_url[2] = '';
 				}
 
-				//retina image
-				$srcset_sizes = Tagdiv_Util::get_srcset_sizes( $this->post_thumb_id, $thumbType, $tagdiv_temp_image_url[1], $tagdiv_temp_image_url[0] );
+				$thumb_srcset = wp_get_attachment_image_srcset( $this->post_thumb_id, $thumbType );
+				$thumb_sizes  = wp_get_attachment_image_sizes( $this->post_thumb_id, $thumbType );
+
+				if ( $thumb_srcset !== false && $thumb_sizes !== false ) {
+					$srcset_sizes = ' srcset="' . $thumb_srcset . '" sizes="' . $thumb_sizes . '"';
+				}
 
 			} else {
 				//we have no thumb show the placeholder
@@ -180,7 +184,6 @@ abstract class Tagdiv_Module {
 				if ( current_user_can( 'edit_posts' ) ) {
 					$buffy .= '<a class="td-admin-edit" href="' . get_edit_post_link( $this->post->ID ) . '">edit</a>';
 				}
-
 				$buffy .= '<a href="' . $this->href . '" rel="bookmark" title="' . $this->title_attribute . '">';
 				$buffy .= '<img width="' . $tagdiv_temp_image_url[1] . '" height="' . $tagdiv_temp_image_url[2] . '" class="entry-thumb" src="' . $tagdiv_temp_image_url[0] . '"' . $srcset_sizes . ' ' . $attachment_alt . $attachment_title . '/>';
 				$buffy .= '</a>';

@@ -100,21 +100,22 @@
 
 							<!--mobile menu-->
 							<div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>
+								<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'tdmag' ); ?>">
+								<?php
+								wp_nav_menu( array(
+									'theme_location' => 'header-menu',
+									'menu_class'	 => 'sf-menu',
+									'fallback_cb' 	 => 'td_wp_page_menu',
+								) );
 
-							<?php
-							wp_nav_menu( array(
-								'theme_location' => 'header-menu',
-								'menu_class'	 => 'sf-menu',
-								'fallback_cb' 	 => 'td_wp_page_menu',
-							) );
-
-							//if no menu
-							function td_wp_page_menu() {
-								echo '<ul class="sf-menu">';
-								echo '<li class="menu-item-first"><a href="' . esc_url(home_url( '/' )) . 'wp-admin/nav-menus.php?action=locations">Click here - to select or create a menu</a></li>';
-								echo '</ul>';
-							}
-							?>
+								//if no menu
+								function td_wp_page_menu() {
+									echo '<ul class="sf-menu">';
+									echo '<li class="menu-item-first"><a href="' . esc_url(home_url( '/' )) . 'wp-admin/nav-menus.php?action=locations">Click here - to select or create a menu</a></li>';
+									echo '</ul>';
+								}
+								?>
+								</nav><!-- .main-navigation -->
 						</div> <!--td-header-menu-->
 
 						<div class="td-header-menu-search">

@@ -2,6 +2,7 @@
     Menu script
  */
 
+/* global screenReaderText */
 /* global jQuery:{} */
 /* global tdDetect:{} */
 
@@ -33,12 +34,16 @@ var tdMenu = {};
             //get menu items
             var mainMenu = jQuery('#td-header-menu .sf-menu'),
                 menus = jQuery('#td-header-menu .sf-menu, .top-header-menu'),
-                menuLinks = menus.find('.menu-item-has-children > a, .td-mega-menu > a');
+                menuLinks = menus.find('.menu-item-has-children > a');
 
             //add dropdown arrow on items with submenu
             menuLinks.append('<i class="td-icon-menu-down"></i>');
+            menuLinks.append( jQuery( '<span />', {
+                'class': 'screen-reader-text',
+                text: screenReaderText.expand
+            } ) );
 
-            //main menu width adjustment (top menu will use css)
+            //main menu width adjustment
             mainMenu.supersubs({
                 minWidth: 10, // minimum width of sub-menus in em units
                 maxWidth: 20, // maximum width of sub-menus in em units
@@ -114,76 +119,76 @@ var tdMenu = {};
         _setHover: function(menuLinks, mainMenu) {
 
             /* TOUCH DEVICES */
-            //if (tdDetect.isTouchDevice) {
-            //
-            //    //close menu when you tap outside of it
-            //    jQuery(document).on('touchstart', 'body', function(e) {
-            //        var menuItems = menuLinks.parent(),
-            //            pageBody = jQuery('body');
-            //            //check if a menu is open and if the target is outside the menu
-            //            if (pageBody.hasClass(tdMenu._openMenuBodyClass) && !menuItems.is(e.target) && menuItems.has(e.target).length === 0) {
-            //                menuItems.removeClass(tdMenu._openMenuClass);
-            //                menuItems.children('ul').hide();
-            //                //remove open menu class from <body>
-            //                pageBody.removeClass(tdMenu._openMenuBodyClass);
-            //            }
-            //    });
-            //
-            //    //open-close the menu on touch
-            //    menuLinks.on('touchstart',
-            //        function(event){
-            //            event.preventDefault();
-            //            event.stopPropagation();
-            //            var currentMenuLink = jQuery(this),
-            //                currentMenu = currentMenuLink.parent(),
-            //                pageBody = jQuery('body');
-            //
-            //            //menu is open
-            //            if (currentMenu.hasClass(tdMenu._openMenuClass)) {
-            //                //has a link, open it
-            //                if (currentMenuLink.attr('href') !== null && currentMenuLink.attr('href') !== '#') {
-            //                    window.location.href = currentMenuLink.attr('href');
-            //
-            //                //no link - close it
-            //                } else {
-            //                    //if it's a main menu remove the body class
-            //                    if (currentMenu.parent().hasClass('sf-menu') || currentMenu.parent().hasClass('top-header-menu')) {
-            //                        pageBody.removeClass(tdMenu._openMenuBodyClass);
-            //                    }
-            //                    currentMenu.removeClass(tdMenu._openMenuClass);
-            //                    //close submenus
-            //                    currentMenu.find('ul').hide();
-            //                    currentMenu.find('li').removeClass(tdMenu._openMenuClass);
-            //                }
-            //
-            //            //menu is not open
-            //            } else {
-            //                //a sibling may be open and we have to close it
-            //                if (currentMenu.parent().hasClass('sf-menu') || currentMenu.parent().hasClass('top-header-menu')) {
-            //                    //main menu - close all menus
-            //                    menuLinks.parent().removeClass(tdMenu._openMenuClass);
-            //                    menuLinks.parent().children('ul').hide();
-            //                } else {
-            //                    //submenu - close all siblings-submenus and open the current one
-            //                    var currentMenuSiblings = currentMenu.siblings();
-            //                    currentMenuSiblings.removeClass(tdMenu._openMenuClass);
-            //                    //close siblings
-            //                    currentMenuSiblings.find('ul').hide();
-            //                    currentMenuSiblings.find('li').removeClass(tdMenu._openMenuClass);
-            //                }
-            //                //open current
-            //                currentMenu.addClass(tdMenu._openMenuClass);
-            //                currentMenu.children('ul').show();
-            //                //adjust menu position
-            //                tdMenu._getSubmenuPosition(currentMenu);
-            //                //add body class
-            //                pageBody.addClass(tdMenu._openMenuBodyClass);
-            //            }
-            //        }
-            //    );
+            if (tdDetect.isTouchDevice) {
+
+                //close menu when you tap outside of it
+                jQuery(document).on('touchstart', 'body', function(e) {
+                    var menuItems = menuLinks.parent(),
+                        pageBody = jQuery('body');
+                        //check if a menu is open and if the target is outside the menu
+                        if (pageBody.hasClass(tdMenu._openMenuBodyClass) && !menuItems.is(e.target) && menuItems.has(e.target).length === 0) {
+                            menuItems.removeClass(tdMenu._openMenuClass);
+                            menuItems.children('ul').hide();
+                            //remove open menu class from <body>
+                            pageBody.removeClass(tdMenu._openMenuBodyClass);
+                        }
+                });
+
+                //open-close the menu on touch
+                menuLinks.on('touchstart',
+                    function(event){
+                        event.preventDefault();
+                        event.stopPropagation();
+                        var currentMenuLink = jQuery(this),
+                            currentMenu = currentMenuLink.parent(),
+                            pageBody = jQuery('body');
+
+                        //menu is open
+                        if (currentMenu.hasClass(tdMenu._openMenuClass)) {
+                            //has a link, open it
+                            if (currentMenuLink.attr('href') !== null && currentMenuLink.attr('href') !== '#') {
+                                window.location.href = currentMenuLink.attr('href');
+
+                            //no link - close it
+                            } else {
+                                //if it's a main menu remove the body class
+                                if (currentMenu.parent().hasClass('sf-menu') || currentMenu.parent().hasClass('top-header-menu')) {
+                                    pageBody.removeClass(tdMenu._openMenuBodyClass);
+                                }
+                                currentMenu.removeClass(tdMenu._openMenuClass);
+                                //close submenus
+                                currentMenu.find('ul').hide();
+                                currentMenu.find('li').removeClass(tdMenu._openMenuClass);
+                            }
+
+                        //menu is not open
+                        } else {
+                            //a sibling may be open and we have to close it
+                            if (currentMenu.parent().hasClass('sf-menu') || currentMenu.parent().hasClass('top-header-menu')) {
+                                //main menu - close all menus
+                                menuLinks.parent().removeClass(tdMenu._openMenuClass);
+                                menuLinks.parent().children('ul').hide();
+                            } else {
+                                //submenu - close all siblings-submenus and open the current one
+                                var currentMenuSiblings = currentMenu.siblings();
+                                currentMenuSiblings.removeClass(tdMenu._openMenuClass);
+                                //close siblings
+                                currentMenuSiblings.find('ul').hide();
+                                currentMenuSiblings.find('li').removeClass(tdMenu._openMenuClass);
+                            }
+                            //open current
+                            currentMenu.addClass(tdMenu._openMenuClass);
+                            currentMenu.children('ul').show();
+                            //adjust menu position
+                            tdMenu._getSubmenuPosition(currentMenu);
+                            //add body class
+                            pageBody.addClass(tdMenu._openMenuBodyClass);
+                        }
+                    }
+                );
 
              /* DESKTOP */
-           // } else {
+            } else {
 
                 var lastMenuOpen = {},
                     newMenuTimeout,
@@ -198,10 +203,45 @@ var tdMenu = {};
 
                 });
 
-                //apply hover only to main menu (top menu uses css)
+                mainMenu.find('.menu-item-has-children > a').focus(
+                    function() {
+                        var currentMenuLink = jQuery(this),
+                            currentMenuLinkParent = currentMenuLink.parent();
+
+                            if ( currentMenuLink.parents('.sf-menu').length ) {
+                                if (jQuery.isEmptyObject(lastMenuOpen)) {
+                                    currentMenuLinkParent.addClass(tdMenu._openMenuClass);
+                                    currentMenuLinkParent.children('ul').show();
+                                    //set the last open menu
+                                    lastMenuOpen = currentMenuLink;
+                                } else {
+                                    //execute only if it's a new menu
+                                    if (currentMenuLink[0] !== lastMenuOpen[0]) {
+                                        //close previous menus
+                                        menuLinks.parent().removeClass(tdMenu._openMenuClass);
+                                        menuLinks.parent().children('ul').hide();
+                                        //open current menu
+                                        currentMenuLinkParent.addClass(tdMenu._openMenuClass);
+                                        currentMenuLinkParent.children('ul').show();
+                                        //set the last open menu
+                                        lastMenuOpen = currentMenuLink;
+                                    }
+                                }
+                            }
+
+                    });
+
+                //close all menus
+                mainMenu.find('li > a').last().blur(
+                    function() {
+                        menuLinks.parent().removeClass(tdMenu._openMenuClass);
+                        menuLinks.parent().children('ul').hide();
+                    });
+
+
+                //apply hover only to main menu
                 mainMenu.find('.menu-item').hover(
                     function(){
-
                         //open the new menu element
                         var currentMenu = jQuery(this),
                             currentMenuSiblings = '',
@@ -212,7 +252,7 @@ var tdMenu = {};
                             mouseDirection;
 
                         //menu has submenus
-                        if (currentMenu.hasClass('menu-item-has-children') ||  currentMenu.hasClass('td-mega-menu')) {
+                        if (currentMenu.hasClass('menu-item-has-children')) {
 
                             //main menu
                             if (currentMenu.parent().hasClass('sf-menu')) {
@@ -388,7 +428,7 @@ var tdMenu = {};
                         currentMenu.off('mousemove');
                     }
                 );
-            //}
+            }
 
         },
 
