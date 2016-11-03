@@ -1,5 +1,5 @@
 <?php
-/* Template Name: TAGDIV_THEME_NAME Homepage */
+/* Template Name: MeisterMag Homepage */
 
 get_header();
 
@@ -82,7 +82,7 @@ if ( $td_paged > $td_page ) {
 
                         <div class="td-block-title-wrap">
                             <h4 class="block-title">
-                                <span><?php _e( 'LATEST ARTICLES', 'tdmag' ) ?></span>
+                                <span><?php _e( 'LATEST ARTICLES', 'meistermag' ) ?></span>
                             </h4>
                         </div>
 
@@ -116,7 +116,7 @@ if ( $td_paged > $td_page ) {
 
                                 <?php
                                 the_posts_pagination( array(
-                                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
+                                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
                                     'screen_reader_text' => __( 'Latest articles navigation' ),
                                 ) );
                                 ?>

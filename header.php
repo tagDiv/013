@@ -5,8 +5,8 @@
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 ?>
 <!DOCTYPE html>
@@ -68,7 +68,7 @@
 			</div>
 
 			<div role="search" class="td-search-input">
-				<span><?php _e( 'Search', 'tdmag' )?></span>
+				<span><?php _e( 'Search', 'meistermag' )?></span>
 				<input id="td-header-search-mob" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
 			</div>
 		</form>
@@ -83,7 +83,7 @@
 		<div class="tagdiv-header-wrap tagdiv-header-style">
 			<div class="td-header-logo-wrap td-container-wrap">
 
-				<a class="skip-link screen-reader-text" href="#site-content"><?php _e( 'Skip to content', 'tdmag' ); ?></a>
+				<a class="skip-link screen-reader-text" href="#site-content"><?php _e( 'Skip to content', 'meistermag' ); ?></a>
 
 				<div class="td-container">
 					<div class="tagdiv-header-logo">
@@ -100,7 +100,7 @@
 
 							<!--mobile menu-->
 							<div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>
-								<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'tdmag' ); ?>">
+								<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'meistermag' ); ?>">
 								<?php
 								wp_nav_menu( array(
 									'theme_location' => 'header-menu',
@@ -129,9 +129,9 @@
 									<form method="get" class="tagdiv-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
 										<div role="search" class="tagdiv-head-search">
 											<label>
-												<span class="screen-reader-text"><?php _e( 'Search for:', 'tdmag' ) ?></span>
+												<span class="screen-reader-text"><?php _e( 'Search for:', 'meistermag' ) ?></span>
 												<input id="td-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
-												<input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="<?php _e( 'Search', 'tdmag' ) ?>" />
+												<input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="<?php _e( 'Search', 'meistermag' ) ?>" />
 											</label>
 										</div>
 									</form>

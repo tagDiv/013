@@ -3,7 +3,8 @@
  * This is the config file for the theme.
  */
 
-define( 'TAGDIV_THEME_NAME', 'tdmag' );
+define( 'TAGDIV_THEME_NAME', 'meistermag' );
+define( 'TAGDIV_THEME_VERSION', "1.0" );
 
 
 class Tagdiv_Config {

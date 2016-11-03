@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress booster - by tagDiv
+ * tagDiv WordPress booster
  */
 
 // theme utility files
@@ -39,7 +39,7 @@ if ( ! function_exists( 'tagdiv_setup' ) ) {
 		 * Localization
 		 * Make theme available for translation.
 		 */
-		load_theme_textdomain( 'tdmag', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'meistermag', get_template_directory() . '/languages' );
 
 		/**
 		 * Enable support for Post Formats.
@@ -114,7 +114,7 @@ add_action('after_setup_theme', 'tagdiv_setup');
  *
  * @global int $content_width
  *
- * @since TAGDIV_THEME_NAME 1.0
+ * @since MeisterMag 1.0
  */
 function tagdiv_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'tagdiv_content_width', 640 );
@@ -130,7 +130,7 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 	/**
 	 * Register Google fonts.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 *
 	 * @return string Google fonts URL for the theme.
 	 */
@@ -140,17 +140,17 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 		$subsets = 'latin,latin-ext';
 
 		/* translators: If there are characters in your language that are not supported by Work Sans font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Work Sans font: on or off', 'tdmag') ) {
+		if ('off' !== _x( 'on', 'Work Sans font: on or off', 'meistermag') ) {
 			$fonts[] = 'Work Sans:400,500,600,700';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Source Sans Pro font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Source Sans Pro font: on or off', 'tdmag') ) {
+		if ('off' !== _x( 'on', 'Source Sans Pro font: on or off', 'meistermag') ) {
 			$fonts[] = 'Source Sans Pro:400,400italic,600,600italic,700';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Droid Serif font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Droid Serif font: on or off', 'tdmag') ) {
+		if ('off' !== _x( 'on', 'Droid Serif font: on or off', 'meistermag') ) {
 			$fonts[] = 'Droid Serif:400,700';
 		}
 
@@ -168,7 +168,7 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 /**
  * Enqueues scripts and styles.
  *
- * @since TAGDIV_THEME_NAME 1.0
+ * @since MeisterMag 1.0
  */
 
 if ( ! function_exists( 'tagdiv_scripts' ) ) {
@@ -188,16 +188,16 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-events-script', get_template_directory_uri() . '/includes/js_files/tdEvents.js', array( 'jquery' ), '20160819', true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-detect-script', get_template_directory_uri() . '/includes/js_files/tdDetect.js', array( 'jquery' ), '20160819', true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-script', get_template_directory_uri() . '/includes/js_files/functions.js', array( 'jquery' ), '20160816', true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-menu-script', get_template_directory_uri() . '/includes/js_files/tdMenu.js', array( 'jquery' ), '20160819', true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-search-script', get_template_directory_uri() . '/includes/js_files/tdSearch.js', array( 'jquery' ), '20160819', true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-events-script', get_template_directory_uri() . '/includes/js_files/tdEvents.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-detect-script', get_template_directory_uri() . '/includes/js_files/tdDetect.js', array(), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-script', get_template_directory_uri() . '/includes/js_files/functions.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-menu-script', get_template_directory_uri() . '/includes/js_files/tdMenu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-search-script', get_template_directory_uri() . '/includes/js_files/tdSearch.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
 
 		wp_localize_script( TAGDIV_THEME_NAME . '-script', 'screenReaderText', array(
-			'expand'   => __( 'expand child menu', TAGDIV_THEME_NAME ),
-			'collapse' => __( 'collapse child menu', TAGDIV_THEME_NAME ),
-			'submenu'  => __( 'menu item with sub-menu', TAGDIV_THEME_NAME ),
+			'expand'   => __( 'expand child menu', 'meistermag' ),
+			'collapse' => __( 'collapse child menu', 'meistermag' ),
+			'submenu'  => __( 'menu item with sub-menu', 'meistermag' ),
 		) );
 	}
 }

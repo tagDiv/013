@@ -5,8 +5,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 get_header(); ?>

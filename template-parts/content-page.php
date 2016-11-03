@@ -3,8 +3,8 @@
  * The template used for displaying page content
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 ?>
 
@@ -23,7 +23,7 @@
 			'after'       => '</div>',
 			'link_before' => '<div>',
 			'link_after'  => '</div>',
-			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
+			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>%',
 			'separator'   => '<span class="screen-reader-text">, </span>',
 		) );
 		?>

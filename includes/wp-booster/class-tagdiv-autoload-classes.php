@@ -4,8 +4,8 @@
  * Class Tagdiv_Autoload_Classes
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 class Tagdiv_Autoload_Classes {
 

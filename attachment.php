@@ -3,8 +3,8 @@
  * The template for displaying image attachments
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 get_header();
@@ -31,7 +31,7 @@ get_header();
                                 /**
                                  * Filter the default twentysixteen image attachment size.
                                  *
-                                 * @since TAGDIV_THEME_NAME 1.0
+                                 * @since MeisterMag 1.0
                                  *
                                  * @param string $image_size Image size. Default 'large'.
                                  */
@@ -57,7 +57,7 @@ get_header();
                                     'after' => '</div>',
                                     'link_before' => '<div>',
                                     'link_after' => '</div>',
-                                    'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
+                                    'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>%',
                                     'separator'   => '<span class="screen-reader-text">, </span>',
                                 ) );
                                 ?>

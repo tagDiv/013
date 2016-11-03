@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAGDIV_THEME_NAME 1.0\n"
+"Project-Id-Version: MeisterMag 1.0\n"
 "POT-Creation-Date: 2016-11-02 18:02+0200\n"
-"PO-Revision-Date: 2016-11-02 18:02+0200\n"
+"PO-Revision-Date: 2016-11-03 16:30+0200\n"
 "Last-Translator: \n"
-"Language-Team: tagdiv\n"
+"Language-Team: tagdiv <contact@tagdiv.com>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,9 +150,9 @@ msgstr ""
 
 #: ../includes/customizer.php:50
 msgid ""
-"TAGDIV_THEME_NAME is your news, entertainment, music fashion website. We "
-"provide you with the latest breaking news and videos straight from the "
-"entertainment industry."
+"MeisterMag is your news, entertainment, music fashion website. We provide "
+"you with the latest breaking news and videos straight from the entertainment "
+"industry."
 msgstr ""
 
 #: ../includes/customizer.php:56
@@ -176,7 +176,7 @@ msgid "Add here your footer contact email address"
 msgstr ""
 
 #: ../includes/customizer.php:87
-msgid "2016 TAGDIV_THEME_NAME Theme - All rights reserved"
+msgid "2016 MeisterMag Theme - All rights reserved"
 msgstr ""
 
 #: ../includes/customizer.php:93
@@ -200,8 +200,7 @@ msgid "Blocks Settings"
 msgstr ""
 
 #: ../includes/customizer.php:124
-msgid ""
-"Use this section to set the TAGDIV_THEME_NAME Homepage Image Block settings"
+msgid "Use this section to set the MeisterMag Homepage Image Block settings"
 msgstr ""
 
 #: ../includes/customizer.php:139

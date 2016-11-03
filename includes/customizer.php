@@ -1,10 +1,10 @@
 <?php
 /**
- * TAGDIV_THEME_NAME Customizer functionality
+ * MeisterMag Customizer functionality
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 function tagdiv_customize_register( $wp_customize ) {
@@ -22,8 +22,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	$custom_logo_args = get_theme_support( 'custom-logo' );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'tagdiv_footer_logo', array(
-		'label'    	  	=> __( 'Footer Logo', 'tdmag' ),
-		'description' 	=> __( 'Upload the logo you want to use in the footer. If you do not set a footer logo, the theme will load the header logo instead.', 'tdmag' ),
+		'label'    	  	=> __( 'Footer Logo', 'meistermag' ),
+		'description' 	=> __( 'Upload the logo you want to use in the footer. If you do not set a footer logo, the theme will load the header logo instead.', 'meistermag' ),
 		'section'  	  	=> 'title_tagline',
 		'priority'    	=> 10,
 		'settings' 	  	=> 'tagdiv_footer_logo',
@@ -32,13 +32,13 @@ function tagdiv_customize_register( $wp_customize ) {
 		'flex_height'   => $custom_logo_args[0]['flex-height'],
 		'flex_width'    => $custom_logo_args[0]['flex-width'],
 		'button_labels' => array(
-			'select'       => __( 'Select logo', 'tdmag' ),
-			'change'       => __( 'Change logo', 'tdmag' ),
-			'remove'       => __( 'Remove', 'tdmag' ),
-			'default'      => __( 'Default', 'tdmag' ),
-			'placeholder'  => __( 'No logo selected', 'tdmag' ),
-			'frame_title'  => __( 'Select logo', 'tdmag' ),
-			'frame_button' => __( 'Choose logo', 'tdmag' ),
+			'select'       => __( 'Select logo', 'meistermag' ),
+			'change'       => __( 'Change logo', 'meistermag' ),
+			'remove'       => __( 'Remove', 'meistermag' ),
+			'default'      => __( 'Default', 'meistermag' ),
+			'placeholder'  => __( 'No logo selected', 'meistermag' ),
+			'frame_title'  => __( 'Select logo', 'meistermag' ),
+			'frame_button' => __( 'Choose logo', 'meistermag' ),
 		),
 	) ) );
 
@@ -47,14 +47,14 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_text', array(
-		'default' 	 	=> __( 'TAGDIV_THEME_NAME is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.', 'tdmag' ),
+		'default' 	 	=> __( 'MeisterMag is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.', 'meistermag' ),
 		'type'       	=> 'option',
 		'capability' 	=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_footer_text', array(
-		'label'       	=> __( 'Footer Text', 'tdmag' ),
-		'description' 	=> __( 'Write here your footer text', 'tdmag' ),
+		'label'       	=> __( 'Footer Text', 'meistermag' ),
+		'description' 	=> __( 'Write here your footer text', 'meistermag' ),
 		'section'     	=> 'title_tagline',
 		'priority'    	=> 10,
 		'type' 		  	=> 'textarea',
@@ -66,14 +66,14 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_email', array(
-		'default' 		=> __( 'contact@yoursite.com', 'tdmag' ),
+		'default' 		=> __( 'contact@yoursite.com', 'meistermag' ),
 		'type'       	=> 'option',
 		'capability' 	=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_footer_email', array(
-		'label'      	=> __( 'Footer Contact Email', 'tdmag' ),
-		'description' 	=> __( 'Add here your footer contact email address', 'tdmag' ),
+		'label'      	=> __( 'Footer Contact Email', 'meistermag' ),
+		'description' 	=> __( 'Add here your footer contact email address', 'meistermag' ),
 		'section'    	=> 'title_tagline',
 		'priority'      => 11,
 		'settings' 		=> 'tagdiv_footer_email',
@@ -84,14 +84,14 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_subfooter_copyright', array(
-		'default' 		=> __( '2016 TAGDIV_THEME_NAME Theme - All rights reserved', 'tdmag' ),
+		'default' 		=> __( '2016 MeisterMag Theme - All rights reserved', 'meistermag' ),
 		'type'       	=> 'option',
 		'capability' 	=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_subfooter_copyright', array(
-		'label'      	=> __( 'Sub-Footer Copyright Text', 'tdmag' ),
-		'description' 	=> __( 'Set the Sub-Footer copyright text', 'tdmag' ),
+		'label'      	=> __( 'Sub-Footer Copyright Text', 'meistermag' ),
+		'description' 	=> __( 'Set the Sub-Footer copyright text', 'meistermag' ),
 		'section'    	=> 'title_tagline',
 		'priority'      => 12,
 		'type' 		  	=> 'textarea',
@@ -108,8 +108,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'tagdiv_subfooter_copyright_symbol', array(
-		'label'      	=> __( 'Copyright Symbol', 'tdmag' ),
-		'description' 	=> __( 'Show or hide the footer copyright symbol', 'tdmag' ),
+		'label'      	=> __( 'Copyright Symbol', 'meistermag' ),
+		'description' 	=> __( 'Show or hide the footer copyright symbol', 'meistermag' ),
 		'section'    	=> 'title_tagline',
 		'priority'      => 13,
 		'type' 		  	=> 'checkbox',
@@ -120,8 +120,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	/* Front Page > Block Settings section */
 
 	$wp_customize->add_section( 'tagdiv_block_settings_section' , array(
-		'title'       => __( 'Blocks Settings','tdmag' ),
-		'description' =>  __( 'Use this section to set the TAGDIV_THEME_NAME Homepage Image Block settings','tdmag' ),
+		'title'       => __( 'Blocks Settings','meistermag' ),
+		'description' =>  __( 'Use this section to set the MeisterMag Homepage Image Block settings','meistermag' ),
 		'priority'    => 30,
 		'active_callback' => 'is_front_page',
 	) );
@@ -136,8 +136,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_block_title', array(
-		'label'      	=> __( 'Image Block Title', 'tdmag' ),
-		'description' 	=> __( 'Set the Image Block title', 'tdmag' ),
+		'label'      	=> __( 'Image Block Title', 'meistermag' ),
+		'description' 	=> __( 'Set the Image Block title', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 1,
 		'settings' 	  	=> 'tagdiv_block_settings_image_block_title',
@@ -154,19 +154,19 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'tagdiv_block_settings_image_item0', array(
-		'label'      	=> __( 'Image #1', 'tdmag' ),
-		'description' 	=> __( 'Upload the first image to be used in the image block', 'tdmag' ),
+		'label'      	=> __( 'Image #1', 'meistermag' ),
+		'description' 	=> __( 'Upload the first image to be used in the image block', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 1,
 		'settings' 	  	=> 'tagdiv_block_settings_image_item0',
 		'button_labels' => array(
-			'select'       => __( 'Select img', 'tdmag' ),
-			'change'       => __( 'Change img', 'tdmag' ),
-			'remove'       => __( 'Remove', 'tdmag' ),
-			'default'      => __( 'Default', 'tdmag' ),
-			'placeholder'  => __( 'No img selected', 'tdmag' ),
-			'frame_title'  => __( 'Select img', 'tdmag' ),
-			'frame_button' => __( 'Choose img', 'tdmag' ),
+			'select'       => __( 'Select img', 'meistermag' ),
+			'change'       => __( 'Change img', 'meistermag' ),
+			'remove'       => __( 'Remove', 'meistermag' ),
+			'default'      => __( 'Default', 'meistermag' ),
+			'placeholder'  => __( 'No img selected', 'meistermag' ),
+			'frame_title'  => __( 'Select img', 'meistermag' ),
+			'frame_button' => __( 'Choose img', 'meistermag' ),
 		),
 	) ) );
 
@@ -178,7 +178,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item0_title', array(
-		'label'      	=> __( 'Custom title', 'tdmag' ),
+		'label'      	=> __( 'Custom title', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 1,
 		'settings' 	  	=> 'tagdiv_block_settings_image_item0_title',
@@ -192,7 +192,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item0_url', array(
-		'label'      	=> __( 'Custom URL', 'tdmag' ),
+		'label'      	=> __( 'Custom URL', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 1,
 		'type' 		  	=> 'url',
@@ -207,7 +207,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item0_url_open', array(
-		'label'      	=> __( 'Open in new window', 'tdmag' ),
+		'label'      	=> __( 'Open in new window', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 1,
 		'type' 		  	=> 'checkbox',
@@ -223,19 +223,19 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'tagdiv_block_settings_image_item1', array(
-		'label'      	=> __( 'Image #2', 'tdmag' ),
-		'description' 	=> __( 'Upload the second image to be used in the image block', 'tdmag' ),
+		'label'      	=> __( 'Image #2', 'meistermag' ),
+		'description' 	=> __( 'Upload the second image to be used in the image block', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 2,
 		'settings' 	  	=> 'tagdiv_block_settings_image_item1',
 		'button_labels' => array(
-			'select'       => __( 'Select img', 'tdmag' ),
-			'change'       => __( 'Change img', 'tdmag' ),
-			'remove'       => __( 'Remove', 'tdmag' ),
-			'default'      => __( 'Default', 'tdmag' ),
-			'placeholder'  => __( 'No img selected', 'tdmag' ),
-			'frame_title'  => __( 'Select img', 'tdmag' ),
-			'frame_button' => __( 'Choose img', 'tdmag' ),
+			'select'       => __( 'Select img', 'meistermag' ),
+			'change'       => __( 'Change img', 'meistermag' ),
+			'remove'       => __( 'Remove', 'meistermag' ),
+			'default'      => __( 'Default', 'meistermag' ),
+			'placeholder'  => __( 'No img selected', 'meistermag' ),
+			'frame_title'  => __( 'Select img', 'meistermag' ),
+			'frame_button' => __( 'Choose img', 'meistermag' ),
 		),
 	) ) );
 
@@ -247,7 +247,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item1_title', array(
-		'label'      	=> __( 'Custom title', 'tdmag' ),
+		'label'      	=> __( 'Custom title', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 2,
 		'settings' 	  	=> 'tagdiv_block_settings_image_item1_title',
@@ -261,7 +261,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item1_url', array(
-		'label'      	=> __( 'Custom URL', 'tdmag' ),
+		'label'      	=> __( 'Custom URL', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 2,
 		'type' 		  	=> 'url',
@@ -276,7 +276,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item1_url_open', array(
-		'label'      	=> __( 'Open in new window', 'tdmag' ),
+		'label'      	=> __( 'Open in new window', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 2,
 		'type' 		  	=> 'checkbox',
@@ -292,19 +292,19 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'tagdiv_block_settings_image_item2', array(
-		'label'      	=> __( 'Image #3', 'tdmag' ),
-		'description' 	=> __( 'Upload the third image to be used in the image block', 'tdmag' ),
+		'label'      	=> __( 'Image #3', 'meistermag' ),
+		'description' 	=> __( 'Upload the third image to be used in the image block', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 3,
 		'settings' 	  	=> 'tagdiv_block_settings_image_item2',
 		'button_labels' => array(
-			'select'       => __( 'Select img', 'tdmag' ),
-			'change'       => __( 'Change img', 'tdmag' ),
-			'remove'       => __( 'Remove', 'tdmag' ),
-			'default'      => __( 'Default', 'tdmag' ),
-			'placeholder'  => __( 'No img selected', 'tdmag' ),
-			'frame_title'  => __( 'Select img', 'tdmag' ),
-			'frame_button' => __( 'Choose img', 'tdmag' ),
+			'select'       => __( 'Select img', 'meistermag' ),
+			'change'       => __( 'Change img', 'meistermag' ),
+			'remove'       => __( 'Remove', 'meistermag' ),
+			'default'      => __( 'Default', 'meistermag' ),
+			'placeholder'  => __( 'No img selected', 'meistermag' ),
+			'frame_title'  => __( 'Select img', 'meistermag' ),
+			'frame_button' => __( 'Choose img', 'meistermag' ),
 		),
 	) ) );
 
@@ -316,7 +316,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item2_title', array(
-		'label'      	=> __( 'Custom title', 'tdmag' ),
+		'label'      	=> __( 'Custom title', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 3,
 		'settings' 	  	=> 'tagdiv_block_settings_image_item2_title',
@@ -330,7 +330,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item2_url', array(
-		'label'      	=> __( 'Custom URL', 'tdmag' ),
+		'label'      	=> __( 'Custom URL', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 3,
 		'type' 		  	=> 'url',
@@ -345,7 +345,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_image_item2_url_open', array(
-		'label'      	=> __( 'Open in new window', 'tdmag' ),
+		'label'      	=> __( 'Open in new window', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 3,
 		'type' 		  	=> 'checkbox',
@@ -363,8 +363,8 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control( 'tagdiv_block_settings_block_1_title', array(
-		'label'      	=> __( 'Block I Title', 'tdmag' ),
-		'description' 	=> __( 'Set the Block I title', 'tdmag' ),
+		'label'      	=> __( 'Block I Title', 'meistermag' ),
+		'description' 	=> __( 'Set the Block I title', 'meistermag' ),
 		'section'  	  	=> 'tagdiv_block_settings_section',
 		'priority'    	=> 4,
 		'settings' 	  	=> 'tagdiv_block_settings_block_1_title',

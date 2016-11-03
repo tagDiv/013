@@ -8,8 +8,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 ?>
@@ -56,7 +56,7 @@
 
 								<div class="footer-email-wrap">
 
-									<?php _e( 'Contact us:', 'tdmag' ); ?>
+									<?php _e( 'Contact us:', 'meistermag' ); ?>
 									<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
 
 								</div>

@@ -5,8 +5,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 get_header(); ?>
@@ -17,7 +17,7 @@ get_header(); ?>
 				<div class="td-pb-span12">
 
 					<h1 class="entry-title tagdiv-page-title">
-						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'tdmag' );?></span>
+						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'meistermag' );?></span>
 					</h1>
 
 					<div class="search-page-wrap">
@@ -69,7 +69,7 @@ get_header(); ?>
 								<?php
 								// Previous/next page navigation.
 								the_posts_pagination( array(
-									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
+									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
 								) );
 								?>
 							</div>

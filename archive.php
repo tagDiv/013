@@ -11,8 +11,8 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 get_header(); ?>
@@ -74,9 +74,9 @@ get_header(); ?>
 							<?php
 							// Previous/next page navigation.
 							the_posts_pagination( array(
-								'prev_text'          => __( 'Previous page', 'tdmag' ),
-								'next_text'          => __( 'Next page', 'tdmag' ),
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>',
+								'prev_text'          => __( 'Previous page', 'meistermag' ),
+								'next_text'          => __( 'Next page', 'meistermag' ),
+								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
 							) );
 							?>
 

@@ -1,7 +1,6 @@
 <?php
 
-
-// load the config
+// load theme configuration
 require_once( 'includes/class-tagdiv-config.php' );
 add_action( 'tagdiv_global_after', array( 'Tagdiv_Config', 'on_tagdiv_global_after_config' ), 9 );
 

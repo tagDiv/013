@@ -1,8 +1,8 @@
 /*
-Theme Name: 	TAGDIV_THEME_NAME 1.0
+Theme Name: 	MeisterMag 1.0
 Theme URI:      -
 Description: 	Free Premium WordPress template, clean and easy to use.
-Text Domain:    tdmag
+Text Domain:    meistermag
 Version: 		1.0
 Author: 		tagDiv
 Author URI: 	http://tagdiv.com/
@@ -1685,7 +1685,8 @@ select:focus {
   outline: 0 none;
 }
 /* Input buttons */
-input[type=submit] {
+input[type=submit],
+button[type=submit] {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 13px;
   background-color: #000;
@@ -1695,7 +1696,8 @@ input[type=submit] {
   padding: 8px 15px;
   font-weight: 500;
 }
-input[type=submit]:hover {
+input[type=submit]:hover,
+button[type=submit]:hover {
   background-color: #42bdcd;
 }
 input[type=text],
@@ -2294,7 +2296,7 @@ blockquote small {
 }
 .td-module-comments a:before,
 .td-post-comments a:before {
-  font-family: 'wpion', sans-serif;
+  font-family: 'meistermag', sans-serif;
   line-height: 1;
   content: '\f27a';
   width: 10px;
@@ -3445,15 +3447,15 @@ blockquote small {
     Theme Icons Font
 */
 @font-face {
-  font-family: 'wpion';
-  src: url('images/icons/wpion.eot?1');
-  src: url('images/icons/wpion.eot?1#iefix') format('embedded-opentype'), url('images/icons/wpion.woff?1') format('woff'), url('images/icons/wpion.ttf?1') format('truetype'), url('images/icons/wpion.svg?1#wpion') format('svg');
+  font-family: 'meistermag';
+  src: url('images/icons/meistermag.eot?1');
+  src: url('images/icons/meistermag.eot?1#iefix') format('embedded-opentype'), url('images/icons/meistermag.woff?1') format('woff'), url('images/icons/meistermag.ttf?1') format('truetype'), url('images/icons/meistermag.svg?1#meistermag') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 [class^="td-icon-"]:before,
 [class*=" td-icon-"]:before {
-  font-family: 'wpion' !important;
+  font-family: 'meistermag' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -3576,11 +3578,14 @@ blockquote small {
 .search-form {
   position: relative;
 }
+.search-form button.search-submit:focus {
+  outline: thin dotted;
+}
 input.search-field {
   width: 100%;
   height: 28px;
   margin: 0;
-  padding: 0 11px;
+  padding: 0;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 13px;
   color: #666;
@@ -3588,7 +3593,8 @@ input.search-field {
   border-bottom: 1px solid #ebebeb;
 }
 #searchsubmit,
-input.search-submit {
+input.search-submit,
+button.search-submit {
   position: absolute;
   top: 0;
   right: 0;
@@ -3602,9 +3608,11 @@ input.search-submit {
   text-shadow: none;
   color: #000;
   border-left: 1px solid #ebebeb;
+  line-height: normal;
 }
 #searchsubmit:hover,
-input.search-submit:hover {
+input.search-submit:hover,
+button.search-submit:hover {
   background-color: transparent;
   color: #42bdcd;
 }

@@ -8,8 +8,8 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 /*
@@ -28,9 +28,9 @@
 	if ( have_comments() ) {
 		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
 		if ( $num_comments > 1 ) {
-			$tagdiv_comments_no_text = $num_comments . ' ' . __( 'COMMENTS', 'tdmag' );
+			$tagdiv_comments_no_text = $num_comments . ' ' . __( 'COMMENTS', 'meistermag' );
 		} else {
-			$tagdiv_comments_no_text = __( '1 COMMENT', 'tdmag' );
+			$tagdiv_comments_no_text = __( '1 COMMENT', 'meistermag' );
 		}
 		?>
 
@@ -51,7 +51,7 @@
 	<?php }
 
 	if ( ! comments_open() and ( get_comments_number() > 0 ) ) { ?>
-		<p><?php echo  __( 'Comments are closed.', 'tdmag' ); ?></p>
+		<p><?php echo  __( 'Comments are closed.', 'meistermag' ); ?></p>
 	<?php }
 
 	$commenter = wp_get_current_commenter();
@@ -59,21 +59,21 @@
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 
 	$fields = array(
-		'author' => '<p class="comment-form-input-wrap td-form-author"><input class="" id="author" name="author" placeholder="' . __( 'Name: *', 'tdmag' ) . '" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" ' . $aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-input-wrap td-form-email"><input class="" id="email" name="email" placeholder="' . __( 'Email: *', 'tdmag' ) . '" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" ' . $aria_req . ' /></p>',
-		'url' 	 => '<p class="comment-form-input-wrap td-form-url"><input class="" id="url" name="url" placeholder="' . __( 'Website:', 'tdmag' ) . '" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+		'author' => '<p class="comment-form-input-wrap td-form-author"><input class="" id="author" name="author" placeholder="' . __( 'Name: *', 'meistermag' ) . '" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" ' . $aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-input-wrap td-form-email"><input class="" id="email" name="email" placeholder="' . __( 'Email: *', 'meistermag' ) . '" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" ' . $aria_req . ' /></p>',
+		'url' 	 => '<p class="comment-form-input-wrap td-form-url"><input class="" id="url" name="url" placeholder="' . __( 'Website:', 'meistermag' ) . '" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
 	);
 
 	$defaults = array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ) );
-	$defaults['comment_field'] 		  = '<div class="clearfix"></div><p class="comment-form-input-wrap td-form-comment"><textarea placeholder="' . __( 'Comment:', 'tdmag' ) . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+	$defaults['comment_field'] 		  = '<div class="clearfix"></div><p class="comment-form-input-wrap td-form-comment"><textarea placeholder="' . __( 'Comment:', 'meistermag' ) . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
 	$defaults['comment_notes_before'] = '';
 	$defaults['comment_notes_after']  = '';
-	$defaults['title_reply'] 		  = __( 'LEAVE A REPLY', 'tdmag' );
-	$defaults['label_submit'] 		  = __( 'Post Comment', 'tdmag' );
-	$defaults['cancel_reply_link'] 	  = __( 'Cancel reply', 'tdmag' );
+	$defaults['title_reply'] 		  = __( 'LEAVE A REPLY', 'meistermag' );
+	$defaults['label_submit'] 		  = __( 'Post Comment', 'meistermag' );
+	$defaults['cancel_reply_link'] 	  = __( 'Cancel reply', 'meistermag' );
 
 	$url = wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) );
-	$defaults['must_log_in'] 		  = '<p class="must-log-in"><a href="' . $url .'">' . __( 'Log in to leave a comment', 'tdmag' ) . ' </a></p>';
+	$defaults['must_log_in'] 		  = '<p class="must-log-in"><a href="' . $url .'">' . __( 'Log in to leave a comment', 'meistermag' ) . ' </a></p>';
 
 	comment_form($defaults);
 
@@ -124,7 +124,7 @@
 
 			<div class="comment-content">
 				<?php if ( '0' == $comment->comment_approved ) { ?>
-					<em><?php _e('Your comment is awaiting moderation', 'tdmag'); ?></em>
+					<em><?php _e('Your comment is awaiting moderation', 'meistermag'); ?></em>
 				<?php }
 				comment_text(); ?>
 			</div>
@@ -133,8 +133,8 @@
 				<?php comment_reply_link( array_merge( $args, array(
 					'depth' => $depth,
 					'max_depth' => $args['max_depth'],
-					'reply_text' => __( 'Reply', 'tdmag' ),
-					'login_text' =>  __( 'Log in to leave a comment', 'tdmag' )
+					'reply_text' => __( 'Reply', 'meistermag' ),
+					'login_text' =>  __( 'Log in to leave a comment', 'meistermag' )
 				) ) )
 				?>
 			</div>

@@ -1,4 +1,4 @@
-=== TAGDIV_THEME_NAME ===
+=== MeisterMag ===
 
 Requires at least: 4.0
 Tested up to: 4.6.1
@@ -9,11 +9,11 @@ Tags: one-column, two-columns, right-sidebar, accessibility-ready, theme-options
 
 == Description ==
 
-TAGDIV_THEME_NAME is a free WordPress theme that lets you write articles and blog posts with ease.
+MeisterMag is a free WordPress theme that lets you write articles and blog posts with ease.
 
-The TAGDIV_THEME_NAME template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach, and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. It’s fast, simple, and easy to use.
+The MeisterMag template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach, and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. It’s fast, simple, and easy to use.
 
-The TAGDIV_THEME_NAME Theme supports Custom Menus, Widgets and
+The MeisterMag Theme supports Custom Menus, Widgets and
 the following extra features:
 
  - Responsive
@@ -27,14 +27,14 @@ the following extra features:
 
 == Installation ==
 
-1. Upload the TAGDIV_THEME_NAME Theme folder to your wp-content/themes folder.
+1. Upload the MeisterMag Theme folder to your wp-content/themes folder.
 2. Activate the theme from the WP Dashboard.
 3. Done!
 
 == Copyright ==
 
-TAGDIV_THEME_NAME WordPress theme, Copyright (C) 2016 tagDiv
-TAGDIV_THEME_NAME WordPress theme is licensed under the GNU General Public License v2 or later
+MeisterMag WordPress theme, Copyright (C) 2016 tagDiv
+MeisterMag WordPress theme is licensed under the GNU General Public License v2 or later
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-The TAGDIV_THEME_NAME Theme bundles the following third-party resources:
+The MeisterMag Theme bundles the following third-party resources:
 
 HTML5 Shiv v3.7.3, Copyright 2014 Alexander Farkas | @afarkas @jdalton @jon_neal @rem |
 Licenses: MIT/GPL2

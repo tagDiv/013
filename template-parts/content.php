@@ -5,8 +5,8 @@
  * Used for both single and index/archive/search.
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 ?>
 
@@ -32,7 +32,7 @@
 			<div class="td-post-content">
 				<?php /* translators: %s: Name of current post */
 				the_content( sprintf(
-					__( 'Continue reading <span class="screen-reader-text">"%s"</span>', 'tdmag' ),
+					__( 'Continue reading <span class="screen-reader-text">"%s"</span>', 'meistermag' ),
 					get_the_title()
 				) );
 				?>
@@ -46,7 +46,7 @@
 					'link_before' => '<div>',
 					'link_after'  => '</div>',
 					'separator'   => '<span class="screen-reader-text">, </span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'tdmag' ) . ' </span>%',
+					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>%',
 				) );
 				?>
 				<div class="td-post-tags">

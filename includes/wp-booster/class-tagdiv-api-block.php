@@ -5,8 +5,8 @@
  * Class Tagdiv_API_Block static block api
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 class Tagdiv_API_Block extends Tagdiv_API_Base {

@@ -1,11 +1,11 @@
 <?php
 /**
- * Custom TAGDIV_THEME_NAME template tags
+ * Custom MeisterMag template tags
  *
  *
  * @package WordPress
- * @subpackage tdmag
- * @since TAGDIV_THEME_NAME 1.0
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
@@ -15,7 +15,7 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_post_thumbnail() {
 		global $post;
@@ -69,7 +69,7 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) {
 	 *
 	 * and a list of posts categories when on single views.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_post_category() {
 
@@ -142,7 +142,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 	/**
 	 * Display the post header.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_post_header() {
 
@@ -158,7 +158,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 					<div class="td-module-meta-info">
 
 						<div class="td-post-author-name">
-							<span class="td-author-by"><?php _e( 'By', 'tdmag' ) ?></span>
+							<span class="td-author-by"><?php _e( 'By', 'meistermag' ) ?></span>
 							<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
 						</div>
 
@@ -184,7 +184,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 				<div class="td-module-meta-info">
 
 					<div class="td-post-author-name">
-						<span class="td-author-by"><?php _e( 'By', 'tdmag' ) ?></span>
+						<span class="td-author-by"><?php _e( 'By', 'meistermag' ) ?></span>
 						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
 					</div>
 
@@ -209,7 +209,7 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) {
 	/**
 	 * Display the post tags.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_post_tags() {
 
@@ -229,7 +229,7 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) {
 
 			if ( ! empty( $tags_array ) ) {
 				$post_tags .= '<ul class="td-tags clearfix">';
-				$post_tags .= '<li><span>' . __( 'TAGS', 'tdmag' ) . '</span></li>';
+				$post_tags .= '<li><span>' . __( 'TAGS', 'meistermag' ) . '</span></li>';
 				foreach ( $tags_array as $tag_name => $tag_params ) {
 					$post_tags .= '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
 				}
@@ -247,7 +247,7 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 	/**
 	 * Display the next/prev posts.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_next_prev_posts() {
 
@@ -262,7 +262,7 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 				$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
 				if ( ! empty( $prev_post ) ) {
 					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
-					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __( 'Previous article', 'tdmag' ) . '</span>';
+					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __( 'Previous article', 'meistermag' ) . '</span>';
 					$next_prev_posts .= '<a href="' . esc_url( get_permalink( $prev_post->ID ) ) . '">' . get_the_title( $prev_post->ID ) . '</a>';
 					$next_prev_posts .= '</div>';
 					$next_prev_posts .= '</div>';
@@ -272,7 +272,7 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 				}
 				if ( ! empty( $next_post ) ) {
 					$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
-					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __('Next article', 'tdmag') . '</span>';
+					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __('Next article', 'meistermag') . '</span>';
 					$next_prev_posts .= '<a href="' . esc_url( get_permalink( $next_post->ID ) ) . '">' . get_the_title( $next_post->ID ) . '</a>';
 					$next_prev_posts .= '</div>';
 					$next_prev_posts .= '</div>';
@@ -291,7 +291,7 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 	/**
 	 * Display the post author box.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_author_box() {
 		global $post;
@@ -341,7 +341,7 @@ if ( ! function_exists( 'tagdiv_custom_logo' ) ) {
 	 *
 	 * Does nothing if the custom logo is not available.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_custom_logo() {
 		if ( function_exists( 'the_custom_logo' ) ) {
@@ -356,7 +356,7 @@ if ( ! function_exists( 'tagdiv_excerpt' ) ) {
 	 *
 	 * Wraps the excerpt in a div element.
 	 *
-	 * @since TAGDIV_THEME_NAME 1.0
+	 * @since MeisterMag 1.0
 	 *
 	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
 	 */
