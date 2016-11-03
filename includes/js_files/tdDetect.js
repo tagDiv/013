@@ -1,5 +1,8 @@
 /* global jQuery:false */
 
+/**
+ * tdDetect.js - used to detect various devices
+ */
 
 var tdDetect = {};
 
@@ -32,7 +35,6 @@ var tdDetect = {};
         runIsPhoneScreen: function () {
             if ( ( jQuery(window).width() < 768 || jQuery( window ).height() < 768 ) && false === tdDetect.isIpad ) {
                 tdDetect.isPhoneScreen = true;
-
             } else {
                 tdDetect.isPhoneScreen = false;
             }

@@ -41,7 +41,6 @@ if ( ! function_exists( 'tagdiv_setup' ) ) {
 		 */
 		load_theme_textdomain( 'tdmag', get_template_directory() . '/languages' );
 
-
 		/**
 		 * Enable support for Post Formats.
 		 * See: https://codex.wordpress.org/Post_Formats
@@ -198,6 +197,7 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 		wp_localize_script( TAGDIV_THEME_NAME . '-script', 'screenReaderText', array(
 			'expand'   => __( 'expand child menu', TAGDIV_THEME_NAME ),
 			'collapse' => __( 'collapse child menu', TAGDIV_THEME_NAME ),
+			'submenu'  => __( 'menu item with sub-menu', TAGDIV_THEME_NAME ),
 		) );
 	}
 }

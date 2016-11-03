@@ -6,7 +6,6 @@
 
 class td_menu {
 
-
     function __construct() {
         add_action( 'init', array( $this, 'hook_init' ) );
         add_filter( 'wp_nav_menu_objects', array( $this, 'hook_wp_nav_menu_objects' ),  10, 2);
@@ -52,8 +51,6 @@ class td_menu {
             )
         );
     }
-
-
 
 }
 

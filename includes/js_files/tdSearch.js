@@ -1,8 +1,8 @@
+/* global jQuery:{} */
+
 /**
  * tdSearch.js - handles the search events
  */
-
-/* global jQuery:{} */
 
 var tdSearch = {};
 
@@ -21,7 +21,6 @@ jQuery().ready(function() {
     tdSearch = {
 
         // private vars
-        _first_down_up: true,
         _is_search_open: false,
 
 
@@ -43,7 +42,6 @@ jQuery().ready(function() {
                 }
             });
 
-
             // show and hide the drop down on the search icon
             jQuery( '#td-header-search-button' ).click(function(event){
                 event.preventDefault();
@@ -59,7 +57,6 @@ jQuery().ready(function() {
             jQuery( '#td-header-search-button-mob' ).click(function(event){
                 jQuery( 'body' ).addClass( 'td-search-opened' );
             });
-
 
             //close the search
             jQuery( '.td-search-close a' ).click(function(){

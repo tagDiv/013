@@ -38,20 +38,12 @@
   transition: @transition1, @transition2;
 }
 
-.transition_important(@transition) {
-  -webkit-transition: @transition !important;
-  -moz-transition: @transition !important;
-  -o-transition: @transition !important;
-  transition: @transition !important;
-}
-
 .transform-origin(@string) {
   -webkit-transform-origin: @string;
   -moz-transform-origin: @string;
   -o-transform-origin: @string;
   transform-origin: @string;
 }
-
 
 // Opacity
 .opacity(@value) {
@@ -73,29 +65,6 @@
   -webkit-box-sizing: @boxmodel;
   -moz-box-sizing: @boxmodel;
   box-sizing: @boxmodel;
-}
-
-
-
-.toRGBA(@color, @alpha) {
-  color: rgba(red(@color), green(@color), blue(@color), @alpha)
-}
-
-
-/*
-usage:
-.td-block-row {
-  .mx-row(td-block-span);
-}
-
-@all_span_selector - is the beginning of the span selector
- */
-.mx-row-and-span(@all_span_selector) {
-  .mx-row();
-
-  [class*="@{all_span_selector}"] {
-    .mx-span();
-  }
 }
 
 // make a single row
@@ -134,7 +103,6 @@ usage:
     padding-left: 0;
   }
 }
-
 
 .transform(@string){
   transform: @string;

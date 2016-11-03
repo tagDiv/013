@@ -117,8 +117,6 @@ function tagdiv_customize_register( $wp_customize ) {
 	) );
 
 
-
-
 	/* Front Page > Block Settings section */
 
 	$wp_customize->add_section( 'tagdiv_block_settings_section' , array(
@@ -144,25 +142,6 @@ function tagdiv_customize_register( $wp_customize ) {
 		'priority'    	=> 1,
 		'settings' 	  	=> 'tagdiv_block_settings_image_block_title',
 	) );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	/* Images */
 

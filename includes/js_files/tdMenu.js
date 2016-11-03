@@ -1,10 +1,10 @@
-/*  ----------------------------------------------------------------------------
-    Menu script
- */
-
 /* global screenReaderText */
 /* global jQuery:{} */
 /* global tdDetect:{} */
+
+/*  ----------------------------------------------------------------------------
+    The Main Menu script
+ */
 
 var tdMenu = {};
 (function(){
@@ -26,7 +26,6 @@ var tdMenu = {};
         _openMenuBodyClass: 'td-open-menu',
 
 
-
         /*
          * initialize menu
          */
@@ -40,7 +39,7 @@ var tdMenu = {};
             menuLinks.append('<i class="td-icon-menu-down"></i>');
             menuLinks.append( jQuery( '<span />', {
                 'class': 'screen-reader-text',
-                text: screenReaderText.expand
+                text: screenReaderText.submenu
             } ) );
 
             //main menu width adjustment
@@ -66,8 +65,6 @@ var tdMenu = {};
         },
 
 
-
-
         /**
          * adjust submenu position - if it goes out of window move it to the left
          * @param item - submenu item
@@ -91,7 +88,6 @@ var tdMenu = {};
         },
 
 
-
         /**
          * calculate mouse direction
          * @param x1 - old x position
@@ -107,7 +103,6 @@ var tdMenu = {};
 
             return Math.atan2(dx, dy) / Math.PI * 180;
         },
-
 
 
         /**
@@ -431,7 +426,6 @@ var tdMenu = {};
             }
 
         },
-
 
 
         /**

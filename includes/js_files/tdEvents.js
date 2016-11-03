@@ -1,8 +1,9 @@
+/* global jQuery:{} */
+
 /**
  * tdEvents.js - handles the events that require throttling
  */
 
-/* global jQuery:{} */
 
 var tdEvents = {};
 

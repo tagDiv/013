@@ -20,15 +20,6 @@
     padding-left: 12px;
   }
 
-  /*  ----------------------------------------------------------------------------
-       blocks grid
-  */
-  /* block row + global block spans */
-  .td-block-row {
-    .mx-row-and-span(td-block-span);
-    margin-left: -12px;
-    margin-right: -12px;
-  }
 }
 
 
@@ -36,8 +27,7 @@
 @media (max-width: @responsive_p_phone_max) {
 
   /* container */
-  .td-container,
-  .tdc-row {
+  .td-container {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -78,21 +68,4 @@
     }
   }
 
-  /*  ----------------------------------------------------------------------------
-       blocks grid
-  */
-  /* block row + global block spans */
-  .td-block-row {
-    .mx-row-and-span(td-block-span);
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  //disable the span floats in blocks
-  .td-block-span4,
-  .td-block-span6,
-  .td-block-span12 {
-    float: none;
-    width: 100%;
-  }
 }

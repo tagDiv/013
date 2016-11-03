@@ -1,4 +1,6 @@
+/* global jQuery:{} */
 /* global screenReaderText */
+
 /**
  * Theme functions file.
  *
@@ -101,7 +103,8 @@
 
 
 /*  ----------------------------------------------------------------------------
-    Mobile menu
+    Mobile menu handler
+    Menu handler for screen readers
  */
 
 ( function() {
@@ -109,14 +112,17 @@
 
     //handles open/close mobile menu
     jQuery( '#td-top-mobile-toggle a, .td-mobile-close a' ).click(function(){
-        if ( jQuery( 'body' ).hasClass( 'td-menu-mob-open-menu' ) ) {
-            jQuery( 'body' ).removeClass( 'td-menu-mob-open-menu' );
+
+        var body = jQuery( 'body' );
+
+        if ( body.hasClass( 'td-menu-mob-open-menu' ) ) {
+            body.removeClass( 'td-menu-mob-open-menu' );
         } else {
-            jQuery( 'body' ).addClass( 'td-menu-mob-open-menu' );
+            body.addClass( 'td-menu-mob-open-menu' );
         }
     });
 
-    //move thru all the menu and find the item with sub-menues to atach a custom class to them
+    //move through all the menu and find the item with sub-menues to atach a custom class to them
     jQuery( document ).find( '#td-mobile-nav .menu-item-has-children' ).each(function( i ) {
 
         var class_name = 'td_mobile_elem_with_submenu_' + i;
@@ -124,6 +130,11 @@
 
         //click on link elements with #
         jQuery(this).children('a').addClass( 'td-link-element-after' );
+
+        jQuery(this).children('a').append( jQuery( '<span />', {
+            'class': 'screen-reader-text',
+            text: screenReaderText.expand
+        } ) );
 
         jQuery(this).click(function( event ) {
 
@@ -143,15 +154,20 @@
                 event.stopPropagation();
 
                 jQuery( this ).toggleClass( 'td-sub-menu-open' );
+
+                if (jQuery( this ).hasClass( 'td-sub-menu-open' )) {
+
+                    jQuery(this).children('a').find('.screen-reader-text').remove();
+
+                    jQuery(this).children('a').append( jQuery( '<span />', {
+                        'class': 'screen-reader-text',
+                        text: screenReaderText.collapse
+                    } ) );
+                }
             }
         });
     });
 
 } )();
-
-/*  ----------------------------------------------------------------------------
-    Menu handler for screen readers
- */
-
 
 
