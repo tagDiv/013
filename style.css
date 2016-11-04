@@ -2379,20 +2379,20 @@ blockquote small {
   filter: alpha(opacity=30);
 }
 /* Block 1 */
-.tagdiv-block-1 .td-pb-row:last-child .tagdiv_module_wrap {
+.tagdiv-block-1 .td-pb-row:last-child .tagdiv-module-1 {
   /* without mobile */
 }
 @media (min-width: 768px) {
-  .tagdiv-block-1 .td-pb-row:last-child .tagdiv_module_wrap {
+  .tagdiv-block-1 .td-pb-row:last-child .tagdiv-module-1 {
     padding-bottom: 0;
     margin-bottom: -3px;
   }
 }
-.tagdiv-block-1 .td-pb-row:last-child > div:last-child .tagdiv_module_wrap {
+.tagdiv-block-1 .td-pb-row:last-child > div:last-child .tagdiv-module-1 {
   /* responsive portrait phone */
 }
 @media (max-width: 767px) {
-  .tagdiv-block-1 .td-pb-row:last-child > div:last-child .tagdiv_module_wrap {
+  .tagdiv-block-1 .td-pb-row:last-child > div:last-child .tagdiv-module-1 {
     padding-bottom: 0;
     margin-bottom: -3px;
   }

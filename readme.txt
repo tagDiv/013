@@ -18,18 +18,26 @@ the following extra features:
 
  - Responsive
  - Post Formats
- - Custom sidebars
- - Support for post thumbnails
- - 4 widgetized areas in the footer
+ - Custom Sidebars
+ - Post Thumbnails
+ - 3 widgetized areas in the Footer
  - Customisable Front Page
- - Custom footer
+ - Customisable Footer
  - Translation Ready
+ - Accessibility Ready
 
 == Installation ==
 
 1. Upload the MeisterMag Theme folder to your wp-content/themes folder.
 2. Activate the theme from the WP Dashboard.
 3. Done!
+
+* WordPress Installation
+
+1. In your WordPress admin panel, go to Appearance -> Themes and click the 'Add New' button then the 'Upload Theme' button.
+2. Choose the MeisterMag .zip theme file and press the 'Install Now' button to begin the theme installation.
+3. Click on the 'Activate' button to use your new theme right away.
+4. Navigate to Appearance > Customize in your admin panel and customize it to your tastes.
 
 == Copyright ==
 

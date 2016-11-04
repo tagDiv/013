@@ -52,13 +52,16 @@
 						<!--description & email-->
 						<div class="td-pb-span12">
 							<aside class="footer-text-wrap">
+
+								<?php if ( get_option( 'tagdiv_footer_text' ) ) { ?>
 								<?php echo get_option( 'tagdiv_footer_text' ); ?>
+								<?php } ?>
 
 								<div class="footer-email-wrap">
-
+									<?php if ( get_option( 'tagdiv_footer_email' ) ) { ?>
 									<?php _e( 'Contact us:', 'meistermag' ); ?>
-									<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
-
+										<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
+									<?php } ?>
 								</div>
 							</aside>
 						</div>

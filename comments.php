@@ -72,7 +72,8 @@
 	$defaults['label_submit'] 		  = __( 'Post Comment', 'meistermag' );
 	$defaults['cancel_reply_link'] 	  = __( 'Cancel reply', 'meistermag' );
 
-	$url = wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) );
+	global $post;
+	$url = wp_login_url( apply_filters( 'the_permalink', get_permalink( $post->ID ) ) );
 	$defaults['must_log_in'] 		  = '<p class="must-log-in"><a href="' . $url .'">' . __( 'Log in to leave a comment', 'meistermag' ) . ' </a></p>';
 
 	comment_form($defaults);
