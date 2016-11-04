@@ -2090,6 +2090,10 @@ blockquote small {
   text-transform: none;
   color: #444;
 }
+.sticky,
+.commentlist .bypostauthor {
+  color: #42bdcd;
+}
 /*  ----------------------------------------------------------------------------
     Modules
 */
