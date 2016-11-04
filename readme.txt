@@ -66,7 +66,7 @@ Dual licensed under the MIT and GPL licenses:
  * 	http://www.gnu.org/licenses/gpl.html
 Source: http://nerdyjs.com/script/44310
 
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+Normalize CSS | normalize.css v3.0.2 | MIT License | git.io/normalize
 
 == Changelog ==
 
