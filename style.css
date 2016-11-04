@@ -1,5 +1,5 @@
 /*
-Theme Name: 	MeisterMag 1.0
+Theme Name: 	MeisterMag
 Theme URI:      -
 Description: 	Free Premium WordPress template, clean and easy to use.
 Text Domain:    meistermag
@@ -1281,9 +1281,6 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
 .td-menu-mob-open-menu {
   position: relative;
 }
-.td-menu-mob-open-menu #wpadminbar {
-  position: fixed !important;
-}
 .td-menu-mob-open-menu #page {
   position: fixed;
 }
@@ -1440,9 +1437,6 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
 /* search opened class .td-search-opened */
 .td-search-opened {
   position: relative;
-}
-.td-search-opened #wpadminbar {
-  position: fixed !important;
 }
 .td-search-opened #page {
   position: fixed;
@@ -1989,16 +1983,11 @@ figure.aligncenter {
     text-align: center;
   }
 }
-.mce-content-body .alignright {
-  margin: 6px 0 6px 24px;
-}
-.td-pb-span12 .alignright,
-.mceContentBody-max-width-big .alignright {
+.td-pb-span12 .alignright {
   /* responsive portrait tablet */
 }
 @media (min-width: 768px) and (max-width: 1018px) {
-  .td-pb-span12 .alignright,
-  .mceContentBody-max-width-big .alignright {
+  .td-pb-span12 .alignright {
     max-width: 400px !important;
   }
 }
