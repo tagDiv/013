@@ -1,5 +1,8 @@
 <?php
-/* Template Name: MeisterMag Homepage */
+/**
+ * Template Name: MeisterMag Homepage
+ * This template is used for the display of landing pages.
+ */
 
 get_header();
 
@@ -28,7 +31,7 @@ if ( $td_paged > $td_page ) {
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
                             'limit'                => 3,
                             'sort'                 => '',
-                            'post_ids'             => '',
+                            'post_ids'             => '144, 62, 48',
                             'tag_slug'             => '',
                             'autors_id'            => '',
                             'installed_post_types' => '',
@@ -37,7 +40,7 @@ if ( $td_paged > $td_page ) {
                             'custom_title'         => get_option( 'tagdiv_block_settings_block_1_title' ),
                             'custom_url'           => '',
                             'tagdiv_column_number' => 3,
-                            'offset'               => 2
+                            'offset'               => ''
                         ) ) ;
                         ?>
                     </div>
@@ -117,7 +120,7 @@ if ( $td_paged > $td_page ) {
                                 <?php
                                 the_posts_pagination( array(
                                     'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
-                                    'screen_reader_text' => __( 'Latest articles navigation' ),
+                                    'screen_reader_text' => __( 'Latest articles navigation', 'meistermag' ),
                                 ) );
                                 ?>
 

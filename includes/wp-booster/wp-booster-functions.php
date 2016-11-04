@@ -1,6 +1,10 @@
 <?php
 /**
  * tagDiv WordPress booster
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 // theme utility files
@@ -121,6 +125,61 @@ function tagdiv_content_width() {
 }
 add_action( 'after_setup_theme', 'tagdiv_content_width', 0 );
 
+/* ----------------------------------------------------------------------------
+ * Registers theme widget areas
+ */
+
+/**
+ * Registers the theme sidebar and the footer widget areas.
+ *
+ * @link https://developer.wordpress.org/reference/functions/register_sidebar/
+ *
+ * @since MeisterMag 1.0
+ */
+function tagdiv_widgets_init() {
+
+	// Default sidebar
+	register_sidebar( array(
+		'name'          => __( 'Theme Default Sidebar', 'meistermag' ),
+		'id'            => 'tagdiv-default',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'meistermag' ),
+		'before_widget' => '<aside class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="block-title"><span>',
+		'after_title'   => '</span></div>'
+	) );
+
+	// Footer sections
+	register_sidebar( array(
+		'name'          => __( 'Footer 1', 'meistermag' ),
+		'id'            => 'tagdiv-footer-1',
+		'before_widget' => '<aside class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="block-title"><span>',
+		'after_title'   => '</span></div>'
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer 2', 'meistermag' ),
+		'id'            => 'tagdiv-footer-2',
+		'before_widget' => '<aside class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="block-title"><span>',
+		'after_title'   => '</span></div>'
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer 3', 'meistermag' ),
+		'id'            => 'tagdiv-footer-3',
+		'before_widget' => '<aside class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="block-title"><span>',
+		'after_title'   => '</span></div>'
+	) );
+
+}
+add_action( 'widgets_init', 'tagdiv_widgets_init' );
+
 
 /* ----------------------------------------------------------------------------
  * Theme fonts & scripts
@@ -220,7 +279,7 @@ function tagdiv_category_count_span( $links ) {
 /*  ----------------------------------------------------------------------------
     gallery style css
  */
-add_filter( 'use_default_gallery_style', '__return_true' );
+add_filter( 'use_default_gallery_style', '__return_false' );
 
 
 /* 	----------------------------------------------------------------------------
@@ -263,48 +322,6 @@ function tagdiv_init_booster() {
 		Tagdiv_Global_Blocks::add_block_id( $block_settings_key );
 	}
 
-
-	/*
-	* register the theme sidebars
-	*/
-
-	// Default sidebar
-	register_sidebar( array(
-		'name'          => 'Theme Default Sidebar',
-		'id'            => 'tagdiv-default',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
-
-	// Footer
-	register_sidebar( array(
-		'name'          => 'Footer 1',
-		'id'            => 'td-footer-1',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
-
-	register_sidebar( array(
-		'name'          => 'Footer 2',
-		'id'            => 'td-footer-2',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
-
-	register_sidebar( array(
-		'name'          => 'Footer 3',
-		'id'            => 'td-footer-3',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
 }
 
 

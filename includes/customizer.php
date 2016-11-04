@@ -16,6 +16,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_logo', array(
+		'capability' 	=> 'manage_options',
 		'theme_supports' => array( 'custom-logo' )
 	) );
 

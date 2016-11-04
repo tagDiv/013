@@ -317,7 +317,7 @@ class Tagdiv_API_Base {
 	 * - it replaces the theme path with the child path, if the file api registered exists in the child theme
 	 * - it tries to find the file in the child theme and if it's found, the 'located_in_child' is set
 	 * - the check is done only when the child theme is activated and the 'located_in_child' hasn't set yet
-	 * - the check is done only for the theme registered paths (those having TEMPLATEPATH), letting the plugins to register themselves paths
+	 * - the check is done only for the theme registered paths (those having get_template_directory()), letting the plugins to register themselves paths
 	 *
 	 * @param string $id        - the id of the component
 	 */
@@ -333,12 +333,12 @@ class Tagdiv_API_Base {
 		}
 
 		if ( ( $the_component != null )
-		     && ( stripos( $the_component['file'], TEMPLATEPATH ) == 0 )
+		     && ( stripos( $the_component['file'], get_template_directory() ) == 0 )
 		     && ! empty( $the_component['file'] )
 		     && ! isset( $the_component['located_in_child'] )
 		) {
 
-			$child_path = STYLESHEETPATH . str_replace( TEMPLATEPATH, '', $the_component['file'] );
+			$child_path = get_stylesheet_directory() . str_replace( get_template_directory(), '', $the_component['file'] );
 
 			if ( file_exists( $child_path ) ) {
 				$the_component['file'] = $child_path;
