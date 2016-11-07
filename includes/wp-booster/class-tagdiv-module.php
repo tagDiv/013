@@ -176,7 +176,7 @@ abstract class Tagdiv_Module {
 
 				$tagdiv_temp_image_url[0] = get_template_directory_uri() . '/images/no-thumb/' . $thumbType . '.png';
 				$attachment_alt           = 'alt=""';
-				$attachment_title         = '';
+				$attachment_title         = ' title=""';
 			} //end    if ( $this->post_has_thumb ) {
 
 

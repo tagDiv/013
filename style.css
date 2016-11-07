@@ -1123,14 +1123,14 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
 /* close */
 .td-mobile-close {
   position: absolute;
-  right: 1px;
+  right: 11px;
   top: 0;
   z-index: 1000;
 }
 .td-mobile-close .td-icon-close-mobile {
-  height: 70px;
-  width: 70px;
-  line-height: 70px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
   font-size: 21px;
   color: #000;
   top: 4px;
@@ -1138,7 +1138,7 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
 }
 /* mobile container */
 .td-mobile-content {
-  padding: 20px 20px 0;
+  padding: 50px 20px 0;
 }
 .td-mobile-container {
   padding-bottom: 20px;
@@ -1280,6 +1280,9 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
 /* menu opened class .td-menu-mob-open-menu */
 .td-menu-mob-open-menu {
   position: relative;
+}
+.td-menu-mob-open-menu #wpadminbar {
+  position: fixed !important;
 }
 .td-menu-mob-open-menu #page {
   position: fixed;
@@ -1437,6 +1440,9 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
 /* search opened class .td-search-opened */
 .td-search-opened {
   position: relative;
+}
+.td-search-opened #wpadminbar {
+  position: fixed !important;
 }
 .td-search-opened #page {
   position: fixed;

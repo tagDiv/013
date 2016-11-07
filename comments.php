@@ -18,13 +18,13 @@
  * return early without loading the comments.
  */
 
+if ( post_password_required() ) {
+	return;
+}
 ?>
 
 <div class="comments" id="comments">
-	<?php if ( post_password_required() ) {
-		return;
-	}
-
+	<?php
 	if ( have_comments() ) {
 		$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
 		if ( $num_comments > 1 ) {
@@ -32,7 +32,7 @@
 		} else {
 			$tagdiv_comments_no_text = __( '1 COMMENT', 'meistermag' );
 		}
-		?>
+	?>
 
 		<div class="td-comments-title-wrap">
 			<h4 class="td-comments-title"><span><?php echo $tagdiv_comments_no_text?></span></h4>

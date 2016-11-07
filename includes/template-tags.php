@@ -20,7 +20,21 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 	function tagdiv_post_thumbnail() {
 		global $post;
 
-		if ( post_password_required() || is_attachment() || !has_post_thumbnail() ) {
+		if ( !has_post_thumbnail() ) {
+			if ( is_singular() ) {
+				return;
+			} else { ?>
+
+				<div class="td-module-image">
+
+					<?php tagdiv_get_no_thumb( 'td_300x220' ); ?>
+
+				</div> <!-- .td-module-image-->
+
+			<?php }// End is_singular()
+		}
+
+		if ( post_password_required() || is_attachment() ) {
 			return;
 		}
 
@@ -37,23 +51,20 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 
 			<div class="td-module-image">
 
-				<!--<a href="<?php /*echo esc_url( get_permalink() ); */?>" rel="bookmark" title=""> -->
-
 				<div class="td-module-thumb">
 
-					<?php if ( current_user_can('edit_posts') ) { ?>
+					<?php if ( current_user_can( 'edit_posts' ) ) { ?>
 						<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
 					<?php } ?>
 
-					<?php the_post_thumbnail( 'td_300x220', array('alt' => get_the_title(), 'class' => 'entry-thumb') ); ?>
-
+					<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
+						<?php the_post_thumbnail( 'td_300x220', array('alt' => get_the_title(), 'class' => 'entry-thumb') ); ?>
+					</a>
 					<div class="td-post-category-wrap">
 						<?php echo tagdiv_post_category(); ?>
 					</div>
 
 				</div><!-- .td-module-thumb-->
-
-				<!--</a>-->
 
 			</div> <!-- .td-module-image-->
 
@@ -366,6 +377,31 @@ if ( ! function_exists( 'tagdiv_excerpt' ) ) {
 			<div class="<?php echo $class; ?>">
 				<?php the_excerpt(); ?>
 			</div><!-- .<?php echo $class; ?> -->
+		<?php
+	}
+}
+
+if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
+	/**
+	 * Displays the no_thumb placeholder
+	 *
+	 * @since MeisterMag 1.0
+	 *
+	 * @param string $thumbType - The thumb type
+	 */
+	function tagdiv_get_no_thumb( $thumbType ) {
+		global $post;
+
+		$tagdiv_temp_image_url = get_template_directory_uri() . '/images/no-thumb/' . $thumbType . '.png';
+		?>
+			<div class="td-module-thumb">
+				<?php	if ( current_user_can( 'edit_posts' ) ) { ?>
+					<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
+				<?php } ?>
+				<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
+					<img class="entry-thumb" src="<?php echo $tagdiv_temp_image_url; ?>" alt="no-thumb-placeholder" title="no-thumb" />
+				</a>
+			</div>
 		<?php
 	}
 }

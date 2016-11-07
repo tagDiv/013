@@ -31,7 +31,7 @@ if ( $td_paged > $td_page ) {
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
                             'limit'                => 3,
                             'sort'                 => '',
-                            'post_ids'             => '144, 62, 48',
+                            'post_ids'             => '',
                             'tag_slug'             => '',
                             'autors_id'            => '',
                             'installed_post_types' => '',
