@@ -16,8 +16,9 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_logo', array(
-		'capability' 	=> 'manage_options',
-		'theme_supports' => array( 'custom-logo' )
+		'capability' 		=> 'manage_options',
+		'theme_supports' 	=> array( 'custom-logo' ),
+		'sanitize_callback' => 'tagdiv_sanitize_image'
 	) );
 
 	$custom_logo_args = get_theme_support( 'custom-logo' );
@@ -48,9 +49,10 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_text', array(
-		'default' 	 	=> __( 'MeisterMag is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.', 'meistermag' ),
-		'type'       	=> 'option',
-		'capability' 	=> 'manage_options'
+		'default' 	 		=> __( 'MeisterMag is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.', 'meistermag' ),
+		'type'       		=> 'option',
+		'sanitize_callback' => 'wp_strip_all_tags',
+		'capability' 		=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_footer_text', array(
@@ -67,9 +69,10 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_footer_email', array(
-		'default' 		=> __( 'contact@yoursite.com', 'meistermag' ),
-		'type'       	=> 'option',
-		'capability' 	=> 'manage_options'
+		'default' 			=> __( 'contact@yoursite.com', 'meistermag' ),
+		'type'       		=> 'option',
+		'sanitize_callback' => 'tagdiv_sanitize_email',
+		'capability' 		=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_footer_email', array(
@@ -85,9 +88,10 @@ function tagdiv_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_setting( 'tagdiv_subfooter_copyright', array(
-		'default' 		=> __( '2016 MeisterMag Theme - All rights reserved', 'meistermag' ),
-		'type'       	=> 'option',
-		'capability' 	=> 'manage_options'
+		'default' 			=> __( '2016 MeisterMag Theme - All rights reserved', 'meistermag' ),
+		'type'       		=> 'option',
+		'sanitize_callback' => 'wp_strip_all_tags',
+		'capability' 		=> 'manage_options'
 	) );
 
 	$wp_customize->add_control( 'tagdiv_subfooter_copyright', array(
@@ -105,7 +109,8 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'tagdiv_subfooter_copyright_symbol', array(
 		'default'           => 1,
-		'capability' 	=> 'manage_options'
+		'capability' 		=> 'manage_options',
+		'sanitize_callback' => 'tagdiv_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'tagdiv_subfooter_copyright_symbol', array(
@@ -131,8 +136,9 @@ function tagdiv_customize_register( $wp_customize ) {
     	Image block title
  	*/
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_block_title', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'wp_strip_all_tags'
 		)
 	);
 
@@ -150,7 +156,8 @@ function tagdiv_customize_register( $wp_customize ) {
     	first image
  	*/
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item0', array(
-			'capability' 	=> 'manage_options'
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'tagdiv_sanitize_image'
 		)
 	);
 
@@ -173,8 +180,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* title */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item0_title', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'wp_strip_all_tags'
 		)
 	);
 
@@ -187,8 +195,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* link */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item0_url', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'esc_url_raw'
 		)
 	);
 
@@ -202,8 +211,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* open in new window option */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item0_url_open', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'tagdiv_sanitize_checkbox',
 		)
 	);
 
@@ -219,7 +229,8 @@ function tagdiv_customize_register( $wp_customize ) {
     	second image
  	*/
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item1', array(
-			'capability' 	=> 'manage_options'
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'tagdiv_sanitize_image'
 		)
 	);
 
@@ -242,8 +253,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* title */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item1_title', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'wp_strip_all_tags'
 		)
 	);
 
@@ -256,8 +268,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* link */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item1_url', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'esc_url_raw'
 		)
 	);
 
@@ -271,8 +284,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* open in new window option */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item1_url_open', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'tagdiv_sanitize_checkbox',
 		)
 	);
 
@@ -288,7 +302,8 @@ function tagdiv_customize_register( $wp_customize ) {
     	third image
  	*/
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item2', array(
-			'capability' 	=> 'manage_options'
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'tagdiv_sanitize_image'
 		)
 	);
 
@@ -311,8 +326,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* title */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item2_title', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'wp_strip_all_tags'
 		)
 	);
 
@@ -325,8 +341,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* link */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item2_url', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'esc_url_raw'
 		)
 	);
 
@@ -340,8 +357,9 @@ function tagdiv_customize_register( $wp_customize ) {
 
 	/* open in new window option */
 	$wp_customize->add_setting( 'tagdiv_block_settings_image_item2_url_open', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'tagdiv_sanitize_checkbox',
 		)
 	);
 
@@ -358,8 +376,9 @@ function tagdiv_customize_register( $wp_customize ) {
     Block I title
  	*/
 	$wp_customize->add_setting( 'tagdiv_block_settings_block_1_title', array(
-			'type'       	=> 'option',
-			'capability' 	=> 'manage_options'
+			'type'       		=> 'option',
+			'capability' 		=> 'manage_options',
+			'sanitize_callback' => 'wp_strip_all_tags'
 		)
 	);
 

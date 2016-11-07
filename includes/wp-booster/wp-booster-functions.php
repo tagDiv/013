@@ -268,11 +268,13 @@ add_action( 'wp_enqueue_scripts', 'tagdiv_scripts' );
     add span wrap for category number in widget
  */
 add_filter( 'wp_list_categories', 'tagdiv_category_count_span' );
-function tagdiv_category_count_span( $links ) {
-	$links = str_replace( '</a> (', '<span class="td-widget-no">', $links );
-	$links = str_replace( ')', '</span></a>', $links );
+if ( ! function_exists( 'tagdiv_category_count_span' ) ) {
+	function tagdiv_category_count_span( $links ) {
+		$links = str_replace( '</a> (', '<span class="td-widget-no">', $links );
+		$links = str_replace( ')', '</span></a>', $links );
 
-	return $links;
+		return $links;
+	}
 }
 
 
@@ -289,7 +291,6 @@ add_filter( 'widget_text', 'do_shortcode' );
 
 
 /**
- * ----------------------------------------------------------------------------
  * Filter the except length to 20 characters.
  *
  * @param int $length Excerpt length.
@@ -299,6 +300,7 @@ function wp_custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'wp_custom_excerpt_length', 999 );
+
 
 /* ----------------------------------------------------------------------------
  *   TagDiv WordPress booster init
@@ -323,5 +325,96 @@ function tagdiv_init_booster() {
 	}
 
 }
+
+
+/* ----------------------------------------------------------------------------
+ *   Customizer: Sanitization Callbacks
+ */
+
+if ( ! function_exists( 'tagdiv_sanitize_checkbox' ) ) {
+	/**
+	 * Checkbox sanitization callback
+	 *
+	 * Sanitization callback for 'checkbox' type controls. This callback sanitizes `$checked`
+	 * as a boolean value, either TRUE or FALSE.
+	 *
+	 * @param bool $checked Whether the checkbox is checked.
+	 * @return bool Whether the checkbox is checked.
+	 */
+	function tagdiv_sanitize_checkbox( $checked ) {
+		// Boolean check.
+		return ( ( isset( $checked ) && true == $checked ) ? true : false );
+	}
+}
+
+if ( ! function_exists( 'tagdiv_sanitize_email' ) ) {
+	/**
+	 * Email sanitization callback
+	 *
+	 * - Sanitization: email
+	 * - Control: text
+	 *
+	 * Sanitization callback for 'email' type text controls. This callback sanitizes `$email`
+	 * as a valid email address.
+	 *
+	 * @see sanitize_email() https://developer.wordpress.org/reference/functions/sanitize_key/
+	 * @link sanitize_email() https://codex.wordpress.org/Function_Reference/sanitize_email
+	 *
+	 * @param string               $email   Email address to sanitize.
+	 * @param WP_Customize_Setting $setting Setting instance.
+	 * @return string The sanitized email if not null; otherwise, the setting default.
+	 */
+	function tagdiv_sanitize_email(  $email, $setting  ) {
+		// Sanitize $input as a hex value without the hash prefix.
+		$email = sanitize_email( $email );
+
+		// If $email is a valid email, return it; otherwise, return the default.
+		return ( ! null( $email ) ? $email : $setting->default );
+	}
+}
+
+if ( ! function_exists( 'tagdiv_sanitize_image' ) ) {
+	/**
+	 * Image sanitization callback
+	 *
+	 * Checks the image's file extension and mime type against a whitelist. If they're allowed,
+	 * send back the filename, otherwise, return the setting default.
+	 *
+	 * - Sanitization: image file extension
+	 * - Control: text, WP_Customize_Image_Control
+	 *
+	 * @see wp_check_filetype() https://developer.wordpress.org/reference/functions/wp_check_filetype/
+	 *
+	 * @param string               $image   Image filename.
+	 * @param WP_Customize_Setting $setting Setting instance.
+	 * @return string The image filename if the extension is allowed; otherwise, the setting default.
+	 */
+	function tagdiv_sanitize_image( $image, $setting ) {
+
+		/*
+         * Array of valid image file types.
+         *
+         * The array includes image mime types that are included in wp_get_mime_types()
+         */
+		$mimes = array(
+			'jpg|jpeg|jpe' => 'image/jpeg',
+			'gif'          => 'image/gif',
+			'png'          => 'image/png',
+			'bmp'          => 'image/bmp',
+			'tif|tiff'     => 'image/tiff',
+			'ico'          => 'image/x-icon'
+		);
+
+		// Return an array with file extension and mime_type.
+		$file = wp_check_filetype( $image, $mimes );
+
+		// If $image has a valid mime_type, return it; otherwise, return the default.
+		return ( $file['ext'] ? $image : $setting->default );
+	}
+}
+
+
+
+
 
 
