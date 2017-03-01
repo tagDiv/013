@@ -5,7 +5,7 @@ Tested up to: 4.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Tags: one-column, two-columns, right-sidebar, accessibility-ready, theme-options, custom-menu, featured-images, flexible-header, post-formats, threaded-comments, translation-ready, blog
+Tags: one-column, two-columns, right-sidebar, accessibility-ready, theme-options, custom-menu, featured-images, flexible-header, threaded-comments, translation-ready, blog
 
 == Description ==
 
