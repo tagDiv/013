@@ -22,7 +22,7 @@ class Tagdiv_Config {
 			array(
 				'file' 			 => get_template_directory() . '/includes/modules/class-tagdiv-module-1.php',
 				'text' 			 => 'Module 1',
-				'used_on_blocks' => array('tagdiv_block_1'),
+				'used_on_blocks' => array( 'tagdiv_block_1' ),
 				'class' 		 => 'tagdiv-module-wrap',
 			)
 		);
@@ -60,7 +60,7 @@ class Tagdiv_Config {
 				'name' => 'td_300x220',
 				'width' => 300,
 				'height' => 220,
-				'crop' => array('center', 'top'),
+				'crop' => array( 'center', 'top' ),
 				'used_on' => array(
 					'Module 1', 'Module 2'
 				)
@@ -72,7 +72,7 @@ class Tagdiv_Config {
 				'name' => 'td_640x0',
 				'width' => 640,
 				'height' => 0,
-				'crop' => array('center', 'top'),
+				'crop' => array( 'center', 'top' ),
 				'used_on' => array(
 					'Post template default'
 				)

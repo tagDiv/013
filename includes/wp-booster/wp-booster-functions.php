@@ -8,28 +8,28 @@
  */
 
 // theme utility files
-require_once( 'class-tagdiv-util.php' );
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-util.php';
 
 // load the wp-booster_api
-require_once( 'class-tagdiv-api-base.php' );
-require_once( 'class-tagdiv-api-block.php' );
-require_once( 'class-tagdiv-api-module.php' );
-require_once( 'class-tagdiv-api-thumb.php' );
-require_once( 'class-tagdiv-api-autoload.php' );
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-base.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-block.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-module.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-thumb.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-autoload.php';
 
 // hook here to use the theme api
 do_action( 'tagdiv_global_after' );
 
-require_once( 'class-tagdiv-global-blocks.php' );   // no autoload
-require_once( 'class-tagdiv-menu.php' );            // theme menu support
-require_once( 'class-tagdiv-module.php' );          // module builder
-require_once( 'class-tagdiv-block.php' );           // block builder
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-global-blocks.php'; // no autoload
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-menu.php'; 		// theme menu support
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-module.php'; 		// module builder
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-block.php'; 		// block builder
 
-require_once( 'class-tagdiv-autoload-classes.php' );
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-autoload-classes.php';
 
-require_once( 'class-tagdiv-block-layout.php' );
-require_once( 'class-tagdiv-template-layout.php' );
-require_once( 'class-tagdiv-data-source.php' );
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-block-layout.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-template-layout.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-data-source.php';
 
 
 /* ----------------------------------------------------------------------------
