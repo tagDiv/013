@@ -284,12 +284,6 @@ if ( ! function_exists( 'tagdiv_category_count_span' ) ) {
 add_filter( 'use_default_gallery_style', '__return_false' );
 
 
-/* 	----------------------------------------------------------------------------
- * 	shortcodes in widgets
- */
-add_filter( 'widget_text', 'do_shortcode' );
-
-
 /**
  * Filter the except length to 20 characters.
  *
