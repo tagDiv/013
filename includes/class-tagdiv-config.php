@@ -5,6 +5,8 @@
 
 define( 'TAGDIV_THEME_NAME', 'meistermag' );
 define( 'TAGDIV_THEME_VERSION', "1.0" );
+define( 'TAGDIV_THEME_OPTIONS_NAME', "tagdiv_theme_options"); //where to store our options
+
 
 
 class Tagdiv_Config {
@@ -14,10 +16,7 @@ class Tagdiv_Config {
 	 */
 	static function on_tagdiv_global_after_config() {
 
-		/**
-		 * The theme module
-		 */
-
+		/* The theme module */
 		Tagdiv_API_Module::add( 'Tagdiv_Module_1',
 			array(
 				'file' 			 => get_template_directory() . '/includes/modules/class-tagdiv-module-1.php',
@@ -28,10 +27,7 @@ class Tagdiv_Config {
 		);
 
 
-		/**
-		 * The theme blocks
-		 */
-
+		/* The theme blocks */
 		Tagdiv_API_Block::add( 'Tagdiv_Block_1',
 			array(
 				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-1.php',
@@ -41,20 +37,8 @@ class Tagdiv_Config {
 			)
 		);
 
-		Tagdiv_API_Block::add( 'Tagdiv_Block_Image_Box',
-			array(
-				"file"     => get_template_directory() . '/includes/blocks/class-tagdiv-block-image-box.php',
-				"name" 	   => 'Image box',
-				"class"    => "tagdiv-block-image-box",
-				"category" => 'Blocks',
-			)
-		);
 
-
-		/**
-		 * The thumbs used by the theme
-		 */
-
+		/* The thumbs used by the theme */
 		Tagdiv_API_Thumb::add( 'td_300x220',
 			array(
 				'name' => 'td_300x220',

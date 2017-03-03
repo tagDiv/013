@@ -7,6 +7,12 @@
 class Tagdiv_Util {
 
 	/**
+	 * @var null
+	 * keep a local copy of all theme settings
+	 */
+	static $tagdiv_theme_options = NULL ;
+
+	/**
 	 * returns a string containing the numbers of words or chars for the content
 	 *
 	 * @param        $post_content    - the content that needs to be cut
@@ -76,6 +82,17 @@ class Tagdiv_Util {
 				echo '</pre>';
 			}
 		};
+	}
+
+	static function tagdiv_get_theme_options( $optionName ) {
+		if ( is_null( self::$tagdiv_theme_options ) ) {
+			self::$tagdiv_theme_options = get_theme_mod(TAGDIV_THEME_OPTIONS_NAME);
+		}
+
+		if ( !empty( self::$tagdiv_theme_options[$optionName] ) ) {
+			return self::$tagdiv_theme_options[$optionName];
+		}
+		return '';
 	}
 
 

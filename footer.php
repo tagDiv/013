@@ -40,9 +40,11 @@
 						<div class="td-pb-span12">
 							<aside class="footer-logo-wrap">
 
-								<?php if ( get_theme_mod( 'tagdiv_footer_logo' ) ) { ?>
+								<?php
+								$tagdiv_theme_options = get_theme_mod( 'tagdiv_theme_options' );
+								if ( !empty( $tagdiv_theme_options[ 'tagdiv_footer_logo' ] ) ) { ?>
 									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-										<img src="<?php echo get_theme_mod( 'tagdiv_footer_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+										<img src="<?php echo $tagdiv_theme_options['tagdiv_footer_logo'] ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 									</a>
 								<?php } ?>
 
@@ -53,14 +55,14 @@
 						<div class="td-pb-span12">
 							<aside class="footer-text-wrap">
 
-								<?php if ( get_option( 'tagdiv_footer_text' ) ) { ?>
-								<?php echo get_option( 'tagdiv_footer_text' ); ?>
+								<?php if ( !empty( $tagdiv_theme_options[ 'tagdiv_footer_text' ] ) ) { ?>
+								<?php echo $tagdiv_theme_options['tagdiv_footer_text'] ?>
 								<?php } ?>
 
 								<div class="footer-email-wrap">
-									<?php if ( get_option( 'tagdiv_footer_email' ) ) { ?>
+									<?php if ( !empty( $tagdiv_theme_options[ 'tagdiv_footer_email' ] ) ) { ?>
 									<?php _e( 'Contact us:', 'meistermag' ); ?>
-										<a href="<?php echo get_option( 'tagdiv_footer_email' ); ?>"><?php echo get_option( 'tagdiv_footer_email' ); ?></a>
+										<a href="<?php echo $tagdiv_theme_options[ 'tagdiv_footer_email' ] ?>"><?php echo $tagdiv_theme_options[ 'tagdiv_footer_email' ] ?></a>
 									<?php } ?>
 								</div>
 							</aside>
@@ -90,11 +92,11 @@
 
 						<div class="td-pb-span12 td-sub-footer-copy">
 							<?php
-							$tagdiv_footer_copyright   = stripslashes( get_option( 'tagdiv_subfooter_copyright' ) );
-							$tagdiv_footer_copy_symbol = get_theme_mod( 'tagdiv_subfooter_copyright_symbol' );
+							$tagdiv_footer_copy_symbol = $tagdiv_theme_options[ 'tagdiv_subfooter_copyright_symbol' ];
+							$tagdiv_footer_copyright   = stripslashes( $tagdiv_theme_options[ 'tagdiv_subfooter_copyright' ] );
 
 							//show copyright symbol
-							if ( $tagdiv_footer_copy_symbol ) {
+							if ( !empty( $tagdiv_footer_copy_symbol ) ) {
 								echo '&copy; ';
 							}
 

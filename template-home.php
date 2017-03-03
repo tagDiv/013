@@ -18,6 +18,9 @@ if ( $td_paged > $td_page ) {
     $paged = $td_page;
 }
 
+$tagdiv_home_latest_articles_title  = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_latest_section_title' );
+$tagdiv_home_block_title            = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_section_title' );
+
 ?>
 
     <div class="td-main-content-wrap td-container-wrap">
@@ -29,54 +32,13 @@ if ( $td_paged > $td_page ) {
                     <div class="td-pb-span12 td-main-content" role="main">
                         <?php
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
+                            'custom_title'         => $tagdiv_home_block_title,
                             'limit'                => 3,
-                            'sort'                 => '',
-                            'post_ids'             => '',
-                            'tag_slug'             => '',
-                            'autors_id'            => '',
-                            'installed_post_types' => '',
-                            'category_id'          => '',
-                            'category_ids'         => '',
-                            'custom_title'         => get_option( 'tagdiv_block_settings_block_1_title' ),
-                            'custom_url'           => '',
                             'tagdiv_column_number' => 3,
-                            'offset'               => ''
-                        ) ) ;
+                        ) );
                         ?>
                     </div>
                 </div> <!-- /.td-pb-row -->
-
-                <div class="td-pb-row">
-                    <div class="td-pb-span12">
-                        <?php echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_Image_Box' )->render( array(
-                            'custom_title'      => get_option( 'tagdiv_block_settings_image_block_title' ),
-                            'style'             => 'style-2',
-
-                            'image_item0'       => get_theme_mod( 'tagdiv_block_settings_image_item0' ),
-                            'image_item1'       => get_theme_mod( 'tagdiv_block_settings_image_item1' ),
-                            'image_item2'       => get_theme_mod( 'tagdiv_block_settings_image_item2' ),
-
-                            'image_title_item0' => get_option( 'tagdiv_block_settings_image_item0_title' ),
-                            'image_title_item1' => get_option( 'tagdiv_block_settings_image_item1_title' ),
-                            'image_title_item2' => get_option( 'tagdiv_block_settings_image_item2_title' ),
-
-                            'custom_url_item0'  => get_option( 'tagdiv_block_settings_image_item0_url' ),
-                            'custom_url_item1'  => get_option( 'tagdiv_block_settings_image_item1_url' ),
-                            'custom_url_item2'  => get_option( 'tagdiv_block_settings_image_item2_url' ),
-
-                            'open_in_new_window_item0' => get_option( 'tagdiv_block_settings_image_item0_url_open' ),
-                            'open_in_new_window_item1' => get_option( 'tagdiv_block_settings_image_item1_url_open' ),
-                            'open_in_new_window_item2' => get_option( 'tagdiv_block_settings_image_item2_url_open' ),
-
-                            'height'            => "360",
-                            'gap'               => "5",
-                            'display' 			=> '',
-                            'alignment' 		=> '',
-
-                        ) ); ?>
-                    </div>
-                </div> <!-- /.td-pb-row -->
-
             <?php } ?>
 
             <div class="td-container td-pb-article-list">
@@ -85,7 +47,7 @@ if ( $td_paged > $td_page ) {
 
                         <div class="td-block-title-wrap">
                             <h4 class="block-title">
-                                <span><?php _e( 'LATEST ARTICLES', 'meistermag' ) ?></span>
+                                <span><?php echo $tagdiv_home_latest_articles_title ?></span>
                             </h4>
                         </div>
 

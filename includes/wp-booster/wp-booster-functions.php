@@ -363,7 +363,7 @@ if ( ! function_exists( 'tagdiv_sanitize_email' ) ) {
 		$email = sanitize_email( $email );
 
 		// If $email is a valid email, return it; otherwise, return the default.
-		return ( ! null( $email ) ? $email : $setting->default );
+		return ( ! is_null( $email ) ? $email : $setting->default );
 	}
 }
 
