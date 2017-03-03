@@ -93,7 +93,6 @@ if ( post_password_required() ) {
 	$GLOBALS['comment'] = $comment;
 
 	$tagdiv_is_ping_trackback_class = '';
-
 	if( 'pingback' == $comment->comment_type ) {
 		$tagdiv_is_ping_trackback_class = 'pingback';
 	}
@@ -102,13 +101,15 @@ if ( post_password_required() ) {
 		$tagdiv_is_ping_trackback_class = 'trackback';
 	}
 
-	if ( !empty($comment->comment_author_email) ) {
+	$tagdiv_comment_auth_email = '';
+	if ( !empty($comment->comment_author_email ) ) {
 		$tagdiv_comment_auth_email = $comment->comment_author_email;
-	} else {
-		$tagdiv_comment_auth_email = '';
 	}
 
-	$tagdiv_article_date_unix = @strtotime( "{$comment->comment_date_gmt} GMT" );
+	$tagdiv_article_date_unix = '';
+	if ( !empty ($comment->comment_date_gmt) && false !== strtotime( $comment->comment_date_gmt . " GMT" ) ) {
+		$tagdiv_article_date_unix = strtotime( $comment->comment_date_gmt . " GMT" );
+	}
 
 	?>
 
