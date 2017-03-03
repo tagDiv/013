@@ -8,7 +8,7 @@ get_header();
 
 global $paged,$post;
 
-$td_page = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1; //rewrite the global var
+$td_page  = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1; //rewrite the global var
 $td_paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; //rewrite the global var
 
 //paged works on single pages, page - works on homepage
@@ -26,7 +26,7 @@ $tagdiv_home_block_title            = Tagdiv_Util::tagdiv_get_theme_options( 'ta
     <div class="td-main-content-wrap td-container-wrap">
         <div class="td-container">
 
-            <?php if ( empty( $paged ) or $paged < 2 ) { //show this only on the first page ?>
+            <?php if ( empty( $paged ) or 2 > $paged ) { //show this only on the first page ?>
 
                 <div class="td-pb-row">
                     <div class="td-pb-span12 td-main-content" role="main">

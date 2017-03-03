@@ -11,9 +11,7 @@ define( 'TAGDIV_THEME_OPTIONS_NAME', "tagdiv_theme_options"); //where to store o
 
 class Tagdiv_Config {
 
-	/**
-	 * setup the global theme specific variables
-	 */
+	/* setup the global theme specific variables */
 	static function on_tagdiv_global_after_config() {
 
 		/* The theme module */
@@ -21,8 +19,8 @@ class Tagdiv_Config {
 			array(
 				'file' 			 => get_template_directory() . '/includes/modules/class-tagdiv-module-1.php',
 				'text' 			 => 'Module 1',
-				'used_on_blocks' => array( 'tagdiv_block_1' ),
 				'class' 		 => 'tagdiv-module-wrap',
+				'used_on_blocks' => array( 'tagdiv_block_1' )
 			)
 		);
 
@@ -33,7 +31,7 @@ class Tagdiv_Config {
 				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-1.php',
 				"name" 	   => 'Block 1',
 				"class"    => 'tagdiv_block_1',
-				"category" => 'Blocks',
+				"category" => 'Blocks'
 			)
 		);
 
@@ -41,25 +39,21 @@ class Tagdiv_Config {
 		/* The thumbs used by the theme */
 		Tagdiv_API_Thumb::add( 'td_300x220',
 			array(
-				'name' => 'td_300x220',
-				'width' => 300,
-				'height' => 220,
-				'crop' => array( 'center', 'top' ),
-				'used_on' => array(
-					'Module 1', 'Module 2'
-				)
+				'name' 	  => 'td_300x220',
+				'width'   => 300,
+				'height'  => 220,
+				'crop' 	  => array( 'center', 'top' ),
+				'used_on' => array( 'Module 1', 'Module 2' )
 			)
 		);
 
 		Tagdiv_API_Thumb::add( 'td_640x0',
 			array(
-				'name' => 'td_640x0',
-				'width' => 640,
-				'height' => 0,
-				'crop' => array( 'center', 'top' ),
-				'used_on' => array(
-					'Post template default'
-				)
+				'name' 	  => 'td_640x0',
+				'width'   => 640,
+				'height'  => 0,
+				'crop' 	  => array( 'center', 'top' ),
+				'used_on' => array( 'Post template default' )
 			)
 		);
 

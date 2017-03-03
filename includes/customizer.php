@@ -10,8 +10,7 @@
 function tagdiv_customize_register( $wp_customize ) {
 
 	/* Theme Options Section */
-	$wp_customize->add_section(
-		'tagdiv_options_section',
+	$wp_customize->add_section( 'tagdiv_options_section',
 		array(
 			'title'          => __( 'MesiterMag Theme Options', 'meistermag' ),
 			'priority'       => 1,
@@ -21,8 +20,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Footer Logo */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_footer_logo]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_footer_logo]',
 		array(
 			'capability' 		=> 'edit_theme_options',
 			'theme_supports' 	=> array( 'custom-logo' ),
@@ -31,22 +29,20 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Footer Logo uploader */
-	$custom_logo_args = get_theme_support( 'custom-logo' );
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'tagdiv_footer_logo',
+	$tagdiv_custom_logo_args = get_theme_support( 'custom-logo' );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'tagdiv_footer_logo',
 			array(
 				'label'    	  	=> __( 'Footer Logo', 'meistermag' ),
 				'description' 	=> __( 'Upload the logo you want to use in the Footer section.', 'meistermag' ),
 				'section'  	  	=> 'tagdiv_options_section',
 				'priority'    	=> 1,
 				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_footer_logo]',
-				'height'        => $custom_logo_args[0]['height'],
-				'width'         => $custom_logo_args[0]['width'],
-				'flex_height'   => $custom_logo_args[0]['flex-height'],
-				'flex_width'    => $custom_logo_args[0]['flex-width'],
-				'button_labels' => array(
+				'height'        => $tagdiv_custom_logo_args[0]['height'],
+				'width'         => $tagdiv_custom_logo_args[0]['width'],
+				'flex_height'   => $tagdiv_custom_logo_args[0]['flex-height'],
+				'flex_width'    => $tagdiv_custom_logo_args[0]['flex-width'],
+				'button_labels' =>
+				array(
 					'select'       => __( 'Select logo', 'meistermag' ),
 					'change'       => __( 'Change logo', 'meistermag' ),
 					'remove'       => __( 'Remove', 'meistermag' ),
@@ -54,14 +50,13 @@ function tagdiv_customize_register( $wp_customize ) {
 					'placeholder'  => __( 'No logo selected', 'meistermag' ),
 					'frame_title'  => __( 'Select logo', 'meistermag' ),
 					'frame_button' => __( 'Choose logo', 'meistermag' ),
-			)
+				)
 			)
 		)
 	);
 
 	/* Theme Footer Site Description */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_footer_text]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_footer_text]',
 		array(
 			'capability' 		=> 'edit_theme_options',
 			'default' 	 		=> __( 'MeisterMag is your news, entertainment, music fashion website.', 'meistermag' ),
@@ -69,8 +64,7 @@ function tagdiv_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_control(
-		'tagdiv_footer_text',
+	$wp_customize->add_control( 'tagdiv_footer_text',
 		array(
 			'label'       	=> __( 'Footer Text', 'meistermag' ),
 			'description' 	=> __( 'Write here your footer text', 'meistermag' ),
@@ -82,8 +76,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Footer Contact Email Address */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_footer_email]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_footer_email]',
 		array(
 			'capability' 		=> 'edit_theme_options',
 			'default' 			=> __( 'contact@yoursite.com', 'meistermag' ),
@@ -91,8 +84,7 @@ function tagdiv_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_control(
-		'tagdiv_footer_email',
+	$wp_customize->add_control( 'tagdiv_footer_email',
 		array(
 			'label'      	=> __( 'Footer Contact Email', 'meistermag' ),
 			'description' 	=> __( 'Add here your footer contact email address', 'meistermag' ),
@@ -104,8 +96,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Subfooter Copyright Text */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_subfooter_copyright]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright]',
 		array(
 			'capability' 		=> 'edit_theme_options',
 			'default' 			=> __( 'Your Copyright Text', 'meistermag' ),
@@ -113,8 +104,7 @@ function tagdiv_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_control(
-		'tagdiv_subfooter_copyright',
+	$wp_customize->add_control( 'tagdiv_subfooter_copyright',
 		array(
 			'label'      	=> __( 'Sub-Footer Copyright Text', 'meistermag' ),
 			'description' 	=> __( 'Add here the sub-footer copyright text', 'meistermag' ),
@@ -126,8 +116,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Subfooter Copyright Text */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_subfooter_copyright_symbol]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright_symbol]',
 		array(
 			'capability' 		=> 'edit_theme_options',
 			'default'           => 1,
@@ -135,8 +124,7 @@ function tagdiv_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_control(
-		'tagdiv_subfooter_copyright_symbol',
+	$wp_customize->add_control( 'tagdiv_subfooter_copyright_symbol',
 		array(
 			'label'      	=> __( 'Copyright Symbol', 'meistermag' ),
 			'description' 	=> __( 'Show/Hide the footer copyright symbol', 'meistermag' ),
@@ -148,8 +136,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Home / Latest Posts Section > Title Settings Section */
-	$wp_customize->add_section(
-		'tagdiv_home_options_section',
+	$wp_customize->add_section( 'tagdiv_home_options_section',
 		array(
 			'title'          => __( 'Home Block / Latest Posts Options', 'meistermag' ),
 			'priority'       => 2,
@@ -159,8 +146,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Home Block Section Title Settings */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_block_section_title]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_section_title]',
 		array(
 			'capability' 	 	=> 'edit_theme_options',
 			'default'           => __( 'Block Title', 'meistermag' ),
@@ -168,8 +154,7 @@ function tagdiv_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_control(
-		'tagdiv_block_section_title',
+	$wp_customize->add_control( 'tagdiv_block_section_title',
 		array(
 			'label'      	=> __( 'Block Title', 'meistermag' ),
 			'description' 	=> __( 'Set the block title', 'meistermag' ),
@@ -180,8 +165,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	);
 
 	/* Theme Latest Posts Section Title Settings */
-	$wp_customize->add_setting(
-		'tagdiv_theme_options[tagdiv_latest_section_title]',
+	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_latest_section_title]',
 		array(
 			'capability' 	 	=> 'edit_theme_options',
 			'default'           => __( 'Latest Articles', 'meistermag' ),
@@ -189,8 +173,7 @@ function tagdiv_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_control(
-		'tagdiv_latest_section_title',
+	$wp_customize->add_control( 'tagdiv_latest_section_title',
 		array(
 			'label'      	=> __( 'Latest Articles Title', 'meistermag' ),
 			'description' 	=> __( 'Set the latest articles section title', 'meistermag' ),
