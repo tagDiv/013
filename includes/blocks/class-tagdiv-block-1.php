@@ -9,15 +9,15 @@ class Tagdiv_Block_1 extends Tagdiv_Block {
 		$buffy .= '<div class="tagdiv-block-wrap tagdiv-block-1">';
 
 		// block title wrap
-		$buffy .= '<div class="td-block-title-wrap">';
+		$buffy .= '<div class="tagdiv-block-title-wrap">';
 		$buffy .= $this->get_block_title(); //get the block title
 		$buffy .= '</div>';
 
 		$buffy .= '<div id="block_id" class="tagdiv_block_inner">';
-		$buffy .= $this->inner( $this->tagdiv_query->posts, $this->atts['tagdiv_column_number'] );  //inner content of the block
+		$buffy .= $this->inner( $this->tagdiv_query->posts, $this->tagdiv_query_atts['tagdiv_column_number'] );  //inner content of the block
 		$buffy .= '</div>';
 
-		$buffy .= '</div> <!-- ./block -->';
+		$buffy .= '</div> <!-- /.tagdiv-block-wrap -->';
 
 		return $buffy;
 	}

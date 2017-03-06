@@ -11,28 +11,25 @@ get_header();
 
 ?>
 
-<div class="td-main-content-wrap td-container-wrap">
-    <div class="td-container">
-        <div class="td-pb-row">
-            <div class="td-pb-span8 td-main-content">
+<div class="tagdiv-main-content-wrap">
+    <div class="tagdiv-container">
+        <div class="tagdiv-row">
+            <div class="tagdiv-span8" role="main">
 
                 <?php while ( have_posts() ) : the_post(); // Start the loop. ?>
 
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                         <header class="tagdiv-page-header">
-                            <?php the_title( '<h1 class="entry-title tagdiv-page-title">', '</h1>' ); ?>
-                        </header><!-- .entry-header -->
+                            <?php the_title( '<h1 class="tagdiv-entry-title tagdiv-page-title">', '</h1>' ); ?>
+                        </header><!-- .tagdiv-page-header -->
 
-                        <div class="entry-content">
 
                             <div class="entry-attachment">
                                 <?php
                                 /**
                                  * Filter the default twentysixteen image attachment size.
-                                 *
                                  * @since MeisterMag 1.0
-                                 *
                                  * @param string $image_size Image size. Default 'large'.
                                  */
                                 $image_size = apply_filters( 'tagdiv_attachment_size', 'large' );
@@ -48,12 +45,11 @@ get_header();
                                 <?php the_content(); ?>
                             </div>
 
-                        </div><!-- .entry-content -->
 
                         <footer class="entry-footer">
                                 <?php
                                 wp_link_pages( array(
-                                    'before' => '<div class="page-nav page-nav-post">',
+                                    'before' => '<div class="page-nav">',
                                     'after' => '</div>',
                                     'link_before' => '<div>',
                                     'link_after' => '</div>',
@@ -73,11 +69,11 @@ get_header();
 
             </div>
 
-            <div class="td-pb-span4 tagdiv-sidebar" role="complementary">
+            <div class="tagdiv-span4 tagdiv-sidebar" role="complementary">
                     <?php get_sidebar(); ?>
             </div>
-        </div> <!-- /.td-pb-row -->
-    </div> <!-- /.td-container -->
-</div> <!-- /.td-main-content-wrap -->
+        </div> <!-- /.tagdiv-row -->
+    </div> <!-- /.tagdiv-container -->
+</div> <!-- /.tagdiv-main-content-wrap -->
 
 <?php get_footer();

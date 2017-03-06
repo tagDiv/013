@@ -4,53 +4,51 @@
  * Class Tagdiv_Block - base class for blocks
  */
 class Tagdiv_Block {
+	
 	var $tagdiv_query; //the query used to rendering the current block
-
-	public $atts = array(); //the block attributes used for rendering the current block
+	public $tagdiv_query_atts = array(); //the block attributes used for rendering the current block
 
 	/**
 	 * the base render function. This is called by all the child classes of this class
-	 *
-	 * @param $atts
-	 *
+	 * @param $tagdiv_block_query_attributes
 	 * @return string ''
 	 */
-	function render( $atts ) {
+	function render( $tagdiv_block_query_attributes ) {
 
-		// All block attributes must be defined here !!!
+		// All block attributes must be defined here!
 		// It's easier to maintain and we always have a list of them all
-		$this->atts = shortcode_atts( //add defaults (if an att is not in this list, it will be removed! )
+		$this->tagdiv_query_atts = shortcode_atts( //add defaults (if an att is not in this list, it will be removed!)
 			array(
-				'limit'                => 5,
-				// posts no limit
-				'sort'                 => '',
+				// posts number limit
+				'tagdiv_block_posts_limit' 			=> 5,
 				// posts sorting
-				'post_ids'             => '',
+				'tagdiv_block_sort'        			=> '',
 				// post id's filter (separated by commas)
-				'tag_slug'             => '',
+				'tagdiv_block_post_ids'             => '',
 				// tag slug filter (separated by commas)
-				'autors_id'            => '',
+				'tagdiv_block_tag_slug'             => '',
 				// filter by post authors ID
-				'installed_post_types' => '',
+				'tagdiv_block_autors_id'            => '',
 				// filter by custom post types
-				'category_id'          => '',
-				// filter by multiple category ids ( multiple category filter )
-				'category_ids'         => '',
-				// filter by category id ( a single category filter )
-				'custom_title'         => '',
+				'tagdiv_block_installed_post_types' => '',
+				// filter by multiple category ids (multiple category filter)
+				'tagdiv_block_category_id'          => '',
+				// filter by category id (a single category filter)
+				'tagdiv_block_category_ids'         => '',
 				// custom title for the block
-				'custom_url'           => '',
-				// cusotm ulr for the block title
-				'tagdiv_column_number' => '',
-				//column number
-				'offset'               => '',
+				'tagdiv_custom_title'  				=> '',
+				// custom url for the block title
+				'tagdiv_block_custom_url'          	=> '',
+				// block columns number
+				'tagdiv_column_number' 				=> '',
 				// block posts offset
+				'tagdiv_block_offset'               => '',
 			),
-			$atts
+			$tagdiv_block_query_attributes
 		);
 
 		//by ref do the query
-		$this->tagdiv_query = &Tagdiv_Data_Source::get_wp_query( $this->atts );
+		$this->tagdiv_query = &Tagdiv_Data_Source::tagdiv_get_wp_query( $this->tagdiv_query_atts );
 
 		return '';
 	}
@@ -61,50 +59,49 @@ class Tagdiv_Block {
 	 * @return string
 	 */
 	function get_block_title() {
-		$custom_title = $this->atts['custom_title'];
-		$custom_url   = $this->atts['custom_url'];
+		$tagdiv_block_custom_title = $this->tagdiv_query_atts['tagdiv_custom_title'];
+		$tagdiv_block_custom_url   = $this->tagdiv_query_atts['tagdiv_block_custom_url'];
 
-		if ( empty( $custom_title ) ) {
+		if ( empty( $tagdiv_block_custom_title ) ) {
 			return '';
 		}
 
 		// there is a custom title
-		$buffy = '';
-		$buffy .= '<h4 class="block-title">';
-		if ( ! empty( $custom_url ) ) {
-			$buffy .= '<a href="' . esc_url( $custom_url ) . '">' . esc_html( $custom_title ) . '</a>';
+		$tagdiv_buffer = '';
+		$tagdiv_buffer .= '<h4 class="tagdiv-block-title">';
+		if ( ! empty( $tagdiv_block_custom_url ) ) {
+			$tagdiv_buffer .= '<a href="' . esc_url( $tagdiv_block_custom_url ) . '">' . esc_html( $tagdiv_block_custom_title ) . '</a>';
 		} else {
-			$buffy .= '<span>' . esc_html( $custom_title ) . '</span>';
+			$tagdiv_buffer .= '<span>' . esc_html( $tagdiv_block_custom_title ) . '</span>';
 		}
-		$buffy .= '</h4>';
+		$tagdiv_buffer .= '</h4>';
 
-		return $buffy;
+		return $tagdiv_buffer;
 	}
 
 	/**
-	 * @param $additional_classes_array array - of classes to add to the block
-	 *
+	 * @param $tagdiv_additional_classes_array array - of classes to add to the block
 	 * @return string
 	 */
-	protected function get_block_classes( $additional_classes_array = array() ) {
+	protected function get_block_classes( $tagdiv_additional_classes_array = array() ) {
 
 		//add the block wrap class
-		$block_classes = array(
+		$tagdiv_block_classes = array(
 			'tagdiv-block-wrap'
 		);
 
 		//marge the additional classes received from blocks code
-		if ( ! empty( $additional_classes_array ) ) {
-			$block_classes = array_merge(
-				$block_classes,
-				$additional_classes_array
+		if ( ! empty( $tagdiv_additional_classes_array ) ) {
+			$tagdiv_block_classes = array_merge(
+				$tagdiv_block_classes,
+				$tagdiv_additional_classes_array
 			);
 		}
 
 		//remove duplicates
-		$block_classes = array_unique( $block_classes );
+		$tagdiv_block_classes = array_unique( $tagdiv_block_classes );
 
-		return implode( ' ', $block_classes );
+		return implode( ' ', $tagdiv_block_classes );
 	}
 }
 

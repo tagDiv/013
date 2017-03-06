@@ -85,20 +85,20 @@
 	<!--site header-->
 	<header class="site-header" role="banner">
 		<div class="tagdiv-header-wrap tagdiv-header-style">
-			<div class="td-header-logo-wrap td-container-wrap">
+			<div class="td-header-logo-wrap">
 
 				<a class="skip-link screen-reader-text" href="#site-content"><?php _e( 'Skip to content', 'meistermag' ); ?></a>
 
-				<div class="td-container">
+				<div class="tagdiv-container">
 					<div class="tagdiv-header-logo">
 						<?php tagdiv_custom_logo(); ?>
 					</div> <!-- /.tagdiv-header-logo -->
 				</div>
 			</div>
 
-			<div class="td-header-menu-wrap-full td-container-wrap">
+			<div class="td-header-menu-wrap-full">
 				<div class="td-header-menu-wrap"> <!-- /.td-header-menu-wrap -->
-					<div class="td-container td-header-main-menu">
+					<div class="tagdiv-container td-header-main-menu">
 
 						<div id="td-header-menu" role="navigation">
 

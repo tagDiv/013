@@ -25,11 +25,11 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 				return;
 			} else { ?>
 
-				<div class="td-module-image">
+				<div class="tagdiv-module-image">
 
 					<?php tagdiv_get_no_thumb( 'td_300x220' ); ?>
 
-				</div> <!-- .td-module-image-->
+				</div> <!-- .tagdiv-module-image-->
 
 			<?php }// End is_singular()
 		}
@@ -49,7 +49,7 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 
 		<?php } else { ?>
 
-			<div class="td-module-image">
+			<div class="tagdiv-module-image">
 
 				<div class="td-module-thumb">
 
@@ -66,7 +66,7 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 
 				</div><!-- .td-module-thumb-->
 
-			</div> <!-- .td-module-image-->
+			</div> <!-- .tagdiv-module-image-->
 
 		<?php }// End is_singular()
 	}
@@ -164,7 +164,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 				<?php echo tagdiv_post_category(); ?>
 
 				<header>
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php the_title( '<h1 class="tagdiv-entry-title">', '</h1>' ); ?>
 
 					<div class="td-module-meta-info">
 
@@ -190,7 +190,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 		<?php } else { ?>
 
 			<header class="entry-header">
-				<?php the_title( sprintf( '<h3 class="entry-title td-module-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+				<?php the_title( sprintf( '<h3 class="tagdiv-entry-title td-module-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
 				<div class="td-module-meta-info">
 
@@ -270,19 +270,19 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 
 			if ( ! empty( $next_post ) or ! empty( $prev_post ) ) {
 
-				$next_prev_posts .= '<div class="td-pb-row td-post-next-prev">';
+				$next_prev_posts .= '<div class="tagdiv-row td-post-next-prev">';
 				if ( ! empty( $prev_post ) ) {
-					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
+					$next_prev_posts .= '<div class="tagdiv-span6 td-post-prev-post">';
 					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __( 'Previous article', 'meistermag' ) . '</span>';
 					$next_prev_posts .= '<a href="' . esc_url( get_permalink( $prev_post->ID ) ) . '">' . get_the_title( $prev_post->ID ) . '</a>';
 					$next_prev_posts .= '</div>';
 					$next_prev_posts .= '</div>';
 				} else {
-					$next_prev_posts .= '<div class="td-pb-span6 td-post-prev-post">';
+					$next_prev_posts .= '<div class="tagdiv-span6 td-post-prev-post">';
 					$next_prev_posts .= '</div>';
 				}
 				if ( ! empty( $next_post ) ) {
-					$next_prev_posts .= '<div class="td-pb-span6 td-post-next-post">';
+					$next_prev_posts .= '<div class="tagdiv-span6 td-post-next-post">';
 					$next_prev_posts .= '<div class="td-post-next-prev-content"><span>' . __('Next article', 'meistermag') . '</span>';
 					$next_prev_posts .= '<a href="' . esc_url( get_permalink( $next_post->ID ) ) . '">' . get_the_title( $next_post->ID ) . '</a>';
 					$next_prev_posts .= '</div>';
@@ -396,7 +396,7 @@ if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
 		?>
 			<div class="td-module-thumb">
 				<?php	if ( current_user_can( 'edit_posts' ) ) { ?>
-					<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>">edit</a>
+					<a class="td-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
 				<?php } ?>
 				<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
 					<img class="entry-thumb" src="<?php echo $tagdiv_temp_image_url; ?>" alt="no-thumb-placeholder" title="no-thumb" />

@@ -198,7 +198,7 @@ abstract class Tagdiv_Module {
 	 */
 	function get_title() {
 		$buffy = '';
-		$buffy .= '<h3 class="entry-title td-module-title">';
+		$buffy .= '<h3 class="tagdiv-entry-title td-module-title">';
 		$buffy .= '<a href="' . $this->href . '" rel="bookmark" title="' . $this->title_attribute . '">';
 		$buffy .= $this->title;
 		$buffy .= '</a>';

@@ -11,9 +11,9 @@
 
 get_header(); ?>
 
-	<div class="td-main-content-wrap td-container-wrap">
-		<div class="td-container">
-			<div class="td-pb-span12">
+	<div class="tagdiv-main-content-wrap">
+		<div class="tagdiv-container">
+			<div class="tagdiv-span12">
 				<div class="td-404-head">
 					<div class="td-404-title"><?php _e( '404', 'meistermag' ); ?></div>
 					<div class="td-404-sub-title"><?php _e( 'Oops!', 'meistermag' ); ?></div>
@@ -42,10 +42,10 @@ get_header(); ?>
 
 						if ( false === $row_is_open ) {
 							$row_is_open = true;
-							echo '<div class="td-pb-row">'; // open a grid row
+							echo '<div class="tagdiv-row">'; // open a grid row
 						} ?>
 
-						<div class="td-pb-span4">
+						<div class="tagdiv-span4">
 							<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 						</div>
 
@@ -76,7 +76,7 @@ get_header(); ?>
 				wp_reset_query();
 				?>
 			</div>
-		</div> <!-- /.td-container -->
-	</div> <!-- /.td-main-content-wrap -->
+		</div> <!-- /.tagdiv-container -->
+	</div> <!-- /.tagdiv-main-content-wrap -->
 
 <?php get_footer(); ?>

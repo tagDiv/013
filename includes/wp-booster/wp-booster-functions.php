@@ -145,7 +145,7 @@ function tagdiv_widgets_init() {
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'meistermag' ),
 		'before_widget' => '<aside class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
+		'before_title'  => '<div class="tagdiv-block-title"><span>',
 		'after_title'   => '</span></div>'
 	) );
 
@@ -155,7 +155,7 @@ function tagdiv_widgets_init() {
 		'id'            => 'tagdiv-footer-1',
 		'before_widget' => '<aside class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
+		'before_title'  => '<div class="tagdiv-block-title"><span>',
 		'after_title'   => '</span></div>'
 	) );
 
@@ -164,7 +164,7 @@ function tagdiv_widgets_init() {
 		'id'            => 'tagdiv-footer-2',
 		'before_widget' => '<aside class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
+		'before_title'  => '<div class="tagdiv-block-title"><span>',
 		'after_title'   => '</span></div>'
 	) );
 
@@ -173,7 +173,7 @@ function tagdiv_widgets_init() {
 		'id'            => 'tagdiv-footer-3',
 		'before_widget' => '<aside class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="block-title"><span>',
+		'before_title'  => '<div class="tagdiv-block-title"><span>',
 		'after_title'   => '</span></div>'
 	) );
 

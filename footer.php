@@ -17,27 +17,27 @@
 	</div><!-- #site-content -->
 	<!--site footer-->
 	<footer class="site-footer" role="contentinfo">
-		<div class="tagdiv-footer-wrapper td-container-wrap">
+		<div class="tagdiv-footer-wrapper">
 			<!-- footer -->
 			<div class="tagdiv-footer-container">
-				<div class="td-container">
-					<div class="td-pb-row">
-						<div class="td-pb-span4">
+				<div class="tagdiv-container">
+					<div class="tagdiv-row">
+						<div class="tagdiv-span4">
 							<?php dynamic_sidebar( 'Footer 1' ); ?>
 						</div>
 
-						<div class="td-pb-span4">
+						<div class="tagdiv-span4">
 							<?php dynamic_sidebar( 'Footer 2' ); ?>
 						</div>
 
-						<div class="td-pb-span4">
+						<div class="tagdiv-span4">
 							<?php dynamic_sidebar( 'Footer 3' ); ?>
 						</div>
 					</div>
 
-					<div class="td-pb-row">
+					<div class="tagdiv-row">
 						<!--logo-->
-						<div class="td-pb-span12">
+						<div class="tagdiv-span12">
 							<aside class="footer-logo-wrap">
 
 								<?php
@@ -52,7 +52,7 @@
 						</div>
 
 						<!--description & email-->
-						<div class="td-pb-span12">
+						<div class="tagdiv-span12">
 							<aside class="footer-text-wrap">
 
 								<?php if ( !empty( $tagdiv_theme_options[ 'tagdiv_footer_text' ] ) ) { ?>
@@ -68,14 +68,14 @@
 							</aside>
 						</div>
 					</div>
-				</div> <!-- /.td-container -->
+				</div> <!-- /.tagdiv-container -->
 			</div> <!-- /.tagdiv-footer-container -->
 
 			<!-- sub footer -->
 			<div class="tagdiv-sub-footer-container">
-				<div class="td-container">
-					<div class="td-pb-row">
-						<div class="td-pb-span12 td-sub-footer-menu">
+				<div class="tagdiv-container">
+					<div class="tagdiv-row">
+						<div class="tagdiv-span12 td-sub-footer-menu">
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'footer-menu',
@@ -90,7 +90,7 @@
 							?>
 						</div>
 
-						<div class="td-pb-span12 td-sub-footer-copy">
+						<div class="tagdiv-span12 td-sub-footer-copy">
 							<?php
 							$tagdiv_footer_copy_symbol = $tagdiv_theme_options[ 'tagdiv_subfooter_copyright_symbol' ];
 							$tagdiv_footer_copyright   = stripslashes( $tagdiv_theme_options[ 'tagdiv_subfooter_copyright' ] );
@@ -104,7 +104,7 @@
 							?>
 						</div>
 					</div>
-				</div> <!-- /.td-container -->
+				</div> <!-- /.tagdiv-container -->
 			</div> <!-- /.tagdiv-sub-footer-container -->
 		</div> <!-- /.tagdiv-footer-wrapper -->
 	</footer> <!-- /.site-footer -->

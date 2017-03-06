@@ -10,16 +10,18 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="page-header">
-		<?php the_title( '<h1 class="entry-title tagdiv-page-title">', '</h1>' ); ?>
-	</header><!-- /.entry-header -->
+	<header class="tagdiv-page-header">
+		<?php the_title( '<h1 class="tagdiv-entry-title tagdiv-page-title">', '</h1>' ); ?>
+	</header><!-- /.tagdiv-page-header -->
 
-	<div class="entry-content td-page-content">
+	<div class="tagdiv-page-content">
+		<?php the_content(); ?>
+	</div><!-- /.tagdiv-page-content -->
+
+	<footer class="tagdiv-page-footer">
 		<?php
-		the_content();
-
 		wp_link_pages( array(
-			'before'      => '<div class="page-nav page-nav-post">',
+			'before'      => '<div class="page-nav">',
 			'after'       => '</div>',
 			'link_before' => '<div>',
 			'link_after'  => '</div>',
@@ -27,6 +29,6 @@
 			'separator'   => '<span class="screen-reader-text">, </span>',
 		) );
 		?>
-	</div><!-- /.entry-content -->
+	</footer><!-- /.tagdiv-page-footer -->
 
 </article><!-- #post-## -->

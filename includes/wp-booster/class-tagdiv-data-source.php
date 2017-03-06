@@ -4,113 +4,110 @@ class Tagdiv_Data_Source {
 
 	/**
 	 * creates the $args array
-	 *
-	 * @param string $atts  : the query attributes
-	 *
+	 * @param string $tagdiv_block_query_attributes  : the query attributes
 	 * @return array
 	 */
-	static function shortcode_to_args( $atts = '' ) {
+	static function shortcode_to_args( $tagdiv_block_query_attributes = '' ) {
 		extract( shortcode_atts(
 				array(
-					'post_ids'                    => '',
-					'category_ids'                => '',
-					'category_id'                 => '',
-					'tag_slug'                    => '',
-					'sort'                        => '',
-					'limit'                       => '',
-					'autors_id'                   => '',
-					'installed_post_types'        => '',
-					'offset'                      => '',
+					'tagdiv_block_post_ids'             => '',
+					'tagdiv_block_category_ids'         => '',
+					'tagdiv_block_category_id'          => '',
+					'tagdiv_block_tag_slug'             => '',
+					'tagdiv_block_sort'                 => '',
+					'tagdiv_block_posts_limit'    		=> '',
+					'tagdiv_block_autors_id'            => '',
+					'tagdiv_block_installed_post_types' => '',
+					'tagdiv_block_offset'               => '',
 				),
-				$atts
+				$tagdiv_block_query_attributes
 			)
 		);
 
 		//init the array
-		$wp_query_args = array(
-			'ignore_sticky_posts' => 1,
-			'post_status'         => 'publish'
+		$tagdiv_wp_query_args = array(
+			'post_status' => 'publish'
 		);
 
-		//the query goes only via $category_ids - for both options ($category_ids and $category_id) also $category_ids overwrites $category_id
-		if ( ! empty( $category_id ) && empty( $category_ids ) ) {
-			$category_ids = $category_id;
+		//the query goes only via $tagdiv_block_category_ids - for both options ($tagdiv_block_category_ids and $tagdiv_block_category_id) also $tagdiv_block_category_ids overwrites $tagdiv_block_category_id
+		if ( ! empty( $tagdiv_block_category_id ) && empty( $tagdiv_block_category_ids ) ) {
+			$tagdiv_block_category_ids = $tagdiv_block_category_id;
 		}
 
-		if ( ! empty( $category_ids ) ) {
-			$wp_query_args['cat'] = $category_ids;
+		if ( ! empty( $tagdiv_block_category_ids ) ) {
+			$tagdiv_wp_query_args['cat'] = $tagdiv_block_category_ids;
 		}
 
 		// tag slug filter
-		if ( ! empty( $tag_slug ) ) {
-			$wp_query_args['tag'] = str_replace( ' ', '-', $tag_slug );
+		if ( ! empty( $tagdiv_block_tag_slug ) ) {
+			$tagdiv_wp_query_args['tag'] = str_replace( ' ', '-', $tagdiv_block_tag_slug );
 		}
 
-		switch ( $sort ) {
+		switch ( $tagdiv_block_sort ) {
 
 			case 'oldest_posts':
-				$wp_query_args['order'] = 'ASC';
+				$tagdiv_wp_query_args['order'] = 'ASC';
 				break;
 
 			case 'random_posts':
-				$wp_query_args['orderby'] = 'rand';
+				$tagdiv_wp_query_args['orderby'] = 'rand';
 				break;
 
 			case 'alphabetical_order':
-				$wp_query_args['orderby'] = 'title';
-				$wp_query_args['order']   = 'ASC';
+				$tagdiv_wp_query_args['orderby'] = 'title';
+				$tagdiv_wp_query_args['order']   = 'ASC';
 				break;
 
 			case 'comment_count':
-				$wp_query_args['orderby'] = 'comment_count';
-				$wp_query_args['order']   = 'DESC';
+				$tagdiv_wp_query_args['orderby'] = 'comment_count';
+				$tagdiv_wp_query_args['order']   = 'DESC';
 				break;
 
 			case 'random_today':
-				$wp_query_args['orderby']  = 'rand';
-				$wp_query_args['year']     = date( 'Y' );
-				$wp_query_args['monthnum'] = date( 'n' );
-				$wp_query_args['day']      = date( 'j' );
+				$tagdiv_wp_query_args['orderby']  = 'rand';
+				$tagdiv_wp_query_args['year']     = date( 'Y' );
+				$tagdiv_wp_query_args['monthnum'] = date( 'n' );
+				$tagdiv_wp_query_args['day']      = date( 'j' );
 				break;
 
 			case 'random_7_day':
-				$wp_query_args['orderby']    = 'rand';
-				$wp_query_args['date_query'] = array(
+				$tagdiv_wp_query_args['orderby']    = 'rand';
+				$tagdiv_wp_query_args['date_query'] = array(
 					'column' => 'post_date_gmt',
 					'after'  => '1 week ago'
 				);
 				break;
 		}
 
-		if ( ! empty( $autors_id ) ) {
-			$wp_query_args['author'] = $autors_id;
+		if ( ! empty( $tagdiv_block_autors_id ) ) {
+			$tagdiv_wp_query_args['author'] = $tagdiv_block_autors_id;
 		}
 
 		// add post_type to query
-		if ( ! empty( $installed_post_types ) ) {
-			$array_selected_post_types = array();
-			$expl_installed_post_types = explode( ',', $installed_post_types );
+		if ( ! empty( $tagdiv_block_installed_post_types ) ) {
+			$tagdiv_array_selected_post_types = array();
+			$tagdiv_explode_installed_post_types = explode( ',', $tagdiv_block_installed_post_types );
 
-			foreach ( $expl_installed_post_types as $val_this_post_type ) {
-				if ( trim( $val_this_post_type ) != '' ) {
-					$array_selected_post_types[] = trim( $val_this_post_type );
+			foreach ( $tagdiv_explode_installed_post_types as $tagdiv_val_this_post_type ) {
+				if ( trim( $tagdiv_val_this_post_type ) != '' ) {
+					$tagdiv_array_selected_post_types[] = trim( $tagdiv_val_this_post_type );
 				}
 			}
 
-			$wp_query_args['post_type'] = $array_selected_post_types; //$installed_post_types;
+			$tagdiv_wp_query_args['post_type'] = $tagdiv_array_selected_post_types; //$tagdiv_block_installed_post_types;
 		}
 
 		// post in section
-		if ( ! empty( $post_ids ) ) {
+		if ( ! empty( $tagdiv_block_post_ids ) ) {
 
 			// split posts id string
-			$post_id_array = explode( ',', $post_ids );
+			$tagdiv_post_id_array = explode( ',', $tagdiv_block_post_ids );
 
 			$post_in     = array();
 			$post_not_in = array();
 
 			// split ids into post_in and post_not_in
-			foreach ( $post_id_array as $post_id ) {
+			foreach ( $tagdiv_post_id_array as $post_id ) {
 				$post_id = trim( $post_id );
 
 				// check if the ID is actually a number
@@ -125,43 +122,41 @@ class Tagdiv_Data_Source {
 
 			// don't pass an empty post__in because it will return had_posts()
 			if ( ! empty( $post_in ) ) {
-				$wp_query_args['post__in'] = $post_in;
-				$wp_query_args['orderby']  = 'post__in';
+				$tagdiv_wp_query_args['post__in'] = $post_in;
+				$tagdiv_wp_query_args['orderby']  = 'post__in';
 			}
 
 			// check if the post__not_in is already set, if it is merge it with $post_not_in
 			if ( ! empty( $post_not_in ) ) {
-				if ( ! empty( $wp_query_args['post__not_in'] ) ) {
-					$wp_query_args['post__not_in'] = array_merge( $wp_query_args['post__not_in'], $post_not_in );
+				if ( ! empty( $tagdiv_wp_query_args['post__not_in'] ) ) {
+					$tagdiv_wp_query_args['post__not_in'] = array_merge( $tagdiv_wp_query_args['post__not_in'], $post_not_in );
 				} else {
-					$wp_query_args['post__not_in'] = $post_not_in;
+					$tagdiv_wp_query_args['post__not_in'] = $post_not_in;
 				}
 			}
 		}
 
-		//custom pagination limit
-		if ( empty( $limit ) ) {
-			$limit = get_option( 'posts_per_page' );
+		//custom pagination tagdiv_block_posts_limit
+		if ( empty( $tagdiv_block_posts_limit ) ) {
+			$tagdiv_block_posts_limit = get_option( 'posts_per_page' );
 		}
 
-		$wp_query_args['posts_per_page'] = $limit;
+		$tagdiv_wp_query_args['posts_per_page'] = $tagdiv_block_posts_limit;
 
-		if ( ! empty( $offset ) ) {
-			$wp_query_args['offset'] = $offset ;
+		if ( ! empty( $tagdiv_block_offset ) ) {
+			$tagdiv_wp_query_args['offset'] = $tagdiv_block_offset;
 		}
 
-		return $wp_query_args;
+		return $tagdiv_wp_query_args;
 	}
 
 	/**
 	 * used by blocks
-	 *
-	 * @param string $atts
-	 *
+	 * @param string $tagdiv_block_query_attributes
 	 * @return WP_Query
 	 */
-	static function &get_wp_query( $atts = '' ) { //by ref
-		$args = self::shortcode_to_args( $atts );
+	static function &tagdiv_get_wp_query( $tagdiv_block_query_attributes = '' ) { //by ref
+		$args = self::shortcode_to_args( $tagdiv_block_query_attributes );
 
 		$tagdiv_query = new WP_Query( $args );
 

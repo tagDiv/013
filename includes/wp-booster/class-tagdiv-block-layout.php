@@ -18,12 +18,11 @@ class Tagdiv_Block_Layout {
 
 	var $span12_is_open = false;
 
-
-	var $row_class = 'td-pb-row';
-	var $span3_class = 'td-pb-span3';
-	var $span4_class = 'td-pb-span4';
-	var $span6_class = 'td-pb-span6';
-	var $span12_class = 'td-pb-span12'; // this one does not use rows
+	var $row_class = 'tagdiv-row';
+	var $span3_class = 'tagdiv-span3';
+	var $span4_class = 'tagdiv-span4';
+	var $span6_class = 'tagdiv-span6';
+	var $span12_class = 'tagdiv-span12'; // this one does not use rows
 
 
 	function open_row() {

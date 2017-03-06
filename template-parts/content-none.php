@@ -10,32 +10,30 @@
  */
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title tagdiv-page-title"><?php _e( 'Nothing Found', 'meistermag' ); ?></h1>
-	</header><!-- /.page-header -->
+<header class="tagdiv-page-header">
+	<h1 class="tagdiv-page-title"><?php _e( 'Nothing Found', 'meistermag' ); ?></h1>
+</header><!-- /.tagdiv-page-header -->
 
-	<div class="page-content">
+<div class="tagdiv-page-content">
 
-		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) { ?>
+	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) { ?>
 
-			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'meistermag' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+		<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'meistermag' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
-		<?php } elseif ( is_search() ) { ?>
+	<?php } elseif ( is_search() ) { ?>
 
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'meistermag' ); ?></p>
+		<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'meistermag' ); ?></p>
 
-		<?php } elseif ( is_category() ) { ?>
+	<?php } elseif ( is_category() ) { ?>
 
-			<p><?php _e( 'Sorry, but the chosen category dose not contain any posts to display. Perhaps searching can help.', 'meistermag' ); ?></p>
-			<?php get_search_form(); ?>
+		<p><?php _e( 'Sorry, but the chosen category dose not contain any posts to display. Perhaps searching can help.', 'meistermag' ); ?></p>
+		<?php get_search_form(); ?>
 
-		<?php } else { ?>
+	<?php } else { ?>
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'meistermag' ); ?></p>
-			<?php get_search_form(); ?>
+		<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'meistermag' ); ?></p>
+		<?php get_search_form(); ?>
 
-		<?php } ?>
+	<?php } ?>
 
-	</div><!-- /.page-content -->
-</section><!-- /.no-results -->
+</div><!-- /.tagdiv-page-content -->

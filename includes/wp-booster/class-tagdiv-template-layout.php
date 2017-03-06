@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Used by templates to create the layout (rows + columns) in page-home.php
+ * Used by templates to create the layout (rows + columns) in template-home.php
  * the layout is then populated with modules
  */
 
@@ -9,10 +9,8 @@
 class Tagdiv_Template_Layout extends Tagdiv_Block_Layout {
     var $td_column_number;
     var $td_current_column = 1;
-
     var $td_post_count = 0;
-
-    var $is_output_disabled = false; //when the module is disabled, it doesn't output anything ( the module doesn't need the grid to work )
+    var $is_output_disabled = false; //when the module is disabled, it doesn't output anything
 
     function __construct( $sidebar_position ) {
         switch( $sidebar_position ) {

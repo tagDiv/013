@@ -11,10 +11,10 @@
 
 get_header(); ?>
 
-	<div class="td-main-content-wrap td-container-wrap">
-		<div class="td-container">
-			<div class="td-pb-row">
-				<div class="td-pb-span8 td-main-content" role="main">
+	<div class="tagdiv-main-content-wrap">
+		<div class="tagdiv-container">
+			<div class="tagdiv-row">
+				<div class="tagdiv-span8" role="main">
 
 					<?php
 						// Start the Loop
@@ -32,11 +32,11 @@ get_header(); ?>
 
 				</div>
 
-				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">
+				<div class="tagdiv-span4 tagdiv-sidebar" role="complementary">
 					<?php get_sidebar(); ?>
 				</div>
-			</div> <!-- /.td-pb-row -->
-		</div> <!-- /.td-container -->
-	</div> <!-- /.td-main-content-wrap -->
+			</div> <!-- /.tagdiv-row -->
+		</div> <!-- /.tagdiv-container -->
+	</div> <!-- /.tagdiv-main-content-wrap -->
 
 <?php get_footer(); ?>

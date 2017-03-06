@@ -16,16 +16,16 @@
 
 get_header(); ?>
 
-	<div class="td-main-content-wrap td-container-wrap">
-		<div class="td-container">
-			<div class="td-pb-row">
-				<div class="td-pb-span8 td-main-content" role="main">
+	<div class="tagdiv-main-content-wrap">
+		<div class="tagdiv-container">
+			<div class="tagdiv-row">
+				<div class="tagdiv-span8" role="main">
 
 					<?php if ( have_posts() ) { ?>
 
 						<?php if ( is_home() && ! is_front_page() ) { ?>
 							<header>
-								<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+								<h1 class="tagdiv-page-title screen-reader-text"><?php single_post_title(); ?></h1>
 							</header>
 						<?php } ?>
 
@@ -39,10 +39,10 @@ get_header(); ?>
 
 							if ( false === $row_is_open ) {
 								$row_is_open = true;
-								echo '<div class="td-pb-row">'; // open a grid row
+								echo '<div class="tagdiv-row">'; // open a grid row
 							} ?>
 
-							<div class="td-pb-span6">
+							<div class="tagdiv-span6">
 								<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 							</div>
 
@@ -64,7 +64,7 @@ get_header(); ?>
 							echo '</div>'; // close the grid row
 						} ?>
 
-						<div class="page-nav page-nav-post">
+						<div class="page-nav">
 
 							<?php
 							// Previous/next page navigation.
@@ -83,12 +83,12 @@ get_header(); ?>
 
 				</div>
 
-				<div class="td-pb-span4 tagdiv-sidebar" role="complementary">
+				<div class="tagdiv-span4 tagdiv-sidebar" role="complementary">
 					<?php get_sidebar(); ?>
 				</div>
-			</div> <!-- /.td-pb-row -->
-		</div> <!-- /.td-container -->
-	</div> <!-- /.td-main-content-wrap -->
+			</div> <!-- /.tagdiv-row -->
+		</div> <!-- /.tagdiv-container -->
+	</div> <!-- /.tagdiv-main-content-wrap -->
 
 <?php
 get_footer();

@@ -12,9 +12,9 @@
 
 
 <?php if ( is_single() ) { ?>
-	<div class="td-post-template">
+	<div class="tagdiv-post-template">
 <?php } else {  ?>
-	<div class="tagdiv-module-wrap td-module-wrap" >
+	<div class="tagdiv-module-wrap">
 <?php } ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -27,21 +27,20 @@
 		<?php tagdiv_post_header(); // Post header. ?>
 	<?php } ?>
 
-	<div class="entry-content">
 		<?php if ( is_single() ) { ?>
-			<div class="td-post-content">
+			<div class="tagdiv-post-content">
 				<?php /* translators: %s: Name of current post */
 				the_content( sprintf(
 					__( 'Continue reading <span class="screen-reader-text">"%s"</span>', 'meistermag' ),
 					get_the_title()
 				) );
 				?>
-			</div> <!-- /.td-post-content -->
+			</div> <!-- /.tagdiv-post-content -->
 
-			<footer>
+			<footer class="tagdiv-post-footer">
 				<?php
 				wp_link_pages( array(
-					'before' 	  => '<div class="page-nav page-nav-post">',
+					'before' 	  => '<div class="page-nav">',
 					'after' 	  => '</div>',
 					'link_before' => '<div>',
 					'link_after'  => '</div>',
@@ -54,12 +53,11 @@
 				</div>
 			<?php echo tagdiv_next_prev_posts(); ?>
 			<?php echo tagdiv_author_box(); ?>
-			</footer>
+			</footer> <!-- /.tagdiv-post-footer -->
 		<?php } else { ?>
 				<?php tagdiv_excerpt(); ?>
 		<?php } ?>
 
-	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->
-</div> <!-- .tagdiv-module /.td-post-template -->
+</div> <!-- .tagdiv-module /.tagdiv-post-template -->
