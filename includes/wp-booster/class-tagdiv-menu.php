@@ -30,8 +30,8 @@ class td_menu {
              * - Because 'current_item_parent' ( true/false ) item property is not set by wp,
              *   we use an additional flag 'td_is_parent' to mark the parent elements of the tree menu
              *
-             * - The 'td_is_parent' flag is used just by the 'td_walker_mobile_menu'
-             *   walker of the mobile theme version @see td_walker_mobile_menu
+             * - The 'td_is_parent' flag is used just by the 'tagdiv_walker_mobile_menu'
+             *   walker of the mobile theme version @see tagdiv_walker_mobile_menu
              */
 
             if ( isset( $item->menu_item_parent ) && 0 !== intval( $item->menu_item_parent ) && array_key_exists( intval( $item->menu_item_parent ), $_items_ref ) ) {
@@ -46,8 +46,8 @@ class td_menu {
     function hook_init() {
         register_nav_menus(
             array(
-                'header-menu' => 'Header Menu (main)',
-                'footer-menu' => 'Sub Footer Menu'
+                'header-menu' => __( 'Header Menu (main)', 'meistermag' ),
+                'footer-menu' => __( 'Footer Menu', 'meistermag' )
             )
         );
     }
@@ -57,7 +57,7 @@ class td_menu {
 new td_menu();
 
 
-class td_walker_mobile_menu extends Walker_Nav_Menu {
+class tagdiv_walker_mobile_menu extends Walker_Nav_Menu {
 
     public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -137,7 +137,7 @@ class td_walker_mobile_menu extends Walker_Nav_Menu {
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID );
 
         // Tagdiv: the $link_after of args is added for parent items
-        if (isset($item->td_is_parent) && true === $item->td_is_parent) {
+        if (isset( $item->td_is_parent ) && true === $item->td_is_parent ) {
             $item_output .= $args->link_after;
         }
 

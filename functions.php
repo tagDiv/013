@@ -18,3 +18,9 @@ require get_template_directory() . '/includes/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/includes/customizer.php';
+
+
+function reset_mytheme_options() {
+    remove_theme_mods();
+}
+add_action( 'after_switch_theme', 'reset_mytheme_options' );

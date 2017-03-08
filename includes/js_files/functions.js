@@ -111,7 +111,7 @@
     'use strict';
 
     //handles open/close mobile menu
-    jQuery( '#td-top-mobile-toggle a, .td-mobile-close a' ).click(function(){
+    jQuery( '#tagdiv-top-mobile-toggle a, .tagdiv-mobile-close a' ).click(function(){
 
         var body = jQuery( 'body' );
 
@@ -123,7 +123,7 @@
     });
 
     //move through all the menu and find the item with sub-menues to atach a custom class to them
-    jQuery( document ).find( '#td-mobile-nav .menu-item-has-children' ).each(function( i ) {
+    jQuery( document ).find( '#tagdiv-mobile-nav .menu-item-has-children' ).each(function( i ) {
 
         var class_name = 'td_mobile_elem_with_submenu_' + i;
         jQuery(this).addClass( class_name );
@@ -147,7 +147,7 @@
 
             // html i element
             if ( jQueryTarget.length &&
-                ( ( jQueryTarget.hasClass( 'td-element-after') || jQueryTarget.hasClass( 'td-link-element-after') ) &&
+                ( ( jQueryTarget.hasClass( 'tagdiv-element-after') || jQueryTarget.hasClass( 'td-link-element-after') ) &&
                 ( '#' === jQueryTarget.attr( 'href' ) || undefined === jQueryTarget.attr( 'href' ) ) ) ) {
 
                 event.preventDefault();

@@ -119,7 +119,7 @@ function tagdiv_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright_symbol]',
 		array(
 			'capability' 		=> 'edit_theme_options',
-			'default'           => 1,
+			'default'           => '1',
 			'sanitize_callback' => 'tagdiv_sanitize_checkbox',
 		)
 	);

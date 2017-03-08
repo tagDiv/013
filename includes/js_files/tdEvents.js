@@ -76,15 +76,15 @@ var tdEvents = {};
 
     tdEvents.previousWindowInnerWidth = tdEvents.window_innerWidth;
 
-    var $tdMobileMenu = jQuery( '#td-mobile-nav' ),
+    var $tdMobileMenu = jQuery( '#tagdiv-mobile-nav' ),
         cssHeight = tdEvents.window_innerHeight + 1;
 
     if ( $tdMobileMenu.length ) {
         $tdMobileMenu.css( 'min-height' , cssHeight + 'px' );
     }
 
-    var $tdMobileBg = jQuery( '.td-menu-background' ),
-        $tdMobileBgSearch = jQuery( '.td-search-background' );
+    var $tdMobileBg = jQuery( '.tagdiv-menu-background' ),
+        $tdMobileBgSearch = jQuery( '.tagdiv-search-background' );
 
     if ( $tdMobileBg.length ) {
         $tdMobileBg.css( 'height' , ( cssHeight + 70 ) + 'px' );

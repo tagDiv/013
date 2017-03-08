@@ -32,10 +32,10 @@ jQuery().ready(function() {
             // hide the drop down if we click outside of it
             jQuery(document).click(function(e) {
                 if (
-                    'td-icon-search' !== e.target.className &&
-                    'td-search-box-wrap' !== e.target.className &&
-                    'td-header-search' !== e.target.id &&
-                    'td-header-search-top' !== e.target.id &&
+                    'tagdiv-icon-search' !== e.target.className &&
+                    'tagdiv-search-box-wrap' !== e.target.className &&
+                    'tagdiv-header-search' !== e.target.id &&
+                    'tagdiv-header-search-top' !== e.target.id &&
                     true === tdSearch._is_search_open
                 ) {
                     tdSearch.hide_search_box();
@@ -43,7 +43,7 @@ jQuery().ready(function() {
             });
 
             // show and hide the drop down on the search icon
-            jQuery( '#td-header-search-button' ).click(function(event){
+            jQuery( '#tagdiv-header-search-button' ).click(function(event){
                 event.preventDefault();
                 if (tdSearch._is_search_open === true) {
                     tdSearch.hide_search_box();
@@ -54,12 +54,12 @@ jQuery().ready(function() {
             });
 
             // show and hide the drop down on the search icon for mobile
-            jQuery( '#td-header-search-button-mob' ).click(function(event){
+            jQuery( '#tagdiv-header-search-button-mob' ).click(function(event){
                 jQuery( 'body' ).addClass( 'td-search-opened' );
             });
 
             //close the search
-            jQuery( '.td-search-close a' ).click(function(){
+            jQuery( '.tagdiv-search-close a' ).click(function(){
                 jQuery( 'body' ).removeClass( 'td-search-opened' );
             });
         },

@@ -4,7 +4,7 @@
 
 /* General module styles */
 .tagdiv-modules-container {
-  .clearfix();
+  .tagdiv-clearfix();
 }
 
 .tagdiv-module-wrap {
@@ -51,11 +51,11 @@
   margin-bottom: 13px;
 }
 
-.td-module-thumb {
+.tagdiv-module-thumb {
   position: relative;
   overflow: hidden;
 
-  .entry-thumb {
+  .tagdiv-entry-thumb {
     width: 100%;
     display: block;
   }
@@ -66,7 +66,7 @@
 }
 
 /* Module admin edit */
-.td-admin-edit {
+.tagdiv-admin-edit {
   position: absolute;
   display: none;
   top: 0;
@@ -85,19 +85,20 @@
   }
 }
 
-.td-module-thumb:hover .td-admin-edit {
+.tagdiv-module-thumb:hover .tagdiv-admin-edit {
   display: block;
+  color: #ffffff;
 }
 
 /* Module post category */
-.td-post-category-wrap {
+.tagdiv-post-category-wrap {
   position: absolute;
   bottom: -3px;
   width: 100%;
   text-align: center;
 }
 
-.td-post-category {
+.tagdiv-post-category {
   display: inline-block;
   font-family: @font2;
   padding: 4px 8px;
@@ -114,7 +115,7 @@
 }
 
 /* Module post metainfo */
-.td-module-meta-info {
+.tagdiv-module-meta-info {
   font-family: @font2;
   font-size: 12px;
   line-height: 1;
@@ -133,15 +134,15 @@
   }
 }
 
-.td-post-author-name,
-.td-post-date,
-.td-module-comments,
-.td-post-comments {
+.tagdiv-post-author-name,
+.tagdiv-post-date,
+.tagdiv-module-comments,
+.tagdiv-post-comments {
   display: inline-block;
 }
 
-.td-post-author-name,
-.td-post-date {
+.tagdiv-post-author-name,
+.tagdiv-post-date {
   position: relative;
   margin-right: 8px;
   padding-right: 11px;
@@ -158,10 +159,10 @@
   }
 }
 
-.td-post-author-name {
+.tagdiv-post-author-name {
   font-weight: 500;
 
-  .td-author-by {
+  .tagdiv-author-by {
     display: inline;
     .opacity(0.5);
   }
@@ -172,12 +173,12 @@
   }
 }
 
-.td-post-date {
+.tagdiv-post-date {
   .opacity(0.5);
 }
 
-.td-module-comments,
-.td-post-comments {
+.tagdiv-module-comments,
+.tagdiv-post-comments {
   a {
     position: relative;
     color: #000;

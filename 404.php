@@ -14,12 +14,12 @@ get_header(); ?>
 	<div class="tagdiv-main-content-wrap">
 		<div class="tagdiv-container">
 			<div class="tagdiv-span12">
-				<div class="td-404-head">
-					<div class="td-404-title"><?php _e( '404', 'meistermag' ); ?></div>
-					<div class="td-404-sub-title"><?php _e( 'Oops!', 'meistermag' ); ?></div>
-					<div class="td-404-sub-sub-title"><?php _e( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'meistermag' ); ?></div>
+				<div class="tagdiv-404-head">
+					<div class="tagdiv-404-title"><?php _e( '404', 'meistermag' ); ?></div>
+					<div class="tagdiv-404-sub-title"><?php _e( 'Oops!', 'meistermag' ); ?></div>
+					<div class="tagdiv-404-sub-sub-title"><?php _e( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'meistermag' ); ?></div>
 
-					<div class="search-page-wrap">
+					<div class="tagdiv-search-page-wrap">
 						<?php get_search_form(); ?>
 					</div>
 				</div>
@@ -31,7 +31,7 @@ get_header(); ?>
 					'showposts' => 3
 				);
 
-				query_posts($args);
+				query_posts( $args );
 
 				if ( have_posts() ) {
 

@@ -29,7 +29,7 @@ class Tagdiv_Data_Source {
 			'post_status' => 'publish'
 		);
 
-		//the query goes only via $tagdiv_block_category_ids - for both options ($tagdiv_block_category_ids and $tagdiv_block_category_id) also $tagdiv_block_category_ids overwrites $tagdiv_block_category_id
+		//the query goes only via $tagdiv_block_category_ids - for both options ( $tagdiv_block_category_ids and $tagdiv_block_category_id ) also $tagdiv_block_category_ids overwrites $tagdiv_block_category_id
 		if ( ! empty( $tagdiv_block_category_id ) && empty( $tagdiv_block_category_ids ) ) {
 			$tagdiv_block_category_ids = $tagdiv_block_category_id;
 		}

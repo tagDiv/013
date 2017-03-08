@@ -3,7 +3,7 @@
 */
 
 /* General header styles */
-.td-header-logo-wrap {
+.tagdiv-header-logo-wrap {
   position: relative;
   padding: 19px 0;
 
@@ -32,7 +32,7 @@
   }
 
   /* menu */
-  .td-header-main-menu {
+  .tagdiv-header-main-menu {
     padding-right: 0;
 
     /* desktop only */
@@ -47,7 +47,7 @@
   }
 
   /* search */
-  .td-header-menu-search {
+  .tagdiv-header-menu-search {
     margin-left: 10px;
 
     /* desktop only */
@@ -61,7 +61,7 @@
 /* Header Search */
 
 /* the search button */
-#td-header-search-button {
+#tagdiv-header-search-button {
   /* responsive portrait phone */
   @media (max-width: @responsive_p_phone_max) {
     display: none;
@@ -69,7 +69,7 @@
 }
 
 /* the mobile search button */
-#td-header-search-button-mob {
+#tagdiv-header-search-button-mob {
   display: none;
 
   /* responsive portrait phone */
@@ -79,7 +79,7 @@
 }
 
 /* the search drop down */
-.td-search-box-wrap {
+.tagdiv-search-box-wrap {
   position: absolute;
   top: 100%;
   z-index: 999;
@@ -102,7 +102,7 @@
     }
 
     /* search form */
-    #td-header-search {
+    #tagdiv-header-search {
       width: 100%;
       height: 28px;
       margin: 0;
@@ -164,7 +164,7 @@
 }
 
 /* Header Menu */
-.td-header-menu-wrap {
+.tagdiv-header-menu-wrap {
   position: relative;
 
   &:before,
@@ -201,13 +201,13 @@
   }
 }
 
-.td-header-main-menu {
+.tagdiv-header-main-menu {
   position: relative;
   z-index: 999;
   font-family: @font2;
 }
 
-#td-header-menu {
+#tagdiv-header-menu {
   display: inline-block;
   vertical-align: top;
 }
@@ -237,6 +237,12 @@
     vertical-align: middle;
     position: relative;
     top: -1px;
+  }
+
+  a {
+    &:empty {
+      display: none;
+    }
   }
 }
 
@@ -361,7 +367,7 @@ ul.sf-menu li li.sfHover li ul {
     }
   }
 
-  .td-icon-menu-down {
+  .tagdiv-icon-menu-down {
     float: right;
     top: 0;
     font-size: 6px;
@@ -387,7 +393,7 @@ ul.sf-menu li li.sfHover li ul {
 
 /* menu icons (arrows) */
 .sf-menu {
-  .td-icon-menu-down {
+  .tagdiv-icon-menu-down {
     vertical-align: top;
     padding-left: 10px;
     font-size: 7px;
@@ -399,7 +405,7 @@ ul.sf-menu li li.sfHover li ul {
   }
 
   .sub-menu {
-    .td-icon-menu-down {
+    .tagdiv-icon-menu-down {
       position: absolute;
       top: 50%;
       right: 24px;
@@ -410,27 +416,27 @@ ul.sf-menu li li.sfHover li ul {
 }
 
 /* arrow for all items in the menus */
-a.sf-with-ul i.td-icon-menu-down:before {
+a.sf-with-ul i.tagdiv-icon-menu-down:before {
   content: '\e808';
 }
 
 /* arrow for all items in the menus at first level */
-ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
+ul.sf-js-enabled > li > a > i.tagdiv-icon-menu-down:before {
   content: '\e806' !important;
 }
 
 /* Search */
-.td-header-menu-search {
+.tagdiv-header-menu-search {
   position: absolute;
   top: 0;
   right: 0;
 
-  .td-search-btns-wrap {
+  .tagdiv-search-btns-wrap {
     text-align: center;
   }
 
-  #td-header-search-button {
-    .td-icon-search {
+  #tagdiv-header-search-button {
+    .tagdiv-icon-search {
       font-size: 15px;
       line-height: 55px;
       width: 55px;
@@ -447,8 +453,8 @@ ul.sf-js-enabled > li > a > i.td-icon-menu-down:before {
     }
   }
 
-  #td-header-search-button-mob {
-    .td-icon-search {
+  #tagdiv-header-search-button-mob {
+    .tagdiv-icon-search {
       font-size: 20px;
       line-height: 55px;
       width: 55px;

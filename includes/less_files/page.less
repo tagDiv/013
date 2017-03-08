@@ -31,7 +31,7 @@
   font-family: @font2;
   font-size: 13px;
   margin-bottom: 48px;
-  .clearfix();
+  .tagdiv-clearfix();
 
   /* responsive portrait phone */
   @media (max-width: @responsive_p_phone_max) {
@@ -162,6 +162,19 @@
   }
 }
 
+.tagdiv-attachment-caption {
+  p {
+    font-family: @font1;
+    text-align: left;
+    margin-bottom: 26px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 17px;
+    color: #444;
+  }
+}
+
 
 /*  ----------------------------------------------------------------------------
     Search page
@@ -169,7 +182,7 @@
 
 /* the search header */
 .td-search-header {
-  .clearfix();
+  .tagdiv-clearfix();
 
   .td-search-query {
     color: @td_theme_color;
@@ -185,7 +198,7 @@
 }
 
 /* search template - search form wrapper */
-.search-page-wrap {
+.tagdiv-search-page-wrap {
   margin-top: -1px;
   float: right;
 }
@@ -194,7 +207,7 @@
     404 page
 */
 
-.td-404-head {
+.tagdiv-404-head {
   padding: 17px 0;
   text-align: center;
 
@@ -203,11 +216,11 @@
     padding: 30px 0;
   }
 
-  .search-page-wrap {
+  .tagdiv-search-page-wrap {
     float: none;
   }
 
-  .search-page-wrap {
+  .tagdiv-search-page-wrap {
     width: 300px;
     margin: 0 auto;
 
@@ -218,7 +231,7 @@
   }
 }
 
-.td-404-title {
+.tagdiv-404-title {
   position: relative;
   padding-bottom: 17px;
   font-family: @font2;
@@ -240,7 +253,7 @@
   }
 }
 
-.td-404-sub-title {
+.tagdiv-404-sub-title {
   margin-bottom: 18px;
   font-family: @font4;
   font-size: 72px;
@@ -248,7 +261,7 @@
   line-height: 1;
 }
 
-.td-404-sub-sub-title {
+.tagdiv-404-sub-sub-title {
   margin-bottom: 31px;
   font-family: @font2;
   font-size: 14px;

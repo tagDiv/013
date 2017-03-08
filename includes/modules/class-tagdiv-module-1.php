@@ -13,15 +13,15 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 
 		<div class="<?php echo $this->get_module_classes( array('tagdiv-module-1') ); ?>" >
 			<div class="tagdiv-module-image">
-				<?php echo $this->get_image( 'td_300x220' ); ?>
-				<div class="td-post-category-wrap">
+				<?php echo $this->get_image( 'tagdiv_300x220' ); ?>
+				<div class="tagdiv-post-category-wrap">
 					<?php echo $this->get_category(); ?>
 				</div>
 			</div>
 
 			<?php echo $this->get_title(); ?>
 
-			<div class="td-module-meta-info">
+			<div class="tagdiv-module-meta-info">
 				<?php echo $this->get_author(); ?>
 				<?php echo $this->get_date(); ?>
 				<?php echo $this->get_comments(); ?>

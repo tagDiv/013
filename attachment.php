@@ -22,31 +22,29 @@ get_header();
 
                         <header class="tagdiv-page-header">
                             <?php the_title( '<h1 class="tagdiv-entry-title tagdiv-page-title">', '</h1>' ); ?>
-                        </header><!-- .tagdiv-page-header -->
+                        </header><!-- /.tagdiv-page-header -->
 
+                        <div class="tagdiv-attachment">
+                            <?php
+                            /**
+                             * Filter the default meistermag image attachment size.
+                             * @since MeisterMag 1.0
+                             * @param string $image_size Image size. Default 'large'.
+                             */
+                            $image_size = apply_filters( 'tagdiv_attachment_size', 'large' );
 
-                            <div class="entry-attachment">
-                                <?php
-                                /**
-                                 * Filter the default twentysixteen image attachment size.
-                                 * @since MeisterMag 1.0
-                                 * @param string $image_size Image size. Default 'large'.
-                                 */
-                                $image_size = apply_filters( 'tagdiv_attachment_size', 'large' );
+                            echo wp_get_attachment_image( get_the_ID(), $image_size );
+                            ?>
 
-                                echo wp_get_attachment_image( get_the_ID(), $image_size );
-                                ?>
+                            <?php tagdiv_excerpt( 'tagdiv-attachment-caption' ); ?>
 
-                                <?php tagdiv_excerpt(); ?>
+                        </div><!-- /.tagdiv-attachment -->
 
-                            </div><!-- .entry-attachment -->
+                        <div class="tagdiv-attachment-page-content">
+                            <?php the_content(); ?>
+                        </div><!-- /.tagdiv-attachment-page-content -->
 
-                            <div class="tagdiv-attachment-page-content">
-                                <?php the_content(); ?>
-                            </div>
-
-
-                        <footer class="entry-footer">
+                        <footer class="tagdiv-page-footer">
                                 <?php
                                 wp_link_pages( array(
                                     'before' => '<div class="page-nav">',
@@ -62,7 +60,7 @@ get_header();
                                 <div class="tagdiv-attachment-prev"><?php previous_image_link(); ?></div>
                                 <div class="tagdiv-attachment-next"><?php next_image_link(); ?></div>
 
-                        </footer><!-- .entry-footer -->
+                        </footer><!-- /.tagdiv-page-footer -->
                     </article><!-- #post-## -->
 
                     <?php endwhile; // End the loop. ?>

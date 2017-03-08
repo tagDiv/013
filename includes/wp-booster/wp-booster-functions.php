@@ -213,10 +213,10 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 			$fonts[] = 'Droid Serif:400,700';
 		}
 
-		if ($fonts) {
+		if ( $fonts ) {
 			$fonts_url = add_query_arg( array(
 				'family' => urlencode( implode( '|', $fonts ) ),
-				'subset' => urlencode($subsets),
+				'subset' => urlencode( $subsets ),
 			), 'https://fonts.googleapis.com/css');
 		}
 

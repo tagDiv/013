@@ -37,9 +37,9 @@ class Tagdiv_Config {
 
 
 		/* The thumbs used by the theme */
-		Tagdiv_API_Thumb::add( 'td_300x220',
+		Tagdiv_API_Thumb::add( 'tagdiv_300x220',
 			array(
-				'name' 	  => 'td_300x220',
+				'name' 	  => 'tagdiv_300x220',
 				'width'   => 300,
 				'height'  => 220,
 				'crop' 	  => array( 'center', 'top' ),
@@ -47,9 +47,9 @@ class Tagdiv_Config {
 			)
 		);
 
-		Tagdiv_API_Thumb::add( 'td_640x0',
+		Tagdiv_API_Thumb::add( 'tagdiv_640x0',
 			array(
-				'name' 	  => 'td_640x0',
+				'name' 	  => 'tagdiv_640x0',
 				'width'   => 640,
 				'height'  => 0,
 				'crop' 	  => array( 'center', 'top' ),

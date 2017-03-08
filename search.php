@@ -20,7 +20,7 @@ get_header(); ?>
 						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'meistermag' );?></span>
 					</h1>
 
-					<div class="search-page-wrap">
+					<div class="tagdiv-search-page-wrap">
 					<?php get_search_form(); ?>
 					</div>
 

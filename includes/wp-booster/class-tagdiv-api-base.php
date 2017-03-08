@@ -22,8 +22,8 @@ class Tagdiv_API_Base {
 
 	/**
 	 * This method adds settings in the main settings array (self::$component_list)
-	 * An array of settings is set for the ($class_name, $id) key.
-	 * If there already exists the ($class_name, $id) key in the main settings array, an error exception is thrown. The update
+	 * An array of settings is set for the ( $class_name, $id ) key.
+	 * If there already exists the ( $class_name, $id ) key in the main settings array, an error exception is thrown. The update
 	 * method must be used instead, which ensures the settings are not previously loaded using self::get_by_id or self::get_key
 	 * method.
 	 *
@@ -46,7 +46,7 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method gets the value set for ($class_name) in the main settings array (self::$component_list)
+	 * This method gets the value set for ( $class_name ) in the main settings array (self::$component_list)
 	 * This method does not set the self::USED_ON_PAGE flag, as self::get_by_id or self::get_key method does
 	 *
 	 * Important! As the flag self::USED_ON_PAGE is not marked, the 'file' parameter is removed to ensure that nobody can use (require) the component
@@ -133,8 +133,8 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method gets the value set for ($class_name, $id) in the main settings array (self::$component_list)
-	 * The self::USED_ON_PAGE flag is set accordingly, as updating and deleting operations using the same ($class_name, $id, $key) key
+	 * This method gets the value set for ( $class_name, $id ) in the main settings array (self::$component_list)
+	 * The self::USED_ON_PAGE flag is set accordingly, as updating and deleting operations using the same ( $class_name, $id, $key ) key
 	 * know about it and do not fulfill operations.
 	 * Updating or deleting must be done prior of this method or self::get_key method usage.
 	 *
@@ -152,8 +152,8 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method gets the value set for the ($class_name, $id, $key) key in the main array settings (self::$component_list)
-	 * The self::USED_ON_PAGE flag is set accordingly, as updating and deleting operations using the same ($class_name, $id, $key) key
+	 * This method gets the value set for the ( $class_name, $id, $key ) key in the main array settings (self::$component_list)
+	 * The self::USED_ON_PAGE flag is set accordingly, as updating and deleting operations using the same ( $class_name, $id, $key ) key
 	 * know about it and do not fulfill operations.
 	 * Updating or deleting must be done prior of this method or self::get_key method usage.
 	 *
@@ -176,7 +176,7 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method update the value for ($class_name, $id) in the main array settings (self::$component_list)
+	 * This method update the value for ( $class_name, $id ) in the main array settings (self::$component_list)
 	 * Updating and deleting a key value in the main settings array ensures that the value of the key is not already loaded by the theme.
 	 * Loaded by the theme means that is's used to set or to build some components.
 	 * So, the $id and the $key parameter must not be used previously by self::get_by_id or by self::get_key
@@ -197,7 +197,7 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method updates the value for the ($class_name, $id, $key) key in the main settings array (self::$component_list).
+	 * This method updates the value for the ( $class_name, $id, $key ) key in the main settings array (self::$component_list).
 	 * Updating and deleting a key value in the main settings array ensures that the value of the key is not already loaded by the theme.
 	 * Loaded by the theme means that is's used to set or to build some components.
 	 * So, the $id and the $key parameter must no be used previously by self::get_by_id or by self::get_key
@@ -217,7 +217,7 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method unset value for the ($class_name, $id) key in the main settings array (self::$component_list).
+	 * This method unset value for the ( $class_name, $id ) key in the main settings array (self::$component_list).
 	 * Updating and deleting a key value in the main settings array ensures that the value of the key is not already loaded by the theme.
 	 * Loaded by the theme means that is's used to set or to build some components.
 	 * So, the $id and the $key parameter must no be used previously by self::get_by_id or by self::get_key
@@ -264,7 +264,7 @@ class Tagdiv_API_Base {
 		<script>
 			console.log('_debug_show_autoloaded_components is called');
 			<?php
-			foreach ($buffy_array as $component_id => $component) {
+			foreach ( $buffy_array as $component_id => $component ) {
 			?>
 			console.log(<?php echo json_encode( str_pad( $component_id, 20 ) ) ?>);
 			<?php
@@ -291,13 +291,13 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method sets the self::USED_ON_PAGE flag for the ($class_name, $id) key.
+	 * This method sets the self::USED_ON_PAGE flag for the ( $class_name, $id ) key.
 	 * It's used by the get_by_id and get_key methods to mark settings as being loaded on page.
 	 * The main purpose of using this flag is for debugging the loaded components.
 	 *
 	 * @param $id         string The array key in the self::$component_list[$class_name]
 	 *
-	 * @throws ErrorException The error thrown when the ($class_name, id) key is not already set
+	 * @throws ErrorException The error thrown when the ( $class_name, id ) key is not already set
 	 */
 	private static function mark_used_on_page( $id ) {
 		if ( ! isset( self::$components_list[ $id ] ) ) {
@@ -349,7 +349,7 @@ class Tagdiv_API_Base {
 
 
 	/**
-	 * This method check the self::USED_ON_PAGE flag for the ($class_name, $id) key and it throws an exception
+	 * This method check the self::USED_ON_PAGE flag for the ( $class_name, $id ) key and it throws an exception
 	 * if it's already set, that means the settings are already used to build a component in the user interface.
 	 *
 	 * @param $id                  string The array key in the self::$component_list[$class_name]

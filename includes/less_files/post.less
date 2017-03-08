@@ -4,7 +4,7 @@
 
 /* post page general */
 .td-post-tags,
-.author-box-wrap {
+.tagdiv-author-box-wrap {
   position: relative;
 
   &:before {
@@ -20,7 +20,7 @@
 }
 
 /* post header */
-.td-post-header {
+.tagdiv-post-header {
   margin-bottom: 17px;
 
   /* title */
@@ -35,7 +35,7 @@
   }
 
   /* post's category */
-  .td-category {
+  .tagdiv-category {
     list-style: none;
     font-family: @font2;
     font-size: 10px;
@@ -62,8 +62,16 @@
   }
 
   /* comments */
-  .td-post-comments a:before {
+  .tagdiv-post-comments a:before {
     display: none;
+  }
+}
+
+/* post featured image */
+.tagdiv-post-featured-image {
+  img {
+    display: block;
+    margin-bottom: 21px;
   }
 }
 
@@ -96,6 +104,10 @@
       border-color: #fff !important;
     }
   }
+
+  img {
+    display: block;
+  }
 }
 
 /* in page navigation */
@@ -119,7 +131,7 @@
 /* post tags */
 .td-post-tags {
 
-  .td-tags {
+  .tagdiv-tags {
     display: inline-block;
     margin: 0;
     font-family: @font2;
@@ -169,12 +181,12 @@
 }
 
 /* next / prev article */
-.td-post-next-prev {
+.tagdiv-post-next-prev {
   position: relative;
   padding: 22px 0 24px 0;
 
-  .td-post-prev-post,
-  .td-post-next-post {
+  .tagdiv-post-prev-post,
+  .tagdiv-post-next-post {
     /* responsive portrait phone */
     @media (max-width: @responsive_p_phone_max) {
       float: left;
@@ -183,11 +195,12 @@
   }
 }
 
-.td-post-next-prev-content {
+.tagdiv-post-next-prev-content {
   display: inline-block;
   font-family: @font2;
 
-  span {
+  .tagdiv-prev-art,
+  .tagdiv-next-art{
     display: block;
     margin-bottom: 4px;
     font-size: 10px;
@@ -209,12 +222,12 @@
   }
 }
 
-.td-post-next-post {
+.tagdiv-post-next-post {
   text-align: right;
 }
 
 /* author box */
-.author-box-wrap {
+.tagdiv-author-box-wrap {
   padding: 22px 0 30px 0;
 
   .avatar {
@@ -223,7 +236,7 @@
     .border-radius(50%);
   }
 
-  .desc {
+  .tagdiv-author-meta {
     font-family: @font2;
     margin-left: 80px;
     font-size: 13px;
@@ -231,8 +244,8 @@
   }
 }
 
-.td-author-name,
-.td-author-url {
+.tagdiv-author-name,
+.tagdiv-author-url {
   a {
     color: #000;
 
@@ -242,7 +255,7 @@
   }
 }
 
-.td-author-name {
+.tagdiv-author-name {
   position: relative;
   margin-bottom: 4px;
   padding-bottom: 4px;
@@ -262,13 +275,13 @@
   }
 }
 
-.td-author-url {
+.tagdiv-author-url {
   margin-bottom: 9px;
   font-size: 11px;
   font-style: italic;
 }
 
-.td-author-description {
+.tagdiv-author-description {
   font-style: italic;
   line-height: 21px;
   color: #666;

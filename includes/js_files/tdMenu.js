@@ -19,7 +19,7 @@ var tdMenu = {};
 
         //on touch - when you click outside the menu it will close all menus
         _outsideClickArea: null,
-        _outsideClickExcludedAreas: '#td-header-menu .sf-menu, #td-header-menu .sf-menu *, .menu-top-container, .menu-top-container *',
+        _outsideClickExcludedAreas: '#tagdiv-header-menu .sf-menu, #tagdiv-header-menu .sf-menu *, .menu-top-container, .menu-top-container *',
 
         //added when menu is open
         _openMenuClass: 'sfHover',
@@ -31,12 +31,12 @@ var tdMenu = {};
          */
         init: function() {
             //get menu items
-            var mainMenu = jQuery('#td-header-menu .sf-menu'),
-                menus = jQuery('#td-header-menu .sf-menu, .top-header-menu'),
+            var mainMenu = jQuery('#tagdiv-header-menu .sf-menu'),
+                menus = jQuery('#tagdiv-header-menu .sf-menu, .top-header-menu'),
                 menuLinks = menus.find('.menu-item-has-children > a');
 
             //add dropdown arrow on items with submenu
-            menuLinks.append('<i class="td-icon-menu-down"></i>');
+            menuLinks.append('<i class="tagdiv-icon-menu-down"></i>');
             menuLinks.append( jQuery( '<span />', {
                 'class': 'screen-reader-text',
                 text: screenReaderText.submenu

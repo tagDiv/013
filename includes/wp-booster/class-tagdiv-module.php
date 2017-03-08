@@ -2,7 +2,6 @@
 
 abstract class Tagdiv_Module {
 	var $post;
-
 	var $title_attribute;
 	var $title;
 	var $href;
@@ -20,7 +19,7 @@ abstract class Tagdiv_Module {
 	 */
 	function __construct( $post ) {
 		if ( gettype( $post ) != 'object' || get_class( $post ) != 'WP_Post' ) {
-			Tagdiv_Util::error( __FILE__, 'td_module: ' . get_Class( $this ) . '($post): $post is not WP_Post' );
+			Tagdiv_Util::error( __FILE__, 'tagdiv_module: ' . get_Class( $this ) . '($post): $post is not WP_Post' );
 		}
 
 		$this->post = $post;
@@ -50,7 +49,7 @@ abstract class Tagdiv_Module {
 
 		//show no thumb only if no thumb is detected
 		if ( is_null( $this->post_thumb_id ) ) {
-			$buffy .= ' td-module-no-thumb';
+			$buffy .= ' tagdiv-module-no-thumb';
 		}
 
 		if ( $additional_classes_array != '' && is_array( $additional_classes_array ) ) {
@@ -67,7 +66,7 @@ abstract class Tagdiv_Module {
 	function get_author() {
 
 		$buffy = '';
-		$buffy .= '<span class="td-post-author-name">';
+		$buffy .= '<span class="tagdiv-post-author-name">';
 		$buffy .= '<a href="' . get_author_posts_url( $this->post->post_author ) . '">' . get_the_author_meta( 'display_name', $this->post->post_author ) . '</a>';
 		$buffy .= '</span>';
 
@@ -83,8 +82,8 @@ abstract class Tagdiv_Module {
 		$buffy = '';
 		$tagdiv_article_date_unix = get_the_time( 'U', $this->post->ID );
 
-		$buffy .= '<span class="td-post-date">';
-		$buffy .= '<time class="entry-date updated td-module-date" datetime="' . date( DATE_W3C, $tagdiv_article_date_unix ) . '" >' . get_the_time( get_option( 'date_format' ), $this->post->ID ) . '</time>';
+		$buffy .= '<span class="tagdiv-post-date">';
+		$buffy .= '<time class="entry-date updated" datetime="' . date( DATE_W3C, $tagdiv_article_date_unix ) . '" >' . get_the_time( get_option( 'date_format' ), $this->post->ID ) . '</time>';
 		$buffy .= '</span>';
 
 		return $buffy;
@@ -97,7 +96,7 @@ abstract class Tagdiv_Module {
 	function get_comments() {
 		$buffy = '';
 
-		$buffy .= '<div class="td-module-comments">';
+		$buffy .= '<div class="tagdiv-module-comments">';
 		$buffy .= '<a href="' . get_comments_link( $this->post->ID ) . '">';
 		$buffy .= get_comments_number( $this->post->ID );
 		$buffy .= '</a>';
@@ -180,12 +179,12 @@ abstract class Tagdiv_Module {
 			} //end    if ( $this->post_has_thumb ) {
 
 
-			$buffy .= '<div class="td-module-thumb">';
+			$buffy .= '<div class="tagdiv-module-thumb">';
 				if ( current_user_can( 'edit_posts' ) ) {
-					$buffy .= '<a class="td-admin-edit" href="' . get_edit_post_link( $this->post->ID ) . '">edit</a>';
+					$buffy .= '<a class="tagdiv-admin-edit" href="' . get_edit_post_link( $this->post->ID ) . '">' . __( 'edit', 'meistermag' ) . '</a>';
 				}
 				$buffy .= '<a href="' . $this->href . '" rel="bookmark" title="' . $this->title_attribute . '">';
-				$buffy .= '<img width="' . $tagdiv_temp_image_url[1] . '" height="' . $tagdiv_temp_image_url[2] . '" class="entry-thumb" src="' . $tagdiv_temp_image_url[0] . '"' . $srcset_sizes . ' ' . $attachment_alt . $attachment_title . '/>';
+				$buffy .= '<img width="' . $tagdiv_temp_image_url[1] . '" height="' . $tagdiv_temp_image_url[2] . '" class="tagdiv-entry-thumb" src="' . $tagdiv_temp_image_url[0] . '"' . $srcset_sizes . ' ' . $attachment_alt . $attachment_title . '/>';
 				$buffy .= '</a>';
 			$buffy .= '</div>'; //end wrapper
 
@@ -198,7 +197,7 @@ abstract class Tagdiv_Module {
 	 */
 	function get_title() {
 		$buffy = '';
-		$buffy .= '<h3 class="tagdiv-entry-title td-module-title">';
+		$buffy .= '<h3 class="tagdiv-entry-title">';
 		$buffy .= '<a href="' . $this->href . '" rel="bookmark" title="' . $this->title_attribute . '">';
 		$buffy .= $this->title;
 		$buffy .= '</a>';
@@ -212,24 +211,22 @@ abstract class Tagdiv_Module {
 	 * IT RETURNS THE EXCERPT FROM THE POST IF IT'S ENTERED IN THE EXCERPT CUSTOM POST FIELD BY THE USER
 	 *
 	 * @param string $cut_at - if provided the method will just cat at that point
-	 *
-	 * @return string
+	 * @param string $type
+	 * @return string - the post excerpt
 	 */
 	function get_excerpt( $cut_at = '', $type = '' ) {
 
 		//If the user supplied the excerpt in the post excerpt custom field, we just return that
-		if ( $this->post->post_excerpt != '' ) {
+		if ( '' != $this->post->post_excerpt ) {
 			return $this->post->post_excerpt;
 		}
 
 		$buffy = '';
-		if ( $cut_at != '' ) {
+		if ( '' != $cut_at ) {
 			// simple, $cut_at and return
 			$buffy .= Tagdiv_Util::excerpt( $this->post->post_content, $cut_at, $type );
-		}  else {
-			/**
-			* no $cut_at provided -> return the full $this->post->post_content
-			*/
+		} else {
+			//no $cut_at provided -> return the full $this->post->post_content
 			$buffy .= $this->post->post_content;
 		}
 
@@ -272,7 +269,7 @@ abstract class Tagdiv_Module {
 
 
 		if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) {
-			$buffy .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="td-post-category">' . $selected_category_obj_name . '</a>';
+			$buffy .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="tagdiv-post-category">' . $selected_category_obj_name . '</a>';
 		}
 
 		return $buffy;
