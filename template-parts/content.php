@@ -48,7 +48,7 @@
 					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>%',
 				) );
 				?>
-				<div class="td-post-tags">
+				<div class="tagdiv-post-tags">
 					<?php echo tagdiv_post_tags(); ?>
 				</div>
 			<?php echo tagdiv_next_prev_posts(); ?>

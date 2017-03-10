@@ -6,16 +6,15 @@
 
 var tdSearch = {};
 
-jQuery().ready(function() {
+jQuery().ready( function() {
 
     'use strict';
 
     tdSearch.init();
 
-});
+} );
 
-(function() {
-
+( function() {
     'use strict';
 
     tdSearch = {
@@ -23,14 +22,13 @@ jQuery().ready(function() {
         // private vars
         _is_search_open: false,
 
-
         /**
          * init the class
          */
         init: function init() {
 
             // hide the drop down if we click outside of it
-            jQuery(document).click(function(e) {
+            jQuery( document ).click( function( e ) {
                 if (
                     'tagdiv-icon-search' !== e.target.className &&
                     'tagdiv-search-box-wrap' !== e.target.className &&
@@ -40,28 +38,27 @@ jQuery().ready(function() {
                 ) {
                     tdSearch.hide_search_box();
                 }
-            });
+            } );
 
             // show and hide the drop down on the search icon
-            jQuery( '#tagdiv-header-search-button' ).click(function(event){
+            jQuery( '#tagdiv-header-search-button' ).click( function( event ) {
                 event.preventDefault();
-                if (tdSearch._is_search_open === true) {
+                if ( true === tdSearch._is_search_open ) {
                     tdSearch.hide_search_box();
-
                 } else {
                     tdSearch.show_search_box();
                 }
-            });
+            } );
 
             // show and hide the drop down on the search icon for mobile
-            jQuery( '#tagdiv-header-search-button-mob' ).click(function(event){
+            jQuery( '#tagdiv-header-search-button-mob' ).click( function( event ) {
                 jQuery( 'body' ).addClass( 'td-search-opened' );
-            });
+            } );
 
             //close the search
-            jQuery( '.tagdiv-search-close a' ).click(function(){
+            jQuery( '.tagdiv-search-close a' ).click( function() {
                 jQuery( 'body' ).removeClass( 'td-search-opened' );
-            });
+            } );
         },
 
 
@@ -72,10 +69,10 @@ jQuery().ready(function() {
 
 
         hide_search_box: function hide_search_box() {
-            jQuery(".tagdiv-drop-down-search").removeClass('tagdiv-drop-down-search-open');
+            jQuery( ".tagdiv-drop-down-search" ).removeClass( 'tagdiv-drop-down-search-open' );
             tdSearch._is_search_open = false;
         }
 
     };
 
-})();
+} )();

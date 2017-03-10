@@ -26,7 +26,8 @@ class Tagdiv_Data_Source {
 
 		//init the array
 		$tagdiv_wp_query_args = array(
-			'post_status' => 'publish'
+			'ignore_sticky_posts' => 1,
+			'post_status' 		  => 'publish'
 		);
 
 		//the query goes only via $tagdiv_block_category_ids - for both options ( $tagdiv_block_category_ids and $tagdiv_block_category_id ) also $tagdiv_block_category_ids overwrites $tagdiv_block_category_id

@@ -213,7 +213,7 @@
 }
 
 /* Menu items list */
-.sf-menu, .sf-menu ul, .sf-menu li {
+.tagdiv-sf-menu, .tagdiv-sf-menu ul, .tagdiv-sf-menu li {
   margin: 0;
   list-style: none;
   text-align: left;
@@ -221,12 +221,12 @@
 
 /* responsive phone */
 @media (max-width: @responsive_p_phone_max) {
-  .sf-menu {
+  .tagdiv-sf-menu {
     display: none;
   }
 }
 
-.sf-menu li {
+.tagdiv-sf-menu li {
   float: left;
   position: relative;
 
@@ -246,44 +246,44 @@
   }
 }
 
-.sf-menu .menu-item > a {
+.tagdiv-sf-menu .menu-item > a {
   display: block;
   position: relative;
 }
 
-.sf-menu li:hover ul,
-.sf-menu li.sfHover ul {
+.tagdiv-sf-menu li:hover ul,
+.tagdiv-sf-menu li.sfHover ul {
   left: 0;
   top: auto; /* match top ul list item height */
   z-index: 99;
 }
 
-ul.sf-menu li:hover li ul,
-ul.sf-menu li.sfHover li ul {
+ul.tagdiv-sf-menu li:hover li ul,
+ul.tagdiv-sf-menu li.sfHover li ul {
   top: -999em;
 }
 
-ul.sf-menu li li:hover ul,
-ul.sf-menu li li.sfHover ul {
+ul.tagdiv-sf-menu li li:hover ul,
+ul.tagdiv-sf-menu li li.sfHover ul {
   left:	10em; /* match ul width */
   top: 0 !important;
 }
-ul.sf-menu li li:hover li ul,
-ul.sf-menu li li.sfHover li ul {
+ul.tagdiv-sf-menu li li:hover li ul,
+ul.tagdiv-sf-menu li li.sfHover li ul {
   top: -999em;
 }
 
 // fix the z-index when menu is o 2 lines
-.sf-menu > .current-menu-ancestor,
-.sf-menu > .current-category-ancestor,
-.sf-menu > .current-menu-item {
+.tagdiv-sf-menu > .current-menu-ancestor,
+.tagdiv-sf-menu > .current-category-ancestor,
+.tagdiv-sf-menu > .current-menu-item {
   z-index: 0;
 }
 
 /* All the links */
 
 /* top links */
-.sf-menu > li > a {
+.tagdiv-sf-menu > li > a {
   padding: 0 15px;
   font-weight: 500;
   line-height: 55px;
@@ -298,11 +298,11 @@ ul.sf-menu li li.sfHover li ul {
 }
 
 /* hover and current menu */
-.sf-menu > .current-menu-item > a, // current top menu
-.sf-menu > .current-menu-ancestor > a, //current menu parent (top)
-.sf-menu > .current-category-ancestor > a, //current ancestor
-.sf-menu > li > a:hover, //normal hover
-.sf-menu > .sfHover > a //when the submenu is opend
+.tagdiv-sf-menu > .current-menu-item > a, // current top menu
+.tagdiv-sf-menu > .current-menu-ancestor > a, //current menu parent (top)
+.tagdiv-sf-menu > .current-category-ancestor > a, //current ancestor
+.tagdiv-sf-menu > li > a:hover, //normal hover
+.tagdiv-sf-menu > .sfHover > a //when the submenu is opend
 {
   background-color: transparent;
   color: @td_theme_color;
@@ -310,11 +310,11 @@ ul.sf-menu li li.sfHover li ul {
 }
 
 /* submenu */
-.sf-menu li > ul { // submenu 1px up
+.tagdiv-sf-menu li > ul { // submenu 1px up
   margin-top: -1px;
 }
 
-.sf-menu ul {
+.tagdiv-sf-menu ul {
   position: absolute;
   top: -999em;
   min-width: 173px;
@@ -374,25 +374,21 @@ ul.sf-menu li li.sfHover li ul {
   }
 }
 
-.sf-menu ul .menu-item > a:hover, //normal hover
-.sf-menu ul .sfHover > a, //current opend menu
-.sf-menu ul .current-menu-ancestor > a, //current ancestor
-.sf-menu ul .current-category-ancestor > a, //current ancestor
-.sf-menu ul .current-menu-item > a //current menu
+.tagdiv-sf-menu ul .menu-item > a:hover, //normal hover
+.tagdiv-sf-menu ul .sfHover > a, //current opend menu
+.tagdiv-sf-menu ul .current-menu-ancestor > a, //current ancestor
+.tagdiv-sf-menu ul .current-category-ancestor > a, //current ancestor
+.tagdiv-sf-menu ul .current-menu-item > a //current menu
 {
   color: @td_theme_color;
 }
 
-.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:hover, .sf-menu a:active {
+.tagdiv-sf-menu li:hover, .tagdiv-sf-menu li.sfHover, .tagdiv-sf-menu a:hover, .tagdiv-sf-menu a:active {
   outline: 0;
 }
 
-.sf-menu a:focus {
-  outline: thin dotted;
-}
-
 /* menu icons (arrows) */
-.sf-menu {
+.tagdiv-sf-menu {
   .tagdiv-icon-menu-down {
     vertical-align: top;
     padding-left: 10px;
@@ -416,7 +412,7 @@ ul.sf-menu li li.sfHover li ul {
 }
 
 /* arrow for all items in the menus */
-a.sf-with-ul i.tagdiv-icon-menu-down:before {
+a.tagdiv-sf-with-ul i.tagdiv-icon-menu-down:before {
   content: '\e808';
 }
 

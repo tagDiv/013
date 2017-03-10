@@ -182,6 +182,10 @@
       margin-left: 0;
       padding: 12px 30px 12px 12px;
       font-weight: bold;
+
+      &:empty {
+        display: none;
+      }
     }
   }
 
@@ -207,7 +211,7 @@
   }
 
   // animation sub-menu
-  .td-sub-menu-open {
+  .tagdiv-sub-menu-open {
     > a i {
       .transform(rotate(0deg));
     }
@@ -278,13 +282,13 @@
     }
   }
 
-  .td-link-element-after {
+  .tagdiv-link-element-after {
     position: relative;
   }
 }
 
-/* menu opened class .td-menu-mob-open-menu */
-.td-menu-mob-open-menu {
+/* menu opened class .tagdiv-menu-mob-open-menu */
+.tagdiv-menu-mob-open-menu {
   position: relative;
 
   #wpadminbar {

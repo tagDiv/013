@@ -6,39 +6,25 @@
 
 var tdDetect = {};
 
-( function(){
+( function() {
     "use strict";
     tdDetect = {
         isIe8: false,
-        isIe9 : false,
-        isIe10 : false,
-        isIe11 : false,
-        isIe : false,
-        isSafari : false,
-        isChrome : false,
-        isIpad : false,
-        isTouchDevice : false,
-        isPhoneScreen : false,
-        isIos : false,
-        isAndroid : false,
-        isOsx : false,
-        isFirefox : false,
-        isWinOs : false,
-        isMobileDevice:false,
-        htmlJqueryObj:null, //here we keep the jQuery object for the HTML element
-
-        /**
-         * function to check the phone screen
-         * @see tdEvents
-         * The jQuery windows width is not reliable cross browser!
-         */
-        runIsPhoneScreen: function () {
-            if ( ( jQuery(window).width() < 768 || jQuery( window ).height() < 768 ) && false === tdDetect.isIpad ) {
-                tdDetect.isPhoneScreen = true;
-            } else {
-                tdDetect.isPhoneScreen = false;
-            }
-        },
+        isIe9: false,
+        isIe10: false,
+        isIe11: false,
+        isIe: false,
+        isSafari: false,
+        isChrome: false,
+        isIpad: false,
+        isTouchDevice: false,
+        isIos: false,
+        isAndroid: false,
+        isOsx: false,
+        isFirefox: false,
+        isWinOs: false,
+        isMobileDevice: false,
+        htmlJqueryObj: null, //here we keep the jQuery object for the HTML element
 
 
         set: function ( detector_name, value ) {
@@ -56,7 +42,7 @@ var tdDetect = {};
     }
 
     // it looks like it has to have ontouchstart in window and NOT be windows OS. Why? we don't know.
-    if ( !!( 'ontouchstart' in window ) && !tdDetect.isWinOs ) {
+    if ( ! ! ( 'ontouchstart' in window ) && !tdDetect.isWinOs ) {
         tdDetect.set( 'isTouchDevice', true );
     }
 
@@ -80,9 +66,8 @@ var tdDetect = {};
     }
 
     //ie 11 check - also adds the ie11 class - it may detect ie on windows mobile
-    if ( !!navigator.userAgent.match( /Trident.*rv\:11\./ ) ){
+    if ( ! ! navigator.userAgent.match( /Trident.*rv\:11\./ ) ){
         tdDetect.set( 'isIe11', true );
-        //this.isIe = true; //do not flag ie11 as isIe
     }
 
     //check for safary
@@ -110,8 +95,6 @@ var tdDetect = {};
         tdDetect.set( 'isMobileDevice', true );
     }
 
-    tdDetect.runIsPhoneScreen();
-
     //test for android
     var user_agent = navigator.userAgent.toLowerCase();
     if ( user_agent.indexOf( "android" ) > -1 ) {
@@ -127,4 +110,4 @@ var tdDetect = {};
         tdDetect.set( 'isFirefox', true );
     }
 
-})();
+} )();

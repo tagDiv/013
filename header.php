@@ -98,13 +98,13 @@
 					<?php
 					wp_nav_menu( array(
 						'theme_location' => 'header-menu',
-						'menu_class'	 => 'sf-menu',
+						'menu_class'	 => 'tagdiv-sf-menu',
 						'fallback_cb' 	 => 'tagdiv_wp_page_menu',
 					) );
 
 					//if no menu
 					function tagdiv_wp_page_menu() {
-						echo '<ul class="sf-menu">';
+						echo '<ul class="tagdiv-sf-menu">';
 						echo '<li class="tagdiv-menu-item-first"><a href="' . esc_url(home_url( '/' )) . 'wp-admin/nav-menus.php?action=locations">' . __('Click here - to select or create a menu', 'meistermag') . '</a></li>';
 						echo '</ul>';
 					}

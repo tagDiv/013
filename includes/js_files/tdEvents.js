@@ -7,7 +7,7 @@
 
 var tdEvents = {};
 
-(function(){
+( function() {
     'use strict';
 
     tdEvents = {
@@ -28,28 +28,28 @@ var tdEvents = {};
 
         init: function() {
 
-            jQuery( window ).scroll(function() {
+            jQuery( window ).scroll( function() {
                 tdEvents.scroll_event_slow_run = true;
                 tdEvents.scroll_event_medium_run = true;
 
                 //read the scroll top
                 tdEvents.scroll_window_scrollTop = jQuery( window ).scrollTop();
                 tdEvents.window_pageYOffset = window.pageYOffset;
-            });
+            } );
 
 
-            jQuery( window ).resize(function() {
+            jQuery( window ).resize( function() {
                 tdEvents.resize_event_slow_run = true;
                 tdEvents.resize_event_medium_run = true;
 
                 tdEvents.window_innerHeight = window.innerHeight;
                 tdEvents.window_innerWidth = window.innerWidth;
-            });
+            } );
         }
     };
 
     tdEvents.init();
-})();
+} )();
 
 /*  ----------------------------------------------------------------------------
     Set the mobile menu min-height property
@@ -80,18 +80,18 @@ var tdEvents = {};
         cssHeight = tdEvents.window_innerHeight + 1;
 
     if ( $tdMobileMenu.length ) {
-        $tdMobileMenu.css( 'min-height' , cssHeight + 'px' );
+        $tdMobileMenu.css( 'min-height', cssHeight + 'px' );
     }
 
     var $tdMobileBg = jQuery( '.tagdiv-menu-background' ),
         $tdMobileBgSearch = jQuery( '.tagdiv-search-background' );
 
     if ( $tdMobileBg.length ) {
-        $tdMobileBg.css( 'height' , ( cssHeight + 70 ) + 'px' );
+        $tdMobileBg.css( 'height', ( cssHeight + 70 ) + 'px' );
     }
 
     if ( $tdMobileBgSearch.length ) {
-        $tdMobileBgSearch.css( 'height' , ( cssHeight + 70 ) + 'px' );
+        $tdMobileBgSearch.css( 'height', ( cssHeight + 70 ) + 'px' );
     }
 
 } )();

@@ -65,13 +65,14 @@
 						</aside>
 					</div>
 				</div>
-			</div> <!-- /.tagdiv-container -->
-		</div> <!-- /.tagdiv-footer-container -->
+			</div>
+		</div>
 
-		<!-- sub footer -->
+		<!-- site sub footer -->
 		<div class="tagdiv-sub-footer-container">
 			<div class="tagdiv-container">
 				<div class="tagdiv-row">
+					<!--footer menu-->
 					<div class="tagdiv-span12 tagdiv-sub-footer-menu">
 						<nav class="tagdiv-footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'meistermag' ); ?>">
 						<?php
