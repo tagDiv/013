@@ -2,8 +2,8 @@
 /* global jQuery:{} */
 /* global tdDetect:{} */
 
-/*  ----------------------------------------------------------------------------
-    The Main Menu script
+/**
+ * The Main Menu script
  */
 
 var tdMenu = {};

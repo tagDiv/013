@@ -239,7 +239,7 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 		wp_enqueue_style( TAGDIV_THEME_NAME . '-style', get_stylesheet_uri() );
 
 		// Load the html5 shiv.
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-html5', get_template_directory_uri() . '/includes/js_files/html5.js', array(), '3.7.3' );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-html5', get_template_directory_uri() . '/includes/js_files/html5shiv.js', array(), '3.7.3' );
 		wp_script_add_data( TAGDIV_THEME_NAME . '-html5', 'conditional', 'lt IE 9' );
 
 
@@ -247,9 +247,10 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-events-script', get_template_directory_uri() . '/includes/js_files/tdEvents.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-script', get_template_directory_uri() . '/includes/js_files/mobile-menu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-supersubs-menu-script', get_template_directory_uri() . '/includes/js_files/supersubs-menu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
 		wp_enqueue_script( TAGDIV_THEME_NAME . '-detect-script', get_template_directory_uri() . '/includes/js_files/tdDetect.js', array(), TAGDIV_THEME_VERSION, true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-script', get_template_directory_uri() . '/includes/js_files/functions.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		wp_enqueue_script( TAGDIV_THEME_NAME . '-events-script', get_template_directory_uri() . '/includes/js_files/tdEvents.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
 		wp_enqueue_script( TAGDIV_THEME_NAME . '-menu-script', get_template_directory_uri() . '/includes/js_files/tdMenu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
 		wp_enqueue_script( TAGDIV_THEME_NAME . '-search-script', get_template_directory_uri() . '/includes/js_files/tdSearch.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
 
