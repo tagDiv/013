@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Class Tagdiv_Global_Blocks - theme blocks instances
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
+ */
+
 class Tagdiv_Global_Blocks {
 	private static $global_instances = array();
 
@@ -25,7 +33,7 @@ class Tagdiv_Global_Blocks {
 
 			return $new_instance;
 		} else {
-			Tagdiv_Util::error( __FILE__, 'get_instance - was called with a $block_id that does not exists: ' . $block_id );
+			Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>theme block instance - was called with a block id that does not exist: </b> <em>%s</em>', 'meistermag' ), $block_id ) );
 
 			/**
 			 * return a fake new instance of tagdiv_block - so that we have the render() method for decoupling

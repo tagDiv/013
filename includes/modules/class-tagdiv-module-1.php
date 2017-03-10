@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Class Tagdiv_Module_1 - theme module 1
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
+ */
+
 class Tagdiv_Module_1 extends Tagdiv_Module {
 
 	function __construct( $post ) {

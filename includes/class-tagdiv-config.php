@@ -5,7 +5,7 @@
 
 define( 'TAGDIV_THEME_NAME', 'meistermag' );
 define( 'TAGDIV_THEME_VERSION', "1.0" );
-define( 'TAGDIV_THEME_OPTIONS_NAME', "tagdiv_theme_options"); //where to store our options
+define( 'TAGDIV_THEME_OPTIONS_NAME', "tagdiv_theme_options"); //where to store theme options
 
 
 

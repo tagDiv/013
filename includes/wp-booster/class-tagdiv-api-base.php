@@ -40,7 +40,7 @@ class Tagdiv_API_Base {
 			self::$components_list[ $id ] = $params_array;
 
 		} else {
-			Tagdiv_Util::error( __FILE__, "tagdiv_api_base: A component with the ID: $id it's already registered in tagdiv_api_base", self::$components_list[ $id ] );
+			Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>tagdiv_api_base: A component with the ID: </b> <em>%s</em> <b>is already registered in tagdiv_api_base</b>', 'meistermag' ), $id ), self::$components_list[ $id ] );
 		}
 	}
 
@@ -103,8 +103,8 @@ class Tagdiv_API_Base {
 				return $component_value[ $key ];
 			}
 		}
-		Tagdiv_Util::error( __FILE__, "tagdiv_api_base::get_default_component_key : no component of type $class_name . Wp booster tried to get
-        the default component (the first registered component) but there are no components registered." );
+		Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>tagdiv_api_base::get_default_component_key  : no component of type </b> <em>%s.</em> <b> The theme wp booster tried to get
+        the default component (the first registered component) but there are no components registered. </b>', 'meistermag' ), $class_name )  );
 	}
 
 
@@ -127,8 +127,8 @@ class Tagdiv_API_Base {
 				return $component_id;
 			}
 		}
-		Tagdiv_Util::error( __FILE__, "tagdiv_api_base::get_default_component_id  : no component of type $class_name . Wp booster tried to get
-        the default component (the first registered component) but there are no components registered." );
+		Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>tagdiv_api_base::get_default_component_id  : no component of type </b> <em>%s.</em> <b> The theme wp booster tried to get
+        the default component (the first registered component) but there are no components registered. </b>', 'meistermag' ), $class_name )  );
 	}
 
 
@@ -307,8 +307,7 @@ class Tagdiv_API_Base {
 			 * - the user is on the login page / register
 			 * - the user tries to log in via wp-admin (that is why is_admin() is required)
 			 */
-			Tagdiv_Util::error( __FILE__, "tagdiv_api_base::mark_used_on_page : a component with the ID: $id is not set." );
-		}
+			Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>tagdiv_api_base::mark_used_on_page : A component with the ID: </b> <em>%s</em> <b>is not set.</b>', 'meistermag' ), $id ) );		}
 		self::$components_list[ $id ][ self::USED_ON_PAGE ] = true;
 	}
 
@@ -359,7 +358,7 @@ class Tagdiv_API_Base {
 	 */
 	private static function check_used_on_page( $id, $requested_operation ) {
 		if ( array_key_exists( $id, self::$components_list ) && array_key_exists( self::USED_ON_PAGE, self::$components_list[ $id ] ) ) {
-			Tagdiv_Util::error( __FILE__, "tagdiv_api_base::check_used_on_page: You requested a $requested_operation for ID: $id BUT it's already used on page. This usually means that you are using a wrong hook - you are trying to modify the component after it already rendered / was used.", self::$components_list[ $id ] );
+			Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>tagdiv_api_base::check_used_on_page: You requested a </b> <em>%1$s</em> for ID: <em>%2$s</em> <b>BUT it\'s already used on page. This usually means that you are using a wrong hook - you are trying to modify the component after it already rendered / was used.</b>', 'meistermag' ), $requested_operation, $id ), self::$components_list[ $id ] );
 		}
 	}
 

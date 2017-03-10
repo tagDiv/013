@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Class Tagdiv_Data_Source - theme block posts query
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
+ */
+
 class Tagdiv_Data_Source {
 
 	/**

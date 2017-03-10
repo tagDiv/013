@@ -1,24 +1,27 @@
 <?php
+
 /**
- * Class td_menu
+ * theme menu support
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
-
-class td_menu {
+class Tagdiv_Menu {
 
     function __construct() {
-        add_action( 'init', array( $this, 'hook_init' ) );
-        add_filter( 'wp_nav_menu_objects', array( $this, 'hook_wp_nav_menu_objects' ),  10, 2);
+        add_action( 'init', array( $this, 'tagdiv_hook_on_init' ) );
+        add_filter( 'wp_nav_menu_objects', array( $this, 'tagdiv_hook_on_wp_nav_menu_objects' ),  10, 2);
     }
 
-    function hook_wp_nav_menu_objects( $items, $args = '' ) {
+    function tagdiv_hook_on_wp_nav_menu_objects( $items ) {
 
         /**
          * Internal array to keep the references of the items ( ID item is the key -> item itself )
          * This helps to not look for an item into the $items list
          */
         $_items_ref  = array();
-
         $items_buffy = array();
 
         foreach ( $items as &$item ) {
@@ -28,14 +31,14 @@ class td_menu {
 
             /**
              * - Because 'current_item_parent' ( true/false ) item property is not set by wp,
-             *   we use an additional flag 'td_is_parent' to mark the parent elements of the tree menu
+             *   we use an additional flag 'tagdiv_is_parent' to mark the parent elements of the tree menu
              *
-             * - The 'td_is_parent' flag is used just by the 'tagdiv_walker_mobile_menu'
-             *   walker of the mobile theme version @see tagdiv_walker_mobile_menu
+             * - The 'tagdiv_is_parent' flag is used just by the 'Tagdiv_Walker_Mobile_Menu'
+             *   walker of the mobile theme version @see Tagdiv_Walker_Mobile_Menu
              */
 
             if ( isset( $item->menu_item_parent ) && 0 !== intval( $item->menu_item_parent ) && array_key_exists( intval( $item->menu_item_parent ), $_items_ref ) ) {
-                $_items_ref[ intval( $item->menu_item_parent ) ]->td_is_parent = true;
+                $_items_ref[ intval( $item->menu_item_parent ) ]->tagdiv_is_parent = true;
             }
 
         }
@@ -43,7 +46,7 @@ class td_menu {
         return $items_buffy;
     }
 
-    function hook_init() {
+    function tagdiv_hook_on_init() {
         register_nav_menus(
             array(
                 'header-menu' => __( 'Header Menu (main)', 'meistermag' ),
@@ -52,13 +55,27 @@ class td_menu {
         );
     }
 
-}
+} //end class Tagdiv_Menu
 
-new td_menu();
+new Tagdiv_Menu();
 
 
-class tagdiv_walker_mobile_menu extends Walker_Nav_Menu {
+class Tagdiv_Walker_Mobile_Menu extends Walker_Nav_Menu {
 
+    /**
+     * Starts the element output. > this method overwrites the parent @see Walker::start_el()
+     *
+     * @since 3.0.0
+     * @since 4.4.0 The {@see 'nav_menu_item_args'} filter was added.
+     *
+     *
+     *
+     * @param string   $output Passed by reference. Used to append additional content.
+     * @param WP_Post  $item   Menu item data object.
+     * @param int      $depth  Depth of menu item. Used for padding.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     * @param int      $id     Current item ID.
+     */
     public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -133,14 +150,14 @@ class tagdiv_walker_mobile_menu extends Walker_Nav_Menu {
 
         $item_output = $args->before;
         $item_output .= '<a'. $attributes .'>';
-        /** This filter is documented in wp-includes/post-template.php */
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID );
 
-        // Tagdiv: the $link_after of args is added for parent items
-        if (isset( $item->td_is_parent ) && true === $item->td_is_parent ) {
+        /**
+         * Tagdiv: the $link_after of args is added for parent items
+         */
+        if (isset( $item->tagdiv_is_parent ) && true === $item->tagdiv_is_parent ) {
             $item_output .= $args->link_after;
         }
-
 
         $item_output .= '</a>';
         $item_output .= $args->after;
@@ -152,7 +169,7 @@ class tagdiv_walker_mobile_menu extends Walker_Nav_Menu {
          * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
          * no filter for modifying the opening and closing `<li>` for a menu item.
          *
-         * @since 3.0.0
+         * @since MeisterMag 1.0
          *
          * @param string $item_output The menu item's starting HTML output.
          * @param object $item        Menu item data object.
@@ -161,4 +178,4 @@ class tagdiv_walker_mobile_menu extends Walker_Nav_Menu {
          */
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
-}
+} //end class Tagdiv_Walker_Mobile_Menu

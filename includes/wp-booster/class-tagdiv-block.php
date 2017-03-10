@@ -1,8 +1,13 @@
 <?php
 
 /**
- * Class Tagdiv_Block - base class for blocks
+ * theme block support - base class for blocks
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
+
 class Tagdiv_Block {
 	
 	var $tagdiv_query; //the query used to rendering the current block

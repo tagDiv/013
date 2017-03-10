@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class Tagdiv_Block_1 - theme block 1
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
+ */
 class Tagdiv_Block_1 extends Tagdiv_Block {
 	function render( $atts, $content = null ) {
 		parent::render( $atts ); // sets the live atts, $this->atts, $this->tagdiv_query (it runs the query)

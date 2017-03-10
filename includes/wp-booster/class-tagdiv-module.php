@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * theme module support
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
+ */
+
 abstract class Tagdiv_Module {
 	var $post;
 	var $title_attribute;
@@ -11,15 +19,13 @@ abstract class Tagdiv_Module {
 	 */
 	protected $post_thumb_id = null;
 
-
 	/**
 	 * @param $post WP_Post
-	 *
 	 * @throws ErrorException
 	 */
 	function __construct( $post ) {
 		if ( gettype( $post ) != 'object' || get_class( $post ) != 'WP_Post' ) {
-			Tagdiv_Util::error( __FILE__, 'tagdiv_module: ' . get_Class( $this ) . '($post): $post is not WP_Post' );
+			Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, sprintf( __( '<b>tagdiv_module: </b> <em>%s</em> invalid data ( not WP_Post data )', 'meistermag' ), get_Class( $this ) ) );
 		}
 
 		$this->post = $post;
@@ -224,7 +230,7 @@ abstract class Tagdiv_Module {
 		$buffy = '';
 		if ( '' != $cut_at ) {
 			// simple, $cut_at and return
-			$buffy .= Tagdiv_Util::excerpt( $this->post->post_content, $cut_at, $type );
+			$buffy .= Tagdiv_Util::tagdiv_excerpt( $this->post->post_content, $cut_at, $type );
 		} else {
 			//no $cut_at provided -> return the full $this->post->post_content
 			$buffy .= $this->post->post_content;

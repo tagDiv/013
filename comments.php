@@ -59,13 +59,13 @@ if ( post_password_required() ) {
 	$tagdiv_aria_req = ( $tagdiv_req ? " aria-required='true'" : '' );
 
 	$tagdiv_fields = array(
-		'author' => '<p class="comment-form-input-wrap td-form-author"><input class="" id="author" name="author" placeholder="' . __( 'Name: *', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-input-wrap td-form-email"><input class="" id="email" name="email" placeholder="' . __( 'Email: *', 'meistermag' ) . '" type="text" value="' . esc_attr(  $tagdiv_commenter['comment_author_email'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
-		'url' 	 => '<p class="comment-form-input-wrap td-form-url"><input class="" id="url" name="url" placeholder="' . __( 'Website:', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author_url'] ) . '" size="30" /></p>',
+		'author' => '<p class="comment-form-input-wrap tagdiv-form-author"><input class="" id="author" name="author" placeholder="' . __( 'Name: *', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-input-wrap tagdiv-form-email"><input class="" id="email" name="email" placeholder="' . __( 'Email: *', 'meistermag' ) . '" type="text" value="' . esc_attr(  $tagdiv_commenter['comment_author_email'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
+		'url' 	 => '<p class="comment-form-input-wrap tagdiv-form-url"><input class="" id="url" name="url" placeholder="' . __( 'Website:', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author_url'] ) . '" size="30" /></p>',
 	);
 
 	$tagdiv_defaults = array( 'fields' => apply_filters( 'comment_form_default_fields', $tagdiv_fields ) );
-	$tagdiv_defaults['comment_field'] 		  = '<div class="tagdiv-clearfix"></div><p class="comment-form-input-wrap td-form-comment"><textarea placeholder="' . __( 'Comment:', 'meistermag' ) . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+	$tagdiv_defaults['comment_field'] 		  = '<div class="tagdiv-clearfix"></div><p class="comment-form-input-wrap tagdiv-form-comment"><textarea placeholder="' . __( 'Comment:', 'meistermag' ) . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
 	$tagdiv_defaults['comment_notes_before']  = '';
 	$tagdiv_defaults['comment_notes_after']   = '';
 	$tagdiv_defaults['title_reply'] 		  = __( 'LEAVE A REPLY', 'meistermag' );

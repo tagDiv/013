@@ -25,7 +25,7 @@ class Tagdiv_Util {
 	 *
 	 * @return string
 	 */
-	static function excerpt( $post_content, $limit, $type = '', $show_shortcodes = '' ) {
+	static function tagdiv_excerpt( $post_content, $limit, $type = '', $show_shortcodes = '' ) {
 		//remove shortcodes and tags
 		if ( '' == $show_shortcodes ) {
 			//delete all shortcode tags from the content.
@@ -67,23 +67,30 @@ class Tagdiv_Util {
 	/**
 	 * Shows a soft error. The site will run as usual if possible. If the user is logged in and has 'switch_themes'
 	 * privileges this will also output the caller file path
-	 *
 	 * @param $file
 	 * @param $message
 	 * @param string $more_data
 	 */
-	static function error( $file, $message, $more_data = '' ) {
-		echo '<br><br>wp booster error:<br>';
-		echo $message;
+	static function tagdiv_wp_booster_error( $file, $message, $more_data = '' ) {
+
+		$error = '';
+		$error .= '<div class="tagdiv-booster-error">';
+		$error .= __( 'theme wp booster error: ', 'meistermag' );
+		$error .= $message;
+
 		if ( is_user_logged_in() && current_user_can( 'switch_themes' ) ) {
-			echo '<br>' . $file;
+			$error .= '<br>' . $file . '<br><br>';
+
 			if ( ! empty( $more_data ) ) {
-				echo '<br><br><pre>';
-				echo 'more data:' . PHP_EOL;
-				print_r( $more_data );
-				echo '</pre>';
+				$error .= '<br><br><pre>';
+				$error .= __( 'more data: ', 'meistermag' ) . PHP_EOL;
+				$error .= print_r( $more_data );
+				$error .= '</pre>';
 			}
-		};
+		}
+
+		$error .= '</div>';
+		echo $error;
 	}
 
 	/**
@@ -120,7 +127,7 @@ class Tagdiv_Util {
 		return apply_filters( 'tagdiv_get_theme_options_defaults', $defaults );
 	}
 
-}//end class Tagdiv_Util
+} //end class Tagdiv_Util
 
 /*  ----------------------------------------------------------------------------
     mbstring support - if missing from host

@@ -52,12 +52,12 @@ jQuery().ready( function() {
 
             // show and hide the drop down on the search icon for mobile
             jQuery( '#tagdiv-header-search-button-mob' ).click( function( event ) {
-                jQuery( 'body' ).addClass( 'td-search-opened' );
+                jQuery( 'body' ).addClass( 'tagdiv-search-opened' );
             } );
 
             //close the search
             jQuery( '.tagdiv-search-close a' ).click( function() {
-                jQuery( 'body' ).removeClass( 'td-search-opened' );
+                jQuery( 'body' ).removeClass( 'tagdiv-search-opened' );
             } );
         },
 

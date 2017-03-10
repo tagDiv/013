@@ -1,11 +1,14 @@
 <?php
 
 /*
- *
- * This class makes the layout for blocks
- * used by:
+ * theme blocks layout support
+ *  * used by:
  *  - blocks
  *  - includes/tagdiv_page_generator/tagdiv_template_layout.php (author page, tag page)
+ *
+ * @package WordPress
+ * @subpackage MeisterMag
+ * @since MeisterMag 1.0
  */
 
 class Tagdiv_Block_Layout {

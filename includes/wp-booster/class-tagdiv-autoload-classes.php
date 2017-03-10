@@ -44,7 +44,7 @@ class Tagdiv_Autoload_Classes {
 						load_template( $class_file_path, true );
 					}
 				} else {
-					Tagdiv_Util::error( __FILE__, "Missing parameter: 'file'" );
+					Tagdiv_Util::tagdiv_wp_booster_error( __FILE__, __( 'Missing parameter: "file"', 'meistermag' ) );
 				}
 			}
 		}

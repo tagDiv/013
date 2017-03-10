@@ -25,12 +25,12 @@ require get_template_directory() . '/includes/wp-booster/class-tagdiv-menu.php';
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-module.php'; 		// module builder
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-block.php'; 		// block builder
 
-require get_template_directory() . '/includes/wp-booster/class-tagdiv-autoload-classes.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-autoload-classes.php'; //used to autoload classes
 
-require get_template_directory() . '/includes/wp-booster/class-tagdiv-block-layout.php';
-require get_template_directory() . '/includes/wp-booster/class-tagdiv-template-layout.php';
-require get_template_directory() . '/includes/wp-booster/class-tagdiv-data-source.php';
-
+// every class after this is autoloaded only when it's required
+Tagdiv_API_Autoload::add('Tagdiv_Block_Layout', get_template_directory() . '/includes/wp-booster/class-tagdiv-block-layout.php');
+Tagdiv_API_Autoload::add('Tagdiv_Template_Layout', get_template_directory() . '/includes/wp-booster/class-tagdiv-template-layout.php');
+Tagdiv_API_Autoload::add('Tagdiv_Data_Source', get_template_directory() . '/includes/wp-booster/class-tagdiv-data-source.php');
 
 /* ----------------------------------------------------------------------------
  * Add theme support for features
@@ -106,22 +106,23 @@ if ( ! function_exists( 'tagdiv_setup' ) ) {
 }
 add_action('after_setup_theme', 'tagdiv_setup');
 
-
 /* ----------------------------------------------------------------------------
  * Set content width global
  */
 
-/**
- * Sets the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- *
- * @since MeisterMag 1.0
- */
-function tagdiv_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'tagdiv_content_width', 640 );
+if ( ! function_exists( 'tagdiv_content_width' ) ) {
+	/**
+	 * Sets the content width in pixels, based on the theme's design and stylesheet.
+	 *
+	 * Priority 0 to make it available to lower priority callbacks.
+	 *
+	 * @global int $content_width
+	 *
+	 * @since MeisterMag 1.0
+	 */
+	function tagdiv_content_width() {
+		$GLOBALS['content_width'] = apply_filters( 'tagdiv_content_width', 640 );
+	}
 }
 add_action( 'after_setup_theme', 'tagdiv_content_width', 0 );
 
@@ -129,57 +130,58 @@ add_action( 'after_setup_theme', 'tagdiv_content_width', 0 );
  * Registers theme widget areas
  */
 
-/**
- * Registers the theme sidebar and the footer widget areas.
- *
- * @link https://developer.wordpress.org/reference/functions/register_sidebar/
- *
- * @since MeisterMag 1.0
- */
-function tagdiv_widgets_init() {
+if ( ! function_exists( 'tagdiv_widgets_init' ) ) {
+	/**
+	 * Registers the theme sidebar and the footer widget areas.
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/register_sidebar/
+	 *
+	 * @since MeisterMag 1.0
+	 */
+	function tagdiv_widgets_init() {
 
-	// Default sidebar
-	register_sidebar( array(
-		'name'          => __( 'Theme Default Sidebar', 'meistermag' ),
-		'id'            => 'tagdiv-default',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'meistermag' ),
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="tagdiv-block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
+		// Default sidebar
+		register_sidebar( array(
+			'name'          => __( 'Theme Default Sidebar', 'meistermag' ),
+			'id'            => 'tagdiv-default',
+			'description'   => __( 'Add widgets here to appear in your sidebar.', 'meistermag' ),
+			'before_widget' => '<aside class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<div class="tagdiv-block-title"><span>',
+			'after_title'   => '</span></div>'
+		) );
 
-	// Footer sections
-	register_sidebar( array(
-		'name'          => __( 'Footer 1', 'meistermag' ),
-		'id'            => 'tagdiv-footer-1',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="tagdiv-block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
+		// Footer sections
+		register_sidebar( array(
+			'name'          => __( 'Footer 1', 'meistermag' ),
+			'id'            => 'tagdiv-footer-1',
+			'before_widget' => '<aside class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<div class="tagdiv-block-title"><span>',
+			'after_title'   => '</span></div>'
+		) );
 
-	register_sidebar( array(
-		'name'          => __( 'Footer 2', 'meistermag' ),
-		'id'            => 'tagdiv-footer-2',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="tagdiv-block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
+		register_sidebar( array(
+			'name'          => __( 'Footer 2', 'meistermag' ),
+			'id'            => 'tagdiv-footer-2',
+			'before_widget' => '<aside class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<div class="tagdiv-block-title"><span>',
+			'after_title'   => '</span></div>'
+		) );
 
-	register_sidebar( array(
-		'name'          => __( 'Footer 3', 'meistermag' ),
-		'id'            => 'tagdiv-footer-3',
-		'before_widget' => '<aside class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="tagdiv-block-title"><span>',
-		'after_title'   => '</span></div>'
-	) );
+		register_sidebar( array(
+			'name'          => __( 'Footer 3', 'meistermag' ),
+			'id'            => 'tagdiv-footer-3',
+			'before_widget' => '<aside class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<div class="tagdiv-block-title"><span>',
+			'after_title'   => '</span></div>'
+		) );
 
+	}
 }
 add_action( 'widgets_init', 'tagdiv_widgets_init' );
-
 
 /* ----------------------------------------------------------------------------
  * Theme fonts & scripts
@@ -224,13 +226,12 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 	}
 }
 
-/**
- * Enqueues scripts and styles.
- *
- * @since MeisterMag 1.0
- */
-
 if ( ! function_exists( 'tagdiv_scripts' ) ) {
+	/**
+	 * Enqueues scripts and styles.
+	 *
+	 * @since MeisterMag 1.0
+	 */
 	function tagdiv_scripts() {
 		// Add custom fonts, used in the main stylesheet.
 		wp_enqueue_style( TAGDIV_THEME_NAME . '-fonts', tagdiv_fonts(), array(), null );
@@ -261,69 +262,81 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 		) );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'tagdiv_scripts' );
 
-
-/*  ----------------------------------------------------------------------------
-    add span wrap for category number in widget
+/* ----------------------------------------------------------------------------
+ * Theme add span wrap for category number in widget
  */
-add_filter( 'wp_list_categories', 'tagdiv_category_count_span' );
+
 if ( ! function_exists( 'tagdiv_category_count_span' ) ) {
+	/**
+	 * add count span to wp categories list
+	 * @param $links
+	 * @return mixed
+	 */
 	function tagdiv_category_count_span( $links ) {
-		$links = str_replace( '</a> (', '<span class="td-widget-no">', $links );
+		$links = str_replace( '</a> (', '<span class="tagdiv-widget-no">', $links );
 		$links = str_replace( ')', '</span></a>', $links );
 
 		return $links;
 	}
 }
+add_filter( 'wp_list_categories', 'tagdiv_category_count_span' );
 
-
-/*  ----------------------------------------------------------------------------
-    gallery style css
+/* ----------------------------------------------------------------------------
+ * Disable the gallery style css
  */
 add_filter( 'use_default_gallery_style', '__return_false' );
 
-
-/**
- * Filter the except length to 20 characters.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
+/* ----------------------------------------------------------------------------
+ * Theme excerpt length
  */
-function wp_custom_excerpt_length( $length ) {
-	return 20;
+
+if ( ! function_exists( 'tagdiv_custom_excerpt_length' ) ) {
+	/**
+	 * Filter the except length to 20 characters.
+	 *
+	 * @param int $length - the excerpt length.
+	 * @return int - modified excerpt length.
+	 */
+	function tagdiv_custom_excerpt_length( $length ) {
+		return 20;
+	}
 }
-add_filter( 'excerpt_length', 'wp_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'tagdiv_custom_excerpt_length', 999 );
 
 
 /* ----------------------------------------------------------------------------
- *   TagDiv WordPress booster init
+ * tagdiv wp booster init
  */
 
+if ( ! function_exists( 'tagdiv_init_booster' ) ) {
+	/**
+	 * register the them thumbs and adds theme blocks
+	 */
+	function tagdiv_init_booster() {
+
+		/*
+         * add_image_size for WordPress - register all the thumbs from the thumblist
+         */
+		foreach ( Tagdiv_API_Thumb::get_all() as $thumb_array ) {
+			add_image_size( $thumb_array['name'], $thumb_array['width'], $thumb_array['height'], $thumb_array['crop'] );
+		}
+
+
+		/*
+         * Add the registered blocks
+         */
+		foreach ( Tagdiv_API_Block::get_all() as $block_settings_key => $block_settings_value ) {
+			Tagdiv_Global_Blocks::add_block_id( $block_settings_key );
+		}
+
+	}
+}
 tagdiv_init_booster();
-function tagdiv_init_booster() {
-
-	/*
-	 * add_image_size for WordPress - register all the thumbs from the thumblist
-	 */
-	foreach ( Tagdiv_API_Thumb::get_all() as $thumb_array ) {
-		add_image_size( $thumb_array['name'], $thumb_array['width'], $thumb_array['height'], $thumb_array['crop'] );
-	}
-
-
-	/*
-	 * Add lazy shortcodes of the registered blocks
-	 */
-	foreach ( Tagdiv_API_Block::get_all() as $block_settings_key => $block_settings_value ) {
-		Tagdiv_Global_Blocks::add_block_id( $block_settings_key );
-	}
-
-}
-
 
 /* ----------------------------------------------------------------------------
- *   Customizer: Sanitization Callbacks
+ * Customizer: Sanitization Callbacks
  */
 
 if ( ! function_exists( 'tagdiv_sanitize_checkbox' ) ) {

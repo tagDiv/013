@@ -41,7 +41,7 @@
 				'menu_class'	 => 'tagdiv-mobile-main-menu',
 				'fallback_cb' 	 => 'tagdiv_wp_no_mobile_menu',
 				'link_after' 	 => '<i class="tagdiv-icon-menu-right tagdiv-element-after"></i>',
-				'walker'  		 => new tagdiv_walker_mobile_menu()
+				'walker'  		 => new Tagdiv_Walker_Mobile_Menu()
 			) );
 
 			//if no menu

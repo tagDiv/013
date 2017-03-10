@@ -12,12 +12,12 @@
 get_header(); ?>
 
 	<div class="tagdiv-main-content-wrap">
-		<div class="td-search-header">
+		<div class="tagdiv-search-header">
 			<div class="tagdiv-container">
 				<div class="tagdiv-span12">
 
 					<h1 class="tagdiv-entry-title tagdiv-page-title">
-						<span class="td-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'meistermag' );?></span>
+						<span class="tagdiv-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'meistermag' );?></span>
 					</h1>
 
 					<div class="tagdiv-search-page-wrap">
@@ -26,7 +26,7 @@ get_header(); ?>
 
 				</div>
 			</div>
-		</div> <!-- /.td-search-header -->
+		</div> <!-- /.tagdiv-search-header -->
 
 		<div class="tagdiv-container">
 			<div class="tagdiv-row">
