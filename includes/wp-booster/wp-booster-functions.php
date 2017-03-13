@@ -237,11 +237,11 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 		wp_enqueue_style( 'tagdiv-fonts', tagdiv_fonts(), array(), null );
 
 		// Theme stylesheet.
-		wp_enqueue_style( 'tagdiv-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'tagdiv-style', get_stylesheet_uri(), array(), TAGDIV_THEME_VERSION );
 
-		// Load the html5 shiv.
-		wp_enqueue_script( 'tagdiv-html5', get_template_directory_uri() . '/includes/js_files/html5shiv.js', array(), '3.7.3' );
-		wp_script_add_data( 'tagdiv-html5', 'conditional', 'lt IE 9' );
+		// Load the html5shiv.
+		wp_enqueue_script( 'html5', get_template_directory_uri() . '/includes/js_files/html5shiv.js', array(), '3.7.3' );
+		wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
 		// Load 'Supersubs' plugin menu support
 		wp_enqueue_script( 'supersubs', get_template_directory_uri() . '/includes/js_files/supersubs.js', array( 'jquery' ), '0.3b', true );
