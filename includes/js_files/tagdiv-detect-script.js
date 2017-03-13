@@ -1,8 +1,8 @@
-/* global jQuery:false */
+/* global jQuery:{} */
 
 /**
  * tdDetect.js - used to detect various devices
- */
+*/
 
 var tdDetect = {};
 

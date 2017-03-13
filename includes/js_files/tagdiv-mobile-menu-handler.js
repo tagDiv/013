@@ -72,4 +72,41 @@
 
 } )();
 
+/**
+ *   Set the mobile menu min-height property
+ *
+ *   This is used to force vertical scroll bar appearance from the beginning.
+ *   Without it, on some mobile devices, at scroll bar appearance also appear some visual issues.
+ */
+
+( function () {
+    'use strict';
+
+    jQuery( window ).resize( function() {
+
+        var window_innerHeight = window.innerHeight; // used to store the window height
+
+        var tagdivMobileMenu = jQuery( '#tagdiv-mobile-nav' ),
+            cssHeight = window_innerHeight + 1;
+
+        if ( tagdivMobileMenu.length ) {
+            tagdivMobileMenu.css( 'min-height', cssHeight + 'px' );
+        }
+
+        var tagdivMobileBg = jQuery( '.tagdiv-menu-background' ),
+            tagdivMobileBgSearch = jQuery( '.tagdiv-search-background' );
+
+        if ( tagdivMobileBg.length ) {
+            tagdivMobileBg.css( 'height', ( cssHeight + 70 ) + 'px' );
+        }
+
+        if ( tagdivMobileBgSearch.length ) {
+            tagdivMobileBgSearch.css( 'height', ( cssHeight + 70 ) + 'px' );
+        }
+
+    });
+
+} )();
+
+
 

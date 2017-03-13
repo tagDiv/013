@@ -234,32 +234,41 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 	 */
 	function tagdiv_scripts() {
 		// Add custom fonts, used in the main stylesheet.
-		wp_enqueue_style( TAGDIV_THEME_NAME . '-fonts', tagdiv_fonts(), array(), null );
+		wp_enqueue_style( 'tagdiv-fonts', tagdiv_fonts(), array(), null );
 
 		// Theme stylesheet.
-		wp_enqueue_style( TAGDIV_THEME_NAME . '-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'tagdiv-style', get_stylesheet_uri() );
 
 		// Load the html5 shiv.
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-html5', get_template_directory_uri() . '/includes/js_files/html5shiv.js', array(), '3.7.3' );
-		wp_script_add_data( TAGDIV_THEME_NAME . '-html5', 'conditional', 'lt IE 9' );
+		wp_enqueue_script( 'tagdiv-html5', get_template_directory_uri() . '/includes/js_files/html5shiv.js', array(), '3.7.3' );
+		wp_script_add_data( 'tagdiv-html5', 'conditional', 'lt IE 9' );
 
+		// Load 'Supersubs' plugin menu support
+		wp_enqueue_script( 'supersubs', get_template_directory_uri() . '/includes/js_files/supersubs.js', array( 'jquery' ), '0.3b', true );
 
+		// Load comments reply support if needed
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-script', get_template_directory_uri() . '/includes/js_files/mobile-menu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-supersubs-menu-script', get_template_directory_uri() . '/includes/js_files/supersubs-menu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-detect-script', get_template_directory_uri() . '/includes/js_files/tdDetect.js', array(), TAGDIV_THEME_VERSION, true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-events-script', get_template_directory_uri() . '/includes/js_files/tdEvents.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-menu-script', get_template_directory_uri() . '/includes/js_files/tdMenu.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
-		wp_enqueue_script( TAGDIV_THEME_NAME . '-search-script', get_template_directory_uri() . '/includes/js_files/tdSearch.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		// Load the theme detect script
+		wp_enqueue_script( 'tagdiv-detect-script', get_template_directory_uri() . '/includes/js_files/tagdiv-detect-script.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
 
-		wp_localize_script( TAGDIV_THEME_NAME . '-script', 'screenReaderText', array(
+		// Load theme menu support
+		wp_enqueue_script( 'tagdiv-menu-script', get_template_directory_uri() . '/includes/js_files/tagdiv-menu-script.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+		// Pass screen reader support data as screenReaderText global
+		wp_localize_script( 'tagdiv-menu-script', 'screenReaderText', array(
 			'expand'   => __( 'expand child menu', 'meistermag' ),
 			'collapse' => __( 'collapse child menu', 'meistermag' ),
 			'submenu'  => __( 'menu item with sub-menu', 'meistermag' ),
 		) );
+
+		// Load the theme mobile menu handler
+		wp_enqueue_script( 'tagdiv-mobile-menu-handler-script', get_template_directory_uri() . '/includes/js_files/tagdiv-mobile-menu-handler.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+
+		// Load theme main menu search support
+		wp_enqueue_script( 'tagdiv-search-script', get_template_directory_uri() . '/includes/js_files/tagdiv-search-script.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
+
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tagdiv_scripts' );
