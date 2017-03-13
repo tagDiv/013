@@ -128,7 +128,7 @@ if ( post_password_required() ) {
 
 			<div class="comment-content">
 				<?php if ( '0' == $tagdiv_comment->comment_approved ) { ?>
-					<em><?php _e('Your comment is awaiting moderation', 'meistermag'); ?></em>
+					<em><?php _e( 'Your comment is awaiting moderation', 'meistermag' ); ?></em>
 				<?php }
 				comment_text(); ?>
 			</div>

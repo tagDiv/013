@@ -46,7 +46,7 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 
 				<div class="tagdiv-post-featured-image">
 					<?php
-					the_post_thumbnail( 'tagdiv_640x0', array( 'alt' => get_the_title(), 'class' => 'tagdiv-entry-thumb' ) );
+					the_post_thumbnail( 'tagdiv_640x0', array( 'alt' => esc_attr( strip_tags( get_the_title() ) ), 'class' => 'tagdiv-entry-thumb' ) );
 					?>
 				</div><!-- /.tagdiv-post-featured-image -->
 
@@ -56,11 +56,11 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 					<div class="tagdiv-module-thumb">
 
 						<?php if ( current_user_can( 'edit_posts' ) ) { ?>
-							<a class="tagdiv-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
+							<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
 						<?php } ?>
 
 						<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
-							<?php the_post_thumbnail( 'tagdiv_300x220', array( 'alt' => get_the_title(), 'class' => 'tagdiv-entry-thumb' ) ); ?>
+							<?php the_post_thumbnail( 'tagdiv_300x220', array( 'alt' => esc_attr( strip_tags( get_the_title() ) ), 'class' => 'tagdiv-entry-thumb' ) ); ?>
 						</a>
 
 					</div><!-- /.tagdiv-module-thumb-->
@@ -102,7 +102,7 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) {
 
 			$tagdiv_post_categories .= '<ul class="tagdiv-category">';
 			foreach ( $tagdiv_categories_array as $category_name => $category_params ) {
-				$tagdiv_post_categories .= '<li><a href="' . $category_params['link'] . '">' . $category_name . '</a></li>';
+				$tagdiv_post_categories .= '<li><a href="' . esc_url( $category_params['link'] ) . '">' . $category_name . '</a></li>';
 			}
 			$tagdiv_post_categories .= '</ul>';
 
@@ -137,7 +137,7 @@ if ( ! function_exists( 'tagdiv_post_category' ) ) {
 			}
 
 			if ( ! empty( $tagdiv_selected_category_obj_id ) && ! empty( $tagdiv_selected_category_obj_name ) ) {
-				$tagdiv_post_categories .= '<a href="' . get_category_link( $tagdiv_selected_category_obj_id ) . '" class="tagdiv-post-category">' . $tagdiv_selected_category_obj_name . '</a>';
+				$tagdiv_post_categories .= '<a href="' . esc_url ( get_category_link( $tagdiv_selected_category_obj_id ) ) . '" class="tagdiv-post-category">' . $tagdiv_selected_category_obj_name . '</a>';
 			}
 
 			return $tagdiv_post_categories;
@@ -174,7 +174,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 						</div>
 
 						<div class="tagdiv-post-comments">
-							<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><i class="tagdiv-icon-comments"></i><?php echo get_comments_number( get_the_ID() ); ?></a>
+							<a href="<?php echo esc_url(  get_comments_link( get_the_ID() ) ); ?>"><i class="tagdiv-icon-comments"></i><?php echo get_comments_number( get_the_ID() ); ?></a>
 						</div>
 
 					</div><!-- /.tagdiv-module-meta-info-->
@@ -198,7 +198,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 					</div>
 
 					<div class="tagdiv-module-comments">
-						<a href="<?php echo get_comments_link( get_the_ID() ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
+						<a href="<?php echo esc_url( get_comments_link( get_the_ID() ) ); ?>"><?php echo get_comments_number( get_the_ID() ); ?></a>
 					</div>
 
 				</div>
@@ -235,7 +235,7 @@ if ( ! function_exists( 'tagdiv_post_tags' ) ) {
 				$tagdiv_post_tags .= '<ul class="tagdiv-tags tagdiv-clearfix">';
 				$tagdiv_post_tags .= '<li><span>' . __( 'TAGS', 'meistermag' ) . '</span></li>';
 				foreach ( $tagdiv_tags_array as $tag_name => $tag_params ) {
-					$tagdiv_post_tags .= '<li><a href="' . $tag_params['url'] . '">' . $tag_name . '</a></li>';
+					$tagdiv_post_tags .= '<li><a href="' . esc_url( $tag_params['url'] ) . '">' . $tag_name . '</a></li>';
 				}
 				$tagdiv_post_tags .= '</ul>';
 			}
@@ -277,7 +277,7 @@ if ( ! function_exists( 'tagdiv_next_prev_posts' ) ) {
 				}
 				if ( ! empty( $tagdiv_next_post ) ) {
 					$tagdiv_next_prev_posts .= '<div class="tagdiv-span6 tagdiv-post-next-post">';
-					$tagdiv_next_prev_posts .= '<div class="tagdiv-post-next-prev-content"><span class="tagdiv-next-art">' . __('Next article', 'meistermag') . '</span>';
+					$tagdiv_next_prev_posts .= '<div class="tagdiv-post-next-prev-content"><span class="tagdiv-next-art">' . __( 'Next article', 'meistermag' ) . '</span>';
 					$tagdiv_next_prev_posts .= '<a href="' . esc_url( get_permalink( $tagdiv_next_post->ID ) ) . '">' . get_the_title( $tagdiv_next_post->ID ) . '</a>';
 					$tagdiv_next_prev_posts .= '</div>';
 					$tagdiv_next_prev_posts .= '</div>';
@@ -307,20 +307,20 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 
 			$tagdiv_author_box .= '<div class="tagdiv-author-box-wrap">';
 
-			$tagdiv_author_box .= '<a href="' . get_author_posts_url( $post->post_author ) . '">';
+			$tagdiv_author_box .= '<a href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">';
 			$tagdiv_author_box .= get_avatar( get_the_author_meta( 'email', $post->post_author ), '96' );
 			$tagdiv_author_box .= '</a>';
 
 			$tagdiv_author_box .= '<div class="tagdiv-author-meta">';
 			$tagdiv_author_box .= '<div class="tagdiv-author-name vcard author">';
 			$tagdiv_author_box .= '<span class="tagdiv-post-author-url fn">';
-			$tagdiv_author_box .= '<a href="' . get_author_posts_url( $post->post_author ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a>';
+			$tagdiv_author_box .= '<a href="' . esc_url(  get_author_posts_url( $post->post_author ) ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a>';
 			$tagdiv_author_box .= '</span>';
 			$tagdiv_author_box .= '</div>';
 
 			if ( '' !== get_the_author_meta( 'user_url', $post->post_author ) ) {
 				$tagdiv_author_box .= '<div class="tagdiv-author-url">';
-				$tagdiv_author_box .= '<a href="' . get_the_author_meta( 'user_url', $post->post_author ) . '">' . get_the_author_meta( 'user_url', $post->post_author ) . '</a>';
+				$tagdiv_author_box .= '<a href="' . esc_url( get_the_author_meta( 'user_url', $post->post_author ) ) . '">' . get_the_author_meta( 'user_url', $post->post_author ) . '</a>';
 				$tagdiv_author_box .= '</div>';
 			}
 
@@ -391,7 +391,7 @@ if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
 		?>
 			<div class="tagdiv-module-thumb">
 				<?php	if ( current_user_can( 'edit_posts' ) ) { ?>
-					<a class="tagdiv-admin-edit" href="<?php echo get_edit_post_link( $post->ID ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
+					<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
 				<?php } ?>
 				<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
 					<img class="tagdiv-entry-thumb" src="<?php echo $tagdiv_temp_image_url; ?>" alt="no-thumb-placeholder" title="no-thumb" />

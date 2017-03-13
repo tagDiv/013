@@ -201,17 +201,17 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 		$subsets = 'latin,latin-ext';
 
 		/* translators: If there are characters in your language that are not supported by Work Sans font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Work Sans font: on or off', 'meistermag') ) {
+		if ('off' !== _x( 'on', 'Work Sans font: on or off', 'meistermag' ) ) {
 			$fonts[] = 'Work Sans:400,500,600,700';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Source Sans Pro font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Source Sans Pro font: on or off', 'meistermag') ) {
+		if ('off' !== _x( 'on', 'Source Sans Pro font: on or off', 'meistermag' ) ) {
 			$fonts[] = 'Source Sans Pro:400,400italic,600,600italic,700';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Droid Serif font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Droid Serif font: on or off', 'meistermag') ) {
+		if ('off' !== _x( 'on', 'Droid Serif font: on or off', 'meistermag' ) ) {
 			$fonts[] = 'Droid Serif:400,700';
 		}
 
@@ -305,14 +305,34 @@ if ( ! function_exists( 'tagdiv_custom_excerpt_length' ) ) {
 	/**
 	 * Filter the except length to 20 characters.
 	 *
-	 * @param int $length - the excerpt length.
 	 * @return int - modified excerpt length.
 	 */
-	function tagdiv_custom_excerpt_length( $length ) {
+	function tagdiv_custom_excerpt_length() {
 		return 20;
 	}
 }
 add_filter( 'excerpt_length', 'tagdiv_custom_excerpt_length', 999 );
+
+/* ----------------------------------------------------------------------------
+ * Theme safe fail for for when the post title is left empty
+ */
+
+if ( ! function_exists( 'tagdiv_no_title' ) ) {
+	/**
+	 * Filer the post title when it is left empty
+	 *
+	 * @param $title
+	 * @return string
+	 */
+	function tagdiv_no_title( $title ) {
+		if ( $title == '' ) {
+			return __( 'Untitled', 'meistermag' );
+		} else {
+			return $title;
+		}
+	}
+}
+add_filter('the_title', 'tagdiv_no_title');
 
 
 /* ----------------------------------------------------------------------------
