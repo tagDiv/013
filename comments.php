@@ -75,7 +75,7 @@ if ( post_password_required() ) {
 	global $post;
 	$tagdiv_url = wp_login_url( apply_filters( 'the_permalink', get_permalink( $post->ID ) ) );
 
-	$tagdiv_defaults['must_log_in'] 		  = '<p class="must-log-in"><a href="' . $tagdiv_url .'">' . __( 'Log in to leave a comment', 'meistermag' ) . ' </a></p>';
+	$tagdiv_defaults['must_log_in'] 		  = '<p class="must-log-in"><a href="' . esc_url( $tagdiv_url ) .'">' . __( 'Log in to leave a comment', 'meistermag' ) . ' </a></p>';
 
 	comment_form( $tagdiv_defaults );
 

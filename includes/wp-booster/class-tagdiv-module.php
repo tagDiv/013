@@ -73,7 +73,7 @@ abstract class Tagdiv_Module {
 
 		$buffy = '';
 		$buffy .= '<span class="tagdiv-post-author-name">';
-		$buffy .= '<a href="' . get_author_posts_url( $this->post->post_author ) . '">' . get_the_author_meta( 'display_name', $this->post->post_author ) . '</a>';
+		$buffy .= '<a href="' . esc_url( get_author_posts_url( $this->post->post_author ) ) . '">' . get_the_author_meta( 'display_name', $this->post->post_author ) . '</a>';
 		$buffy .= '</span>';
 
 		return $buffy;
@@ -103,7 +103,7 @@ abstract class Tagdiv_Module {
 		$buffy = '';
 
 		$buffy .= '<div class="tagdiv-module-comments">';
-		$buffy .= '<a href="' . get_comments_link( $this->post->ID ) . '">';
+		$buffy .= '<a href="' . esc_url( get_comments_link( $this->post->ID ) ) . '">';
 		$buffy .= get_comments_number( $this->post->ID );
 		$buffy .= '</a>';
 		$buffy .= '</div>';
@@ -187,9 +187,9 @@ abstract class Tagdiv_Module {
 
 			$buffy .= '<div class="tagdiv-module-thumb">';
 				if ( current_user_can( 'edit_posts' ) ) {
-					$buffy .= '<a class="tagdiv-admin-edit" href="' . get_edit_post_link( $this->post->ID ) . '">' . __( 'edit', 'meistermag' ) . '</a>';
+					$buffy .= '<a class="tagdiv-admin-edit" href="' . esc_url( get_edit_post_link( $this->post->ID ) ) . '">' . __( 'edit', 'meistermag' ) . '</a>';
 				}
-				$buffy .= '<a href="' . $this->href . '" rel="bookmark" title="' . $this->title_attribute . '">';
+				$buffy .= '<a href="' . esc_url( $this->href ) . '" rel="bookmark" title="' . esc_attr( $this->title_attribute ) . '">';
 				$buffy .= '<img width="' . $tagdiv_temp_image_url[1] . '" height="' . $tagdiv_temp_image_url[2] . '" class="tagdiv-entry-thumb" src="' . $tagdiv_temp_image_url[0] . '"' . $srcset_sizes . ' ' . $attachment_alt . $attachment_title . '/>';
 				$buffy .= '</a>';
 			$buffy .= '</div>'; //end wrapper
@@ -204,7 +204,7 @@ abstract class Tagdiv_Module {
 	function get_title() {
 		$buffy = '';
 		$buffy .= '<h3 class="tagdiv-entry-title">';
-		$buffy .= '<a href="' . $this->href . '" rel="bookmark" title="' . $this->title_attribute . '">';
+		$buffy .= '<a href="' . esc_url( $this->href ) . '" rel="bookmark" title="' . esc_attr( $this->title_attribute ) . '">';
 		$buffy .= $this->title;
 		$buffy .= '</a>';
 		$buffy .= '</h3>';
@@ -275,7 +275,7 @@ abstract class Tagdiv_Module {
 
 
 		if ( ! empty( $selected_category_obj_id ) && ! empty( $selected_category_obj_name ) ) {
-			$buffy .= '<a href="' . get_category_link( $selected_category_obj_id ) . '" class="tagdiv-post-category">' . $selected_category_obj_name . '</a>';
+			$buffy .= '<a href="' . esc_url( get_category_link( $selected_category_obj_id ) ) . '" class="tagdiv-post-category">' . $selected_category_obj_name . '</a>';
 		}
 
 		return $buffy;

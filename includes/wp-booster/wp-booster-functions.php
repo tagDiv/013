@@ -402,7 +402,6 @@ if ( ! function_exists( 'tagdiv_sanitize_email' ) ) {
 	 * @return string The sanitized email if not null; otherwise, the setting default.
 	 */
 	function tagdiv_sanitize_email(  $email, $setting  ) {
-		// Sanitize $input as a hex value without the hash prefix.
 		$email = sanitize_email( $email );
 
 		// If $email is a valid email, return it; otherwise, return the default.

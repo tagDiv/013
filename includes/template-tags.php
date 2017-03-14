@@ -314,7 +314,7 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 			$tagdiv_author_box .= '<div class="tagdiv-author-meta">';
 			$tagdiv_author_box .= '<div class="tagdiv-author-name vcard author">';
 			$tagdiv_author_box .= '<span class="tagdiv-post-author-url fn">';
-			$tagdiv_author_box .= '<a href="' . esc_url(  get_author_posts_url( $post->post_author ) ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a>';
+			$tagdiv_author_box .= '<a href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a>';
 			$tagdiv_author_box .= '</span>';
 			$tagdiv_author_box .= '</div>';
 

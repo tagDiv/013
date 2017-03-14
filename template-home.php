@@ -17,8 +17,8 @@ if ( $tagdiv_paged > $tagdiv_page ) {
     $paged = $tagdiv_page;
 }
 
-$tagdiv_home_latest_articles_title  = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_latest_section_title' );
-$tagdiv_home_block_title            = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_section_title' );
+$tagdiv_home_latest_articles_title  = sanitize_text_field( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_latest_section_title') );
+$tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_section_title' ) );
 
 ?>
 
