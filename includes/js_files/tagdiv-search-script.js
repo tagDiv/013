@@ -51,13 +51,19 @@ jQuery().ready( function() {
             } );
 
             // show and hide the drop down on the search icon for mobile
-            jQuery( '#tagdiv-header-search-button-mob' ).click( function( event ) {
-                jQuery( 'body' ).addClass( 'tagdiv-search-opened' );
+            jQuery( '#tagdiv-header-search-button-mob' ).click( function() {
+                var body = jQuery( 'body'),
+                    html = jQuery( document ).find( 'html');
+                body.addClass( 'tagdiv-search-opened' );
+                html.addClass( 'tagdiv-mobile-menu-search-open' );
             } );
 
             //close the search
             jQuery( '.tagdiv-search-close a' ).click( function() {
-                jQuery( 'body' ).removeClass( 'tagdiv-search-opened' );
+                var body = jQuery( 'body'),
+                    html = jQuery( document ).find( 'html');
+                body.removeClass( 'tagdiv-search-opened' );
+                html.removeClass( 'tagdiv-mobile-menu-search-open' );
             } );
         },
 

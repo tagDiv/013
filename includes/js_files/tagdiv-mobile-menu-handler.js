@@ -11,12 +11,15 @@
     //handles open/close mobile menu
     jQuery( '#tagdiv-top-mobile-toggle a, .tagdiv-mobile-close a' ).click( function() {
 
-        var body = jQuery( 'body' );
+        var body = jQuery( 'body'),
+            html = jQuery( document ).find( 'html');
 
         if ( body.hasClass( 'tagdiv-menu-mob-open-menu' ) ) {
             body.removeClass( 'tagdiv-menu-mob-open-menu' );
+            html.removeClass( 'tagdiv-mobile-menu-search-open' );
         } else {
             body.addClass( 'tagdiv-menu-mob-open-menu' );
+            html.addClass( 'tagdiv-mobile-menu-search-open' );
         }
     });
 

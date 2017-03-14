@@ -132,6 +132,14 @@
   padding: 50px 20px 0;
 }
 
+.tagdiv-mobile-menu-search-open {
+  margin-top: 0 !important;
+
+  .tagdiv-mobile-content {
+    margin-top: 46px;
+  }
+}
+
 .tagdiv-mobile-container {
   padding-bottom: 20px;
   position: relative;
@@ -219,7 +227,7 @@
     > ul {
       display: block;
       max-height: 2000px;
-      opacity: 0.9;
+      opacity: 1;
     }
   }
 
@@ -290,10 +298,6 @@
 /* menu opened class .tagdiv-menu-mob-open-menu */
 .tagdiv-menu-mob-open-menu {
   position: relative;
-
-  #wpadminbar {
-    position: fixed !important;
-  }
 
   #tagdiv-page-wrap {
     position: fixed;
@@ -447,10 +451,6 @@
 .tagdiv-search-opened {
   position: relative;
 
-  #wpadminbar {
-    position: fixed !important;
-  }
-
   #tagdiv-page-wrap {
     position: fixed;
   }
@@ -472,7 +472,7 @@
 
   // menu admin bar
   &.admin-bar .tagdiv-search-wrap-mob {
-    padding-top: 0;
+    padding-top: 46px;
   }
 }
 
