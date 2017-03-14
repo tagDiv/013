@@ -124,7 +124,7 @@
 									<label>
 										<span class="screen-reader-text"><?php _e( 'Search for:', 'meistermag' ) ?></span>
 										<input id="tagdiv-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
-										<input class="wpb_button wpb_btn-inverse btn" type="submit" id="tagdiv-header-search-top" value="<?php _e( 'Search', 'meistermag' ) ?>" />
+										<input class="wpb_button wpb_btn-inverse btn" type="submit" id="tagdiv-header-search-top" value="<?php esc_attr_e( 'Search', 'meistermag' ) ?>" />
 									</label>
 								</div>
 							</form>

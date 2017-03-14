@@ -1,30 +1,30 @@
 === MeisterMag ===
 
 Requires at least: 4.0
-Tested up to: 4.6.1
+Tested up to: 4.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Tags: one-column, two-columns, right-sidebar, ???accessibility-ready???, theme-options, custom-menu, featured-images, flexible-header, threaded-comments, translation-ready, blog
+Tags: one-column, two-columns, right-sidebar, theme-options, custom-menu, featured-images, flexible-header, threaded-comments, translation-ready, blog
 
 == Description ==
 
 MeisterMag is a free WordPress theme that lets you write articles and blog posts with ease.
 
-The MeisterMag template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach, and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. It’s fast, simple, and easy to use.
+The MeisterMag template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. It’s fast, simple, and easy to use.
 
 The MeisterMag Theme supports Custom Menus, Widgets and
 the following extra features:
 
- - Responsive
- - Post Formats
+ - Responsive Layout
+ - Theme Customize
  - Custom Sidebars
  - Post Thumbnails
+ - Page Navigation
  - 3 widgetized areas in the Footer
- - Customisable Front Page
+ - Customisable Homepage
  - Customisable Footer
  - Translation Ready
- - Accessibility Ready
 
 == Installation ==
 
@@ -41,7 +41,7 @@ the following extra features:
 
 == Copyright ==
 
-MeisterMag WordPress theme, Copyright (C) 2016 tagDiv
+MeisterMag WordPress theme, Copyright (C) 2017 tagDiv
 MeisterMag WordPress theme is licensed under the GNU General Public License v2 or later
 
 This program is free software: you can redistribute it and/or modify
@@ -70,7 +70,7 @@ Normalize CSS | normalize.css v3.0.2 | MIT License | git.io/normalize
 
 == Changelog ==
 
-= 1.0 - November 01 2016 =
+= v1.0.0 =
 * Initial release
 
 === Support ===

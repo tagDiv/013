@@ -43,7 +43,12 @@ if ( ! function_exists( 'tagdiv_setup' ) ) {
 		 * Localization
 		 * Make theme available for translation.
 		 */
-		load_theme_textdomain( 'meistermag', get_template_directory() . '/languages' );
+		// If a child theme is active
+		if ( is_child_theme() ) {
+			load_child_theme_textdomain( 'meistermag', get_stylesheet_directory() . '/languages' );
+		} else {
+			load_theme_textdomain( 'meistermag', get_template_directory() . '/languages' );
+		}
 
 		/**
 		 * Enable support for Post Formats.
@@ -236,8 +241,17 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 		// Add custom fonts, used in the main stylesheet.
 		wp_enqueue_style( 'tagdiv-fonts', tagdiv_fonts(), array(), null );
 
-		// Theme stylesheet.
-		wp_enqueue_style( 'tagdiv-style', get_stylesheet_uri(), array(), TAGDIV_THEME_VERSION );
+		// If a child theme is active
+		if ( is_child_theme() ) {
+			// Theme main stylesheet
+			wp_enqueue_style( 'tagdiv-style', get_template_directory_uri() . '/style.css', array(), TAGDIV_THEME_VERSION );
+
+			// Theme child style
+			wp_enqueue_style( 'tagdiv-child-style', get_stylesheet_uri(), array( 'tagdiv-style' ), TAGDIV_THEME_VERSION );
+		} else {
+			// Theme stylesheet.
+			wp_enqueue_style( 'tagdiv-style', get_stylesheet_uri(), array(), TAGDIV_THEME_VERSION );
+		}
 
 		// Load the html5shiv.
 		wp_enqueue_script( 'html5', get_template_directory_uri() . '/includes/js_files/html5shiv.js', array(), '3.7.3' );
