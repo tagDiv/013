@@ -37,28 +37,19 @@
 					<!--logo-->
 					<div class="tagdiv-span12">
 						<aside class="footer-logo-wrap">
-
-							<?php
-							if ( !empty( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) ) ) { ?>
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tagdiv-custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-									<img src="<?php echo esc_url( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-								</a>
-							<?php } ?>
-
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tagdiv-custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+								<img src="<?php echo esc_url( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							</a>
 						</aside>
 					</div>
 
 					<!--description & email-->
 					<div class="tagdiv-span12">
 						<aside class="footer-text-wrap">
-							<?php if ( !empty( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_text' ) ) ) { ?>
 							<?php echo sanitize_text_field ( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_text' ) ) ?>
-							<?php } ?>
 							<div class="footer-email-wrap">
-								<?php if ( !empty( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ) ) { ?>
 								<?php _e( 'Contact us:', 'meistermag' ); ?>
-									<a href="mailto:<?php echo sanitize_email ( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ) ?>"><?php echo Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ?></a>
-								<?php } ?>
+								<a href="mailto:<?php echo sanitize_email ( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ) ?>"><?php echo Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ?></a>
 							</div>
 						</aside>
 					</div>
