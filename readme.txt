@@ -68,6 +68,12 @@ Source: http://nerdyjs.com/script/44310
 
 Normalize CSS | normalize.css v3.0.2 | MIT License | git.io/normalize
 
+Images used in screenshot.png:
+
+1. A photo by JESHOOTS ( https://unsplash.com/photos/XzoSKULTDWI ), http://jeshoots.com/
+1. A photo by Nasa ( https://unsplash.com/photos/yZygONrUBe8 ), https://www.nasa.gov/
+2. A photo by Rami Al-zayat ( https://unsplash.com/photos/w33-zg-dNL4 )
+
 == Changelog ==
 
 = v1.0.0 =

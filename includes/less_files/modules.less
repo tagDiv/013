@@ -19,6 +19,21 @@
   &:hover .tagdiv-entry-title a {
     color: @tagdiv_theme_color;
   }
+
+  .sticky,
+  .sticky .tagdiv-module-meta-info a,
+  .sticky .tagdiv-more-link {
+    color: #ff0000;
+
+    &:hover .tagdiv-entry-title a {
+      color: #ff0000;
+    }
+
+    .tagdiv-post-category:hover {
+      background-color: #ff0000;
+      opacity: 0.8;
+    }
+  }
 }
 
 /* Module Titles */
@@ -221,6 +236,12 @@
     line-height: 19px;
     font-size: 15px;
     margin: 0;
+
+    .tagdiv-more-link {
+      display: table;
+      position: relative;
+      top: 10px;
+    }
   }
 
   /* responsive portrait tablet + mobile */

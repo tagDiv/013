@@ -140,16 +140,6 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			)
 		);
 
-		/* Theme Home / Latest Posts Section > Title Settings Section */
-		$wp_customize->add_section( 'tagdiv_home_options_section',
-			array(
-				'title'          => __( 'Home Block / Latest Posts Options', 'meistermag' ),
-				'priority'       => 2,
-				'capability' 	 => 'edit_theme_options',
-				'description' 	 => __( 'Allows you to customize the Mesitermag Theme Homepage settings.', 'meistermag'),
-			)
-		);
-
 		/* Theme Home Block Section Title Settings */
 		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_section_title]',
 			array(
@@ -161,10 +151,10 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 
 		$wp_customize->add_control( 'tagdiv_block_section_title',
 			array(
-				'label'      	=> __( 'Block Title', 'meistermag' ),
-				'description' 	=> __( 'Set the block title', 'meistermag' ),
-				'section'  	  	=> 'tagdiv_home_options_section',
-				'priority'    	=> 1,
+				'label'      	=> __( 'Homepage Top Block Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the theme homepage top block title', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 6,
 				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_section_title]',
 			)
 		);
@@ -180,10 +170,10 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 
 		$wp_customize->add_control( 'tagdiv_latest_section_title',
 			array(
-				'label'      	=> __( 'Latest Articles Title', 'meistermag' ),
-				'description' 	=> __( 'Set the latest articles section title', 'meistermag' ),
-				'section'  	  	=> 'tagdiv_home_options_section',
-				'priority'    	=> 1,
+				'label'      	=> __( 'Homepage Latest Articles Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the theme homepage latest articles section title', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 7,
 				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_latest_section_title]',
 			)
 		);

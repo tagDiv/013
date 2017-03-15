@@ -25,7 +25,7 @@ class Tagdiv_Util {
 	 *
 	 * @return string
 	 */
-	static function tagdiv_excerpt( $post_content, $limit, $type = '', $show_shortcodes = '' ) {
+	static function tagdiv_excerpt( $post_content, $limit, $type = '', $post_id,  $show_shortcodes = '' ) {
 		//remove shortcodes and tags
 		if ( '' == $show_shortcodes ) {
 			//delete all shortcode tags from the content.
@@ -59,6 +59,11 @@ class Tagdiv_Util {
 			}
 
 			$ret_excerpt = $excerpt;
+			$ret_excerpt .= sprintf( '<a href="%1$s" class="tagdiv-more-link">%2$s</a>',
+				esc_url( get_permalink( $post_id ) ),
+				/* translators: %s: Name of current post */
+				sprintf( __( 'Read More<span class="screen-reader-text"> "%s"</span>', 'meistermag' ), get_the_title( $post_id ) )
+			);
 		}
 
 		return $ret_excerpt;

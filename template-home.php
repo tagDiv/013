@@ -34,6 +34,7 @@ $tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_g
                             'tagdiv_custom_title'      => $tagdiv_home_block_title,
                             'tagdiv_block_posts_limit' => 3,
                             'tagdiv_column_number'     => 3,
+                            'tagdiv_block_sort'        => 'random_posts',
                         ) );
                         ?>
                     </div>

@@ -29,12 +29,7 @@
 
 		<?php if ( is_single() ) { ?>
 			<div class="tagdiv-post-content">
-				<?php /* translators: %s: Name of current post */
-				the_content( sprintf(
-					__( 'Continue reading <span class="screen-reader-text">"%s"</span>', 'meistermag' ),
-					get_the_title()
-				) );
-				?>
+				<?php the_content(); ?>
 			</div> <!-- /.tagdiv-post-content -->
 
 			<footer class="tagdiv-post-footer">

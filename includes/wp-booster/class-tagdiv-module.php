@@ -230,7 +230,7 @@ abstract class Tagdiv_Module {
 		$buffy = '';
 		if ( '' != $cut_at ) {
 			// simple, $cut_at and return
-			$buffy .= Tagdiv_Util::tagdiv_excerpt( $this->post->post_content, $cut_at, $type );
+			$buffy .= Tagdiv_Util::tagdiv_excerpt( $this->post->post_content, $cut_at, $type, $this->post->ID );
 		} else {
 			//no $cut_at provided -> return the full $this->post->post_content
 			$buffy .= $this->post->post_content;

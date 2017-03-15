@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MeisterMag 1.0.0\n"
-"POT-Creation-Date: 2017-03-13 16:07+0200\n"
-"PO-Revision-Date: 2017-03-13 16:27+0200\n"
+"POT-Creation-Date: 2017-03-15 11:46+0200\n"
+"PO-Revision-Date: 2017-03-15 11:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: tagDiv <contact@tagdiv.com>\n"
 "Language: en_US\n"
@@ -12,7 +12,6 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;esc_attr_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../404.php:18
@@ -38,8 +37,8 @@ msgid "Next page"
 msgstr ""
 
 #: ../archive.php:79 ../attachment.php:54 ../index.php:72 ../search.php:72
-#: ../template-home.php:82 ../template-parts/content-page.php:28
-#: ../template-parts/content.php:48
+#: ../template-home.php:83 ../template-parts/content-page.php:28
+#: ../template-parts/content.php:43
 msgid "Page"
 msgstr ""
 
@@ -95,23 +94,23 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: ../footer.php:24 ../includes/wp-booster/wp-booster-functions.php:156
+#: ../footer.php:24 ../includes/wp-booster/wp-booster-functions.php:161
 msgid "Footer 1"
 msgstr ""
 
-#: ../footer.php:28 ../includes/wp-booster/wp-booster-functions.php:165
+#: ../footer.php:28 ../includes/wp-booster/wp-booster-functions.php:170
 msgid "Footer 2"
 msgstr ""
 
-#: ../footer.php:32 ../includes/wp-booster/wp-booster-functions.php:174
+#: ../footer.php:32 ../includes/wp-booster/wp-booster-functions.php:179
 msgid "Footer 3"
 msgstr ""
 
-#: ../footer.php:61
+#: ../footer.php:59
 msgid "Contact us:"
 msgstr ""
 
-#: ../footer.php:77 ../includes/wp-booster/class-tagdiv-menu.php:53
+#: ../footer.php:75 ../includes/wp-booster/class-tagdiv-menu.php:53
 msgid "Footer Menu"
 msgstr ""
 
@@ -147,7 +146,7 @@ msgstr ""
 msgid "Search &hellip;"
 msgstr ""
 
-#: ../template-home.php:83
+#: ../template-home.php:84
 msgid "Latest articles navigation"
 msgstr ""
 
@@ -192,7 +191,7 @@ msgid "Choose logo"
 msgstr ""
 
 #: ../includes/customizer.php:67
-#: ../includes/wp-booster/class-tagdiv-util.php:119
+#: ../includes/wp-booster/class-tagdiv-util.php:124
 msgid "MeisterMag is your news, entertainment, music fashion website."
 msgstr ""
 
@@ -205,7 +204,7 @@ msgid "Write here your footer text"
 msgstr ""
 
 #: ../includes/customizer.php:87
-#: ../includes/wp-booster/class-tagdiv-util.php:123
+#: ../includes/wp-booster/class-tagdiv-util.php:128
 msgid "contact@yoursite.com"
 msgstr ""
 
@@ -218,7 +217,7 @@ msgid "Add here your footer contact email address"
 msgstr ""
 
 #: ../includes/customizer.php:107
-#: ../includes/wp-booster/class-tagdiv-util.php:124
+#: ../includes/wp-booster/class-tagdiv-util.php:129
 msgid "Your Copyright Text"
 msgstr ""
 
@@ -238,34 +237,30 @@ msgstr ""
 msgid "Show/Hide the footer copyright symbol"
 msgstr ""
 
-#: ../includes/customizer.php:146
-msgid "Home Block / Latest Posts Options"
-msgstr ""
-
-#: ../includes/customizer.php:149
-msgid "Allows you to customize the Mesitermag Theme Homepage settings."
-msgstr ""
-
-#: ../includes/customizer.php:157 ../includes/customizer.php:164
-#: ../includes/wp-booster/class-tagdiv-util.php:121
+#: ../includes/customizer.php:147
+#: ../includes/wp-booster/class-tagdiv-util.php:126
 msgid "Block Title"
 msgstr ""
 
-#: ../includes/customizer.php:165
-msgid "Set the block title"
+#: ../includes/customizer.php:154
+msgid "Homepage Top Block Title"
 msgstr ""
 
-#: ../includes/customizer.php:176
-#: ../includes/wp-booster/class-tagdiv-util.php:122
+#: ../includes/customizer.php:155
+msgid "Use this option to set the theme homepage top block title"
+msgstr ""
+
+#: ../includes/customizer.php:166
+#: ../includes/wp-booster/class-tagdiv-util.php:127
 msgid "Latest Articles"
 msgstr ""
 
-#: ../includes/customizer.php:183
-msgid "Latest Articles Title"
+#: ../includes/customizer.php:173
+msgid "Homepage Latest Articles Title"
 msgstr ""
 
-#: ../includes/customizer.php:184
-msgid "Set the latest articles section title"
+#: ../includes/customizer.php:174
+msgid "Use this option to set the theme homepage latest articles section title"
 msgstr ""
 
 #: ../includes/template-tags.php:59 ../includes/template-tags.php:394
@@ -346,50 +341,56 @@ msgstr ""
 msgid "<b>tagdiv_module: </b> <em>%s</em> invalid data ( not WP_Post data )"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-util.php:78
+#: ../includes/wp-booster/class-tagdiv-util.php:65
+#: ../includes/wp-booster/wp-booster-functions.php:368
+#, php-format
+msgid "Read More<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:83
 msgid "theme wp booster error: "
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-util.php:86
+#: ../includes/wp-booster/class-tagdiv-util.php:91
 msgid "more data: "
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:145
+#: ../includes/wp-booster/wp-booster-functions.php:150
 msgid "Theme Default Sidebar"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:147
+#: ../includes/wp-booster/wp-booster-functions.php:152
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:204
+#: ../includes/wp-booster/wp-booster-functions.php:209
 msgctxt "Work Sans font: on or off"
 msgid "on"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:209
+#: ../includes/wp-booster/wp-booster-functions.php:214
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:214
+#: ../includes/wp-booster/wp-booster-functions.php:219
 msgctxt "Droid Serif font: on or off"
 msgid "on"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:261
+#: ../includes/wp-booster/wp-booster-functions.php:275
 msgid "expand child menu"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:262
+#: ../includes/wp-booster/wp-booster-functions.php:276
 msgid "collapse child menu"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:263
+#: ../includes/wp-booster/wp-booster-functions.php:277
 msgid "menu item with sub-menu"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:329
+#: ../includes/wp-booster/wp-booster-functions.php:343
 msgid "Untitled"
 msgstr ""
 
@@ -419,9 +420,4 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
-msgstr ""
-
-#: ../template-parts/content.php:34
-#, php-format
-msgid "Continue reading <span class=\"screen-reader-text\">\"%s\"</span>"
 msgstr ""

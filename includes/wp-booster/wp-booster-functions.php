@@ -348,6 +348,30 @@ if ( ! function_exists( 'tagdiv_no_title' ) ) {
 }
 add_filter('the_title', 'tagdiv_no_title');
 
+/* ----------------------------------------------------------------------------
+ * Excerpts read more
+ */
+
+if ( ! function_exists( 'tagdiv_excerpt_more' ) && ! is_admin() ) {
+	/**
+	 * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+	 * a 'Read More' link.
+	 *
+	 * @since 1.0.0
+	 * @return string 'Read More' link prepended with an ellipsis.
+	 */
+	function tagdiv_excerpt_more()
+	{
+		$link = sprintf( '<a href="%1$s" class="tagdiv-more-link">%2$s</a>',
+			esc_url( get_permalink( get_the_ID() ) ),
+			/* translators: %s: Name of current post */
+			sprintf( __( 'Read More<span class="screen-reader-text"> "%s"</span>', 'meistermag' ), get_the_title( get_the_ID() ) )
+		);
+		return ' &hellip; ' . $link;
+	}
+}
+
+add_filter( 'excerpt_more', 'tagdiv_excerpt_more' );
 
 /* ----------------------------------------------------------------------------
  * tagdiv wp booster init
