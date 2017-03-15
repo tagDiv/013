@@ -38,7 +38,7 @@ class Tagdiv_Util {
 		if ( 'letters' == $type ) {
 			$ret_excerpt = mb_substr( $post_content, 0, $limit );
 			if ( mb_strlen( $post_content ) >= $limit ) {
-				$ret_excerpt = $ret_excerpt . '...';
+				$ret_excerpt = $ret_excerpt . ' &hellip; ';
 			}
 
 		//excerpt for words
@@ -47,14 +47,14 @@ class Tagdiv_Util {
 
 			if ( count( $excerpt ) >= $limit ) {
 				array_pop( $excerpt );
-				$excerpt = implode( " ", $excerpt ) . '...';
+				$excerpt = implode( " ", $excerpt ) . ' &hellip; ';
 			} else {
 				$excerpt = implode( " ", $excerpt );
 			}
 
 			$excerpt = esc_attr( strip_tags( $excerpt ) );
 
-			if ( trim( $excerpt ) == '...' ) {
+			if ( trim( $excerpt ) == ' &hellip; ' ) {
 				return '';
 			}
 

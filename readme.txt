@@ -76,6 +76,27 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.2 =
+* Update: third party script and style handles
+* Update: theme prefix
+* Update: theme tags
+* Update: theme readme.txt
+* Update: theme screenshot
+* Update: theme js/css code refactorization
+* Update: added sane defaults
+* Update: added child theme support
+* Update: other code changes and fixes
+* Fixed: theme options creating multiple rows in options table
+* Fixed: untrusted data escaped before displaying
+* Fixed: non translatable strings now all theme strings are translation ready.
+* Fixed: comments.php silencing errors
+* Fixed: changed copyright message found in theme footer
+* Removed: add_filter > do_shortcode > feature considered plugin territory
+* Removed: non trivial content creation from Customizer
+
+= v1.0.1 =
+* Updated Theme Description
+
 = v1.0.0 =
 * Initial release
 
