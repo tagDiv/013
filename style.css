@@ -1799,10 +1799,7 @@ img.wp-smiley {
   text-align: center;
   clear: both;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin: 6px auto;
 }
 figure.alignright,
 figure.alignleft,
@@ -2674,6 +2671,18 @@ blockquote small {
 .tagdiv-main-content-wrap {
   padding-top: 43px;
 }
+.tagdiv-main-content-wrap .tagdiv-page-content {
+  *zoom: 1;
+}
+.tagdiv-main-content-wrap .tagdiv-page-content:before,
+.tagdiv-main-content-wrap .tagdiv-page-content:after {
+  display: table;
+  content: '';
+  line-height: 0;
+}
+.tagdiv-main-content-wrap .tagdiv-page-content:after {
+  clear: both;
+}
 .tagdiv-main-content-wrap .tagdiv-booster-error {
   font-size: 14px;
   padding: 20px 10px;
@@ -2940,7 +2949,7 @@ blockquote small {
   vertical-align: top;
   margin-bottom: 20px;
   width: 100%;
-  padding: 0 1.1400652% 2.2801304%;
+  padding: 0 1.14% 2.28%;
 }
 .gallery-item .gallery-caption {
   text-align: center;

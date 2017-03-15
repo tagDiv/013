@@ -28,7 +28,8 @@ get_header(); ?>
 
 				$args = array(
 					'post_type'=> 'post',
-					'showposts' => 3
+					'showposts' => 3,
+					'ignore_sticky_posts' => 1
 				);
 
 				query_posts( $args );

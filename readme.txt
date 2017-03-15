@@ -5,7 +5,7 @@ Tested up to: 4.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Tags: one-column, two-columns, right-sidebar, theme-options, custom-menu, featured-images, flexible-header, threaded-comments, translation-ready, blog
+Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog, news
 
 == Description ==
 
@@ -17,10 +17,10 @@ The MeisterMag Theme supports Custom Menus, Widgets and
 the following extra features:
 
  - Responsive Layout
- - Theme Customize
- - Custom Sidebars
+ - Theme Customizer
+ - Custom Menus
  - Post Thumbnails
- - Page Navigation
+ - Page/Post Navigation
  - 3 widgetized areas in the Footer
  - Customisable Homepage
  - Customisable Footer
@@ -70,7 +70,7 @@ Normalize CSS | normalize.css v3.0.2 | MIT License | git.io/normalize
 
 Images used in screenshot.png:
 
-1. A photo by JESHOOTS ( https://unsplash.com/photos/XzoSKULTDWI ), http://jeshoots.com/
+1. A photo by jeshoots ( https://unsplash.com/photos/XzoSKULTDWI ), http://jeshoots.com/
 1. A photo by Nasa ( https://unsplash.com/photos/yZygONrUBe8 ), https://www.nasa.gov/
 2. A photo by Rami Al-zayat ( https://unsplash.com/photos/w33-zg-dNL4 )
 
