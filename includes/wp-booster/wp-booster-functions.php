@@ -2,8 +2,6 @@
 /**
  * tagDiv WordPress booster
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

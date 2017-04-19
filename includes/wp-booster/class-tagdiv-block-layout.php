@@ -6,8 +6,6 @@
  *  - blocks
  *  - includes/tagdiv_page_generator/tagdiv_template_layout.php (author page, tag page)
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

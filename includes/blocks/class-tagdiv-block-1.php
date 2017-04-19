@@ -3,8 +3,6 @@
 /**
  * Class Tagdiv_Block_1 - theme block 1
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 class Tagdiv_Block_1 extends Tagdiv_Block {

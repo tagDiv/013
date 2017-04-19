@@ -4,8 +4,6 @@
  * The theme's thumbs API
  * Class Tagdiv_API_Thumb static thumbs api
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 class Tagdiv_API_Thumb extends Tagdiv_API_Base {

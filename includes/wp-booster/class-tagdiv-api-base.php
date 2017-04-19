@@ -4,8 +4,6 @@
  * The theme's base API
  * Class Tagdiv_API_Base
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 class Tagdiv_API_Base {

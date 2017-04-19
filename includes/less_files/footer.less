@@ -22,7 +22,14 @@
     text-align: left;
 
     select {
+      color: #fff;
+      opacity: 0.7;
       border-bottom: 1px solid rgba(235, 235, 235, 0.3);
+
+      option {
+        color: #666;
+        opacity: 0.7;
+      }
     }
   }
 
@@ -47,6 +54,8 @@
   .widget_recent_comments,
   .widget_recent_entries,
   .widget_rss {
+    color: #f5f5f5;
+
     li {
       border-bottom: 1px solid rgba(235, 235, 235, 0.3);
     }
@@ -106,34 +115,6 @@
     }
   }
 }
-
-/* Footer description & email */
-.footer-text-wrap {
-  width: 80%;
-  margin: 12px auto;
-  padding: 8px 0;
-  font-family: @font2;
-  font-size: 13px;
-  line-height: 21px;
-
-  /* responsive portrait phone */
-  @media (max-width: @responsive_p_phone_max) {
-    width: 100%;
-  }
-
-  .footer-email-wrap {
-    margin-top: 12px;
-
-    a {
-      color: @tagdiv_theme_color;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
 
 /*  ----------------------------------------------------------------------------
     Sub Footer

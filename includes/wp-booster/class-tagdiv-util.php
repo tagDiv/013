@@ -3,8 +3,6 @@
 /**
  * theme utility class/methods
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 class Tagdiv_Util {
@@ -121,12 +119,10 @@ class Tagdiv_Util {
 	static function tagdiv_get_theme_options_defaults() {
 		$defaults = array(
 			'tagdiv_footer_logo' 				=> '',
-			'tagdiv_footer_text'				=> __( 'MeisterMag is your news, entertainment, music fashion website.', 'meistermag' ),
-			'tagdiv_subfooter_copyright_symbol' => '1',
+			'tagdiv_subfooter_copyright_symbol' => '',
 			'tagdiv_block_section_title' 		=> __( 'Block Title', 'meistermag' ),
 			'tagdiv_latest_section_title' 		=> __( 'Latest Articles', 'meistermag' ),
-			'tagdiv_footer_email' 				=> __( 'contact@yoursite.com', 'meistermag' ),
-			'tagdiv_subfooter_copyright' 		=> __( 'Your Copyright Text', 'meistermag' )
+			'tagdiv_subfooter_copyright' 		=> ''
 		);
 
 		return apply_filters( 'tagdiv_get_theme_options_defaults', $defaults );

@@ -3,8 +3,6 @@
 /**
  * theme menu support
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

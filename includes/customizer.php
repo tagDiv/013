@@ -2,8 +2,6 @@
 /**
  * MeisterMag Customizer functionality
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -60,46 +58,6 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			)
 		);
 
-		/* Theme Footer Site Description */
-		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_footer_text]',
-			array(
-				'capability' 		=> 'edit_theme_options',
-				'default' 	 		=> __( 'MeisterMag is your news, entertainment, music fashion website.', 'meistermag' ),
-				'sanitize_callback' => 'wp_strip_all_tags',
-			)
-		);
-
-		$wp_customize->add_control( 'tagdiv_footer_text',
-			array(
-				'label'       	=> __( 'Footer Text', 'meistermag' ),
-				'description' 	=> __( 'Write here your footer text', 'meistermag' ),
-				'section'     	=> 'tagdiv_options_section',
-				'priority'    	=> 2,
-				'type' 		  	=> 'textarea',
-				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_footer_text]',
-			)
-		);
-
-		/* Theme Footer Contact Email Address */
-		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_footer_email]',
-			array(
-				'capability' 		=> 'edit_theme_options',
-				'default' 			=> __( 'contact@yoursite.com', 'meistermag' ),
-				'sanitize_callback' => 'tagdiv_sanitize_email',
-			)
-		);
-
-		$wp_customize->add_control( 'tagdiv_footer_email',
-			array(
-				'label'      	=> __( 'Footer Contact Email', 'meistermag' ),
-				'description' 	=> __( 'Add here your footer contact email address', 'meistermag' ),
-				'section'    	=> 'tagdiv_options_section',
-				'priority'      => 3,
-				'type' 		  	=> 'email',
-				'settings' 		=> 'tagdiv_theme_options[tagdiv_footer_email]',
-			)
-		);
-
 		/* Theme Subfooter Copyright Text */
 		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright]',
 			array(
@@ -120,7 +78,7 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			)
 		);
 
-		/* Theme Subfooter Copyright Text */
+		/* Theme Subfooter Copyright Symbol */
 		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright_symbol]',
 			array(
 				'capability' 		=> 'edit_theme_options',

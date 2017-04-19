@@ -3,8 +3,6 @@
 /**
  * Class Tagdiv_Module_1 - theme module 1
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -19,7 +17,7 @@ class Tagdiv_Module_1 extends Tagdiv_Module {
 		ob_start();
 		?>
 
-		<div class="<?php echo $this->get_module_classes( array('tagdiv-module-1') ); ?>" >
+		<div class="<?php echo $this->get_module_classes( array( 'tagdiv-module-1' ) ); ?>" >
 			<div class="tagdiv-module-image">
 				<?php echo $this->get_image( 'tagdiv_300x220' ); ?>
 				<div class="tagdiv-post-category-wrap">

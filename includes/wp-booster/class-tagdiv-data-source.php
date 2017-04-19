@@ -3,8 +3,6 @@
 /**
  * Class Tagdiv_Data_Source - theme block posts query
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -34,7 +32,7 @@ class Tagdiv_Data_Source {
 
 		//init the array
 		$tagdiv_wp_query_args = array(
-			'ignore_sticky_posts' => 1,
+			'ignore_sticky_posts' => 0,
 			'post_status' 		  => 'publish'
 		);
 

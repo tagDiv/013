@@ -4,8 +4,6 @@
  *
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 ?>

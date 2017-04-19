@@ -4,8 +4,6 @@
  * The theme's block API
  * Class Tagdiv_API_Block static block api
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

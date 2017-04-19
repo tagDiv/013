@@ -2,9 +2,6 @@
 /**
  * Custom MeisterMag template tags
  *
- *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -187,6 +184,8 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 			<header>
 				<?php the_title( sprintf( '<h3 class="tagdiv-entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
+				<?php if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) { ?>
+
 				<div class="tagdiv-module-meta-info">
 
 					<div class="tagdiv-post-author-name">
@@ -202,6 +201,8 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 					</div>
 
 				</div>
+
+				<?php } ?>
 			</header><!-- module entry header -->
 
 		<?php }
@@ -345,13 +346,21 @@ if ( ! function_exists( 'tagdiv_custom_logo' ) ) {
 	/**
 	 * Displays the optional custom logo.
 	 *
-	 * Does nothing if the custom logo is not available.
+	 * Displays the site title if the custom logo is not available.
 	 *
 	 * @since MeisterMag 1.0
 	 */
 	function tagdiv_custom_logo() {
 		if ( function_exists( 'the_custom_logo' ) ) {
-			the_custom_logo();
+			if( has_custom_logo() ) {
+				the_custom_logo();
+			} else {
+				if ( is_front_page() && is_home() ) { ?>
+					<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php } else { ?>
+					<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<?php }
+			}
 		}
 	}
 }

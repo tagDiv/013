@@ -31,8 +31,10 @@ a:active {
 }
 
 ins {
-  background: white;
+  background: @tagdiv_theme_color;
+  color: #fff;
   text-decoration: none;
+  padding: 2px 4px;
 }
 
 code {
@@ -291,8 +293,7 @@ input[type=password] {
 */
 
 /* text and Images align */
-.tagdiv-post-content,
-.mce-content-body
+.tagdiv-post-content
 {
   img {
     margin-bottom: 21px;
@@ -310,9 +311,7 @@ img.wp-smiley {
   width: auto;
 }
 
-.wp-caption-text,
-.wp-caption-dd  //editor-style
-{
+.wp-caption-text {
   font-family: @font1;
   text-align: left;
   margin-bottom: 26px;
@@ -359,7 +358,6 @@ figure.aligncenter {
      -> on desktop - the tinyMCE size is used
      -> on tablet(s) - apply the max-width to make it look nice
      -> on phones  - center, max width 100%
-        + fix for tinyMCE padding
      -> on full width tagdiv-span12
 */
 
@@ -367,7 +365,7 @@ figure.aligncenter {
   float:left;
   margin-top: 6px;
   margin-right: 24px;
-  margin-bottom: 6px !important; /* hack for tinyMCE / post content diffs*/
+  margin-bottom: 6px !important;
   margin-left: 0;
 
   /* responsive portrait tablet */
@@ -403,20 +401,70 @@ figure.aligncenter {
   }
 }
 
-.mce-content-body .alignleft { //tinyMCE fix for margin right on picture + caption
-  margin:6px 24px 6px 0;
-}
-
-// when the picture is on full width (3 td-col)
-.tagdiv-span12,
-.mceContentBody-max-width-big {
-  .alignleft {
-    /* responsive portrait tablet */
-    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
-        max-width: 400px !important;
-    }
+/* when the picture is on full width (3 td-col) */
+.tagdiv-span12 .alignleft {
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    max-width: 400px !important;
   }
 }
+
+/*  ----------------------------------------------------------------------------
+    align right
+     -> on desktop - the tinyMCE size is used
+     -> on tablets - apply the max-width to make it look nice
+     -> on phones  - center, max width 100%
+     -> on full width tagdiv-span12
+*/
+.alignright {
+  float:right;
+  margin-top: 6px;
+  margin-right: 0;
+  margin-bottom: 6px !important;
+  margin-left: 24px;
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    max-width: 220px !important;
+    margin-left: 21px;
+  }
+
+  /* responsive portrait phone - just a bit, after 500px we make it non float */
+  @media (max-width: @responsive_p_phone_max) {
+    max-width: 220px !important;
+    margin-left: 21px;
+  }
+
+  /* responsive phone CUSTOM  - align the image on center */
+  @media (max-width: 500px) {
+    float:none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100% !important;
+    margin-bottom: 21px;
+
+
+    img {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    figcaption {
+      text-align: center;
+    }
+
+  }
+}
+
+/* when the picture is on full width (3 td-col) */
+.tagdiv-span12 .alignright {
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    max-width: 400px !important;
+  }
+}
+
 
 /*  ----------------------------------------------------------------------------
     Screen reader text - Text meant only for screen readers
@@ -485,86 +533,22 @@ figure.aligncenter {
   outline: 0;
 }
 
-/*  ----------------------------------------------------------------------------
-    align right
-     -> on desktop - the tinyMCE size is used
-     -> on tablets - apply the max-width to make it look nice
-     -> on phones  - center, max width 100%
-        + fix for tinyMCE padding
-     -> on full width tagdiv-span12
-*/
-.alignright {
-  float:right;
-  margin-top: 6px;
-  margin-right: 0;
-  margin-bottom: 6px !important; /* hack for tinyMCE / post content diffs*/
-  margin-left: 24px;
-
-  /* responsive portrait tablet */
-  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
-    max-width: 220px !important;
-    margin-left: 21px;
-  }
-
-  /* responsive portrait phone - just a bit, after 500px we make it non float */
-  @media (max-width: @responsive_p_phone_max) {
-    max-width: 220px !important;
-    margin-left: 21px;
-  }
-
-  /* responsive phone CUSTOM  - align the image on center */
-  @media (max-width: 500px) {
-    float:none;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100% !important;
-    margin-bottom: 21px;
-
-
-    img {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    figcaption {
-      text-align: center;
-    }
-
-  }
-}
-
-// when the picture is on full width (3 td-col)
-.tagdiv-span12 {
-  .alignright {
-    /* responsive portrait tablet */
-    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
-      max-width: 400px !important;
-    }
-  }
-}
 
 
 /*  ----------------------------------------------------------------------------
     Css for:
       Page content
       Post content
-      TinyMCE content
 */
 
 .tagdiv-page-content,
-.tagdiv-post-content,
-.mce-content-body {
+.tagdiv-post-content {
   font-size: 16px;
   line-height: 24px;
   color: #222;
 
   a:hover {
     text-decoration: underline;
-  }
-
-  ul {
-    margin-bottom: 26px;
   }
 
   p,
@@ -581,7 +565,6 @@ figure.aligncenter {
 /* quote */
 .tagdiv-page-content,
 .tagdiv-post-content,
-.mce-content-body,
 .comment-content {
   blockquote {
     padding: 0;
@@ -600,8 +583,6 @@ figure.aligncenter {
       line-height: 36px;
       font-weight: 400;
       font-style: italic;
-      text-align: center;
-      text-transform: uppercase;
       color: @tagdiv_theme_color;
       word-wrap: break-word;
 

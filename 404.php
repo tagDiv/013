@@ -4,8 +4,6 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
 */
 
@@ -32,17 +30,18 @@ get_header(); ?>
 					'ignore_sticky_posts' => 1
 				);
 
-				query_posts( $args );
+				$tagdiv_404_query = new WP_Query( $args );
 
-				if ( have_posts() ) {
+				if ( $tagdiv_404_query->have_posts() ) {
 
 					$tagdiv_current_column = 1;
-					$row_is_open = false;
+					$tagdiv_row_is_open = false;
 
-					while ( have_posts() ) : the_post(); //Start the Loop
+					while ( $tagdiv_404_query->have_posts() ) {
+						$tagdiv_404_query->the_post();
 
-						if ( false === $row_is_open ) {
-							$row_is_open = true;
+						if ( false === $tagdiv_row_is_open ) {
+							$tagdiv_row_is_open = true;
 							echo '<div class="tagdiv-row">'; // open a grid row
 						} ?>
 
@@ -50,8 +49,8 @@ get_header(); ?>
 							<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 						</div>
 
-						<?php if ( 3 == $tagdiv_current_column and true === $row_is_open ) {
-							$row_is_open = false;
+						<?php if ( 3 == $tagdiv_current_column and true === $tagdiv_row_is_open ) {
+							$tagdiv_row_is_open = false;
 							echo '</div>'; // close the grid row
 						}
 
@@ -60,13 +59,14 @@ get_header(); ?>
 						} else {
 							$tagdiv_current_column++;
 						}
+					} //end of the loop
 
-					endwhile; //End of the Loop
+					if ( true === $tagdiv_row_is_open ) {
+						$tagdiv_row_is_open = false;
+						echo '</div>'; // close the grid row
+					}
 
-						if ( true === $row_is_open ) {
-							$row_is_open = false;
-							echo '</div>'; // close the grid row
-						}
+					wp_reset_postdata();
 
 				} else {
 
@@ -74,7 +74,6 @@ get_header(); ?>
 
 				}
 
-				wp_reset_query();
 				?>
 			</div>
 		</div> <!-- /.tagdiv-container -->

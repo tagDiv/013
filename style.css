@@ -3,7 +3,7 @@ Theme Name: 	MeisterMag
 Theme URI:
 Description: 	MeisterMag is a fast and light WordPress theme perfect for blogs, news, newspaper, magazine, and publishing websites. The template is designed to help you build websites without any effort and coding skills. MeisterMag is easy to use and personalize, with all the settings located in the Customizer panel. The theme is fully responsive, with an outstanding sharp design, clean coding, an elegant structure and an attractive mobile approach.
 Text Domain:    meistermag
-Version: 		1.0.2
+Version: 		1.0.3
 Author: 		tagDiv
 Author URI: 	http://tagdiv.com/
 License:        GNU General Public License v2 or later
@@ -414,7 +414,6 @@ http://getbootstrap.com/getting-started/#third-box-sizing
 }
 img {
   max-width: 100%;
-  width: auto;
   height: auto;
 }
 /*  ----------------------------------------------------------------------------
@@ -1514,8 +1513,10 @@ a:active {
   outline: 0;
 }
 ins {
-  background: white;
+  background: #42bdcd;
+  color: #fff;
   text-decoration: none;
+  padding: 2px 4px;
 }
 code {
   position: relative;
@@ -1763,19 +1764,16 @@ input[type=password] {
     Site wide > WordPress Text, Images & Captions
 */
 /* text and Images align */
-.tagdiv-post-content img,
-.mce-content-body img {
+.tagdiv-post-content img {
   margin-bottom: 21px;
 }
-.tagdiv-post-content figure img,
-.mce-content-body figure img {
+.tagdiv-post-content figure img {
   margin-bottom: 0;
 }
 img.wp-smiley {
   width: auto;
 }
-.wp-caption-text,
-.wp-caption-dd {
+.wp-caption-text {
   font-family: 'Source Sans Pro', sans-serif;
   text-align: left;
   margin-bottom: 26px;
@@ -1815,7 +1813,6 @@ figure.aligncenter {
      -> on desktop - the tinyMCE size is used
      -> on tablet(s) - apply the max-width to make it look nice
      -> on phones  - center, max width 100%
-        + fix for tinyMCE padding
      -> on full width tagdiv-span12
 */
 .alignleft {
@@ -1823,7 +1820,6 @@ figure.aligncenter {
   margin-top: 6px;
   margin-right: 24px;
   margin-bottom: 6px !important;
-  /* hack for tinyMCE / post content diffs*/
   margin-left: 0;
   /* responsive portrait tablet */
   /* responsive portrait phone - just a bit, after 500px we make it non float */
@@ -1859,16 +1855,68 @@ figure.aligncenter {
     text-align: center;
   }
 }
-.mce-content-body .alignleft {
-  margin: 6px 24px 6px 0;
-}
-.tagdiv-span12 .alignleft,
-.mceContentBody-max-width-big .alignleft {
+/* when the picture is on full width (3 td-col) */
+.tagdiv-span12 .alignleft {
   /* responsive portrait tablet */
 }
 @media (min-width: 768px) and (max-width: 1018px) {
-  .tagdiv-span12 .alignleft,
-  .mceContentBody-max-width-big .alignleft {
+  .tagdiv-span12 .alignleft {
+    max-width: 400px !important;
+  }
+}
+/*  ----------------------------------------------------------------------------
+    align right
+     -> on desktop - the tinyMCE size is used
+     -> on tablets - apply the max-width to make it look nice
+     -> on phones  - center, max width 100%
+     -> on full width tagdiv-span12
+*/
+.alignright {
+  float: right;
+  margin-top: 6px;
+  margin-right: 0;
+  margin-bottom: 6px !important;
+  margin-left: 24px;
+  /* responsive portrait tablet */
+  /* responsive portrait phone - just a bit, after 500px we make it non float */
+  /* responsive phone CUSTOM  - align the image on center */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .alignright {
+    max-width: 220px !important;
+    margin-left: 21px;
+  }
+}
+@media (max-width: 767px) {
+  .alignright {
+    max-width: 220px !important;
+    margin-left: 21px;
+  }
+}
+@media (max-width: 500px) {
+  .alignright {
+    float: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100% !important;
+    margin-bottom: 21px;
+  }
+  .alignright img {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .alignright figcaption {
+    text-align: center;
+  }
+}
+/* when the picture is on full width (3 td-col) */
+.tagdiv-span12 .alignright {
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .tagdiv-span12 .alignright {
     max-width: 400px !important;
   }
 }
@@ -1935,103 +1983,34 @@ figure.aligncenter {
   outline: 0;
 }
 /*  ----------------------------------------------------------------------------
-    align right
-     -> on desktop - the tinyMCE size is used
-     -> on tablets - apply the max-width to make it look nice
-     -> on phones  - center, max width 100%
-        + fix for tinyMCE padding
-     -> on full width tagdiv-span12
-*/
-.alignright {
-  float: right;
-  margin-top: 6px;
-  margin-right: 0;
-  margin-bottom: 6px !important;
-  /* hack for tinyMCE / post content diffs*/
-  margin-left: 24px;
-  /* responsive portrait tablet */
-  /* responsive portrait phone - just a bit, after 500px we make it non float */
-  /* responsive phone CUSTOM  - align the image on center */
-}
-@media (min-width: 768px) and (max-width: 1018px) {
-  .alignright {
-    max-width: 220px !important;
-    margin-left: 21px;
-  }
-}
-@media (max-width: 767px) {
-  .alignright {
-    max-width: 220px !important;
-    margin-left: 21px;
-  }
-}
-@media (max-width: 500px) {
-  .alignright {
-    float: none;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100% !important;
-    margin-bottom: 21px;
-  }
-  .alignright img {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .alignright figcaption {
-    text-align: center;
-  }
-}
-.tagdiv-span12 .alignright {
-  /* responsive portrait tablet */
-}
-@media (min-width: 768px) and (max-width: 1018px) {
-  .tagdiv-span12 .alignright {
-    max-width: 400px !important;
-  }
-}
-/*  ----------------------------------------------------------------------------
     Css for:
       Page content
       Post content
-      TinyMCE content
 */
 .tagdiv-page-content,
-.tagdiv-post-content,
-.mce-content-body {
+.tagdiv-post-content {
   font-size: 16px;
   line-height: 24px;
   color: #222;
 }
 .tagdiv-page-content a:hover,
-.tagdiv-post-content a:hover,
-.mce-content-body a:hover {
+.tagdiv-post-content a:hover {
   text-decoration: underline;
-}
-.tagdiv-page-content ul,
-.tagdiv-post-content ul,
-.mce-content-body ul {
-  margin-bottom: 26px;
 }
 .tagdiv-page-content p,
 .tagdiv-post-content p,
-.mce-content-body p,
 .tagdiv-page-content li,
-.tagdiv-post-content li,
-.mce-content-body li {
+.tagdiv-post-content li {
   font-size: 16px;
   line-height: 26px;
 }
 .tagdiv-page-content p,
-.tagdiv-post-content p,
-.mce-content-body p {
+.tagdiv-post-content p {
   margin-bottom: 24px;
 }
 /* quote */
 .tagdiv-page-content blockquote,
 .tagdiv-post-content blockquote,
-.mce-content-body blockquote,
 .comment-content blockquote {
   padding: 0;
   position: relative;
@@ -2042,22 +2021,18 @@ figure.aligncenter {
 @media (max-width: 767px) {
   .tagdiv-page-content blockquote,
   .tagdiv-post-content blockquote,
-  .mce-content-body blockquote,
   .comment-content blockquote {
     margin: 20px 3% 18px 3%;
   }
 }
 .tagdiv-page-content blockquote p,
 .tagdiv-post-content blockquote p,
-.mce-content-body blockquote p,
 .comment-content blockquote p {
   font-family: 'Work Sans', sans-serif;
   font-size: 31px;
   line-height: 36px;
   font-weight: 400;
   font-style: italic;
-  text-align: center;
-  text-transform: uppercase;
   color: #42bdcd;
   word-wrap: break-word;
   /* responsive portrait tablet */
@@ -2066,7 +2041,6 @@ figure.aligncenter {
 @media (min-width: 768px) and (max-width: 1018px) {
   .tagdiv-page-content blockquote p,
   .tagdiv-post-content blockquote p,
-  .mce-content-body blockquote p,
   .comment-content blockquote p {
     font-size: 24px;
     line-height: 32px;
@@ -2075,7 +2049,6 @@ figure.aligncenter {
 @media (max-width: 767px) {
   .tagdiv-page-content blockquote p,
   .tagdiv-post-content blockquote p,
-  .mce-content-body blockquote p,
   .comment-content blockquote p {
     font-size: 22px;
     line-height: 30px;
@@ -2122,21 +2095,73 @@ blockquote small {
 .tagdiv-module-wrap:hover .tagdiv-entry-title a {
   color: #42bdcd;
 }
-.tagdiv-module-wrap .sticky,
-.tagdiv-module-wrap .sticky .tagdiv-module-meta-info a,
+.tagdiv-module-wrap .sticky {
+  -webkit-box-shadow: 0 0 1px rgba(234, 2, 0, 0.4);
+  -moz-box-shadow: 0 0 1px rgba(234, 2, 0, 0.4);
+  box-shadow: 0 0 1px rgba(234, 2, 0, 0.4);
+  padding-bottom: 37px;
+}
+.tagdiv-module-wrap .sticky .tagdiv-entry-title {
+  margin: 0 20px 15px 20px;
+  min-height: 50px;
+}
+.tagdiv-module-wrap .sticky .tagdiv-entry-title:after {
+  background-color: #ff0000;
+}
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info,
+.tagdiv-module-wrap .sticky .tagdiv-excerpt {
+  margin: 0 20px;
+}
+.tagdiv-module-wrap .sticky:hover .tagdiv-entry-title a,
 .tagdiv-module-wrap .sticky .tagdiv-more-link {
   color: #ff0000;
 }
-.tagdiv-module-wrap .sticky:hover .tagdiv-entry-title a,
-.tagdiv-module-wrap .sticky .tagdiv-module-meta-info a:hover .tagdiv-entry-title a,
-.tagdiv-module-wrap .sticky .tagdiv-more-link:hover .tagdiv-entry-title a {
+.tagdiv-module-wrap .sticky .tagdiv-post-category:hover {
+  background-color: #ff0000;
+  opacity: 0.9;
+}
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info a,
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info .tagdiv-more-link,
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info .tagdiv-post-author-name,
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info .tagdiv-post-date {
   color: #ff0000;
 }
-.tagdiv-module-wrap .sticky .tagdiv-post-category:hover,
-.tagdiv-module-wrap .sticky .tagdiv-module-meta-info a .tagdiv-post-category:hover,
-.tagdiv-module-wrap .sticky .tagdiv-more-link .tagdiv-post-category:hover {
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info .tagdiv-post-author-name:after,
+.tagdiv-module-wrap .sticky .tagdiv-module-meta-info .tagdiv-post-date:after {
   background-color: #ff0000;
-  opacity: 0.8;
+}
+.tagdiv-module-wrap.sticky {
+  -webkit-box-shadow: 0 0 1px rgba(234, 2, 0, 0.4);
+  -moz-box-shadow: 0 0 1px rgba(234, 2, 0, 0.4);
+  box-shadow: 0 0 1px rgba(234, 2, 0, 0.4);
+  margin-bottom: 37px;
+}
+.tagdiv-module-wrap.sticky .tagdiv-entry-title {
+  margin: 0 20px 15px 20px;
+  min-height: 50px;
+}
+.tagdiv-module-wrap.sticky .tagdiv-entry-title:after {
+  background-color: #ff0000;
+}
+.tagdiv-module-wrap.sticky .tagdiv-module-meta-info,
+.tagdiv-module-wrap.sticky .tagdiv-excerpt {
+  margin: 0 20px;
+}
+.tagdiv-module-wrap.sticky:hover .tagdiv-entry-title a,
+.tagdiv-module-wrap.sticky .tagdiv-more-link {
+  color: #ff0000;
+}
+.tagdiv-module-wrap.sticky .tagdiv-post-category:hover {
+  background-color: #ff0000;
+  opacity: 0.9;
+}
+.tagdiv-module-wrap.sticky .tagdiv-module-meta-info a,
+.tagdiv-module-wrap.sticky .tagdiv-module-meta-info .tagdiv-post-date {
+  color: #ff0000;
+}
+.tagdiv-module-wrap.sticky .tagdiv-module-meta-info .tagdiv-post-author-name:after,
+.tagdiv-module-wrap.sticky .tagdiv-module-meta-info .tagdiv-post-date:after {
+  background-color: #ff0000;
 }
 /* Module Titles */
 .tagdiv-entry-title {
@@ -2481,6 +2506,16 @@ blockquote small {
 /* post content */
 .tagdiv-post-content {
   padding-bottom: 24px;
+  *zoom: 1;
+}
+.tagdiv-post-content:before,
+.tagdiv-post-content:after {
+  display: table;
+  content: '';
+  line-height: 0;
+}
+.tagdiv-post-content:after {
+  clear: both;
 }
 .tagdiv-post-content input[type=submit] {
   position: relative;
@@ -3785,7 +3820,13 @@ button.search-submit:hover {
   text-align: left;
 }
 .tagdiv-footer-wrapper .widget select {
+  color: #fff;
+  opacity: 0.7;
   border-bottom: 1px solid rgba(235, 235, 235, 0.3);
+}
+.tagdiv-footer-wrapper .widget select option {
+  color: #666;
+  opacity: 0.7;
 }
 .tagdiv-footer-wrapper .tagdiv-block-title a,
 .tagdiv-footer-wrapper .tagdiv-block-title span,
@@ -3799,6 +3840,11 @@ button.search-submit:hover {
 }
 .tagdiv-footer-wrapper .widget_recent_entries .post-date {
   color: #444444;
+}
+.tagdiv-footer-wrapper .widget_recent_comments,
+.tagdiv-footer-wrapper .widget_recent_entries,
+.tagdiv-footer-wrapper .widget_rss {
+  color: #f5f5f5;
 }
 .tagdiv-footer-wrapper .widget_recent_comments li,
 .tagdiv-footer-wrapper .widget_recent_entries li,
@@ -3841,30 +3887,6 @@ button.search-submit:hover {
   .footer-logo-wrap img {
     max-width: 70%;
   }
-}
-/* Footer description & email */
-.footer-text-wrap {
-  width: 80%;
-  margin: 12px auto;
-  padding: 8px 0;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 13px;
-  line-height: 21px;
-  /* responsive portrait phone */
-}
-@media (max-width: 767px) {
-  .footer-text-wrap {
-    width: 100%;
-  }
-}
-.footer-text-wrap .footer-email-wrap {
-  margin-top: 12px;
-}
-.footer-text-wrap .footer-email-wrap a {
-  color: #42bdcd;
-}
-.footer-text-wrap .footer-email-wrap a:hover {
-  text-decoration: underline;
 }
 /*  ----------------------------------------------------------------------------
     Sub Footer
@@ -3959,4 +3981,18 @@ button.search-submit:hover {
   top: 1px;
   color: #42bdcd;
   margin: 0 5px;
+}
+/*  ----------------------------------------------------------------------------
+    Print
+*/
+@media print {
+  /* Hide elements */
+  .tagdiv-sidebar,
+  .tagdiv-footer-wrapper,
+  .tagdiv-post-next-prev,
+  .tagdiv-author-box-wrap,
+  .comments,
+  .tagdiv-header-menu-wrap {
+    display: none !important;
+  }
 }

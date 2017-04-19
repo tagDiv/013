@@ -52,16 +52,24 @@ $tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_g
 
                     <?php
 
+                    // custom query parameters
                     $args = array(
                         'post_type'=> 'post',
                         'paged'    => $paged
                     );
 
-                    query_posts( $args );
+                    // instantiate our custom query
+                    $tagdiv_home_query = new WP_Query( $args );
                     $tagdiv_template_layout = new Tagdiv_Template_Layout( 'default' );
-                    if ( have_posts() ) {
 
-                        while (have_posts()) : the_post();
+                    // pagination fix
+                    $temp_query = $wp_query;
+                    $wp_query   = NULL;
+                    $wp_query   = $tagdiv_home_query;
+
+                    if ( $tagdiv_home_query->have_posts() ) {
+
+                        while ( $tagdiv_home_query->have_posts() ) : $tagdiv_home_query->the_post();
 
                             echo $tagdiv_template_layout->layout_open_element();
 
@@ -75,24 +83,30 @@ $tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_g
 
                         echo $tagdiv_template_layout->close_all_tags(); ?>
 
-
-                        <div class="page-nav">
-
-                            <?php
-                            the_posts_pagination( array(
-                                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
-                                'screen_reader_text' => __( 'Latest articles navigation', 'meistermag' ),
-                            ) );
-                            ?>
-
-                        </div>
-
-                        <?php wp_reset_query(); ?>
                     <?php
 
                     } else {
                         get_template_part( 'template-parts/content', 'none' );
                     }
+
+                    // reset postdata
+                    wp_reset_postdata(); ?>
+
+                    <div class="page-nav">
+
+                        <?php
+                        the_posts_pagination( array(
+                            'before_page_number' => '<span class="screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
+                            'screen_reader_text' => __( 'Latest articles navigation', 'meistermag' ),
+                        ) );
+                        ?>
+
+                    </div>
+
+                    <?php
+                    // reset main query object
+                    $wp_query = NULL;
+                    $wp_query = $temp_query;
                     ?>
 
                 </div>

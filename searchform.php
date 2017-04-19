@@ -2,8 +2,6 @@
 /**
  * Template for displaying search forms in our theme
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 ?>

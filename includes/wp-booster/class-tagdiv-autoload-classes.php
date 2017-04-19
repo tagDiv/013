@@ -3,8 +3,6 @@
 /**
  * Class Tagdiv_Autoload_Classes
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 class Tagdiv_Autoload_Classes {

@@ -3,8 +3,6 @@
 /*
  * Class Tagdiv_Global_Blocks - theme blocks instances
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

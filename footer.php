@@ -7,8 +7,6 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -21,15 +19,15 @@
 			<div class="tagdiv-container">
 				<div class="tagdiv-row">
 					<div class="tagdiv-span4">
-						<?php dynamic_sidebar( __( 'Footer 1', 'meistermag' ) ); ?>
+						<?php dynamic_sidebar( 'tagdiv-footer-1' ); ?>
 					</div>
 
 					<div class="tagdiv-span4">
-						<?php dynamic_sidebar( __( 'Footer 2', 'meistermag' ) ); ?>
+						<?php dynamic_sidebar( 'tagdiv-footer-2' ); ?>
 					</div>
 
 					<div class="tagdiv-span4">
-						<?php dynamic_sidebar( __( 'Footer 3', 'meistermag' ) ); ?>
+						<?php dynamic_sidebar( 'tagdiv-footer-3' ); ?>
 					</div>
 				</div>
 
@@ -40,17 +38,6 @@
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tagdiv-custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 								<img src="<?php echo esc_url( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 							</a>
-						</aside>
-					</div>
-
-					<!--description & email-->
-					<div class="tagdiv-span12">
-						<aside class="footer-text-wrap">
-							<?php echo sanitize_text_field ( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_text' ) ) ?>
-							<div class="footer-email-wrap">
-								<?php _e( 'Contact us:', 'meistermag' ); ?>
-								<a href="mailto:<?php echo sanitize_email ( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ) ?>"><?php echo Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_email' ) ?></a>
-							</div>
 						</aside>
 					</div>
 				</div>
@@ -64,18 +51,17 @@
 					<!--footer menu-->
 					<div class="tagdiv-span12 tagdiv-sub-footer-menu">
 						<nav class="tagdiv-footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'meistermag' ); ?>">
-						<?php
-						wp_nav_menu( array(
-							'theme_location' => 'footer-menu',
-							'menu_class'	 => 'tagdiv-subfooter-menu',
-							'fallback_cb' 	 => 'tagdiv_wp_footer_menu',
-						) );
-
-						//if no menu
-						function tagdiv_wp_footer_menu() {
-							//do nothing
-						}
-						?>
+							<?php
+							if ( has_nav_menu( 'footer-menu' ) ) {
+								wp_nav_menu( array(
+									'theme_location' => 'footer-menu',
+									'menu_class'	 => 'tagdiv-subfooter-menu',
+									'fallback_cb' 	 => false,
+								) );
+							} else {
+								echo '<!-- no menu set -->';
+							}
+							?>
 						</nav>
 					</div>
 

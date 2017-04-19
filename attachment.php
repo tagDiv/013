@@ -2,8 +2,6 @@
 /**
  * The template for displaying image attachments
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

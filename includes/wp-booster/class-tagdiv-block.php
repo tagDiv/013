@@ -3,8 +3,6 @@
 /**
  * theme block support - base class for blocks
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

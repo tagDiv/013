@@ -4,8 +4,6 @@
  * theme template layout - used by templates to create the layout (rows + columns) in template-home.php
  * the layout is then populated with modules
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 

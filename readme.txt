@@ -13,8 +13,7 @@ MeisterMag is a free WordPress theme that lets you write articles and blog posts
 
 The MeisterMag template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. It’s fast, simple, and easy to use.
 
-The MeisterMag Theme supports Custom Menus, Widgets and
-the following extra features:
+The MeisterMag Theme supports the following features:
 
  - Responsive Layout
  - Theme Customizer
@@ -25,6 +24,7 @@ the following extra features:
  - Customisable Homepage
  - Customisable Footer
  - Translation Ready
+ - Child Theme Ready
 
 == Installation ==
 
@@ -75,6 +75,20 @@ Images used in screenshot.png:
 2. A photo by Rami Al-zayat ( https://unsplash.com/photos/w33-zg-dNL4 )
 
 == Changelog ==
+
+= v1.0.3 =
+* Fix: header & footer menus > no menus case
+* Update: no logo > now defaults to site title
+* Update: changed the dynamic_sidebar() parameter in footer
+* Update: removed the footer text and contact fields
+* Update: removed the footer copyright text placeholder default
+* Update: removed @package comments
+* Update: removed less files
+* Update: added sticky-post styles
+* Update: added print styles
+* Update: formatting improvements
+* Update: removed date for static pages in search results
+* Update: changed the 404 and home template custom post query implementation
 
 = v1.0.2 =
 * Update: third party script and style handles

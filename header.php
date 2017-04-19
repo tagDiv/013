@@ -4,8 +4,6 @@
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 ?>
@@ -36,20 +34,15 @@
 		<!-- menu section -->
 		<div class="tagdiv-mobile-content">
 			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'header-menu',
-				'menu_class'	 => 'tagdiv-mobile-main-menu',
-				'fallback_cb' 	 => 'tagdiv_wp_no_mobile_menu',
-				'link_after' 	 => '<i class="tagdiv-icon-menu-right tagdiv-element-after"></i>',
-				'walker'  		 => new Tagdiv_Walker_Mobile_Menu()
-			) );
-
-			//if no menu
-			function tagdiv_wp_no_mobile_menu() {
-				//this is the default menu
-				echo '<ul class="">';
-				echo '<li class="tagdiv-menu-item-first"><a href="' . esc_url( home_url( '/' ) ) . 'wp-admin/nav-menus.php">' . __('Click here - to use the wp menu builder', 'meistermag') . '</a></li>';
-				echo '</ul>';
+			if ( has_nav_menu( 'header-menu' ) ) {
+				wp_nav_menu( array(
+					'theme_location' => 'header-menu',
+					'menu_class'	 => 'tagdiv-mobile-main-menu',
+					'link_after' 	 => '<i class="tagdiv-icon-menu-right tagdiv-element-after"></i>',
+					'walker'  		 => new Tagdiv_Walker_Mobile_Menu()
+				) );
+			} else {
+				echo '<!-- no menu set -->';
 			}
 			?>
 		</div>
@@ -67,7 +60,9 @@
 
 			<div role="search" class="tagdiv-search-input">
 				<span><?php _e( 'Search', 'meistermag' )?></span>
-				<input id="tagdiv-header-search-mob" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
+				<label>
+					<input id="tagdiv-header-search-mob" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
+				</label>
 			</div>
 		</form>
 	</div>
@@ -95,20 +90,16 @@
 					<div id="tagdiv-top-mobile-toggle"><a href="#"><i class="tagdiv-icon-font tagdiv-icon-mobile"></i></a></div>
 
 					<nav class="tagdiv-main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Header Menu (main)', 'meistermag' ); ?>">
-					<?php
-					wp_nav_menu( array(
-						'theme_location' => 'header-menu',
-						'menu_class'	 => 'tagdiv-sf-menu',
-						'fallback_cb' 	 => 'tagdiv_wp_page_menu',
-					) );
-
-					//if no menu
-					function tagdiv_wp_page_menu() {
-						echo '<ul class="tagdiv-sf-menu">';
-						echo '<li class="tagdiv-menu-item-first"><a href="' . esc_url(home_url( '/' )) . 'wp-admin/nav-menus.php?action=locations">' . __('Click here - to select or create a menu', 'meistermag') . '</a></li>';
-						echo '</ul>';
-					}
-					?>
+						<?php
+						if ( has_nav_menu( 'header-menu' ) ) {
+							wp_nav_menu( array(
+								'theme_location' => 'header-menu',
+								'menu_class'	 => 'tagdiv-sf-menu'
+							) );
+						}  else {
+							echo '<!-- no menu set -->';
+						}
+						?>
 					</nav>
 				</div>
 				<!--header menu search-->

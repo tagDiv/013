@@ -9,8 +9,6 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -69,7 +67,7 @@ get_header(); ?>
 							<?php
 							// Previous/next page navigation.
 							the_posts_pagination( array(
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
+								'before_page_number' => '<span class="screen-reader-text">' . __( 'Page', 'meistermag' ) . ' </span>',
 							) );
 							?>
 

@@ -3,8 +3,6 @@
 /**
  * theme module support
  *
- * @package WordPress
- * @subpackage MeisterMag
  * @since MeisterMag 1.0
  */
 
@@ -60,6 +58,10 @@ abstract class Tagdiv_Module {
 
 		if ( $additional_classes_array != '' && is_array( $additional_classes_array ) ) {
 			$buffy .= ' ' . implode( ' ', $additional_classes_array );
+		}
+
+		if ( is_sticky( $this->post->ID ) ) {
+			$buffy .= ' sticky';
 		}
 
 		return $buffy;
