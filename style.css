@@ -2427,6 +2427,9 @@ blockquote small {
     margin-bottom: -3px;
   }
 }
+.tagdiv-block-1 .tagdiv-row:last-child .tagdiv-module-1.sticky {
+  padding-bottom: 37px;
+}
 .tagdiv-block-1 .tagdiv-row:last-child > div:last-child .tagdiv-module-1 {
   /* responsive portrait phone */
 }

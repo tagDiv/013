@@ -32,7 +32,7 @@ class Tagdiv_Data_Source {
 
 		//init the array
 		$tagdiv_wp_query_args = array(
-			'ignore_sticky_posts' => 0,
+			'ignore_sticky_posts' => 1,
 			'post_status' 		  => 'publish'
 		);
 
