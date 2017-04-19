@@ -117,3 +117,19 @@ Images used in screenshot.png:
 === Support ===
 
 For any ideas, support and feedback you can access the theme forum.
+
+== Notes ==
+
+Theme Main 'Header Menu':
+* The theme main menu sub items > depth levels are extending laterally, depending on user's viewport on the parent menu item position. It generally displays 3 sub items, expanding on right and once it reaches the edge it expands on the left also on top of the other, lower level, sub items.
+
+Theme Homepage Top Block & Homepage Latest Articles
+* The Top Block displays 3 random posts and the block title can be changed through WordPress Customizer.
+* The Latest Articles section provides the site latest posts paginated according to WordPress's > Reading Settings > 'Blog pages show at most' setting value. This section title can also be changed through WordPress's Customizer.
+
+Theme Footer
+* The Footer provides 3 widgetised areas customizable through WordPress's widgets or Customizer widgets area.
+* It also features 1 custom logo area, a copyright text area and a footer menu area, all customizable through WordPress's Customizer.
+
+Theme Header
+* Settings for logo/ site title are available through WordPress's Customizer.
