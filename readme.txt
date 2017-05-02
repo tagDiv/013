@@ -79,6 +79,7 @@ Images used in screenshot.png:
 = v1.0.4 =
 * Fix: comments.php & template-home.php > WordPress globals overriding
 * Fix: escaped author meta and no-thumb img url data in template-tags.php
+* Fix: fixed main menu fallback
 * Update: updated screenshot
 
 = v1.0.3 =

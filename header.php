@@ -42,7 +42,14 @@
 					'walker'  		 => new Tagdiv_Walker_Mobile_Menu()
 				) );
 			} else {
-				echo '<!-- no menu set -->';
+				wp_nav_menu( array(
+					'theme_location' => 'header-menu',
+					'fallback_cb'    => wp_page_menu(
+						array(
+							'menu_class' => 'tagdiv-main-menu-page-list'
+						)
+					)
+				) );
 			}
 			?>
 		</div>
@@ -96,8 +103,15 @@
 								'theme_location' => 'header-menu',
 								'menu_class'	 => 'tagdiv-sf-menu'
 							) );
-						}  else {
-							echo '<!-- no menu set -->';
+						} else {
+							wp_nav_menu( array(
+								'theme_location' => 'header-menu',
+								'fallback_cb'    => wp_page_menu(
+									array(
+										'menu_class' => 'tagdiv-main-menu-page-list'
+									)
+								)
+							) );
 						}
 						?>
 					</nav>

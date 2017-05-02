@@ -815,33 +815,40 @@ img {
 /* Menu items list */
 .tagdiv-sf-menu,
 .tagdiv-sf-menu ul,
-.tagdiv-sf-menu li {
+.tagdiv-sf-menu li,
+.tagdiv-main-menu-page-list > ul,
+.page_item {
   margin: 0;
   list-style: none;
   text-align: left;
 }
 /* responsive phone */
 @media (max-width: 767px) {
-  .tagdiv-sf-menu {
+  .tagdiv-sf-menu,
+  .tagdiv-main-menu-page-list {
     display: none;
   }
 }
-.tagdiv-sf-menu li {
+.tagdiv-sf-menu li,
+.page_item {
   float: left;
   position: relative;
   /* font awesome in menu */
 }
-.tagdiv-sf-menu li .fa {
+.tagdiv-sf-menu li .fa,
+.page_item .fa {
   margin-right: 10px;
   font-size: 1.4em;
   vertical-align: middle;
   position: relative;
   top: -1px;
 }
-.tagdiv-sf-menu li a:empty {
+.tagdiv-sf-menu li a:empty,
+.page_item a:empty {
   display: none;
 }
-.tagdiv-sf-menu .menu-item > a {
+.tagdiv-sf-menu .menu-item > a,
+.page_item > a {
   display: block;
   position: relative;
 }
@@ -873,7 +880,8 @@ ul.tagdiv-sf-menu li li.sfHover li ul {
 }
 /* All the links */
 /* top links */
-.tagdiv-sf-menu > li > a {
+.tagdiv-sf-menu > li > a,
+.page_item > a {
   padding: 0 15px;
   font-weight: 500;
   line-height: 55px;
@@ -882,7 +890,8 @@ ul.tagdiv-sf-menu li li.sfHover li ul {
   text-transform: uppercase;
 }
 @media (min-width: 768px) and (max-width: 1018px) {
-  .tagdiv-sf-menu > li > a {
+  .tagdiv-sf-menu > li > a,
+  .page_item > a {
     padding: 0 12px;
     font-size: 11px;
   }
@@ -1298,6 +1307,9 @@ ul.sf-js-enabled > li > a > i.tagdiv-icon-menu-down:before {
 }
 .tagdiv-mobile-content .tagdiv-link-element-after {
   position: relative;
+}
+.tagdiv-mobile-content .tagdiv-main-menu-page-list {
+  display: block;
 }
 /* menu opened class .tagdiv-menu-mob-open-menu */
 .tagdiv-menu-mob-open-menu {
