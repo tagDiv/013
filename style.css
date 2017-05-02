@@ -812,6 +812,9 @@ img {
   display: inline-block;
   vertical-align: top;
 }
+#tagdiv-header-menu .tagdiv-main-menu-page-list .page_item_has_children .children {
+  display: none;
+}
 /* Menu items list */
 .tagdiv-sf-menu,
 .tagdiv-sf-menu ul,
