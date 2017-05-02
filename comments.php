@@ -90,7 +90,6 @@ if ( post_password_required() ) {
 	 */
 
 	function tagdiv_comment( $tagdiv_comment, $tagdiv_comment_args, $tagdiv_comment_depth ) {
-	$GLOBALS['comment'] = $tagdiv_comment;
 
 	$tagdiv_is_ping_trackback_class = '';
 	if( 'pingback' == $tagdiv_comment->comment_type ) {

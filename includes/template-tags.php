@@ -163,7 +163,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 					<div class="tagdiv-module-meta-info">
 
 						<div class="tagdiv-post-author-name">
-							<span class="tagdiv-author-by"><?php _e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+							<span class="tagdiv-author-by"><?php _e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( absint( get_the_author_meta( 'ID' ) ) ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a>
 						</div>
 
 						<div class="tagdiv-post-date">
@@ -189,7 +189,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 				<div class="tagdiv-module-meta-info">
 
 					<div class="tagdiv-post-author-name">
-						<span class="tagdiv-author-by"><?php _e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+						<span class="tagdiv-author-by"><?php _e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( absint( get_the_author_meta( 'ID' ) ) ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a>
 					</div>
 
 					<div class="tagdiv-post-date">
@@ -315,18 +315,18 @@ if ( ! function_exists( 'tagdiv_author_box' ) ) {
 			$tagdiv_author_box .= '<div class="tagdiv-author-meta">';
 			$tagdiv_author_box .= '<div class="tagdiv-author-name vcard author">';
 			$tagdiv_author_box .= '<span class="tagdiv-post-author-url fn">';
-			$tagdiv_author_box .= '<a href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a>';
+			$tagdiv_author_box .= '<a href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) . '</a>';
 			$tagdiv_author_box .= '</span>';
 			$tagdiv_author_box .= '</div>';
 
 			if ( '' !== get_the_author_meta( 'user_url', $post->post_author ) ) {
 				$tagdiv_author_box .= '<div class="tagdiv-author-url">';
-				$tagdiv_author_box .= '<a href="' . esc_url( get_the_author_meta( 'user_url', $post->post_author ) ) . '">' . get_the_author_meta( 'user_url', $post->post_author ) . '</a>';
+				$tagdiv_author_box .= '<a href="' . esc_url( get_the_author_meta( 'user_url', $post->post_author ) ) . '">' . esc_url( get_the_author_meta( 'user_url', $post->post_author ) ) . '</a>';
 				$tagdiv_author_box .= '</div>';
 			}
 
 			$tagdiv_author_box .= '<div class="tagdiv-author-description">';
-			$tagdiv_author_box .= get_the_author_meta( 'description', $post->post_author );
+			$tagdiv_author_box .= esc_html( get_the_author_meta( 'description', $post->post_author ) );
 			$tagdiv_author_box .= '</div>';
 
 			$tagdiv_author_box .= '<div class="tagdiv-clearfix"></div>';
@@ -355,11 +355,13 @@ if ( ! function_exists( 'tagdiv_custom_logo' ) ) {
 			if( has_custom_logo() ) {
 				the_custom_logo();
 			} else {
-				if ( is_front_page() && is_home() ) { ?>
-					<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				if ( is_front_page() ) { ?>
+					<h1 class="tagdiv-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php } else { ?>
 					<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php }
+				<?php } ?>
+				<p class="tagdiv-site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+				<?php
 			}
 		}
 	}
@@ -403,7 +405,7 @@ if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
 					<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
 				<?php } ?>
 				<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
-					<img class="tagdiv-entry-thumb" src="<?php echo $tagdiv_temp_image_url; ?>" alt="no-thumb-placeholder" title="no-thumb" />
+					<img class="tagdiv-entry-thumb" src="<?php echo esc_url( $tagdiv_temp_image_url ); ?>" alt="no-thumb-placeholder" title="no-thumb" />
 				</a>
 			</div> <!-- /.tagdiv-module-thumb-->
 		<?php

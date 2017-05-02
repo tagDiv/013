@@ -76,6 +76,11 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.4 =
+* Fix: comments.php & template-home.php > WordPress globals overriding
+* Fix: escaped author meta and no-thumb img url data in template-tags.php
+* Update: updated screenshot
+
 = v1.0.3 =
 * Fix: header & footer menus > no menus case
 * Update: no logo > now defaults to site title

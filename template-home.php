@@ -6,15 +6,14 @@
 
 get_header();
 
-global $paged,$post;
+global $post;
 
-$tagdiv_page  = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1; //rewrite the global var
-$tagdiv_paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; //rewrite the global var
-
-if ( $tagdiv_paged > $tagdiv_page ) {
-    $paged = $tagdiv_paged;
+if ( get_query_var( 'paged' ) ) {
+    $tagdiv_paged = get_query_var( 'paged' );
+} elseif ( get_query_var( 'page' ) ) {
+    $tagdiv_paged = get_query_var( 'page' );
 } else {
-    $paged = $tagdiv_page;
+    $tagdiv_paged = 1;
 }
 
 $tagdiv_home_latest_articles_title  = sanitize_text_field( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_latest_section_title') );
@@ -25,7 +24,7 @@ $tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_g
     <div class="tagdiv-main-content-wrap">
         <div class="tagdiv-container">
 
-            <?php if ( empty( $paged ) or 2 > $paged ) { //show this only on the first page ?>
+            <?php if ( 2 > $tagdiv_paged ) { //show this only on the first page ?>
 
                 <div class="tagdiv-row">
                     <div class="tagdiv-span12" role="main">
@@ -55,7 +54,7 @@ $tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_g
                     // custom query parameters
                     $args = array(
                         'post_type'=> 'post',
-                        'paged'    => $paged
+                        'paged'    => $tagdiv_paged
                     );
 
                     // instantiate our custom query
@@ -91,9 +90,18 @@ $tagdiv_home_block_title            = sanitize_text_field( Tagdiv_Util::tagdiv_g
 
                     <div class="page-nav">
 
-                        <?php echo paginate_links( array(
-                            'total' => $tagdiv_home_query->max_num_pages,
-                        )  ); ?>
+                        <?php
+                        $total_pages = $tagdiv_home_query->max_num_pages;
+                        $current_page = max(1, get_query_var('page'));
+
+                        if ( 1 < $total_pages ){
+                            echo paginate_links( array(
+                                'total'    => $total_pages,
+                                'current'  => $current_page,
+                                'mid_size' => 1,
+                            )  );
+                        }
+                        ?>
 
                     </div>
 
