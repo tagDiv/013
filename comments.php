@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 	?>
 
 		<div class="tagdiv-comments-title-wrap">
-			<h4 class="tagdiv-comments-title"><span><?php esc_html_e( $tagdiv_comments_no_text ) ?></span></h4>
+			<h4 class="tagdiv-comments-title"><span><?php esc_html( $tagdiv_comments_no_text ) ?></span></h4>
 		</div>
 
 		<ol class="comment-list">
@@ -112,14 +112,14 @@ if ( post_password_required() ) {
 
 	?>
 
-	<li class="comment <?php esc_attr_e( $tagdiv_is_ping_trackback_class ) ?>" id="comment-<?php comment_ID() ?>">
+	<li class="comment <?php esc_attr( $tagdiv_is_ping_trackback_class ) ?>" id="comment-<?php comment_ID() ?>">
 		<article>
 			<footer>
 				<?php echo get_avatar( $tagdiv_comment_auth_email, 50 ); ?>
 				<cite><?php comment_author_link() ?></cite>
 
 				<a class="comment-link" href="#comment-<?php comment_ID() ?>">
-					<time pubdate="<?php esc_attr_e( $tagdiv_article_date_unix ) ?>"> <?php comment_date() ?> <?php esc_html_e( 'at', 'meistermag' ); ?> <?php comment_time() ?> </time>
+					<time pubdate="<?php esc_attr( $tagdiv_article_date_unix ) ?>"> <?php comment_date() ?> <?php esc_html_e( 'at', 'meistermag' ); ?> <?php comment_time() ?> </time>
 				</a>
 			</footer>
 
