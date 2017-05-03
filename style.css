@@ -3,7 +3,7 @@ Theme Name: 	MeisterMag
 Theme URI:
 Description: 	MeisterMag is a fast and light WordPress theme perfect for blogs, news, newspaper, magazine, and publishing websites. The template is designed to help you build websites without any effort and coding skills. MeisterMag is easy to use and personalize, with all the settings located in the Customizer panel. The theme is fully responsive, with an outstanding sharp design, clean coding, an elegant structure and an attractive mobile approach.
 Text Domain:    meistermag
-Version: 		1.0.4
+Version: 		1.0.5
 Author: 		tagDiv
 Author URI: 	http://tagdiv.com/
 License:        GNU General Public License v2 or later
@@ -628,7 +628,6 @@ img {
   margin: 0 auto;
 }
 .tagdiv-header-style .tagdiv-header-main-menu {
-  padding-right: 0;
   /* desktop only */
 }
 @media (min-width: 768px) {
@@ -648,7 +647,7 @@ img {
 }
 @media (min-width: 768px) {
   .tagdiv-header-style .tagdiv-header-menu-search {
-    right: auto;
+    /*right: auto;*/
     display: inline-block;
   }
 }
@@ -802,6 +801,7 @@ img {
   position: relative;
   z-index: 999;
   font-family: 'Work Sans', sans-serif;
+  padding-right: 56px;
 }
 @media (min-width: 767px) {
   .tagdiv-header-main-menu .tagdiv-main-navigation {

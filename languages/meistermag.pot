@@ -42,55 +42,59 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: ../comments.php:31
+#: ../comments.php:29
 msgid "COMMENTS"
 msgstr ""
 
-#: ../comments.php:33
+#: ../comments.php:31
 msgid "1 COMMENT"
 msgstr ""
 
-#: ../comments.php:54
+#: ../comments.php:52
 msgid "Comments are closed."
 msgstr ""
 
-#: ../comments.php:62
+#: ../comments.php:60
 msgid "Name: *"
 msgstr ""
 
-#: ../comments.php:63
+#: ../comments.php:61
 msgid "Email: *"
 msgstr ""
 
-#: ../comments.php:64
+#: ../comments.php:62
 msgid "Website:"
 msgstr ""
 
-#: ../comments.php:68
+#: ../comments.php:66
 msgid "Comment:"
 msgstr ""
 
-#: ../comments.php:71
+#: ../comments.php:69
 msgid "LEAVE A REPLY"
 msgstr ""
 
-#: ../comments.php:72
+#: ../comments.php:70
 msgid "Post Comment"
 msgstr ""
 
-#: ../comments.php:73
+#: ../comments.php:71
 msgid "Cancel reply"
 msgstr ""
 
-#: ../comments.php:78 ../comments.php:141
+#: ../comments.php:76 ../comments.php:138
 msgid "Log in to leave a comment"
 msgstr ""
 
-#: ../comments.php:131
+#: ../comments.php:122
+msgid "at"
+msgstr ""
+
+#: ../comments.php:128
 msgid "Your comment is awaiting moderation"
 msgstr ""
 
-#: ../comments.php:140
+#: ../comments.php:137
 msgid "Reply"
 msgstr ""
 

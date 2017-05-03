@@ -68,7 +68,7 @@
 					<div class="tagdiv-span12 tagdiv-sub-footer-copy">
 						<?php
 						$tagdiv_footer_copy_symbol = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright_symbol' );
-						$tagdiv_footer_copyright   = sanitize_text_field( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright' ) );
+						$tagdiv_footer_copyright   = esc_html( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright' ) );
 
 						//show copyright symbol
 						if ( !empty( $tagdiv_footer_copy_symbol ) ) {

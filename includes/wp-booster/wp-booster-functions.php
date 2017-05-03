@@ -96,9 +96,6 @@ if ( ! function_exists( 'tagdiv_setup' ) ) {
 		 * to output valid HTML5.
 		 */
 		add_theme_support( 'html5', array(
-			'comment-list',
-			'comment-form',
-			'search-form',
 			'gallery',
 			'caption'
 		) );

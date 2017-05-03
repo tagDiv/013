@@ -66,7 +66,7 @@
 			</div>
 
 			<div role="search" class="tagdiv-search-input">
-				<span><?php _e( 'Search', 'meistermag' )?></span>
+				<span><?php esc_html_e( 'Search', 'meistermag' )?></span>
 				<label>
 					<input id="tagdiv-header-search-mob" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
 				</label>
@@ -79,7 +79,7 @@
 	<!--site header-->
 	<div class="tagdiv-header-wrap tagdiv-header-style">
 		<div class="tagdiv-container">
-			<a class="skip-link screen-reader-text" href="#tagdiv-site-content"><?php _e( 'Skip to content', 'meistermag' ); ?></a>
+			<a class="skip-link screen-reader-text" href="#tagdiv-site-content"><?php esc_html_e( 'Skip to content', 'meistermag' ); ?></a>
 
 			<div class="tagdiv-header-logo-wrap">
 				<!--header logo-->
@@ -127,7 +127,7 @@
 							<form method="get" class="tagdiv-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
 								<div role="search" class="tagdiv-head-search">
 									<label>
-										<span class="screen-reader-text"><?php _e( 'Search for:', 'meistermag' ) ?></span>
+										<span class="screen-reader-text"><?php esc_html_e( 'Search for:', 'meistermag' ) ?></span>
 										<input id="tagdiv-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
 										<input class="wpb_button wpb_btn-inverse btn" type="submit" id="tagdiv-header-search-top" value="<?php esc_attr_e( 'Search', 'meistermag' ) ?>" />
 									</label>

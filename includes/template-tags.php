@@ -53,7 +53,7 @@ if ( ! function_exists( 'tagdiv_post_thumbnail' ) ) {
 					<div class="tagdiv-module-thumb">
 
 						<?php if ( current_user_can( 'edit_posts' ) ) { ?>
-							<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
+							<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php esc_html_e( 'edit', 'meistermag' ); ?></a>
 						<?php } ?>
 
 						<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
@@ -163,7 +163,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 					<div class="tagdiv-module-meta-info">
 
 						<div class="tagdiv-post-author-name">
-							<span class="tagdiv-author-by"><?php _e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( absint( get_the_author_meta( 'ID' ) ) ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a>
+							<span class="tagdiv-author-by"><?php esc_html_e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( absint( get_the_author_meta( 'ID' ) ) ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a>
 						</div>
 
 						<div class="tagdiv-post-date">
@@ -189,7 +189,7 @@ if ( ! function_exists( 'tagdiv_post_header' ) ) {
 				<div class="tagdiv-module-meta-info">
 
 					<div class="tagdiv-post-author-name">
-						<span class="tagdiv-author-by"><?php _e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( absint( get_the_author_meta( 'ID' ) ) ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a>
+						<span class="tagdiv-author-by"><?php esc_html_e( 'By ', 'meistermag' ) ?></span><a href="<?php echo esc_url( get_author_posts_url( absint( get_the_author_meta( 'ID' ) ) ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></a>
 					</div>
 
 					<div class="tagdiv-post-date">
@@ -402,7 +402,7 @@ if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
 		?>
 			<div class="tagdiv-module-thumb">
 				<?php	if ( current_user_can( 'edit_posts' ) ) { ?>
-					<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php _e( 'edit', 'meistermag' ); ?></a>
+					<a class="tagdiv-admin-edit" href="<?php echo esc_url( get_edit_post_link( $post->ID ) ); ?>"><?php esc_html_e( 'edit', 'meistermag' ); ?></a>
 				<?php } ?>
 				<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" rel="bookmark" title="<?php echo esc_attr( strip_tags( get_the_title( $post->ID ) ) ); ?>">
 					<img class="tagdiv-entry-thumb" src="<?php echo esc_url( $tagdiv_temp_image_url ); ?>" alt="no-thumb-placeholder" title="no-thumb" />

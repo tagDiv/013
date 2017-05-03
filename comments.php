@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 	?>
 
 		<div class="tagdiv-comments-title-wrap">
-			<h4 class="tagdiv-comments-title"><span><?php echo $tagdiv_comments_no_text ?></span></h4>
+			<h4 class="tagdiv-comments-title"><span><?php esc_html_e( $tagdiv_comments_no_text ) ?></span></h4>
 		</div>
 
 		<ol class="comment-list">
@@ -49,7 +49,7 @@ if ( post_password_required() ) {
 	<?php }
 
 	if ( ! comments_open() and ( get_comments_number() > 0 ) ) { ?>
-		<p><?php echo  __( 'Comments are closed.', 'meistermag' ); ?></p>
+		<p><?php esc_html_e( 'Comments are closed.', 'meistermag' ); ?></p>
 	<?php }
 
 	$tagdiv_commenter = wp_get_current_commenter();
@@ -57,13 +57,13 @@ if ( post_password_required() ) {
 	$tagdiv_aria_req = ( $tagdiv_req ? " aria-required='true'" : '' );
 
 	$tagdiv_fields = array(
-		'author' => '<p class="comment-form-input-wrap tagdiv-form-author"><input class="" id="author" name="author" placeholder="' . __( 'Name: *', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-input-wrap tagdiv-form-email"><input class="" id="email" name="email" placeholder="' . __( 'Email: *', 'meistermag' ) . '" type="text" value="' . esc_attr(  $tagdiv_commenter['comment_author_email'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
-		'url' 	 => '<p class="comment-form-input-wrap tagdiv-form-url"><input class="" id="url" name="url" placeholder="' . __( 'Website:', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author_url'] ) . '" size="30" /></p>',
+		'author' => '<p class="comment-form-input-wrap tagdiv-form-author"><input class="" id="author" name="author" placeholder="' . esc_attr__( 'Name: *', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-input-wrap tagdiv-form-email"><input class="" id="email" name="email" placeholder="' . esc_attr__( 'Email: *', 'meistermag' ) . '" type="text" value="' . esc_attr(  $tagdiv_commenter['comment_author_email'] ) . '" size="30" ' . $tagdiv_aria_req . ' /></p>',
+		'url' 	 => '<p class="comment-form-input-wrap tagdiv-form-url"><input class="" id="url" name="url" placeholder="' . esc_attr__( 'Website:', 'meistermag' ) . '" type="text" value="' . esc_attr( $tagdiv_commenter['comment_author_url'] ) . '" size="30" /></p>',
 	);
 
 	$tagdiv_defaults = array( 'fields' => apply_filters( 'comment_form_default_fields', $tagdiv_fields ) );
-	$tagdiv_defaults['comment_field'] 		  = '<div class="tagdiv-clearfix"></div><p class="comment-form-input-wrap tagdiv-form-comment"><textarea placeholder="' . __( 'Comment:', 'meistermag' ) . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+	$tagdiv_defaults['comment_field'] 		  = '<div class="tagdiv-clearfix"></div><p class="comment-form-input-wrap tagdiv-form-comment"><textarea placeholder="' . esc_attr__( 'Comment:', 'meistermag' ) . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
 	$tagdiv_defaults['comment_notes_before']  = '';
 	$tagdiv_defaults['comment_notes_after']   = '';
 	$tagdiv_defaults['title_reply'] 		  = __( 'LEAVE A REPLY', 'meistermag' );
@@ -112,20 +112,20 @@ if ( post_password_required() ) {
 
 	?>
 
-	<li class="comment <?php echo $tagdiv_is_ping_trackback_class ?>" id="comment-<?php comment_ID() ?>">
+	<li class="comment <?php esc_attr_e( $tagdiv_is_ping_trackback_class ) ?>" id="comment-<?php comment_ID() ?>">
 		<article>
 			<footer>
 				<?php echo get_avatar( $tagdiv_comment_auth_email, 50 ); ?>
 				<cite><?php comment_author_link() ?></cite>
 
 				<a class="comment-link" href="#comment-<?php comment_ID() ?>">
-					<time pubdate="<?php echo $tagdiv_article_date_unix ?>"><?php comment_date() ?> at <?php comment_time() ?></time>
+					<time pubdate="<?php esc_attr_e( $tagdiv_article_date_unix ) ?>"> <?php comment_date() ?> <?php esc_html_e( 'at', 'meistermag' ); ?> <?php comment_time() ?> </time>
 				</a>
 			</footer>
 
 			<div class="comment-content">
 				<?php if ( '0' == $tagdiv_comment->comment_approved ) { ?>
-					<em><?php _e( 'Your comment is awaiting moderation', 'meistermag' ); ?></em>
+					<em><?php esc_html_e( 'Your comment is awaiting moderation', 'meistermag' ); ?></em>
 				<?php }
 				comment_text(); ?>
 			</div>

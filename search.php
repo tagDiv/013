@@ -15,7 +15,7 @@ get_header(); ?>
 				<div class="tagdiv-span12">
 
 					<h1 class="tagdiv-entry-title tagdiv-page-title">
-						<span class="tagdiv-search-query"><?php echo get_search_query(); ?></span> - <span> <?php _e( 'search results', 'meistermag' );?></span>
+						<span class="tagdiv-search-query"><?php echo get_search_query(); ?></span> - <span> <?php esc_html_e( 'search results', 'meistermag' );?></span>
 					</h1>
 
 					<div class="tagdiv-search-page-wrap">

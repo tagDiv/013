@@ -13,9 +13,9 @@ get_header(); ?>
 		<div class="tagdiv-container">
 			<div class="tagdiv-span12">
 				<div class="tagdiv-404-head">
-					<div class="tagdiv-404-title"><?php _e( '404', 'meistermag' ); ?></div>
-					<div class="tagdiv-404-sub-title"><?php _e( 'Oops!', 'meistermag' ); ?></div>
-					<div class="tagdiv-404-sub-sub-title"><?php _e( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'meistermag' ); ?></div>
+					<div class="tagdiv-404-title"><?php esc_html_e( '404', 'meistermag' ); ?></div>
+					<div class="tagdiv-404-sub-title"><?php esc_html_e( 'Oops!', 'meistermag' ); ?></div>
+					<div class="tagdiv-404-sub-sub-title"><?php esc_html_e( 'Sorry, but the page you are looking for doesn&rsquo;t exist. Please use search for help', 'meistermag' ); ?></div>
 
 					<div class="tagdiv-search-page-wrap">
 						<?php get_search_form(); ?>

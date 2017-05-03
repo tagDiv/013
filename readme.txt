@@ -76,6 +76,11 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.5 =
+* Fix: Addressed and fixed multiple data escaping issues
+* Fix: main header menu search design issue
+* Update: string translation in comments.php
+
 = v1.0.4 =
 * Fix: comments.php & template-home.php > WordPress globals overriding
 * Fix: escaped author meta and no-thumb img url data in template-tags.php
