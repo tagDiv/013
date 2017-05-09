@@ -76,6 +76,9 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.6 =
+* Update: Theme Author URI
+
 = v1.0.5 =
 * Fix: Addressed and fixed multiple data escaping issues
 * Fix: main header menu search design issue
