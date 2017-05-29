@@ -76,6 +76,9 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.7 =
+* Update: Removed the Theme Author URI
+
 = v1.0.6 =
 * Update: Theme Author URI
 
