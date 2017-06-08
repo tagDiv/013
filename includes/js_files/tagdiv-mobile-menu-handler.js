@@ -1,5 +1,5 @@
 /* global jQuery:{} */
-/* global screenReaderText */
+/* global tagdivScreenReaderText */
 
 /**
  * Mobile menu handler
@@ -7,6 +7,8 @@
  */
 ( function() {
     'use strict';
+
+    jQuery('.tagdiv-search-wrap-mob').find('#tagdiv-header-search').removeAttr('placeholder');
 
     //handles open/close mobile menu
     jQuery( '#tagdiv-top-mobile-toggle a, .tagdiv-mobile-close a' ).click( function() {
@@ -34,7 +36,7 @@
 
         jQuery( this ).children( 'a' ).append( jQuery( '<span />', {
             'class': 'screen-reader-text',
-            text: screenReaderText.expand
+            text: tagdivScreenReaderText.expand
         } ) );
 
         jQuery( this ).click( function( event ) {
@@ -60,13 +62,13 @@
                     jQuery( this ).children( 'a' ).find( '.screen-reader-text' ).remove();
                     jQuery( this ).children( 'a' ).append( jQuery( '<span />', {
                         'class': 'screen-reader-text',
-                        text: screenReaderText.collapse
+                        text: tagdivScreenReaderText.collapse
                     } ) );
                 } else {
                     jQuery( this ).children( 'a' ).find( '.screen-reader-text' ).remove();
                     jQuery( this ).children( 'a' ).append( jQuery( '<span />', {
                         'class': 'screen-reader-text',
-                        text: screenReaderText.expand
+                        text: tagdivScreenReaderText.expand
                     } ) );
                 }
             }

@@ -265,8 +265,8 @@ if ( ! function_exists( 'tagdiv_scripts' ) ) {
 
 		// Load theme menu support
 		wp_enqueue_script( 'tagdiv-menu-script', get_template_directory_uri() . '/includes/js_files/tagdiv-menu-script.js', array( 'jquery' ), TAGDIV_THEME_VERSION, true );
-		// Pass screen reader support data as screenReaderText global
-		wp_localize_script( 'tagdiv-menu-script', 'screenReaderText', array(
+		// Pass screen reader support data as tagdivScreenReaderText global
+		wp_localize_script( 'tagdiv-menu-script', 'tagdivScreenReaderText', array(
 			'expand'   => __( 'expand child menu', 'meistermag' ),
 			'collapse' => __( 'collapse child menu', 'meistermag' ),
 			'submenu'  => __( 'menu item with sub-menu', 'meistermag' ),

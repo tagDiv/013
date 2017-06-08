@@ -3,7 +3,7 @@ Theme Name: 	MeisterMag
 Theme URI:
 Description: 	MeisterMag is a fast and light WordPress theme perfect for blogs, news, newspaper, magazine, and publishing websites. The template is designed to help you build websites without any effort and coding skills. MeisterMag is easy to use and personalize, with all the settings located in the Customizer panel. The theme is fully responsive, with an outstanding sharp design, clean coding, an elegant structure and an attractive mobile approach.
 Text Domain:    meistermag
-Version: 		1.0.7
+Version: 		1.0.8
 Author: 		tagDiv
 Author URI:
 License:        GNU General Public License v2 or later
@@ -719,8 +719,7 @@ img {
   padding: 0 11px;
   font-size: 13px;
   color: #666;
-  border: 0;
-  border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box;
 }
 .tagdiv-search-box-wrap .tagdiv-drop-down-search .btn {
   position: absolute;
@@ -748,9 +747,6 @@ img {
 }
 .tagdiv-search-box-wrap .tagdiv-drop-down-search .tagdiv-search-form {
   margin: 20px;
-}
-.tagdiv-search-box-wrap .tagdiv-drop-down-search .tagdiv-search-form .tagdiv-head-search {
-  position: relative;
 }
 .tagdiv-search-box-wrap .tagdiv-drop-down-search:after {
   position: absolute;
@@ -1376,7 +1372,7 @@ ul.sf-js-enabled > li > a > i.tagdiv-icon-menu-down:before {
   -webkit-backface-visibility: hidden;
   position: relative;
 }
-.tagdiv-search-wrap-mob #tagdiv-header-search-mob {
+.tagdiv-search-wrap-mob #tagdiv-header-search {
   color: #000;
   font-weight: bold;
   font-size: 26px;
@@ -1423,6 +1419,9 @@ ul.sf-js-enabled > li > a > i.tagdiv-icon-menu-down:before {
 }
 .tagdiv-search-wrap-mob .tagdiv-search-form {
   margin-bottom: 30px;
+}
+.tagdiv-search-wrap-mob .tagdiv-search-form button {
+  display: none;
 }
 /* search background */
 .tagdiv-search-background {
@@ -3553,12 +3552,13 @@ input.search-field {
   width: 100%;
   height: 28px;
   margin: 0;
-  padding: 0;
+  padding: 0 11px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 13px;
   color: #666;
   border: 0;
   border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box;
 }
 #searchsubmit,
 input.search-submit,
@@ -3589,9 +3589,6 @@ button.search-submit:hover {
 }
 .widget_search .tagdiv-block-title {
   margin-bottom: 20px;
-}
-.widget_search .search-field {
-  padding: 0;
 }
 /* calendar */
 .widget_calendar {

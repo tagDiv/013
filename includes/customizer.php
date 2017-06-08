@@ -63,7 +63,7 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			array(
 				'capability' 		=> 'edit_theme_options',
 				'default' 			=> __( 'Your Copyright Text', 'meistermag' ),
-				'sanitize_callback' => 'wp_strip_all_tags',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 
@@ -103,7 +103,7 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			array(
 				'capability' 	 	=> 'edit_theme_options',
 				'default'           => __( 'Block Title', 'meistermag' ),
-				'sanitize_callback' => 'wp_strip_all_tags'
+				'sanitize_callback' => 'sanitize_text_field'
 			)
 		);
 
@@ -122,7 +122,7 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			array(
 				'capability' 	 	=> 'edit_theme_options',
 				'default'           => __( 'Latest Articles', 'meistermag' ),
-				'sanitize_callback' => 'wp_strip_all_tags'
+				'sanitize_callback' => 'sanitize_text_field'
 			)
 		);
 

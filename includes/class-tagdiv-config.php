@@ -3,7 +3,7 @@
  * This is the config file for the theme.
  */
 
-define( 'TAGDIV_THEME_VERSION', "1.0.7" );
+define( 'TAGDIV_THEME_VERSION', "1.0.8" );
 define( 'TAGDIV_THEME_OPTIONS_NAME', "tagdiv_theme_options"); //where to store theme options
 
 

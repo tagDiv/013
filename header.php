@@ -59,19 +59,14 @@
 <!-- mobile search -->
 <div class="tagdiv-search-background"></div>
 <div class="tagdiv-search-wrap-mob">
-	<div class="tagdiv-drop-down-search" aria-labelledby="tagdiv-header-search-button">
-		<form method="get" class="tagdiv-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<div class="tagdiv-search-close">
-				<a href="#"><i class="tagdiv-icon-close-mobile"></i></a>
-			</div>
-
-			<div role="search" class="tagdiv-search-input">
-				<span><?php esc_html_e( 'Search', 'meistermag' )?></span>
-				<label>
-					<input id="tagdiv-header-search-mob" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
-				</label>
-			</div>
-		</form>
+	<div class="tagdiv-drop-down-search">
+		<div class="tagdiv-search-close">
+			<a href="#"><i class="tagdiv-icon-close-mobile"></i></a>
+		</div>
+		<div role="search" class="tagdiv-search-input">
+			<span><?php esc_html_e( 'Search', 'meistermag' )?></span>
+			<?php get_search_form(); ?>
+		</div>
 	</div>
 </div>
 
@@ -119,20 +114,12 @@
 				<!--header menu search-->
 				<div class="tagdiv-header-menu-search">
 					<div class="tagdiv-search-btns-wrap">
-						<a id="tagdiv-header-search-button" href="#" role="button" data-toggle="dropdown"><i class="tagdiv-icon-search"></i></a>
-						<a id="tagdiv-header-search-button-mob" href="#" role="button" data-toggle="dropdown"><i class="tagdiv-icon-search"></i></a>
+						<a id="tagdiv-header-search-button" href="#" role="button"><i class="tagdiv-icon-search"></i></a>
+						<a id="tagdiv-header-search-button-mob" href="#" role="button"><i class="tagdiv-icon-search"></i></a>
 					</div>
 					<div class="tagdiv-search-box-wrap">
-						<div class="tagdiv-drop-down-search" aria-labelledby="tagdiv-header-search-button">
-							<form method="get" class="tagdiv-search-form" action="<?php echo esc_url(home_url( '/' )); ?>">
-								<div role="search" class="tagdiv-head-search">
-									<label>
-										<span class="screen-reader-text"><?php esc_html_e( 'Search for:', 'meistermag' ) ?></span>
-										<input id="tagdiv-header-search" type="text" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
-										<input class="wpb_button wpb_btn-inverse btn" type="submit" id="tagdiv-header-search-top" value="<?php esc_attr_e( 'Search', 'meistermag' ) ?>" />
-									</label>
-								</div>
-							</form>
+						<div class="tagdiv-drop-down-search">
+							<?php get_search_form(); ?>
 						</div>
 					</div>
 				</div> <!-- /.tagdiv-header-menu-search -->

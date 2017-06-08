@@ -1,4 +1,4 @@
-/* global screenReaderText */
+/* global tagdivScreenReaderText */
 /* global jQuery:{} */
 /* global tdDetect:{} */
 
@@ -39,7 +39,7 @@ var tdMenu = {};
             menuLinks.append( '<i class="tagdiv-icon-menu-down"></i>' );
             menuLinks.append( jQuery( '<span />', {
                 'class': 'screen-reader-text',
-                text: screenReaderText.submenu
+                text: tagdivScreenReaderText.submenu
             } ) );
 
             //main menu width adjustment
