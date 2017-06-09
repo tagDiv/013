@@ -313,11 +313,12 @@ add_filter( 'use_default_gallery_style', '__return_false' );
 if ( ! function_exists( 'tagdiv_custom_excerpt_length' ) ) {
 	/**
 	 * Filter the except length to 20 characters.
+	 * Returns default on admin side
 	 *
 	 * @return int - modified excerpt length.
 	 */
-	function tagdiv_custom_excerpt_length() {
-		return 20;
+	function tagdiv_custom_excerpt_length( $length ) {
+		return is_admin() ? $length : 20;
 	}
 }
 add_filter( 'excerpt_length', 'tagdiv_custom_excerpt_length', 999 );
