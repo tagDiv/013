@@ -76,6 +76,12 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.8 =
+* Fix: Removed the header custom search form and replaced it with get_search_form()
+* Fix: Changed sanitization for simple text fields to sanitize_text_field()
+* Fix: Added prefixing for localized object screenReaderText
+* Fix: Now the excerpt_length filter will not affect the admin side
+
 = v1.0.7 =
 * Update: Removed the Theme Author URI
 
