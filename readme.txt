@@ -76,6 +76,9 @@ Images used in screenshot.png:
 
 == Changelog ==
 
+= v1.0.9 =
+* Fix: Removed theme mbstring support ( already handled by WordPress )
+
 = v1.0.8 =
 * Fix: Removed the header custom search form and replaced it with get_search_form()
 * Fix: Changed sanitization for simple text fields to sanitize_text_field()
