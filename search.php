@@ -18,10 +18,6 @@ get_header(); ?>
 						<span class="tagdiv-search-query"><?php echo get_search_query(); ?></span> - <span> <?php esc_html_e( 'search results', 'meistermag' );?></span>
 					</h1>
 
-					<div class="tagdiv-search-page-wrap">
-					<?php get_search_form(); ?>
-					</div>
-
 				</div>
 			</div>
 		</div> <!-- /.tagdiv-search-header -->

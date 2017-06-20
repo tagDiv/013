@@ -355,11 +355,8 @@ if ( ! function_exists( 'tagdiv_custom_logo' ) ) {
 			if( has_custom_logo() ) {
 				the_custom_logo();
 			} else {
-				if ( is_front_page() ) { ?>
-					<h1 class="tagdiv-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php } else { ?>
-					<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php } ?>
+			    ?>
+                <h1 class="tagdiv-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<p class="tagdiv-site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
 				<?php
 			}

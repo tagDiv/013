@@ -1,7 +1,7 @@
 === MeisterMag ===
 
 Requires at least: 4.0
-Tested up to: 4.7.3
+Tested up to: 4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,7 +11,7 @@ Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, foo
 
 MeisterMag is a free WordPress theme that lets you write articles and blog posts with ease.
 
-The MeisterMag template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. It’s fast, simple, and easy to use.
+The MeisterMag template uses a beautiful default color schemes combined with a harmonious fluid grid with an attractive mobile approach and impeccable polish in every detail. Is excellent for a news, newspaper, magazine or publishing site. Itï¿½s fast, simple, and easy to use.
 
 The MeisterMag Theme supports the following features:
 
@@ -75,6 +75,10 @@ Images used in screenshot.png:
 2. A photo by Rami Al-zayat ( https://unsplash.com/photos/w33-zg-dNL4 )
 
 == Changelog ==
+= v1.1 =
+* Fix: Droid Sans font was loaded but it was used only in one place, we removed the font dependency from the theme.
+* Fix: Footer text logo was not working as expected. We now fixed it and we aligned it better.
+* Fix: Double search box issue on the search page. The theme always has available a search button in the main menu so another search form on the search page is not needed.
 
 = v1.0.9 =
 * Fix: Removed theme mbstring support ( already handled by WordPress )
