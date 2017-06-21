@@ -35,9 +35,15 @@
 					<!--logo-->
 					<div class="tagdiv-span12">
 						<aside class="footer-logo-wrap">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tagdiv-custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-								<img src="<?php echo esc_url( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							</a>
+                            <?php if ( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) == '' ) { ?>
+                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tagdiv-custom-logo-text-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                                    <?php echo get_bloginfo( 'name', 'display' ) ?>
+                                </a>
+                            <?php } else { ?>
+                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tagdiv-custom-logo-link" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                                    <img src="<?php echo esc_url( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_footer_logo' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+                                </a>
+                            <?php } ?>
 						</aside>
 					</div>
 				</div>
@@ -45,6 +51,11 @@
 		</div>
 
 		<!-- site sub footer -->
+        <?php
+        $tagdiv_footer_copy_symbol = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright_symbol' );
+        $tagdiv_footer_copyright   = esc_html( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright' ) );
+
+        if ( has_nav_menu( 'footer-menu' ) || ! empty( $tagdiv_footer_copyright ) ) { ?>
 		<div class="tagdiv-sub-footer-container">
 			<div class="tagdiv-container">
 				<div class="tagdiv-row">
@@ -67,8 +78,7 @@
 
 					<div class="tagdiv-span12 tagdiv-sub-footer-copy">
 						<?php
-						$tagdiv_footer_copy_symbol = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright_symbol' );
-						$tagdiv_footer_copyright   = esc_html( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright' ) );
+
 
 						//show copyright symbol
 						if ( !empty( $tagdiv_footer_copy_symbol ) ) {
@@ -81,6 +91,8 @@
 				</div>
 			</div> <!-- /.tagdiv-container -->
 		</div> <!-- /.tagdiv-sub-footer-container -->
+        <?php } ?>
+
 	</div> <!-- /.tagdiv-footer-wrapper -->
 </div><!-- #tagdiv-page-wrap -->
 

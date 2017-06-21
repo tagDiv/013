@@ -144,7 +144,7 @@ if ( ! function_exists( 'tagdiv_widgets_init' ) ) {
 		// Default sidebar
 		register_sidebar( array(
 			'name'          => __( 'Theme Default Sidebar', 'meistermag' ),
-			'id'            => 'tagdiv-default',
+			'id'            => 'sidebar-1',
 			'description'   => __( 'Add widgets here to appear in your sidebar.', 'meistermag' ),
 			'before_widget' => '<aside class="widget %2$s">',
 			'after_widget'  => '</aside>',
@@ -211,10 +211,16 @@ if ( ! function_exists( 'tagdiv_fonts' ) ) {
 			$fonts[] = 'Source Sans Pro:400,400italic,600,600italic,700';
 		}
 
-		/* translators: If there are characters in your language that are not supported by Droid Serif font, translate this to 'off'. Do not translate into your own language. */
-		if ('off' !== _x( 'on', 'Droid Serif font: on or off', 'meistermag' ) ) {
-			$fonts[] = 'Droid Serif:400,700';
-		}
+
+        /* translators: If there are characters in your language that are not supported by Source Sans Pro font, translate this to 'off'. Do not translate into your own language. */
+        if ('off' !== _x( 'on', 'Roboto font: on or off', 'meistermag' ) ) {
+            $fonts[] = 'Roboto:400,500';
+        }
+
+
+
+
+
 
 		if ( $fonts ) {
 			$fonts_url = add_query_arg( array(

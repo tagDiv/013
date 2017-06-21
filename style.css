@@ -3,7 +3,7 @@ Theme Name: 	MeisterMag
 Theme URI:
 Description: 	MeisterMag is a fast and light WordPress theme perfect for blogs, news, newspaper, magazine, and publishing websites. The template is designed to help you build websites without any effort and coding skills. MeisterMag is easy to use and personalize, with all the settings located in the Customizer panel. The theme is fully responsive, with an outstanding sharp design, clean coding, an elegant structure and an attractive mobile approach.
 Text Domain:    meistermag
-Version: 		1.0.9
+Version: 		1.1
 Author: 		tagDiv
 Author URI:
 License:        GNU General Public License v2 or later
@@ -623,9 +623,23 @@ img {
   position: relative;
   text-align: center;
   width: 100%;
+  /* text logo */
 }
 .tagdiv-header-style .tagdiv-header-logo img {
   margin: 0 auto;
+}
+.tagdiv-header-style .tagdiv-header-logo a {
+  color: #2b2b2b;
+}
+.tagdiv-header-style .tagdiv-header-logo h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 41px;
+  margin-top: 22px;
+  margin-bottom: 1px;
+}
+.tagdiv-header-style .tagdiv-header-logo .tagdiv-site-description {
+  margin-bottom: 24px;
 }
 .tagdiv-header-style .tagdiv-header-main-menu {
   /* desktop only */
@@ -2995,7 +3009,7 @@ blockquote small {
 }
 .tagdiv-404-sub-title {
   margin-bottom: 18px;
-  font-family: 'Droid Serif', serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 72px;
   font-weight: 700;
   line-height: 1;
@@ -3835,6 +3849,7 @@ button.search-submit:hover {
   background-color: #000;
   text-align: center;
   color: #fff;
+  min-height: 110px;
 }
 .tagdiv-footer-wrapper a {
   color: #fff;
@@ -3914,6 +3929,20 @@ button.search-submit:hover {
   .footer-logo-wrap img {
     max-width: 70%;
   }
+}
+.tagdiv-custom-logo-text-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  display: inline-block;
+  border: 1px solid white;
+  padding: 10px 17px;
+  position: relative;
+  top: 9px;
+}
+.tagdiv-custom-logo-text-link:hover {
+  color: white !important;
+  opacity: 0.9;
 }
 /*  ----------------------------------------------------------------------------
     Sub Footer
