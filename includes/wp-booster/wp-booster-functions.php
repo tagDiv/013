@@ -6,6 +6,7 @@
  */
 
 // theme utility files
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-global.php';
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-util.php';
 
 // load the wp-booster_api
@@ -480,6 +481,18 @@ if ( ! function_exists( 'tagdiv_sanitize_image' ) ) {
 
 		// If $image has a valid mime_type, return it; otherwise, return the default.
 		return ( $file['ext'] ? $image : $setting->default );
+	}
+}
+
+if ( ! function_exists( 'tagdiv_get_sample_image' ) ) {
+	/**
+	 * Returns a random sample image placeholder
+	 *
+	 * @since MeisterMag 1.1.1
+	 * @return mixed
+	 */
+	function tagdiv_get_sample_image() {
+		return esc_url( get_template_directory_uri() . '/images/sample/' . mt_rand (1,6) . '.jpg' );
 	}
 }
 

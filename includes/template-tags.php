@@ -389,7 +389,7 @@ if ( ! function_exists( 'tagdiv_excerpt' ) ) {
 
 if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
 	/**
-	 * Displays the no_thumb placeholder
+	 * Displays the no_thumb placeholder or a sample image placeholder
 	 *
 	 * @since MeisterMag 1.0
 	 *
@@ -399,6 +399,11 @@ if ( ! function_exists( 'tagdiv_get_no_thumb' ) ) {
 		global $post;
 
 		$tagdiv_temp_image_url = get_template_directory_uri() . '/images/no-thumb/' . $tagdiv_thumb_type . '.png';
+
+		if ( Tagdiv_Global::$tagdiv_is_demo_preview ) {
+			$tagdiv_temp_image_url = tagdiv_get_sample_image();
+		}
+
 		?>
 			<div class="tagdiv-module-thumb">
 				<?php	if ( current_user_can( 'edit_posts' ) ) { ?>
