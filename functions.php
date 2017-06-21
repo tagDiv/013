@@ -18,6 +18,3 @@ require get_template_directory() . '/includes/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/includes/customizer.php';
-
-/* preview demo */
-require_once get_template_directory() . '/includes/preview-demo/init-preview-demo.php';

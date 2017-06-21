@@ -8,6 +8,7 @@
 // theme utility files
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-global.php';
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-util.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-preview-demo.php';
 
 // load the wp-booster_api
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-base.php';
