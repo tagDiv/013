@@ -499,7 +499,15 @@ if ( ! function_exists( 'tagdiv_get_sample_image' ) ) {
 	 * @return mixed
 	 */
 	function tagdiv_get_sample_image() {
-		return esc_url( get_template_directory_uri() . '/images/sample/' . mt_rand (1,6) . '.jpg' );
+		$tagdiv_sample_image = esc_url( get_template_directory_uri() . '/images/sample/' . Tagdiv_Global::$tagdiv_demo_image . '.jpg' );
+
+		if ( Tagdiv_Global::$tagdiv_demo_image === 6 ) {
+			Tagdiv_Global::$tagdiv_demo_image = 1;
+		} else {
+			Tagdiv_Global::$tagdiv_demo_image++;
+		}
+
+		return $tagdiv_sample_image;
 	}
 }
 

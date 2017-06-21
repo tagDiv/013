@@ -75,12 +75,17 @@ Images used in screenshot.png:
 2. A photo by Rami Al-zayat ( https://unsplash.com/photos/w33-zg-dNL4 )
 
 == Changelog ==
+= v1.1.1 =
+* Update: Theme Description
+* Update: Preview Demo Improvements
+
+== Changelog ==
 = v1.1 =
 * Fix: Droid Sans font was loaded but it was used only in one place, we removed the font dependency from the theme.
 * Fix: Footer text logo was not working as expected. We now fixed it and we aligned it better.
 * Fix: Double search box issue on the search page. The theme always has available a search button in the main menu so another search form on the search page is not needed.
 * Update: Updated screenshot.png
-* Update: Preview Demo improvements
+* Update: Preview Demo Improvements
 
 = v1.0.9 =
 * Fix: Removed theme mbstring support ( already handled by WordPress )

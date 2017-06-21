@@ -11,4 +11,7 @@ class Tagdiv_Global {
     // check demo state
     static $tagdiv_is_demo_preview = false;
 
+    // demo preview current image
+    static $tagdiv_demo_image = 1;
+
 }
