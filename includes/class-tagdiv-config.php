@@ -22,6 +22,15 @@ class Tagdiv_Config {
 			)
 		);
 
+		Tagdiv_API_Module::add( 'Tagdiv_Module_2',
+			array(
+				'file' 			 => get_template_directory() . '/includes/modules/class-tagdiv-module-2.php',
+				'text' 			 => 'Module 2',
+				'class' 		 => 'tagdiv-module-wrap',
+				'used_on_blocks' => array( 'tagdiv_block_2' )
+			)
+		);
+
 
 		/* The theme blocks */
 		Tagdiv_API_Block::add( 'Tagdiv_Block_1',
@@ -29,6 +38,15 @@ class Tagdiv_Config {
 				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-1.php',
 				"name" 	   => 'Block 1',
 				"class"    => 'tagdiv_block_1',
+				"category" => 'Blocks'
+			)
+		);
+
+		Tagdiv_API_Block::add( 'Tagdiv_Block_2',
+			array(
+				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-2.php',
+				"name" 	   => 'Block 2',
+				"class"    => 'tagdiv_block_2',
 				"category" => 'Blocks'
 			)
 		);
