@@ -122,7 +122,8 @@ class Tagdiv_Util {
 			'tagdiv_subfooter_copyright_symbol' => '',
 			'tagdiv_block_section_title' 		=> __( 'Block Title', 'meistermag' ),
 			'tagdiv_latest_section_title' 		=> __( 'Latest Articles', 'meistermag' ),
-			'tagdiv_subfooter_copyright' 		=> ''
+			'tagdiv_subfooter_copyright' 		=> '',
+			'tagdiv_accent_color' 				=> ''
 		);
 
 		return apply_filters( 'tagdiv_get_theme_options_defaults', $defaults );

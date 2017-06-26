@@ -886,11 +886,6 @@ ul.tagdiv-sf-menu li li:hover li ul,
 ul.tagdiv-sf-menu li li.sfHover li ul {
   top: -999em;
 }
-.tagdiv-sf-menu > .current-menu-ancestor,
-.tagdiv-sf-menu > .current-category-ancestor,
-.tagdiv-sf-menu > .current-menu-item {
-  z-index: 0;
-}
 /* All the links */
 /* top links */
 .tagdiv-sf-menu > li > a,
@@ -1431,6 +1426,9 @@ ul.sf-js-enabled > li > a > i.tagdiv-icon-menu-down:before {
   -o-transition: transform 0.5s ease 0.8s;
   transition: transform 0.5s ease 0.8s;
 }
+.tagdiv-search-wrap-mob .tagdiv-search-input .tagdiv-search-input-bar {
+  display: none;
+}
 .tagdiv-search-wrap-mob .tagdiv-search-form {
   margin-bottom: 30px;
 }
@@ -1544,7 +1542,6 @@ a {
   text-decoration: none;
 }
 a:hover,
-a:focus,
 a:active {
   color: #42bdcd;
 }
@@ -1975,7 +1972,6 @@ figure.aligncenter {
 .screen-reader-text:focus {
   background: #f1f1f1;
   border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
   color: #21759b;
   display: block;
@@ -3559,8 +3555,23 @@ blockquote small {
 .search-form {
   position: relative;
 }
-.search-form button.search-submit:focus {
-  outline: thin dotted;
+.search-form .tagdiv-search-input-bar {
+  position: absolute;
+  top: 27px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #4db2ec;
+  -webkit-transition: width 0.4s ease;
+  -moz-transition: width 0.4s ease;
+  -o-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity='30')";
+  filter: alpha(opacity=30);
+}
+.search-form input:focus + .tagdiv-search-input-bar {
+  width: 100%;
 }
 input.search-field {
   width: 100%;
@@ -3573,6 +3584,13 @@ input.search-field {
   border: 0;
   border-bottom: 1px solid #ebebeb;
   box-sizing: border-box;
+  -webkit-transition: width 0.4s ease;
+  -moz-transition: width 0.4s ease;
+  -o-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+}
+input.search-field:focus {
+  border-bottom-color: transparent;
 }
 #searchsubmit,
 input.search-submit,
@@ -3831,6 +3849,16 @@ button.search-submit:hover {
   margin-right: 10px;
   margin-bottom: 10px;
   display: inline-block;
+}
+/* widget pages */
+.widget_pages .page_item {
+  float: none;
+}
+.widget_pages .page_item > a {
+  line-height: 1;
+  font-weight: normal;
+  font-size: 12px;
+  text-transform: none;
 }
 /* video embed */
 .wp-video {

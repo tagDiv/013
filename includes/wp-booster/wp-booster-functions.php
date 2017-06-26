@@ -15,6 +15,7 @@ require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-base.p
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-block.php';
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-module.php';
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-thumb.php';
+require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-css-generator.php';
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-api-autoload.php';
 
 // hook here to use the theme api
@@ -28,6 +29,7 @@ require get_template_directory() . '/includes/wp-booster/class-tagdiv-block.php'
 require get_template_directory() . '/includes/wp-booster/class-tagdiv-autoload-classes.php'; //used to autoload classes
 
 // every class after this is autoloaded only when it's required
+Tagdiv_API_Autoload::add('Tagdiv_Css_Compiler', get_template_directory() . '/includes/wp-booster/class-tagdiv-css-compiler.php');
 Tagdiv_API_Autoload::add('Tagdiv_Block_Layout', get_template_directory() . '/includes/wp-booster/class-tagdiv-block-layout.php');
 Tagdiv_API_Autoload::add('Tagdiv_Template_Layout', get_template_directory() . '/includes/wp-booster/class-tagdiv-template-layout.php');
 Tagdiv_API_Autoload::add('Tagdiv_Data_Source', get_template_directory() . '/includes/wp-booster/class-tagdiv-data-source.php');
@@ -509,6 +511,26 @@ if ( ! function_exists( 'tagdiv_get_sample_image' ) ) {
 
 		return $tagdiv_sample_image;
 	}
+}
+
+if ( ! function_exists( 'tagdiv_theme_colors_css' ) ) {
+	/**
+	 * Display custom theme accent color css.
+	 *
+	 * @since MeisterMag 1.2
+	 */
+	function tagdiv_theme_colors_css() {
+
+		if ( '#42bdcd' === Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_accent_color' ) or empty( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_accent_color' ) ) ) {
+			return;
+		}
+
+		?>
+		<style type="text/css">
+			<?php echo tagdiv_css_generator(); ?>
+		</style>
+	<?php }
+	add_action( 'wp_head', 'tagdiv_theme_colors_css' );
 }
 
 

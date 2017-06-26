@@ -73,10 +73,19 @@
 .search-form {
   position: relative;
 
-  button.search-submit{
-    &:focus {
-      outline: thin dotted;
-    }
+  .tagdiv-search-input-bar {
+    position: absolute;
+    top: 27px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #4db2ec;
+    .transition(width 0.4s ease);
+    .opacity(.3);
+  }
+
+  input:focus + .tagdiv-search-input-bar {
+    width: 100%;
   }
 }
 
@@ -91,6 +100,11 @@ input.search-field {
   border: 0;
   border-bottom: 1px solid #ebebeb;
   box-sizing: border-box;
+  .transition(width 0.4s ease);
+
+  &:focus {
+    border-bottom-color: transparent;
+  }
 }
 
 #searchsubmit,
@@ -398,6 +412,20 @@ button.search-submit{
     margin-right: 10px;
     margin-bottom: 10px;
     display: inline-block;
+  }
+}
+
+/* widget pages */
+.widget_pages {
+  .page_item {
+    float: none;
+
+    > a {
+      line-height: 1;
+      font-weight: normal;
+      font-size: 12px;
+      text-transform: none;
+    }
   }
 }
 

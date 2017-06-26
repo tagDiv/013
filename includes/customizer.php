@@ -78,6 +78,25 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			)
 		);
 
+		/* Theme Colors */
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_accent_color]',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default' 			=> '#42bdcd',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagdiv_accent_color',
+				array(
+					'label'    	  	=> __( 'Theme Accent Color', 'meistermag' ),
+					'description' 	=> __( 'Change the theme accent color.', 'meistermag' ),
+					'section'  	  	=> 'colors',
+					'settings' 	  	=> 'tagdiv_theme_options[tagdiv_accent_color]'
+				)
+			)
+		);
+
 		/* Theme Subfooter Copyright Symbol */
 		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright_symbol]',
 			array(
