@@ -65,3 +65,114 @@
     }
   }
 }
+
+/* Block 2 */
+.tagdiv-block-2 {
+}
+
+/* Block 3 */
+.tagdiv-block-3 {
+}
+
+/* Block 4 */
+.tagdiv-block-4 {
+
+  .tagdiv-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .tagdiv-span6,
+  .tagdiv-span4 {
+    padding-left: 0 !important;
+  }
+
+  .tagdiv_block_inner {
+    margin-right: -3px;
+    margin-bottom: -3px;
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      margin-right: 0;
+    }
+    .tagdiv-clearfix();
+  }
+
+  .tagdiv-module-wrap {
+    float: left;
+    width: 50%;
+    padding-right: 3px;
+    margin-bottom: 3px;
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      margin-bottom: 2px;
+
+      &:nth-child(odd) {
+        padding-left: 0;
+        padding-right: 1px;
+      }
+      &:nth-child(even) {
+        padding-left: 1px;
+        padding-right: 0;
+      }
+    }
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    .tagdiv_block_inner {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    .tagdiv-entry-title {
+      font-size: 15px !important;
+      line-height: 20px !important;
+    }
+  }
+
+  &.tagdiv-column-1 {
+    .tagdiv-module-wrap {
+      /* tablet + desktop */
+      @media (min-width: @responsive_p_phone_max) {
+        width: 100%;
+      }
+    }
+  }
+
+  &.tagdiv-column-3 {
+    .tagdiv-module-wrap {
+      /* tablet + desktop */
+      @media (min-width: @responsive_p_phone_max) {
+        width: 25%;
+      }
+
+      /* tablet + desktop */
+      @media (min-width: @responsive_p_tablet_min) {
+        &:nth-child(4n+1) {
+          clear: both;
+        }
+
+        &:nth-last-child(-n+4) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.tagdiv-column-2 {
+    .tagdiv-module-wrap {
+      /* tablet + desktop */
+      @media (min-width: @responsive_p_tablet_min) {
+        &:nth-child(2n+1) {
+          clear: both;
+        }
+
+        &:nth-last-child(-n+2) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
 /**
  * Class Tagdiv_Module_2 - theme module 2
  *
- * @since MeisterMag 1.1
+ * @since MeisterMag 1.2
  */
 
 class Tagdiv_Module_2 extends Tagdiv_Module {

@@ -78,6 +78,7 @@ Images used in screenshot.png:
 = v1.2 =
 * NEW: Theme Color Settings. The Theme Accent Color and the Text Logo Color can now be changed using the WordPress Theme Customizer.
 * NEW: Page Templates. We have added X new predefined page templates which can be set on any page.
+* NEW: New theme blocks, moduels and thumbs
 * NEW: Theme API now supports css generator
 * Update: Better animation for search form input fields on focus
 * Update: Footer Copyright default text

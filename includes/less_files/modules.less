@@ -297,7 +297,40 @@
   }
 }
 
-/* Module post excerpt */
+.tagdiv-item-details {
+  display: table;
+}
+
+//post date on modules without comments 
+.tagdiv-no-comment {
+  .tagdiv-post-date {
+    margin-right: 0;
+    padding-right: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// small category - add this on tagdiv-item-details
+.tagdiv-category-small {
+  .tagdiv-post-category {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 3px 6px;
+    position: relative;
+    top: -1px;
+  }
+}
+
+.tagdiv-module-image-float {
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+/* Modules post excerpt */
 .tagdiv-excerpt {
   padding-top: 19px;
   font-style: italic;
@@ -322,5 +355,136 @@
   /* responsive portrait tablet + mobile */
   @media (max-width: @responsive_p_tablet_max) {
     padding-top: 14px;
+  }
+}
+
+/*  ----------------------------------------------------------------------------
+    Module 3
+*/
+.tagdiv-module-3 {
+  padding-bottom: 30px;
+
+  .tagdiv-module-image {
+    margin: 0 20px 0 0;
+    width: 100px;
+
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      margin: 0 15px 0 0;
+    }
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      width: 80px;
+      margin: 0 12px 0 0;
+    }
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      margin: 0 15px 0 0;
+    }
+  }
+
+  .tagdiv-entry-title {
+    padding-bottom: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 7px;
+
+    /* responsive portrait phone */
+    @media (min-width: 321px) and (max-width: @responsive_p_phone_max) {
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+/*  ----------------------------------------------------------------------------
+    Module MX 1
+*/
+.tagdiv-module-mx-1 {
+  &.tagdiv-module-wrap {
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+
+  .tagdiv-module-image {
+    margin-bottom: 0;
+  }
+
+  .tagdiv-entry-title {
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 19px !important;
+      line-height: 23px !important;
+    }
+  }
+
+  .tagdiv-module-thumb {
+    a:last-child:before {
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      background: -moz-linear-gradient(top,  rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top,  rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top,  rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* IE10+ */
+      background: linear-gradient(to bottom,  rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* W3C */
+      .opacity(0.7);
+      .transition(background 0.3s ease);
+
+      /* responsive portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .tagdiv-meta-info-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    z-index: 10;
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      padding: 18px 10px;
+    }
+  }
+
+  .tagdiv-post-category {
+    margin-bottom: 9px;
+  }
+
+  a {
+    color: #fff !important;
+  }
+
+  .tagdiv-entry-title {
+    margin-bottom: 7px;
+    padding-bottom: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .tagdiv-module-meta-info {
+    color: #fff;
+  }
+
+  .tagdiv-post-date {
+    .opacity(0.8);
   }
 }

@@ -1,16 +1,16 @@
 <?php
 /**
- * Class Tagdiv_Block_2 - theme block 2
+ * Class Tagdiv_Block_3 - theme block 3
  *
  * @since MeisterMag 1.2
  */
-class Tagdiv_Block_2 extends Tagdiv_Block {
+class Tagdiv_Block_3 extends Tagdiv_Block {
     function render( $atts, $content = null ) {
         parent::render( $atts ); // sets the live atts, $this->atts, $this->tagdiv_query (it runs the query)
 
         $buffy = ''; //output buffer
 
-        $buffy .= '<div class="tagdiv-block-wrap tagdiv-block-2">';
+        $buffy .= '<div class="tagdiv-block-wrap tagdiv-block-3">';
 
         // block title wrap
         $buffy .= '<div class="tagdiv-block-title-wrap">';
@@ -35,26 +35,32 @@ class Tagdiv_Block_2 extends Tagdiv_Block {
 
         if ( ! empty( $posts ) ) {
             foreach ( $posts as $post ) {
-                $tagdiv_module_1 = new Tagdiv_Module_1( $post );
-                $tagdiv_module_2 = new Tagdiv_Module_2( $post );
+                $tagdiv_module_3 = new Tagdiv_Module_3( $post );
 
                 switch ( $tagdiv_column_number ) {
 
                     case '1': //one column layout
-                        $buffy .= $tagdiv_module_1->render();
+                        $buffy .= $tagdiv_module_3->render();
                         break;
 
                     case '2': //two column layout
-                        $buffy .= $tagdiv_module_2->render();
+                        $buffy .= $tagdiv_block_layout->open_row();
+                        $buffy .= $tagdiv_block_layout->open6();
+                        $buffy .= $tagdiv_module_3->render();
+                        $buffy .= $tagdiv_block_layout->close6();
+
+                        if ( $tagdiv_current_column == 2 ) {
+                            $buffy .= $tagdiv_block_layout->close_row();
+                        }
                         break;
 
                     case '3': //three column layout
                         $buffy .= $tagdiv_block_layout->open_row();
-                        $buffy .= $tagdiv_block_layout->open6();
-                        $buffy .= $tagdiv_module_2->render();
-                        $buffy .= $tagdiv_block_layout->close6();
+                        $buffy .= $tagdiv_block_layout->open4();
+                        $buffy .= $tagdiv_module_3->render();
+                        $buffy .= $tagdiv_block_layout->close4();
 
-                        if ( $tagdiv_current_column == 2 ) {
+                        if ( $tagdiv_current_column == 3 ) {
                             $buffy .= $tagdiv_block_layout->close_row();
                         }
                         break;
