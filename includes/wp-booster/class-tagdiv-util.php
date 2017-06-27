@@ -119,10 +119,10 @@ class Tagdiv_Util {
 	static function tagdiv_get_theme_options_defaults() {
 		$defaults = array(
 			'tagdiv_footer_logo' 				=> '',
-			'tagdiv_subfooter_copyright_symbol' => '',
+			'tagdiv_subfooter_copyright_symbol' => 1,
 			'tagdiv_block_section_title' 		=> __( 'Block Title', 'meistermag' ),
 			'tagdiv_latest_section_title' 		=> __( 'Latest Articles', 'meistermag' ),
-			'tagdiv_subfooter_copyright' 		=> '',
+			'tagdiv_subfooter_copyright' 		=> sprintf( __( '%s MeisterMag Theme - Free <a href="http://wordpress.org">WordPress</a> Theme made with <i class="tagdiv-icon-heart"></i> by <b>WPion</b>.', 'meistermag' ), date('Y') ),
 			'tagdiv_accent_color' 				=> ''
 		);
 

@@ -27,6 +27,31 @@ $tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_t
             <?php if ( 2 > $tagdiv_paged ) { //show this only on the first page ?>
 
                 <div class="tagdiv-row">
+                    <div class="tagdiv-span8" role="main">
+                        <?php
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_2' )->render( array(
+                            'tagdiv_custom_title'      => $tagdiv_home_block_title,
+                            'tagdiv_block_posts_limit' => 2,
+                            'tagdiv_column_number'     => 2,
+                            'tagdiv_block_sort'        => '',
+                            'tagdiv_block_offset'      => '',
+                            'tagdiv_block_post_ids'    => '575, 1'
+                        ) );
+                        ?>
+                    </div>
+                    <div class="tagdiv-span4" role="main">
+                        <?php
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
+                            'tagdiv_custom_title'      => $tagdiv_home_block_title,
+                            'tagdiv_block_posts_limit' => 3,
+                            'tagdiv_column_number'     => 1,
+                            'tagdiv_block_sort'        => '',
+                        ) );
+                        ?>
+                    </div>
+                </div> <!-- /.tagdiv-row -->
+
+                <div class="tagdiv-row">
                     <div class="tagdiv-span12" role="main">
                         <?php
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
@@ -38,6 +63,7 @@ $tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_t
                         ?>
                     </div>
                 </div> <!-- /.tagdiv-row -->
+
             <?php } ?>
 
             <div class="tagdiv-row">

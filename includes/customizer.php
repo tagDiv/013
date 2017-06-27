@@ -62,8 +62,8 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_subfooter_copyright]',
 			array(
 				'capability' 		=> 'edit_theme_options',
-				'default' 			=> __( 'Your Copyright Text', 'meistermag' ),
-				'sanitize_callback' => 'sanitize_text_field',
+				'default' 			=> sprintf( esc_html__( '%s MeisterMag Theme - Free <a href="http://wordpress.org">WordPress</a> Theme made with <i class="tagdiv-icon-heart"></i> by <b>WPion</b>.', 'meistermag' ), date('Y') ),
+				'sanitize_callback' => 'force_balance_tags',
 			)
 		);
 

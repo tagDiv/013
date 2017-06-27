@@ -1,44 +1,44 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: MeisterMag 1.0.0\n"
-"POT-Creation-Date: 2017-03-15 14:55+0200\n"
-"PO-Revision-Date: 2017-03-16 09:16+0200\n"
+"Project-Id-Version: MeisterMag 1.2\n"
+"POT-Creation-Date: 2017-06-27 09:39+0200\n"
+"PO-Revision-Date: 2017-06-27 09:41+0200\n"
 "Last-Translator: \n"
-"Language-Team: tagDiv \n"
+"Language-Team: tagDiv <->\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;esc_attr_e\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;esc_attr_e;esc_html__;esc_html_e;"
+"esc_attr__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../404.php:18
+#: ../404.php:16
 msgid "404"
 msgstr ""
 
-#: ../404.php:19
+#: ../404.php:17
 msgid "Oops!"
 msgstr ""
 
-#: ../404.php:20
+#: ../404.php:18
 msgid ""
 "Sorry, but the page you are looking for doesn&rsquo;t exist. Please use "
 "search for help"
 msgstr ""
 
-#: ../archive.php:77
+#: ../archive.php:75
 msgid "Previous page"
 msgstr ""
 
-#: ../archive.php:78
+#: ../archive.php:76
 msgid "Next page"
 msgstr ""
 
-#: ../archive.php:79 ../attachment.php:54 ../index.php:72 ../search.php:72
-#: ../template-home.php:83 ../template-parts/content-page.php:28
-#: ../template-parts/content.php:43
+#: ../archive.php:77 ../attachment.php:52 ../index.php:70 ../search.php:66
+#: ../template-parts/content-page.php:26 ../template-parts/content.php:41
 msgid "Page"
 msgstr ""
 
@@ -98,204 +98,157 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: ../footer.php:24 ../includes/wp-booster/wp-booster-functions.php:161
-msgid "Footer 1"
-msgstr ""
-
-#: ../footer.php:28 ../includes/wp-booster/wp-booster-functions.php:170
-msgid "Footer 2"
-msgstr ""
-
-#: ../footer.php:32 ../includes/wp-booster/wp-booster-functions.php:179
-msgid "Footer 3"
-msgstr ""
-
-#: ../footer.php:59
-msgid "Contact us:"
-msgstr ""
-
-#: ../footer.php:75 ../includes/wp-booster/class-tagdiv-menu.php:53
+#: ../footer.php:64 ../includes/wp-booster/class-tagdiv-menu.php:51
 msgid "Footer Menu"
 msgstr ""
 
-#: ../header.php:51
-msgid "Click here - to use the wp menu builder"
-msgstr ""
-
-#: ../header.php:69 ../header.php:127 ../searchform.php:16
+#: ../header.php:67 ../searchform.php:16 ../searchform.php:17
 msgid "Search"
 msgstr ""
 
-#: ../header.php:80
+#: ../header.php:77
 msgid "Skip to content"
 msgstr ""
 
-#: ../header.php:97 ../includes/wp-booster/class-tagdiv-menu.php:52
+#: ../header.php:94 ../includes/wp-booster/class-tagdiv-menu.php:50
 msgid "Header Menu (main)"
 msgstr ""
 
-#: ../header.php:108
-msgid "Click here - to select or create a menu"
-msgstr ""
-
-#: ../header.php:125 ../searchform.php:13
-msgid "Search for:"
-msgstr ""
-
-#: ../search.php:20
+#: ../search.php:18
 msgid "search results"
 msgstr ""
 
-#: ../searchform.php:14
+#: ../searchform.php:11
+msgid "Search for:"
+msgstr ""
+
+#: ../searchform.php:12
 msgid "Search &hellip;"
 msgstr ""
 
-#: ../template-home.php:84
-msgid "Latest articles navigation"
-msgstr ""
-
-#: ../includes/customizer.php:20
+#: ../includes/customizer.php:18
 msgid "MesiterMag Theme Options"
 msgstr ""
 
-#: ../includes/customizer.php:23
+#: ../includes/customizer.php:21
 msgid "Allows you to customize the footer settings for MesiterMag Theme."
 msgstr ""
 
-#: ../includes/customizer.php:40
+#: ../includes/customizer.php:38
 msgid "Footer Logo"
 msgstr ""
 
-#: ../includes/customizer.php:41
+#: ../includes/customizer.php:39
 msgid "Upload the logo you want to use in the Footer section."
 msgstr ""
 
-#: ../includes/customizer.php:51 ../includes/customizer.php:56
+#: ../includes/customizer.php:49 ../includes/customizer.php:54
 msgid "Select logo"
 msgstr ""
 
-#: ../includes/customizer.php:52
+#: ../includes/customizer.php:50
 msgid "Change logo"
 msgstr ""
 
-#: ../includes/customizer.php:53
+#: ../includes/customizer.php:51
 msgid "Remove"
 msgstr ""
 
-#: ../includes/customizer.php:54
+#: ../includes/customizer.php:52
 msgid "Default"
 msgstr ""
 
-#: ../includes/customizer.php:55
+#: ../includes/customizer.php:53
 msgid "No logo selected"
 msgstr ""
 
-#: ../includes/customizer.php:57
+#: ../includes/customizer.php:55
 msgid "Choose logo"
 msgstr ""
 
-#: ../includes/customizer.php:67
-#: ../includes/wp-booster/class-tagdiv-util.php:124
-msgid "MeisterMag is your news, entertainment, music fashion website."
-msgstr ""
-
-#: ../includes/customizer.php:74
-msgid "Footer Text"
-msgstr ""
-
-#: ../includes/customizer.php:75
-msgid "Write here your footer text"
-msgstr ""
-
-#: ../includes/customizer.php:87
-#: ../includes/wp-booster/class-tagdiv-util.php:128
-msgid "contact@yoursite.com"
-msgstr ""
-
-#: ../includes/customizer.php:94
-msgid "Footer Contact Email"
-msgstr ""
-
-#: ../includes/customizer.php:95
-msgid "Add here your footer contact email address"
-msgstr ""
-
-#: ../includes/customizer.php:107
-#: ../includes/wp-booster/class-tagdiv-util.php:129
+#: ../includes/customizer.php:65
 msgid "Your Copyright Text"
 msgstr ""
 
-#: ../includes/customizer.php:114
+#: ../includes/customizer.php:72
 msgid "Sub-Footer Copyright Text"
 msgstr ""
 
-#: ../includes/customizer.php:115
+#: ../includes/customizer.php:73
 msgid "Add here the sub-footer copyright text"
 msgstr ""
 
-#: ../includes/customizer.php:134
+#: ../includes/customizer.php:92
+msgid "Theme Accent Color"
+msgstr ""
+
+#: ../includes/customizer.php:93
+msgid "Change the theme accent color."
+msgstr ""
+
+#: ../includes/customizer.php:111
 msgid "Copyright Symbol"
 msgstr ""
 
-#: ../includes/customizer.php:135
+#: ../includes/customizer.php:112
 msgid "Show/Hide the footer copyright symbol"
 msgstr ""
 
-#: ../includes/customizer.php:147
-#: ../includes/wp-booster/class-tagdiv-util.php:126
+#: ../includes/customizer.php:124
+#: ../includes/wp-booster/class-tagdiv-util.php:123
 msgid "Block Title"
 msgstr ""
 
-#: ../includes/customizer.php:154
+#: ../includes/customizer.php:131
 msgid "Homepage Top Block Title"
 msgstr ""
 
-#: ../includes/customizer.php:155
+#: ../includes/customizer.php:132
 msgid "Use this option to set the theme homepage top block title"
 msgstr ""
 
-#: ../includes/customizer.php:166
-#: ../includes/wp-booster/class-tagdiv-util.php:127
+#: ../includes/customizer.php:143
+#: ../includes/wp-booster/class-tagdiv-util.php:124
 msgid "Latest Articles"
 msgstr ""
 
-#: ../includes/customizer.php:173
+#: ../includes/customizer.php:150
 msgid "Homepage Latest Articles Title"
 msgstr ""
 
-#: ../includes/customizer.php:174
+#: ../includes/customizer.php:151
 msgid "Use this option to set the theme homepage latest articles section title"
 msgstr ""
 
-#: ../includes/template-tags.php:59 ../includes/template-tags.php:394
-#: ../includes/wp-booster/class-tagdiv-module.php:190
+#: ../includes/template-tags.php:56 ../includes/template-tags.php:407
+#: ../includes/wp-booster/class-tagdiv-module.php:192
 msgid "edit"
 msgstr ""
 
-#: ../includes/template-tags.php:169 ../includes/template-tags.php:193
+#: ../includes/template-tags.php:166 ../includes/template-tags.php:192
 msgid "By "
 msgstr ""
 
-#: ../includes/template-tags.php:236
+#: ../includes/template-tags.php:237
 msgid "TAGS"
 msgstr ""
 
-#: ../includes/template-tags.php:270
+#: ../includes/template-tags.php:271
 msgid "Previous article"
 msgstr ""
 
-#: ../includes/template-tags.php:280
+#: ../includes/template-tags.php:281
 msgid "Next article"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-api-base.php:43
+#: ../includes/wp-booster/class-tagdiv-api-base.php:41
 #, php-format
 msgid ""
 "<b>tagdiv_api_base: A component with the ID: </b> <em>%s</em> <b>is already "
 "registered in tagdiv_api_base</b>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-api-base.php:106
+#: ../includes/wp-booster/class-tagdiv-api-base.php:104
 #, php-format
 msgid ""
 "<b>tagdiv_api_base::get_default_component_key  : no component of type </b> "
@@ -304,7 +257,7 @@ msgid ""
 "no components registered. </b>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-api-base.php:130
+#: ../includes/wp-booster/class-tagdiv-api-base.php:128
 #, php-format
 msgid ""
 "<b>tagdiv_api_base::get_default_component_id  : no component of type </b> "
@@ -313,14 +266,14 @@ msgid ""
 "no components registered. </b>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-api-base.php:310
+#: ../includes/wp-booster/class-tagdiv-api-base.php:308
 #, php-format
 msgid ""
 "<b>tagdiv_api_base::mark_used_on_page : A component with the ID: </b> <em>"
 "%s</em> <b>is not set.</b>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-api-base.php:361
+#: ../includes/wp-booster/class-tagdiv-api-base.php:359
 #, php-format
 msgid ""
 "<b>tagdiv_api_base::check_used_on_page: You requested a </b> <em>%1$s</em> "
@@ -329,98 +282,122 @@ msgid ""
 "after it already rendered / was used.</b>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-autoload-classes.php:47
+#: ../includes/wp-booster/class-tagdiv-api-css-generator.php:17
+msgid ""
+"<b>td_api_css_generator::add</b> - the get_all method was already called"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-autoload-classes.php:45
 msgid "Missing parameter: \"file\""
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-global-blocks.php:36
+#: ../includes/wp-booster/class-tagdiv-global-blocks.php:34
 #, php-format
 msgid ""
 "<b>theme block instance - was called with a block id that does not exist: </"
 "b> <em>%s</em>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-module.php:28
+#: ../includes/wp-booster/class-tagdiv-module.php:26
 #, php-format
 msgid "<b>tagdiv_module: </b> <em>%s</em> invalid data ( not WP_Post data )"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-util.php:65
-#: ../includes/wp-booster/wp-booster-functions.php:368
+#: ../includes/wp-booster/class-tagdiv-util.php:63
+#: ../includes/wp-booster/wp-booster-functions.php:374
 #, php-format
 msgid "Read More<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-util.php:83
+#: ../includes/wp-booster/class-tagdiv-util.php:81
 msgid "theme wp booster error: "
 msgstr ""
 
-#: ../includes/wp-booster/class-tagdiv-util.php:91
+#: ../includes/wp-booster/class-tagdiv-util.php:89
 msgid "more data: "
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:150
+#: ../includes/wp-booster/class-tagdiv-util.php:126
+#, php-format
+msgid ""
+"%s MeisterMag Theme - Free <a href=\"http://wordpress.org\">WordPress</a> "
+"Theme made with <i class=\"tagdiv-icon-heart\"></i> by <b>WPion</b>."
+msgstr ""
+
+#: ../includes/wp-booster/wp-booster-functions.php:149
 msgid "Theme Default Sidebar"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:152
+#: ../includes/wp-booster/wp-booster-functions.php:151
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:209
+#: ../includes/wp-booster/wp-booster-functions.php:160
+msgid "Footer 1"
+msgstr ""
+
+#: ../includes/wp-booster/wp-booster-functions.php:169
+msgid "Footer 2"
+msgstr ""
+
+#: ../includes/wp-booster/wp-booster-functions.php:178
+msgid "Footer 3"
+msgstr ""
+
+#: ../includes/wp-booster/wp-booster-functions.php:208
 msgctxt "Work Sans font: on or off"
 msgid "on"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:214
+#: ../includes/wp-booster/wp-booster-functions.php:213
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
 
 #: ../includes/wp-booster/wp-booster-functions.php:219
-msgctxt "Droid Serif font: on or off"
+msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:275
+#: ../includes/wp-booster/wp-booster-functions.php:280
 msgid "expand child menu"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:276
+#: ../includes/wp-booster/wp-booster-functions.php:281
 msgid "collapse child menu"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:277
+#: ../includes/wp-booster/wp-booster-functions.php:282
 msgid "menu item with sub-menu"
 msgstr ""
 
-#: ../includes/wp-booster/wp-booster-functions.php:343
+#: ../includes/wp-booster/wp-booster-functions.php:349
 msgid "Untitled"
 msgstr ""
 
-#: ../template-parts/content-none.php:14
+#: ../template-parts/content-none.php:12
 msgid "Nothing Found"
 msgstr ""
 
-#: ../template-parts/content-none.php:21
+#: ../template-parts/content-none.php:19
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: ../template-parts/content-none.php:25
+#: ../template-parts/content-none.php:23
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: ../template-parts/content-none.php:29
+#: ../template-parts/content-none.php:27
 msgid ""
 "Sorry, but the chosen category dose not contain any posts to display. "
 "Perhaps searching can help."
 msgstr ""
 
-#: ../template-parts/content-none.php:34
+#: ../template-parts/content-none.php:32
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."

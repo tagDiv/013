@@ -53,7 +53,7 @@
 		<!-- site sub footer -->
         <?php
         $tagdiv_footer_copy_symbol = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright_symbol' );
-        $tagdiv_footer_copyright   = esc_html( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright' ) );
+        $tagdiv_footer_copyright   = Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_subfooter_copyright' );
 
         if ( has_nav_menu( 'footer-menu' ) || ! empty( $tagdiv_footer_copyright ) ) { ?>
 		<div class="tagdiv-sub-footer-container">
@@ -78,14 +78,11 @@
 
 					<div class="tagdiv-span12 tagdiv-sub-footer-copy">
 						<?php
-
-
 						//show copyright symbol
 						if ( !empty( $tagdiv_footer_copy_symbol ) ) {
 							echo '&copy; ';
 						}
-
-						echo $tagdiv_footer_copyright;
+						echo wp_kses_post( $tagdiv_footer_copyright );
 						?>
 					</div>
 				</div>

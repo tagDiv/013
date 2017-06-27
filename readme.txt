@@ -75,6 +75,16 @@ Images used in screenshot.png:
 2. A photo by Rami Al-zayat ( https://unsplash.com/photos/w33-zg-dNL4 )
 
 == Changelog ==
+= v1.2 =
+* NEW: Theme Color Settings. The Theme Accent Color can now be changed using the WordPress Theme Customizer.
+* NEW: Page Templates. We have added X new predefined page templates which can be set on any page.
+* NEW: Theme API now supports css generator
+* Update: Better animation for search form input fields on focus
+* Update: Footer Copyright default text
+* Update: Various other minor CSS fixes
+* Update: Updated the Theme language .pot file
+
+== Changelog ==
 = v1.1.1 =
 * Update: Theme Description
 * Update: Preview Demo Improvements
