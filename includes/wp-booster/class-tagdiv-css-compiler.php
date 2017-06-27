@@ -20,9 +20,9 @@ class Tagdiv_Css_Compiler {
         $this->raw_css .= Tagdiv_API_Css_Generator::get_all();
     }
 
-    function load_setting($name, $append_to_value = '') {
+    function load_setting( $name, $append_to_value = '' ) {
         $current_customizer_value = Tagdiv_Util::tagdiv_get_theme_options( $name );
-        if ( !empty( $current_customizer_value )) {
+        if ( !empty( $current_customizer_value ) ) {
             $current_customizer_value.= $append_to_value;
         }
         $this->load_setting_raw( $name, $current_customizer_value );

@@ -123,7 +123,8 @@ class Tagdiv_Util {
 			'tagdiv_block_section_title' 		=> __( 'Block Title', 'meistermag' ),
 			'tagdiv_latest_section_title' 		=> __( 'Latest Articles', 'meistermag' ),
 			'tagdiv_subfooter_copyright' 		=> sprintf( __( '%s MeisterMag Theme - Free <a href="http://wordpress.org">WordPress</a> Theme made with <i class="tagdiv-icon-heart"></i> by <b>WPion</b>.', 'meistermag' ), date('Y') ),
-			'tagdiv_accent_color' 				=> ''
+			'tagdiv_accent_color' 				=> '',
+			'tagdiv_text_logo_color' 			=> ''
 		);
 
 		return apply_filters( 'tagdiv_get_theme_options_defaults', $defaults );

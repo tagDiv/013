@@ -95,12 +95,19 @@ function tagdiv_css_generator() {
     *:focus {
         outline-color: @tagdiv_accent_color;
     }
+
+    /* @tagdiv_text_logo_color */
+    .tagdiv-header-style .tagdiv-header-logo a {
+        color: @tagdiv_text_logo_color;
+    }
+
     ';
 
     $tagdiv_css_compiler = new Tagdiv_Css_Compiler( $tagdiv_raw_css );
 
     // load the user settings
     $tagdiv_css_compiler->load_setting('tagdiv_accent_color');
+    $tagdiv_css_compiler->load_setting('tagdiv_text_logo_color');
 
     //output the style
     return $tagdiv_css_compiler->compile_css();

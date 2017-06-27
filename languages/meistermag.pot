@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MeisterMag 1.2\n"
-"POT-Creation-Date: 2017-06-27 09:39+0200\n"
-"PO-Revision-Date: 2017-06-27 09:41+0200\n"
+"POT-Creation-Date: 2017-06-27 11:52+0200\n"
+"PO-Revision-Date: 2017-06-27 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: tagDiv <->\n"
 "Language: en_US\n"
@@ -167,7 +167,11 @@ msgid "Choose logo"
 msgstr ""
 
 #: ../includes/customizer.php:65
-msgid "Your Copyright Text"
+#: ../includes/wp-booster/class-tagdiv-util.php:125
+#, php-format
+msgid ""
+"%s MeisterMag Theme - Free <a href=\"http://wordpress.org\">WordPress</a> "
+"Theme made with <i class=\"tagdiv-icon-heart\"></i> by <b>WPion</b>."
 msgstr ""
 
 #: ../includes/customizer.php:72
@@ -187,36 +191,44 @@ msgid "Change the theme accent color."
 msgstr ""
 
 #: ../includes/customizer.php:111
-msgid "Copyright Symbol"
+msgid "Text Logo Color"
 msgstr ""
 
 #: ../includes/customizer.php:112
+msgid "Change the color of the text ( site title ) logo."
+msgstr ""
+
+#: ../includes/customizer.php:130
+msgid "Copyright Symbol"
+msgstr ""
+
+#: ../includes/customizer.php:131
 msgid "Show/Hide the footer copyright symbol"
 msgstr ""
 
-#: ../includes/customizer.php:124
+#: ../includes/customizer.php:143
 #: ../includes/wp-booster/class-tagdiv-util.php:123
 msgid "Block Title"
 msgstr ""
 
-#: ../includes/customizer.php:131
+#: ../includes/customizer.php:150
 msgid "Homepage Top Block Title"
 msgstr ""
 
-#: ../includes/customizer.php:132
+#: ../includes/customizer.php:151
 msgid "Use this option to set the theme homepage top block title"
 msgstr ""
 
-#: ../includes/customizer.php:143
+#: ../includes/customizer.php:162
 #: ../includes/wp-booster/class-tagdiv-util.php:124
 msgid "Latest Articles"
 msgstr ""
 
-#: ../includes/customizer.php:150
+#: ../includes/customizer.php:169
 msgid "Homepage Latest Articles Title"
 msgstr ""
 
-#: ../includes/customizer.php:151
+#: ../includes/customizer.php:170
 msgid "Use this option to set the theme homepage latest articles section title"
 msgstr ""
 
@@ -315,13 +327,6 @@ msgstr ""
 
 #: ../includes/wp-booster/class-tagdiv-util.php:89
 msgid "more data: "
-msgstr ""
-
-#: ../includes/wp-booster/class-tagdiv-util.php:126
-#, php-format
-msgid ""
-"%s MeisterMag Theme - Free <a href=\"http://wordpress.org\">WordPress</a> "
-"Theme made with <i class=\"tagdiv-icon-heart\"></i> by <b>WPion</b>."
 msgstr ""
 
 #: ../includes/wp-booster/wp-booster-functions.php:149

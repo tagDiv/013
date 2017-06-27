@@ -78,7 +78,7 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			)
 		);
 
-		/* Theme Colors */
+		/* Theme Accent Color */
 		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_accent_color]',
 			array(
 				'capability' 		=> 'edit_theme_options',
@@ -93,6 +93,25 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 					'description' 	=> __( 'Change the theme accent color.', 'meistermag' ),
 					'section'  	  	=> 'colors',
 					'settings' 	  	=> 'tagdiv_theme_options[tagdiv_accent_color]'
+				)
+			)
+		);
+
+		/* Text Logo Color */
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_text_logo_color]',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default' 			=> '#2b2b2b',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagdiv_text_logo_color',
+				array(
+					'label'    	  	=> __( 'Text Logo Color', 'meistermag' ),
+					'description' 	=> __( 'Change the color of the text ( site title ) logo.', 'meistermag' ),
+					'section'  	  	=> 'colors',
+					'settings' 	  	=> 'tagdiv_theme_options[tagdiv_text_logo_color]'
 				)
 			)
 		);

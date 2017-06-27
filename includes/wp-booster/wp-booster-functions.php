@@ -521,15 +521,12 @@ if ( ! function_exists( 'tagdiv_theme_colors_css' ) ) {
 	 */
 	function tagdiv_theme_colors_css() {
 
-		if ( '#42bdcd' === Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_accent_color' ) or empty( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_accent_color' ) ) ) {
-			return;
-		}
+		$tagdiv_theme_css = '<style type="text/css">' . PHP_EOL;
+		$tagdiv_theme_css .= tagdiv_css_generator() . PHP_EOL;
+		$tagdiv_theme_css .= '</style>' . PHP_EOL;
 
-		?>
-		<style type="text/css">
-			<?php echo tagdiv_css_generator(); ?>
-		</style>
-	<?php }
+		echo $tagdiv_theme_css;
+	}
 	add_action( 'wp_head', 'tagdiv_theme_colors_css' );
 }
 
