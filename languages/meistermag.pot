@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MeisterMag 1.2\n"
-"POT-Creation-Date: 2017-06-27 11:52+0200\n"
-"PO-Revision-Date: 2017-06-27 11:52+0200\n"
+"POT-Creation-Date: 2017-06-29 11:39+0200\n"
+"PO-Revision-Date: 2017-06-29 11:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: tagDiv <->\n"
 "Language: en_US\n"
@@ -167,7 +167,7 @@ msgid "Choose logo"
 msgstr ""
 
 #: ../includes/customizer.php:65
-#: ../includes/wp-booster/class-tagdiv-util.php:125
+#: ../includes/wp-booster/class-tagdiv-util.php:130
 #, php-format
 msgid ""
 "%s MeisterMag Theme - Free <a href=\"http://wordpress.org\">WordPress</a> "
@@ -207,29 +207,90 @@ msgid "Show/Hide the footer copyright symbol"
 msgstr ""
 
 #: ../includes/customizer.php:143
-#: ../includes/wp-booster/class-tagdiv-util.php:123
-msgid "Block Title"
+msgid "Block 1 Title"
 msgstr ""
 
 #: ../includes/customizer.php:150
-msgid "Homepage Top Block Title"
+msgid "Homepage Block 1 Title"
 msgstr ""
 
 #: ../includes/customizer.php:151
-msgid "Use this option to set the theme homepage top block title"
+msgid "Use this option to set the Block 1 Title on all theme's homepages"
 msgstr ""
 
-#: ../includes/customizer.php:162
-#: ../includes/wp-booster/class-tagdiv-util.php:124
-msgid "Latest Articles"
+#: ../includes/customizer.php:161
+msgid "Block 2 Title"
+msgstr ""
+
+#: ../includes/customizer.php:168
+msgid "Homepage Block 2 Title"
 msgstr ""
 
 #: ../includes/customizer.php:169
-msgid "Homepage Latest Articles Title"
+msgid "Use this option to set the Block 2 Title on all theme's homepages"
 msgstr ""
 
-#: ../includes/customizer.php:170
-msgid "Use this option to set the theme homepage latest articles section title"
+#: ../includes/customizer.php:179
+msgid "Block 3 Title"
+msgstr ""
+
+#: ../includes/customizer.php:186
+msgid "Homepage Block 3 Title"
+msgstr ""
+
+#: ../includes/customizer.php:187
+msgid "Use this option to set the Block 3 Title on all theme's homepages"
+msgstr ""
+
+#: ../includes/customizer.php:197
+msgid "Block 4 Title"
+msgstr ""
+
+#: ../includes/customizer.php:204
+msgid "Homepage Block 4 Title"
+msgstr ""
+
+#: ../includes/customizer.php:205
+msgid "Use this option to set the Block 4 Title on all theme's homepages"
+msgstr ""
+
+#: ../includes/customizer.php:215
+msgid "Block 5 Title"
+msgstr ""
+
+#: ../includes/customizer.php:222
+msgid "Homepage Block 5 Title"
+msgstr ""
+
+#: ../includes/customizer.php:223
+msgid "Use this option to set the Block 5 Title on all theme's homepages"
+msgstr ""
+
+#: ../includes/customizer.php:233
+msgid "Block 6 Title"
+msgstr ""
+
+#: ../includes/customizer.php:240
+msgid "Homepage Block 6 Title"
+msgstr ""
+
+#: ../includes/customizer.php:241
+msgid "Use this option to set the Block 6 Title on all theme's homepages"
+msgstr ""
+
+#: ../includes/customizer.php:252
+#: ../includes/wp-booster/class-tagdiv-util.php:129
+msgid "Latest Articles"
+msgstr ""
+
+#: ../includes/customizer.php:259
+msgid "Homepage Latest Articles Section Title"
+msgstr ""
+
+#: ../includes/customizer.php:260
+msgid ""
+"Use this option to set the latest articles section title for theme's "
+"homepages"
 msgstr ""
 
 #: ../includes/template-tags.php:56 ../includes/template-tags.php:407
@@ -327,6 +388,30 @@ msgstr ""
 
 #: ../includes/wp-booster/class-tagdiv-util.php:89
 msgid "more data: "
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:123
+msgid "MUST READ"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:124
+msgid "HOT ARTICLES"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:125
+msgid "DON'T MISS"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:126
+msgid "FEATURED"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:127
+msgid "FEATURED NEWS"
+msgstr ""
+
+#: ../includes/wp-booster/class-tagdiv-util.php:128
+msgid "HOT RIGHT NOW"
 msgstr ""
 
 #: ../includes/wp-booster/wp-booster-functions.php:149

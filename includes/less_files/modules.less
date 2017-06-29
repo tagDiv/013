@@ -349,6 +349,19 @@
       display: table;
       position: relative;
       top: 10px;
+      text-align: center;
+      color: #666;
+      line-height: 34px;
+      padding: 0 15px;
+      margin-top: 6px;
+      border-radius: 35px;
+      border: 1px solid #f0f0f0;
+      font-size: 12px;
+      font-family: @font2;
+
+      &:hover {
+        color: @tagdiv_theme_color;
+      }
     }
   }
 
@@ -486,5 +499,81 @@
 
   .tagdiv-post-date {
     .opacity(0.8);
+  }
+}
+
+/*  ----------------------------------------------------------------------------
+    Module 4
+*/
+.tagdiv-module-4 {
+  margin-bottom: 30px;
+  padding-bottom: 31px;
+
+  /* responsive portrait tablet + phone */
+  @media (max-width: @responsive_p_tablet_max) {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.06;
+  }
+
+  .tagdiv-module-image {
+    margin: 0 30px 0 0;
+    width: 260px;
+
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      width: 160px;
+      margin-right: 20px;
+    }
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      width: 100px;
+      margin-right: 15px;
+    }
+  }
+
+  .tagdiv-excerp {
+    margin-bottom: 7px;
+    /* responsive portrait tablet */
+    @media (max-width: @responsive_p_tablet_max) {
+      display: none;
+    }
+  }
+
+  .tagdiv-post-category {
+    display: inline-block;
+    vertical-align: top;
+    top: 0;
+  }
+
+  .tagdiv-entry-title {
+    margin-bottom: 13px;
+    padding-bottom: 10px;
+    font-size: 19px;
+    line-height: 23px;
+    display: table; // this fix the line title when image is floating
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      margin-bottom: 11px;
+      padding-bottom: 11px;
+      font-size: 15px;
+      line-height: 20px;
+    }
+    @media (max-width: 320px) {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 16px;
+    }
   }
 }

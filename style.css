@@ -2418,6 +2418,18 @@ blockquote small {
   display: table;
   position: relative;
   top: 10px;
+  text-align: center;
+  color: #666;
+  line-height: 34px;
+  padding: 0 15px;
+  margin-top: 6px;
+  border-radius: 35px;
+  border: 1px solid #f0f0f0;
+  font-size: 12px;
+  font-family: 'Work Sans', sans-serif;
+}
+.tagdiv-excerpt p .tagdiv-more-link:hover {
+  color: #42bdcd;
 }
 @media (max-width: 1018px) {
   .tagdiv-excerpt {
@@ -2558,6 +2570,85 @@ blockquote small {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity='80')";
   filter: alpha(opacity=80);
+}
+/*  ----------------------------------------------------------------------------
+    Module 4
+*/
+.tagdiv-module-4 {
+  margin-bottom: 30px;
+  padding-bottom: 31px;
+  /* responsive portrait tablet + phone */
+}
+@media (max-width: 1018px) {
+  .tagdiv-module-4 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+.tagdiv-module-4:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.06;
+}
+.tagdiv-module-4 .tagdiv-module-image {
+  margin: 0 30px 0 0;
+  width: 260px;
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .tagdiv-module-4 .tagdiv-module-image {
+    width: 160px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .tagdiv-module-4 .tagdiv-module-image {
+    width: 100px;
+    margin-right: 15px;
+  }
+}
+.tagdiv-module-4 .tagdiv-excerp {
+  margin-bottom: 7px;
+  /* responsive portrait tablet */
+}
+@media (max-width: 1018px) {
+  .tagdiv-module-4 .tagdiv-excerp {
+    display: none;
+  }
+}
+.tagdiv-module-4 .tagdiv-post-category {
+  display: inline-block;
+  vertical-align: top;
+  top: 0;
+}
+.tagdiv-module-4 .tagdiv-entry-title {
+  margin-bottom: 13px;
+  padding-bottom: 10px;
+  font-size: 19px;
+  line-height: 23px;
+  display: table;
+  /* responsive portrait phone */
+}
+@media (max-width: 767px) {
+  .tagdiv-module-4 .tagdiv-entry-title {
+    margin-bottom: 11px;
+    padding-bottom: 11px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 320px) {
+  .tagdiv-module-4 .tagdiv-entry-title {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+  }
 }
 /*  ----------------------------------------------------------------------------
     Blocks
@@ -2730,6 +2821,106 @@ blockquote small {
   }
   .tagdiv-block-4.tagdiv-column-2 .tagdiv-module-wrap:nth-last-child(-n+2) {
     margin-bottom: 0;
+  }
+}
+/* Block 5 */
+.tagdiv-block-5 .tagdiv-row:last-child .tagdiv-module-wrap {
+  /* without mobile */
+}
+@media (min-width: 768px) {
+  .tagdiv-block-5 .tagdiv-row:last-child .tagdiv-module-wrap {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .tagdiv-block-5 .tagdiv-row:last-child .tagdiv-module-wrap:before {
+    display: none;
+  }
+}
+.tagdiv-block-5 .tagdiv-row:last-child > div:last-child .tagdiv-module-wrap {
+  /* responsive portrait phone */
+}
+@media (max-width: 767px) {
+  .tagdiv-block-5 .tagdiv-row:last-child > div:last-child .tagdiv-module-wrap {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .tagdiv-block-5 .tagdiv-row:last-child > div:last-child .tagdiv-module-wrap:before {
+    display: none;
+  }
+}
+.tagdiv-block-5.tagdiv-column-1 .tagdiv-module-wrap:last-child,
+.tagdiv-block-5.tagdiv-column-2 .tagdiv-module-wrap:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.tagdiv-block-5.tagdiv-column-1 .tagdiv-module-wrap:last-child:before,
+.tagdiv-block-5.tagdiv-column-2 .tagdiv-module-wrap:last-child:before {
+  display: none;
+}
+.tagdiv-block-5.tagdiv-column-3 .td_module_5 .tagdiv-module-image {
+  /* desktop */
+  /* responsive portrait tablet */
+}
+@media (min-width: 1019px) {
+  .tagdiv-block-5.tagdiv-column-3 .td_module_5 .tagdiv-module-image {
+    width: 150px;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .tagdiv-block-5.tagdiv-column-3 .td_module_5 .tagdiv-module-image {
+    width: 130px;
+  }
+}
+.tagdiv-block-5.tagdiv-column-3 .td_module_5 .tagdiv-module-title {
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .tagdiv-block-5.tagdiv-column-3 .td_module_5 .tagdiv-module-title {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+.tagdiv-block-5.tagdiv-column-3 .td_module_5 .tagdiv-excerpt {
+  display: none;
+}
+/* Block 6 */
+.tagdiv-block-6 {
+  /* responsive portrait phone */
+}
+.tagdiv-block-6 .tagdiv-module-1 {
+  padding-bottom: 0;
+}
+.tagdiv-block-6.tagdiv-column-2 .tagdiv-module-3:last-child,
+.tagdiv-block-6.tagdiv-column-3 .tagdiv-module-3:last-child {
+  /* responsive portrait tablet + desktop */
+}
+@media (min-width: 768px) {
+  .tagdiv-block-6.tagdiv-column-2 .tagdiv-module-3:last-child,
+  .tagdiv-block-6.tagdiv-column-3 .tagdiv-module-3:last-child {
+    padding-bottom: 0;
+  }
+}
+.tagdiv-block-6.tagdiv-column-1 .tagdiv-module-1 {
+  padding-bottom: 30px;
+}
+.tagdiv-block-6.tagdiv-column-1 .tagdiv-span12:last-child .tagdiv-module-3 {
+  /* responsive portrait tablet + desktop */
+}
+@media (min-width: 768px) {
+  .tagdiv-block-6.tagdiv-column-1 .tagdiv-span12:last-child .tagdiv-module-3 {
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 767px) {
+  .tagdiv-block-6 .tagdiv-module-1 {
+    padding-bottom: 30px;
+  }
+  .tagdiv-block-6 .tagdiv-span4:last-child .tagdiv-module-3:last-child,
+  .tagdiv-block-6 .tagdiv-span6:last-child .tagdiv-module-3:last-child,
+  .tagdiv-block-6 .tagdiv-span12:last-child .tagdiv-module-3:last-child {
+    padding-bottom: 0;
   }
 }
 /*  ----------------------------------------------------------------------------
@@ -3273,6 +3464,13 @@ blockquote small {
   font-size: 14px;
   line-height: 21px;
   color: #666;
+}
+/*  ----------------------------------------------------------------------------
+    homepage template
+*/
+.page-template-template-home-2 .tagdiv-block-2 .tagdiv-excerpt,
+.page-template-template-home-3 .tagdiv-block-2 .tagdiv-excerpt {
+  display: none;
 }
 /*  ----------------------------------------------------------------------------
     WordPress Galleries

@@ -25,7 +25,7 @@ function tagdiv_css_generator() {
     a:hover,
     a:active,
     cite a:hover,
-    .tagdiv-more-link:hover,
+    .tagdiv-excerpt p .tagdiv-more-link:hover,
     .tagdiv-post-author-name a:hover,
     .tagdiv-page-content a:hover,
     .tagdiv-post-content a:hover,

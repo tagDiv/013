@@ -40,6 +40,15 @@ class Tagdiv_Config {
 			)
 		);
 
+		Tagdiv_API_Module::add( 'Tagdiv_Module_4',
+			array(
+				'file' 			 => get_template_directory() . '/includes/modules/class-tagdiv-module-4.php',
+				'text' 			 => 'Module 4',
+				'class' 		 => 'tagdiv-module-wrap',
+				'used_on_blocks' => array( 'tagdiv_block_5' )
+			)
+		);
+
 		Tagdiv_API_Module::add( 'Tagdiv_Module_Mx_1',
 			array(
 				'file' 			 => get_template_directory() . '/includes/modules/class-tagdiv-module-mx-1.php',
@@ -87,6 +96,24 @@ class Tagdiv_Config {
 			)
 		);
 
+		Tagdiv_API_Block::add( 'Tagdiv_Block_5',
+			array(
+				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-5.php',
+				"name" 	   => 'Block 5',
+				"class"    => 'tagdiv_block_5',
+				"category" => 'Blocks'
+			)
+		);
+
+		Tagdiv_API_Block::add( 'Tagdiv_Block_6',
+			array(
+				"file" 	   => get_template_directory() . '/includes/blocks/class-tagdiv-block-6.php',
+				"name" 	   => 'Block 6',
+				"class"    => 'tagdiv_block_6',
+				"category" => 'Blocks'
+			)
+		);
+
 
 		/* The thumbs used by the theme */
 		Tagdiv_API_Thumb::add( 'tagdiv_300x220',
@@ -126,6 +153,16 @@ class Tagdiv_Config {
 				'height'  => 444,
 				'crop' 	  => array( 'center', 'top' ),
 				'used_on' => array( 'Module MX 1' )
+			)
+		);
+
+		Tagdiv_API_Thumb::add( 'tagdiv_260x195',
+			array(
+				'name' 	  => 'tagdiv_260x195',
+				'width'   => 260,
+				'height'  => 195,
+				'crop' 	  => array( 'center', 'top' ),
+				'used_on' => array( 'Module 4' )
 			)
 		);
 

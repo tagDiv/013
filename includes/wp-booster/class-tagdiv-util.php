@@ -120,7 +120,12 @@ class Tagdiv_Util {
 		$defaults = array(
 			'tagdiv_footer_logo' 				=> '',
 			'tagdiv_subfooter_copyright_symbol' => 1,
-			'tagdiv_block_section_title' 		=> __( 'Block Title', 'meistermag' ),
+			'tagdiv_block_1_title' 				=> __( 'MUST READ', 'meistermag' ),
+			'tagdiv_block_2_title' 				=> __( 'HOT ARTICLES', 'meistermag' ),
+			'tagdiv_block_3_title' 				=> __( 'DON\'T MISS', 'meistermag' ),
+			'tagdiv_block_4_title' 				=> __( 'FEATURED', 'meistermag' ),
+			'tagdiv_block_5_title' 				=> __( 'FEATURED NEWS', 'meistermag' ),
+			'tagdiv_block_6_title' 				=> __( 'HOT RIGHT NOW', 'meistermag' ),
 			'tagdiv_latest_section_title' 		=> __( 'Latest Articles', 'meistermag' ),
 			'tagdiv_subfooter_copyright' 		=> sprintf( __( '%s MeisterMag Theme - Free <a href="http://wordpress.org">WordPress</a> Theme made with <i class="tagdiv-icon-heart"></i> by <b>WPion</b>.', 'meistermag' ), date('Y') ),
 			'tagdiv_accent_color' 				=> '',

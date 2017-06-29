@@ -136,22 +136,112 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 			)
 		);
 
-		/* Theme Home Block Section Title Settings */
-		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_section_title]',
+		/* Theme Home Blocks Titles Settings */
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_1_title]',
 			array(
 				'capability' 	 	=> 'edit_theme_options',
-				'default'           => __( 'Block Title', 'meistermag' ),
+				'default'           => __( 'Block 1 Title', 'meistermag' ),
 				'sanitize_callback' => 'sanitize_text_field'
 			)
 		);
 
-		$wp_customize->add_control( 'tagdiv_block_section_title',
+		$wp_customize->add_control( 'tagdiv_block_1_title',
 			array(
-				'label'      	=> __( 'Homepage Top Block Title', 'meistermag' ),
-				'description' 	=> __( 'Use this option to set the theme homepage top block title', 'meistermag' ),
+				'label'      	=> __( 'Homepage Block 1 Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the Block 1 Title on all theme\'s homepages', 'meistermag' ),
 				'section'  	  	=> 'tagdiv_options_section',
 				'priority'    	=> 6,
-				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_section_title]',
+				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_1_title]',
+			)
+		);
+
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_2_title]',
+			array(
+				'capability' 	 	=> 'edit_theme_options',
+				'default'           => __( 'Block 2 Title', 'meistermag' ),
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_control( 'tagdiv_block_2_title',
+			array(
+				'label'      	=> __( 'Homepage Block 2 Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the Block 2 Title on all theme\'s homepages', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 6,
+				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_2_title]',
+			)
+		);
+
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_3_title]',
+			array(
+				'capability' 	 	=> 'edit_theme_options',
+				'default'           => __( 'Block 3 Title', 'meistermag' ),
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_control( 'tagdiv_block_3_title',
+			array(
+				'label'      	=> __( 'Homepage Block 3 Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the Block 3 Title on all theme\'s homepages', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 6,
+				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_3_title]',
+			)
+		);
+
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_4_title]',
+			array(
+				'capability' 	 	=> 'edit_theme_options',
+				'default'           => __( 'Block 4 Title', 'meistermag' ),
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_control( 'tagdiv_block_4_title',
+			array(
+				'label'      	=> __( 'Homepage Block 4 Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the Block 4 Title on all theme\'s homepages', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 6,
+				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_4_title]',
+			)
+		);
+
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_5_title]',
+			array(
+				'capability' 	 	=> 'edit_theme_options',
+				'default'           => __( 'Block 5 Title', 'meistermag' ),
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_control( 'tagdiv_block_5_title',
+			array(
+				'label'      	=> __( 'Homepage Block 5 Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the Block 5 Title on all theme\'s homepages', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 6,
+				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_5_title]',
+			)
+		);
+
+		$wp_customize->add_setting( 'tagdiv_theme_options[tagdiv_block_6_title]',
+			array(
+				'capability' 	 	=> 'edit_theme_options',
+				'default'           => __( 'Block 6 Title', 'meistermag' ),
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_control( 'tagdiv_block_6_title',
+			array(
+				'label'      	=> __( 'Homepage Block 6 Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the Block 6 Title on all theme\'s homepages', 'meistermag' ),
+				'section'  	  	=> 'tagdiv_options_section',
+				'priority'    	=> 6,
+				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_block_6_title]',
 			)
 		);
 
@@ -166,8 +256,8 @@ if ( ! function_exists( 'tagdiv_customize_register' ) ) {
 
 		$wp_customize->add_control( 'tagdiv_latest_section_title',
 			array(
-				'label'      	=> __( 'Homepage Latest Articles Title', 'meistermag' ),
-				'description' 	=> __( 'Use this option to set the theme homepage latest articles section title', 'meistermag' ),
+				'label'      	=> __( 'Homepage Latest Articles Section Title', 'meistermag' ),
+				'description' 	=> __( 'Use this option to set the latest articles section title for theme\'s homepages', 'meistermag' ),
 				'section'  	  	=> 'tagdiv_options_section',
 				'priority'    	=> 7,
 				'settings' 	  	=> 'tagdiv_theme_options[tagdiv_latest_section_title]',

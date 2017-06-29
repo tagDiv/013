@@ -176,3 +176,114 @@
     }
   }
 }
+
+/* Block 5 */
+.tagdiv-block-5 {
+  // remove the bottom padding for latest modules
+  .tagdiv-row:last-child .tagdiv-module-wrap {
+    /* without mobile */
+    @media (min-width: @responsive_p_tablet_min) {
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .tagdiv-row:last-child > div:last-child .tagdiv-module-wrap {
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+  &.tagdiv-column-1 .tagdiv-module-wrap:last-child,
+  &.tagdiv-column-2 .tagdiv-module-wrap:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  // column 3
+  &.tagdiv-column-3 {
+    .td_module_5 {
+      .tagdiv-module-image {
+        /* desktop */
+        @media (min-width: @responsive_l_tablet_min) {
+          width: 150px;
+          margin-right: 20px;
+        }
+        /* responsive portrait tablet */
+        @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+          width: 130px;
+        }
+      }
+
+      .tagdiv-module-title {
+        /* responsive portrait tablet */
+        @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+          margin-bottom: 10px;
+          font-size: 15px;
+          line-height: 20px;
+        }
+      }
+
+      .tagdiv-excerpt {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Block 6 */
+.tagdiv-block-6 {
+  .tagdiv-module-1 {
+    padding-bottom: 0;
+  }
+
+  &.tagdiv-column-2,
+  &.tagdiv-column-3 {
+    .tagdiv-module-3:last-child {
+      /* responsive portrait tablet + desktop */
+      @media (min-width: @responsive_p_tablet_min) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &.tagdiv-column-1 {
+    .tagdiv-module-1 {
+      padding-bottom: 30px;
+    }
+
+    .tagdiv-span12:last-child {
+      .tagdiv-module-3 {
+        /* responsive portrait tablet + desktop */
+        @media (min-width: @responsive_p_tablet_min) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    .tagdiv-module-1 {
+      padding-bottom: 30px;
+    }
+
+    .tagdiv-span4:last-child .tagdiv-module-3:last-child,
+    .tagdiv-span6:last-child .tagdiv-module-3:last-child,
+    .tagdiv-span12:last-child .tagdiv-module-3:last-child {
+      padding-bottom: 0;
+    }
+  }
+}

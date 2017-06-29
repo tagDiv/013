@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: MeisterMag Homepage
- * This template is used for the display of landing pages.
+ * Template Name: MeisterMag Homepage 2
+ * Custom Template used for the display of landing pages.
  */
 
 get_header();
@@ -17,7 +17,9 @@ if ( get_query_var( 'paged' ) ) {
 }
 
 $tagdiv_home_latest_articles_title  = esc_html ( trim( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_latest_section_title') ) );
-$tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_section_title' ) ) );
+$tagdiv_home_block_1_title          = esc_html ( trim( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_1_title' ) ) );
+$tagdiv_home_block_4_title          = esc_html ( trim( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_4_title' ) ) );
+$tagdiv_home_block_5_title          = esc_html ( trim( Tagdiv_Util::tagdiv_get_theme_options( 'tagdiv_block_5_title' ) ) );
 
 ?>
 
@@ -26,39 +28,58 @@ $tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_t
 
             <?php if ( 2 > $tagdiv_paged ) { //show this only on the first page ?>
 
+                <!-- Block 2 + Block 3 -->
+                <div class="tagdiv-row">
+                    <div class="tagdiv-span12" role="main">
+                        <?php
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_2' )->render( array(
+                            'tagdiv_block_posts_limit' => 2,
+                            'tagdiv_column_number'     => 3,
+                            'tagdiv_block_sort'        => 'random_posts', // you can set here other sort option value from @see Tagdiv_Data_Source > $tagdiv_block_sort switch
+                        ) );
+
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_3' )->render( array(
+                            'tagdiv_block_posts_limit' => 3,
+                            'tagdiv_column_number'     => 3,
+                            'tagdiv_block_sort'        => 'random_posts', // you can set here other sort option value from @see Tagdiv_Data_Source > $tagdiv_block_sort switch
+                        ) );
+                        ?>
+                    </div>
+                </div> <!-- /.tagdiv-row -->
+
+                <!-- Block 5 + Block 1 -->
                 <div class="tagdiv-row">
                     <div class="tagdiv-span8" role="main">
                         <?php
-                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_2' )->render( array(
-                            'tagdiv_custom_title'      => $tagdiv_home_block_title,
-                            'tagdiv_block_posts_limit' => 2,
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_5' )->render( array(
+                            'tagdiv_custom_title'      => $tagdiv_home_block_5_title,
+                            'tagdiv_block_posts_limit' => 5,
                             'tagdiv_column_number'     => 2,
-                            'tagdiv_block_sort'        => '',
-                            'tagdiv_block_offset'      => '',
-                            'tagdiv_block_post_ids'    => '575, 1'
+                            'tagdiv_block_sort'        => 'random_posts', // you can set here other sort option value from @see Tagdiv_Data_Source > $tagdiv_block_sort switch
                         ) );
                         ?>
                     </div>
                     <div class="tagdiv-span4" role="main">
                         <?php
                         echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
-                            'tagdiv_custom_title'      => $tagdiv_home_block_title,
+                            'tagdiv_custom_title'      => $tagdiv_home_block_1_title,
                             'tagdiv_block_posts_limit' => 3,
                             'tagdiv_column_number'     => 1,
-                            'tagdiv_block_sort'        => '',
+                            'tagdiv_block_sort'        => 'random_posts', // you can set here other sort option value from @see Tagdiv_Data_Source > $tagdiv_block_sort switch
                         ) );
                         ?>
                     </div>
                 </div> <!-- /.tagdiv-row -->
 
+                <!-- Block 4 -->
                 <div class="tagdiv-row">
                     <div class="tagdiv-span12" role="main">
                         <?php
-                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_1' )->render( array(
-                            'tagdiv_custom_title'      => $tagdiv_home_block_title,
-                            'tagdiv_block_posts_limit' => 3,
+                        echo tagdiv_global_blocks::get_instance( 'Tagdiv_Block_4' )->render( array(
+                            'tagdiv_custom_title'      => $tagdiv_home_block_4_title,
+                            'tagdiv_block_posts_limit' => 4,
                             'tagdiv_column_number'     => 3,
-                            'tagdiv_block_sort'        => 'random_posts',
+                            'tagdiv_block_sort'        => 'random_posts', // you can set here other sort option value from @see Tagdiv_Data_Source > $tagdiv_block_sort switch
                         ) );
                         ?>
                     </div>
@@ -67,7 +88,7 @@ $tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_t
             <?php } ?>
 
             <div class="tagdiv-row">
-                <div class="tagdiv-span8" role="main">
+                <div class="tagdiv-span12" role="main">
 
                     <div class="tagdiv-block-title-wrap">
                         <h4 class="tagdiv-block-title">
@@ -80,12 +101,13 @@ $tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_t
                     // custom query parameters
                     $args = array(
                         'post_type'=> 'post',
-                        'paged'    => $tagdiv_paged
+                        'paged'    => $tagdiv_paged,
+                        'posts_per_page' => 9
                     );
 
                     // instantiate our custom query
                     $tagdiv_home_query = new WP_Query( $args );
-                    $tagdiv_template_layout = new Tagdiv_Template_Layout( 'default' );
+                    $tagdiv_template_layout = new Tagdiv_Template_Layout( 'no_sidebar' );
 
                     if ( $tagdiv_home_query->have_posts() ) {
 
@@ -130,13 +152,7 @@ $tagdiv_home_block_title            = esc_html ( trim( Tagdiv_Util::tagdiv_get_t
                         ?>
 
                     </div>
-
                 </div>
-
-                <div class="tagdiv-span4 tagdiv-sidebar" role="complementary">
-                    <?php get_sidebar(); ?>
-                </div>
-
             </div> <!-- /.tagdiv-row -->
         </div> <!-- /.tagdiv-container -->
     </div> <!-- /.tagdiv-main-content-wrap -->
